@@ -21,6 +21,6 @@ jobs:
         with:
           appName: TYCL_Analysis
           forceUpdate: true
-          accountName: DeeNA95
+          accountName: deena95
           accountToken: ${{ secrets.SHINYAPPS_TOKEN }}
           accountSecret: ${{ secrets.SHINYAPPS_SECRET }}
