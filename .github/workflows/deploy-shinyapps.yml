@@ -22,6 +22,7 @@ jobs:
           # account and application name (https://<accountName>.shinyapps.io/<appName>)
           appName: TYCL_Analysis
           accountName: deena95
+	  forceUpdate: true
 
           # token and secret obtained from https://www.shinyapps.io/admin/#/tokens
           accountToken: ${{ secrets.SHINYAPPS_TOKEN }}
