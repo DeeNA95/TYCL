@@ -67,7 +67,8 @@ server <- function(input, output, session) {
     + xlab('Products')
     
     + scale_fill_manual('Product Group',
-                        values = c('lightgreen','azure','pink','beige','#FF0'))
+                        values = c('lightgreen','azure','pink','beige','#FF0',
+                                   '#a00','#fff','#bbb'))
     
     
     
