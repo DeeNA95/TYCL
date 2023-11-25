@@ -7,8 +7,10 @@ ui <- fluidPage(
  
   
   h1('V1'),
+  
   sidebarLayout(
-    sidebarPanel(
+    
+    {sidebarPanel(
       width = 2,
       
       # dateRangeInput('drange','Date',start = min(test$date),
@@ -21,7 +23,7 @@ ui <- fluidPage(
                   #selected = 'darkly'),
       
       
-      
+      h6('To change from \'All\', click on \'All\' and then click delete or backspace'),
       selectInput(
         'pgroupin',
         'Product Group',
@@ -63,8 +65,9 @@ ui <- fluidPage(
       )
       
       
-    ),
-    mainPanel(width = 10,
+    )
+      },
+    {mainPanel(width = 10,
               tabsetPanel(
                 tabPanel('Graphs',
                          h3('Top 10'),
@@ -81,9 +84,11 @@ ui <- fluidPage(
                 tabPanel('Data', dataTableOutput(outputId = 'pout'))
                 
                 
-              ),
-              textOutput('themesss'))
-  ),
+              )
+              
+  )
+      },
   #theme = shinytheme(theme = paste0("\'",textOutput('themesss'),"\'")
 
+)
 )

@@ -16,22 +16,14 @@
  
   ##product list
 {  products = read_csv('products.csv') 
+  products = distinct(products)
   product_groups = unique(products$ProductGroup)
   products_headers = names(products)
   products_headers[3] = "Code"
   names(products) = products_headers
   }
   
-  ##test using oct 23
- { test = readxl::read_xlsx('test/Oct 23.xlsx')
-  test_clean1 = test %>% select(c(Code,Product,Quantity,Total))
-  test_clean2 = test_clean1 %>% filter(Total != "NA", Total != "Total")
-  test_clean3 = test_clean2 %>% left_join(products[,2:3], by = "Code")
-  oct23 = test_clean3 %>% filter(Code != 'NA')
-  oct23$Total = as.numeric(oct23$Total)
-  oct23$Quantity = as.numeric(oct23$Quantity)
-  oct23 = oct23 %>% arrange(desc(Total))
-}
+ 
   
   ##monthlys over the years
  { 
@@ -111,31 +103,7 @@
    
    tot_test2 = left_join(tot_test,pgjoin, by = "Code")
    tot_test2 =select(tot_test2,-Name)
-   ggplot(tot_test, aes(x = month, y = group_by(Total,month), fill = year)) +
-     geom_col(stat = "identity", position = "dodge") +
-     labs(title = "Grouped Bar Chart Example", x = "Category", y = "Total in Ghs")
    
-   
-   
-   
-  
-
-   
-   
-   
-   
-   #ggplot(gather(head(tot2), key = "month", value = "value", -Product),aes(x= Product,y= value,fill = month))+ geom_col(position = 'dodge') used for group charts
-  
-  #for () {
-    
- # yoy_name = paste0(i)
-  #assign(yoy_name, left_join(paste0(i,yars[1]), select(paste0(i,yars[2]),-Product), by = "Code", suffix = c("_aug23", "_aug22")))
-# }
-     #  Left join, leaving out the "Product" column from aug23
-    #result <- left_join(select(get(df_name_23), -Product), get(df_name_22), by = "Code", suffix = c("_aug23", paste0("_", month, "22")))
-    
-  #}
-  
   
   
   
