@@ -7,14 +7,29 @@ source('preprocessing.R')
 
 server <- function(input, output, session) {
   ###For current year display Graphs
-  tout = reactive({
-   tot_test2 %>% 
+  touy = reactive({
+    tot_test2 %>% 
+      group_by(Product,ProductGroup) %>% 
+      subset(year == input$yearnum) %>% 
+      summarise(Total = sum(Total),Quantity = sum(Quantity)) %>% 
+      arrange(desc(Total))
+  })
+  touo = reactive({
+    tot_test2 %>% 
       group_by(Product,ProductGroup) %>% 
       summarise(Total = sum(Total),Quantity = sum(Quantity)) %>% 
       arrange(desc(Total))
     
   })
   
+  tout = reactive({
+  if('All' %in% input$yearnum){
+   touo()
+  }else{
+   touy()
+  }
+    
+  })
   toug = reactive({
     if ("All" %in% input$pgroupin) {
       tout()
@@ -74,7 +89,7 @@ server <- function(input, output, session) {
       Total
     },
       fill = ProductGroup,
-      label = paste('GHs', Total, '\nQuantity:', Quantity)
+      label = paste0('GHs', round(Total/1000,2),'k', '\nQuantity: ', round(Quantity,1))
       )) +
       geom_bar(stat = "identity")+
       geom_label()+
@@ -102,7 +117,8 @@ server <- function(input, output, session) {
           'white',
           'blue'
         )
-      )
+      ) +
+      theme(axis.text.x = element_text(angle = 45, hjust = 1))
     
   })
     
@@ -182,7 +198,20 @@ server <- function(input, output, session) {
                        label = paste('GHs', round(Total/1000,1))))+
       geom_col( position = "dodge") +
       xlab('month') +
-      ylab('total')
+      ylab('total') +
+      scale_fill_manual(
+        'Year',
+        values = c(
+          'lightgreen',
+          
+          'pink',
+          'beige',
+          'orange',
+          'red',
+          'white',
+          'blue'
+        )
+      )
       
   })
   

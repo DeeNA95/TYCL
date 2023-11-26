@@ -1,20 +1,17 @@
 source('preprocessing.R')
 
 
-ui <- fluidPage(
-  #theme of the app
- 
- 
+ui <- dashboardPage(
+  skin = 'purple',
   
-  h1('V1'),
+ dashboardHeader(title = 'V1'),
   
-  sidebarLayout(
-    
-    {sidebarPanel(
-      width = 2,
+     
+    {
+      dashboardSidebar(
+     
       
-      # dateRangeInput('drange','Date',start = min(test$date),
-      # max = max(test$date) ),
+      selectInput('yearnum','Which year',choices = c('All',`Years`= list(tot_test2$year))),
       
       
       #selectInput('themess',
@@ -67,7 +64,7 @@ ui <- fluidPage(
       
     )
       },
-    {mainPanel(width = 10,
+    {dashboardBody(
               tabsetPanel(
                 tabPanel('Graphs',
                          h3('Top 10'),
@@ -87,8 +84,18 @@ ui <- fluidPage(
               )
               
   )
-      },
-  #theme = shinytheme(theme = paste0("\'",textOutput('themesss'),"\'")
+      },tags$head(
+        tags$style(HTML("
+      .main-sidebar {
+        position: fixed;
+        height: 100%;
+      }
+      .content-wrapper {
+        margin-left: 230px; /* Adjust this value based on your sidebar width */
+      }
+    "))
+      )
+  
 
 )
-)
+
