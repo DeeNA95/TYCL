@@ -38,6 +38,12 @@ server <- function(input, output, session) {
     }
   })
   
+  observe({
+    product_choice = subset(products, products$ProductGroup %in% input$pgroupin)
+    
+    
+    updateSelectInput(inputId = 'pin',choices = c('All',product_choice$Name),selected = 'All')
+    })
   
   
   toud = reactive({
@@ -76,49 +82,39 @@ server <- function(input, output, session) {
   
   
   
-  output$plo = renderPlot({
+  output$plo = renderPlotly({
     
-    ggplot( head(touf(),10) , aes(x = reorder(Product,desc(if(F == input$highquantity){
-      
-      Total
-    } else {
-      Quantity
-    })), y =  if(T == input$highquantity){
-      Quantity
-    } else {
-      Total
-    },
-      fill = ProductGroup,
-      label = paste0('GHs', round(Total/1000,2),'k', '\nQuantity: ', round(Quantity,1))
-      )) +
-      geom_bar(stat = "identity")+
-      geom_label()+
+    data = head(touf(),10)
+   
+    plot_ly(
+      head(touf(),10),
+      x = ~reorder(Product,get(input$sort_by)),
+      y = ~get(input$sort_by),
+      type = "bar",
+      color = ~ProductGroup,
+      text = ~paste('GHs', round(Total/1000, 1), 'k', '\nQuantity: ', round(Quantity, 1)),
+      hoverinfo = "text"
+    ) %>%
+      layout(
+        xaxis = list(title = 'Products', tickangle = -15, tickmode = 'array', tickvals = ~Product),
+        yaxis = list(title = if (T == input$highquantity) 'Quantity' else if (T == input$undperf && 'Quantity' == input$undperftype) 'Quantity' else 'Total'),
+        showlegend = TRUE,
+        legend = list(title = 'Product Group'),
+        barmode = "stack" ,
+        title= paste0(
+          if('All' %in% input$pgroupin){
+            paste('All Groups\n')
+          } else{
+            paste0(input$pgroupin,' \n')
+          },
+          if('All' %in% input$yearnum){
+            paste('All Years')
+          }else{
+            paste0('20',input$yearnum)
+          })
+      )
     
-     xlab('Products')+
-      ylab(if(T == input$highquantity){
-        'Quantity'
-      } else if(T == input$undperf){
-        if('Quantity' == input$undperftype){
-        'Quantity'
-        }
-      } else{
-        'Total'
-      })+
-      
-       scale_fill_manual(
-        'Product Group',
-        values = c(
-          'lightgreen',
-          'azure',
-          'pink',
-          'beige',
-          'orange',
-          'red',
-          'white',
-          'blue'
-        )
-      ) +
-      theme(axis.text.x = element_text(angle = 45, hjust = 1))
+    
     
   })
     
@@ -132,26 +128,34 @@ server <- function(input, output, session) {
   {
     
     yoy1dat = reactive({
-      tot_test2 %>% 
+      left_join(tot_test2 %>% 
         group_by(month,year) %>% 
         summarise(Total = sum(Total)) %>% 
         mutate(Total = comma_format()(as.numeric(Total)))%>% 
         pivot_wider(names_from = month,
                     values_from = c("Total"),
-                    names_sep = "_") 
+                    names_sep = "_") ,
+        tot_test2 %>% 
+          group_by(year) %>% 
+          summarise(Total = sum(Total)) %>% 
+          mutate(Total = comma_format()(as.numeric(Total))),by = 'year')
     })
     
     yoy2dat = reactive({
       if('All' %in% input$pgroupin){
         yoy1dat()
       } else{
-        tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>% 
+        left_join(tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>% 
           group_by(month,year) %>% 
           summarise(Total = sum(Total)) %>% 
           mutate(Total = comma_format()(as.numeric(Total)))%>% 
           pivot_wider(names_from = month,
                       values_from = c("Total"),
-                      names_sep = "_")  
+                      names_sep = "_")  ,
+          tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>% 
+            group_by(year) %>% 
+            summarise(Total = sum(Total)) %>% 
+            mutate(Total = comma_format()(as.numeric(Total))),by = 'year')
           
       }
     })
@@ -159,24 +163,30 @@ server <- function(input, output, session) {
     
     
     yoy3dat = reactive({
-      if('All' == input$pin){
+      if('All' %in% input$pin){
         yoy2dat()
       } else {
-        tot_test2 %>% subset(Product[1] %in% input$pin) %>% 
+        left_join(tot_test2 %>% subset(Product %in% input$pin) %>% 
           group_by(month,year) %>% 
           summarise(Total = sum(Total)) %>% 
           mutate(Total = comma_format()(as.numeric(Total)))%>% 
           pivot_wider(names_from = month,
                       values_from = c("Total"),
-                      names_sep = "_") 
-      }
+                      names_sep = "_") ,
+          tot_test2 %>% subset(Product %in% input$pin) %>% 
+            arrange(desc(year))%>% group_by(year) %>% 
+            summarise(Total = sum(Total)) %>% 
+            mutate(Total = comma_format()(as.numeric(Total))) ,by = 'year'
+      )}
     })
     
-  output$yoydata = renderTable(yoy3dat())
+    
+    cname = c('Year',month.name,"Total")
+  output$yoydata = renderTable(yoy3dat(),striped = T,hover = T,digits = 1,na = '-',width = 2000,colnames = T)
   
     
   yoy1 = reactive({
-    if("All" %in% input$pgroupin){
+    if(("All" %in% input$pgroupin ) ){
     tot_test2 %>% 
       group_by(month,year) %>% 
         summarise(Total = sum(Total))
@@ -187,34 +197,47 @@ server <- function(input, output, session) {
         summarise(Total = sum(Total))
     }
   })
+  yoy2 = reactive({
+    if( ("All" %in% input$pin)){
+      yoy1()
+    } else {
+      tot_test2 %>% 
+        subset(Product %in% input$pin) %>% 
+        group_by(month,year) %>% 
+        summarise(Total = sum(Total))
+    }
+  })
   
   
   
   #graph for yoy
   {
-  output$yoy = renderPlot({
+  output$yoy = renderPlotly({
     
-    ggplot(yoy1(), aes(x = month, y = Total, fill = year,
-                       label = paste('GHs', round(Total/1000,1))))+
-      geom_col( position = "dodge") +
-      xlab('month') +
-      ylab('total') +
-      scale_fill_manual(
-        'Year',
-        values = c(
-          'lightgreen',
-          
-          'pink',
-          'beige',
-          'orange',
-          'red',
-          'white',
-          'blue'
-        )
-      )
+    plot_ly(data = yoy2(), x = ~month, y = ~Total, type = "bar", color = ~year,
+            text = ~paste0('GHs ', round(Total/1000,1),'k\n','20',year),
+            hoverinfo = text)%>%
+      layout(xaxis = list(title = 'Month'), yaxis = list(title = 'Total'))
       
   })
   
   }
   }
+  
+  
+  topie = reactive({
+    tout() %>% 
+      group_by(ProductGroup) %>% 
+      summarise(Total = sum(Total))
+  })
+  
+  output$pie = renderPlotly({
+    plot_ly(topie(),type = 'pie',labels = ~ProductGroup,values = ~Total
+            ) %>% layout(title = paste0( if('All' %in% input$yearnum) paste('All years') else paste0('20',input$yearnum)))
+  })
+  
+  
+  
+  
+ #observeEvent( 'input.tabs == "Products"',updateTabsetPanel('tabss',session, selected = input.tabss))
 }

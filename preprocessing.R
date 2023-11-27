@@ -13,6 +13,7 @@
    library(tidyr)
    library(scales)
    library(shinydashboard)
+   library(plotly)
  }
  
   ##product list
@@ -103,7 +104,7 @@
    
    
    tot_test2 = left_join(tot_test,pgjoin, by = "Code")
-   tot_test2 =select(tot_test2,-Name)
+   tot_test2 =tot_test2 %>% select(-Name) %>% arrange(desc(Total))
    
   
   
