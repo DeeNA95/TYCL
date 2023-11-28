@@ -1,0 +1,1 @@
+body <- dashboardBody(shinyjs::useShinyjs(), uiOutput("body"))

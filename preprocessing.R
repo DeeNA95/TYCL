@@ -19,6 +19,7 @@
    library(DT)
    library(shinyjs)
    library(sodium)
+   library('stringr')
  }
  
   ##product list
@@ -111,7 +112,9 @@
    tot_test2 = left_join(tot_test,pgjoin, by = "Code")
    tot_test2 =tot_test2 %>% select(-Name) %>% arrange(desc(Total))
    
-  
+   #beef tripe amalgamation
+   
+   tot_test2$Product = str_replace_all(tot_test2$Product,'Beef Tripe \\(Intestines\\)  Yemad3E','Beef Tripe \\(Intestines\\) Yemad3E')
   
   
   
