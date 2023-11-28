@@ -19,9 +19,75 @@ source('header.R')
 
 
 server <- function(input, output, session) {
-    
+  login = FALSE
+  USER <- reactiveValues(login = login)
+  
+  observe({
+    if (USER$login == FALSE) {
+      if (!is.null(input$login)) {
+        if (input$login > 0) {
+          Username <- isolate(input$userName)
+          Password <- isolate(input$passwd)
+          if (length(which(credentials$username_id == Username)) == 1) {
+            pasmatch  <-
+              credentials["passod"][which(credentials$username_id == Username), ]
+            pasverify <- password_verify(pasmatch, Password)
+            if (pasverify) {
+              USER$login <- TRUE
+            } else {
+              shinyjs::toggle(
+                id = "nomatch",
+                anim = TRUE,
+                time = 1,
+                animType = "fade"
+              )
+              shinyjs::delay(
+                3000,
+                shinyjs::toggle(
+                  id = "nomatch",
+                  anim = TRUE,
+                  time = 1,
+                  animType = "fade"
+                )
+              )
+            }
+          } else {
+            shinyjs::toggle(
+              id = "nomatch",
+              anim = TRUE,
+              time = 1,
+              animType = "fade"
+            )
+            shinyjs::delay(
+              3000,
+              shinyjs::toggle(
+                id = "nomatch",
+                anim = TRUE,
+                time = 1,
+                animType = "fade"
+              )
+            )
+          }
+        }
+      }
+    }
+  })
+  
+  output$logoutbtn <- renderUI({
+    req(USER$login)
+    tags$li(
+      a(icon("fa fa-sign-out"), "Logout",
+        href = "javascript:window.location.reload(true)"),
+      class = "dropdown",
+      style = "background-color: #eee !important; border: 0;
+                    font-weight: bold; margin:5px; padding: 10px;"
+    )
+  })
+  
   output$sidebarpanel <- renderUI({
-    
+    if (USER$login == TRUE) {
+      
+    }
   })
   
   
@@ -29,7 +95,7 @@ server <- function(input, output, session) {
   
   
   output$body <- renderUI({
-    
+    if (USER$login == TRUE) {
       tabsetPanel(
         id = 'tabs',
         tabPanel(
@@ -102,7 +168,10 @@ server <- function(input, output, session) {
         
       )
       
-    
+    }
+    else {
+      loginpage
+    }
   })
   
   
