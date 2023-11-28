@@ -19,7 +19,7 @@
   library(shinydashboard)
   library(DT)
   library(shinyjs)
-  library(sodium)
+  
   library('stringr')
 }
 
