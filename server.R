@@ -6,6 +6,133 @@ source('preprocessing.R')
 
 
 server <- function(input, output, session) {
+  
+  login = FALSE
+  USER <- reactiveValues(login = login)
+  
+  observe({ 
+    if (USER$login == FALSE) {
+      if (!is.null(input$login)) {
+        if (input$login > 0) {
+          Username <- isolate(input$userName)
+          Password <- isolate(input$passwd)
+          if(length(which(credentials$username_id==Username))==1) { 
+            pasmatch  <- credentials["passod"][which(credentials$username_id==Username),]
+            pasverify <- password_verify(pasmatch, Password)
+            if(pasverify) {
+              USER$login <- TRUE
+            } else {
+              shinyjs::toggle(id = "nomatch", anim = TRUE, time = 1, animType = "fade")
+              shinyjs::delay(3000, shinyjs::toggle(id = "nomatch", anim = TRUE, time = 1, animType = "fade"))
+            }
+          } else {
+            shinyjs::toggle(id = "nomatch", anim = TRUE, time = 1, animType = "fade")
+            shinyjs::delay(3000, shinyjs::toggle(id = "nomatch", anim = TRUE, time = 1, animType = "fade"))
+          }
+        } 
+      }
+    }    
+  })
+  
+  output$logoutbtn <- renderUI({
+    req(USER$login)
+    tags$li(a(icon("fa fa-sign-out"), "Logout", 
+              href="javascript:window.location.reload(true)"),
+            class = "dropdown", 
+            style = "background-color: #eee !important; border: 0;
+                    font-weight: bold; margin:5px; padding: 10px;")
+  })
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  ###top products backend
+  {
+    #layer thighs
+    tp1 = reactive({
+      left_join(tot_test2 %>% 
+        filter(Product %in% 'Chicken Layer Thigh Hard')%>% 
+        select(-c(1,2,7)) %>% 
+        group_by(month,year) %>% 
+        summarise(Total = sum(Total)) %>% 
+        mutate(Total = comma_format()(as.numeric(Total))) %>% 
+        pivot_wider(names_from = month,values_from = c(Total)),
+        tot_test2 %>% 
+          filter(Product %in% input$seltp)%>% 
+          select(-c(1,2,7)) %>% 
+          group_by(year) %>% 
+          summarise(Total = sum(Total))%>% 
+          mutate(Total = comma_format()(as.numeric(Total))), by = 'year'
+      )
+    })
+    tp2 =reactive({
+      left_join(tot_test2 %>% 
+        filter(Product %in% input$seltp)%>% 
+        select(-c(1,2,7)) %>% 
+        group_by(month,year) %>% 
+        summarise(Quantity = sum(Quantity)) %>% 
+        #mutate(Quantity = comma_format()(as.numeric(Quantity))) %>% 
+        pivot_wider(names_from = month,values_from = c(Quantity)),
+        tot_test2 %>% 
+          filter(Product %in% input$seltp)%>% 
+          select(-c(1,2,7)) %>% 
+          group_by(year) %>% 
+          summarise(Quantity = sum(Quantity))#%>% 
+          #mutate(Quantity = comma_format()(as.numeric(Quantity))), by = 'year'
+      )
+      })
+    tp3 = reactive({
+      tot_test2 %>% 
+        filter(Product %in% input$seltp)%>% 
+        select(-c(1,2,7)) %>% 
+        group_by(year) 
+    })
+    
+    output$tpoutdat1 = renderTable(tp1())
+    output$tpoutdat2 = renderTable(tp2())
+    output$tpout = renderPlotly({
+      plot_ly(
+        tp3(),
+        x = ~month,
+        y= ~Total,
+        type = 'bar',
+        color = ~year
+      ) %>% 
+        layout(title = input$seltp)
+    })
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  }
+  
+  
+  
   ###For current year display Graphs
   touy = reactive({
     tot_test2 %>% 
@@ -84,19 +211,18 @@ server <- function(input, output, session) {
   
   output$plo = renderPlotly({
     
-    data = head(touf(),10)
-   
+    
     plot_ly(
-      head(touf(),10),
-      x = ~reorder(Product,get(input$sort_by)),
-      y = ~get(input$sort_by),
+      data = head(touf(),10),
+      x = ~reorder(Product,desc(if (T == input$highquantity) Quantity else if (T == input$undperf && 'Quantity' == input$undperftype) Quantity else Total)),
+      y = ~(if (T == input$highquantity) Quantity else if (T == input$undperf && 'Quantity' == input$undperftype) Quantity else Total),
       type = "bar",
       color = ~ProductGroup,
-      text = ~paste('GHs', round(Total/1000, 1), 'k', '\nQuantity: ', round(Quantity, 1)),
+      text = ~paste0('GHs ', round(Total/1000, 1), 'k', '\nQuantity: ', round(Quantity, 1)),
       hoverinfo = "text"
     ) %>%
       layout(
-        xaxis = list(title = 'Products', tickangle = -15, tickmode = 'array', tickvals = ~Product),
+        xaxis = list(title = 'Products', tickangle = -15, tickmode = 'array'),
         yaxis = list(title = if (T == input$highquantity) 'Quantity' else if (T == input$undperf && 'Quantity' == input$undperftype) 'Quantity' else 'Total'),
         showlegend = TRUE,
         legend = list(title = 'Product Group'),
@@ -111,7 +237,9 @@ server <- function(input, output, session) {
             paste('All Years')
           }else{
             paste0('20',input$yearnum)
-          })
+          }),
+        categoryorder = "array",
+        categoryarray = unique(touf()$ProductGroup)
       )
     
     
@@ -238,6 +366,22 @@ server <- function(input, output, session) {
   
   
   
+  
+  #correctPassword = 'tt'
+  
+  
+  #observeEvent(input$loginButton, {
+    # Check if the entered password is correct
+   # if (input$password == correctPassword) {
+    #  output$result <- renderText("Login successful!")
+      
+      # Show the main app UI
+   #   shinyjs::enable("mainApp")
+    #  shinyjs::show("mainApp")
+    #} else {
+     # output$result <- renderText("Incorrect password. Please try again.")
+   # }
+ # })
   
  #observeEvent( 'input.tabs == "Products"',updateTabsetPanel('tabss',session, selected = input.tabss))
 }

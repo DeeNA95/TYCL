@@ -14,6 +14,11 @@
    library(scales)
    library(shinydashboard)
    library(plotly)
+   library(shiny)
+   library(shinydashboard)
+   library(DT)
+   library(shinyjs)
+   library(sodium)
  }
  
   ##product list
