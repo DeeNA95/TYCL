@@ -1,1 +1,1 @@
-header <- dashboardHeader( title = "v1 ", uiOutput("logoutbtn"))
+header = dashboardHeader( title = "v1 ", uiOutput("logoutbtn"))
