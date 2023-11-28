@@ -19,8 +19,8 @@
   library(shinydashboard)
   library(DT)
   library(shinyjs)
-  library('sodium')
-  library('stringr')
+  library(sodium)
+  library(stringr)
 }
 
 ##product list
