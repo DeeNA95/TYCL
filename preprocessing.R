@@ -19,7 +19,7 @@
   library(shinydashboard)
   library(DT)
   library(shinyjs)
-  library(sodium)
+  library(shinyauthr)
   library(stringr)
 }
 
@@ -129,7 +129,12 @@
   
   
   
-  
+  user_base <- tibble::tibble(
+    user = c("user1", "user2"),
+    password = c("pass1", "pass2"),
+    permissions = c("admin", "standard"),
+    name = c("User One", "User Two")
+  )
 }
 
 

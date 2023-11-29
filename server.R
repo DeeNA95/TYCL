@@ -1,5 +1,5 @@
 source('preprocessing.R')
-source('loginpage.R')
+#source('loginpage.R')
 source('body.R')
 source('sidebar.R')
 source('header.R')
@@ -19,83 +19,32 @@ source('header.R')
 
 
 server <- function(input, output, session) {
-  login = FALSE
-  USER <- reactiveValues(login = login)
+ 
+  # call login module supplying data frame, 
+  # user and password cols and reactive trigger
+  credentials <- shinyauthr::loginServer(
+    id = "login",
+    data = user_base,
+    user_col = user,
+    pwd_col = password,
+    log_out = reactive(logout_init())
+  )
   
-  observe({
-    if (USER$login == FALSE) {
-      if (!is.null(input$login)) {
-        if (input$login > 0) {
-          Username <- isolate(input$userName)
-          Password <- isolate(input$passwd)
-          if (length(which(credentials$username_id == Username)) == 1) {
-            pasmatch  <-
-              credentials["passod"][which(credentials$username_id == Username), ]
-            pasverify <- password_verify(pasmatch, Password)
-            if (pasverify) {
-              USER$login <- TRUE
-            } else {
-              shinyjs::toggle(
-                id = "nomatch",
-                anim = TRUE,
-                time = 1,
-                animType = "fade"
-              )
-              shinyjs::delay(
-                3000,
-                shinyjs::toggle(
-                  id = "nomatch",
-                  anim = TRUE,
-                  time = 1,
-                  animType = "fade"
-                )
-              )
-            }
-          } else {
-            shinyjs::toggle(
-              id = "nomatch",
-              anim = TRUE,
-              time = 1,
-              animType = "fade"
-            )
-            shinyjs::delay(
-              3000,
-              shinyjs::toggle(
-                id = "nomatch",
-                anim = TRUE,
-                time = 1,
-                animType = "fade"
-              )
-            )
-          }
-        }
-      }
-    }
-  })
+  # call the logout module with reactive trigger to hide/show
+  logout_init <- shinyauthr::logoutServer(
+    id = "logout",
+    active = reactive(credentials()$user_auth)
+  )
   
-  output$logoutbtn <- renderUI({
-    req(USER$login)
-    tags$li(
-      a(icon("fa fa-sign-out"), "Logout",
-        href = "javascript:window.location.reload(true)"),
-      class = "dropdown",
-      style = "background-color: #eee !important; border: 0;
-                    font-weight: bold; margin:5px; padding: 10px;"
-    )
-  })
   
-  output$sidebarpanel <- renderUI({
-    if (USER$login == TRUE) {
-      
-    }
-  })
+
   
   
   
   
   
   output$body <- renderUI({
-    if (USER$login == TRUE) {
+    
       tabsetPanel(
         id = 'tabs',
         tabPanel(
@@ -168,10 +117,7 @@ server <- function(input, output, session) {
         
       )
       
-    }
-    else {
-      loginpage
-    }
+   
   })
   
   
