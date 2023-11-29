@@ -66,7 +66,7 @@ server <- function(input, output, session) {
   })
   
   touf = reactive({
-    if(T == input$undperf){
+    if(T == input$undperf ){
     if('Quantity' == input$undperftype){
       subset(toup(),Quantity < input$undperfnum) %>% 
         arrange(Quantity)
@@ -84,19 +84,19 @@ server <- function(input, output, session) {
   
   output$plo = renderPlotly({
     
-    data = head(touf(),10)
+    
    
     plot_ly(
       head(touf(),10),
-      x = ~reorder(Product,get(input$sort_by)),
-      y = ~get(input$sort_by),
+      x = ~reorder(Product,desc(if (T == input$highquantity) Quantity else if (T == input$undperf && 'Quantity' == input$undperftype) Quantity else Total)),
+      y = ~(if (T == input$highquantity) Quantity else if (T == input$undperf && 'Quantity' == input$undperftype) Quantity else Total),
       type = "bar",
       color = ~ProductGroup,
       text = ~paste('GHs', round(Total/1000, 1), 'k', '\nQuantity: ', round(Quantity, 1)),
       hoverinfo = "text"
     ) %>%
       layout(
-        xaxis = list(title = 'Products', tickangle = -15, tickmode = 'array', tickvals = ~Product),
+        xaxis = list(title = 'Products', tickangle = -15),
         yaxis = list(title = if (T == input$highquantity) 'Quantity' else if (T == input$undperf && 'Quantity' == input$undperftype) 'Quantity' else 'Total'),
         showlegend = TRUE,
         legend = list(title = 'Product Group'),
@@ -119,7 +119,7 @@ server <- function(input, output, session) {
   })
     
   ##current year datatable
-  output$pout = renderDataTable(touf())
+  output$pout = renderDataTable(touf(),server = T)
   
   
   ###YoY analysis
@@ -181,8 +181,8 @@ server <- function(input, output, session) {
     })
     
     
-    cname = c('Year',month.name,"Total")
-  output$yoydata = renderTable(yoy3dat(),striped = T,hover = T,digits = 1,na = '-',width = 2000,colnames = T)
+   
+  output$yoydata = renderTable(yoy3dat(),striped = T,hover = T,digits = 1,na = '-',width = 2000,colnames = T,server = T)
   
     
   yoy1 = reactive({
@@ -232,12 +232,61 @@ server <- function(input, output, session) {
   })
   
   output$pie = renderPlotly({
-    plot_ly(topie(),type = 'pie',labels = ~ProductGroup,values = ~Total
-            ) %>% layout(title = paste0( if('All' %in% input$yearnum) paste('All years') else paste0('20',input$yearnum)))
+    plot_ly(topie(),
+            type = 'pie',
+            labels = ~ProductGroup,
+            values = ~Total
+            ) %>%
+      layout(title = paste0( if('All' %in% input$yearnum) paste('All years') else paste0('20',input$yearnum)))
   })
   
+  TPreacGraph = reactive({
+    tot_test2 %>% filter(Product %in% input$topProduct) %>% 
+      group_by(month,year) %>% 
+      summarise(Total = sum(Total))
+  })
+  
+  TPreactabletotal = reactive({
+    left_join(tot_test2 %>% filter(Product %in% input$topProduct) %>% 
+      group_by(month,year) %>% 
+      summarise(Total = sum(Total)) %>% 
+        mutate(Total = comma_format()(as.numeric(Total))) %>% 
+      pivot_wider(names_from = month,values_from = Total),
+      tot_test2 %>% filter(Product %in% input$topProduct) %>% 
+        group_by(year) %>% 
+        summarise(Total = sum(Total)) %>% 
+        mutate(Total = comma_format()(as.numeric(Total))), by = 'year')
+  })
+  
+  TPreactablequantity = reactive({
+    left_join(tot_test2 %>% filter(Product %in% input$topProduct) %>% 
+                group_by(month,year) %>% 
+                summarise(Quantity = sum(Quantity)) %>% 
+                mutate(Quantity = comma_format()(as.numeric(Quantity))) %>% 
+                pivot_wider(names_from = month,values_from = Quantity),
+              tot_test2 %>% filter(Product %in% input$topProduct) %>% 
+                group_by(year) %>% 
+              summarise(Quantity = sum(Quantity)) %>% 
+                mutate(Quantity = comma_format()(as.numeric(Quantity))), by = 'year')
+  })
+  
+  output$topProductGraph = renderPlotly({
+    plot_ly(TPreacGraph(),
+            x = ~month,
+            y = ~Total,
+            type = 'bar',
+            color = ~year) %>% 
+      layout(title = input$topProduct)
+  })
+  
+  output$topProductsTableTotal = renderTable(TPreactabletotal(),na = '-',width = 12)
+  output$topProductsTableQuantity = renderTable(TPreactablequantity(),na = '-',width = 12,)
+  
+ 
   
   
   
- #observeEvent( 'input.tabs == "Products"',updateTabsetPanel('tabss',session, selected = input.tabss))
+  
+  ####server side select for yearnum
+  updateSelectizeInput(session, 'yearnum', choices = c('All', `Years` = list(tot_test2$year)), server = TRUE)
 }

@@ -45,8 +45,9 @@
       
       read_xlsx(paste0('test/', month, ' ', year, '.xlsx'), trim_ws = T) %>%
         select(selection) %>%
-        subset(Code != c('NA', 'Code')) %>%
-        filter(Total != 'NA', Quantity != 'Quantity') %>%
+        subset(!(Code %in% c('NA', 'Code')),Total != 'NA')  %>%
+       filter(Total != 'NA', Quantity != 'Quantity') %>%
+
         mutate(
           Code = as.character(Code),
           Total = as.numeric(Total),
@@ -71,11 +72,6 @@
       }
     }
   }
-  
-  
-  
-  
-  #gather(tot, key = "month", value = "value", -Product) function for making the df ready for ggplot grouping
   
   
   
