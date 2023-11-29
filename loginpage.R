@@ -43,22 +43,4 @@ loginpage <-
     )
   )
 
-credentials <- shinyauthr::loginServer(
-  id = "login",
-  data = user_base,
-  user_col = user,
-  pwd_col = password,
-  log_out = reactive(logout_init())
-)
 
-user_base <- tibble::tibble(
-  user = c("user1", "user2"),
-  password = c("pass1", "pass2"),
-  permissions = c("admin", "standard"),
-  name = c("User One", "User Two")
-)
-
-logout_init <- shinyauthr::logoutServer(
-  id = "logout",
-  active = reactive(credentials()$user_auth)
-)
