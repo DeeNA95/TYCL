@@ -289,4 +289,12 @@ server <- function(input, output, session) {
   
   ####server side select for yearnum
   updateSelectizeInput(session, 'yearnum', choices = c('All', `Years` = list(tot_test2$year)), server = TRUE)
+  
+  
+  #### server side selec for product group
+  updateSelectizeInput(session, 'pgroupin', choices = c('All', `Product Group` = list(tot_test2$ProductGroup)), server = TRUE,selected = 'All')
+  
+  
+  ### server side select for product
+  updateSelectizeInput(session, 'pin', choices = c('All', `Products` = list(tot_test2$Product)), server = TRUE,selected = 'All')
 }
