@@ -16,10 +16,8 @@
   library(shinydashboard)
   library(plotly)
   library(shiny)
-  
   library(DT)
   library(shinyjs)
-  
   library(stringr)
 }
 

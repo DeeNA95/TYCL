@@ -1,34 +1,34 @@
 sidebar = dashboardSidebar(
   
-  
-  
-  
-  
-  
+  ### Year Number
+  {
   ### YEAR NUMBER WORKS IN ALL TABS BUT YOY AND TOP_PRODUCTS
   
     conditionalPanel("input.tabs != 'YOY' && input.tabs != 'TOP_PRODUCTS'",
       
       selectizeInput('yearnum', 'Which year', choices = NULL)
-    ),
+    )
+    },
     
-  
-    
+  ### Product Group, Product, note on how to change from all
+  { 
   ### THIS INFORMATION IS ONLY NECESSARY WHEN NOT IN  TOP_PRODUCTS OR DISTRIBUTION 
    
   conditionalPanel("input.tabs != 'TOP_PRODUCTS' && input.tabs != 'DISTRIBUTION'",
       h6(
         'To change from \'All\', click on \'All\' and then click delete or backspace'
       ),
+      
       selectInput(
         'pgroupin',
         'Product Group',
-        choices = c('All', `Product Group` = list(unique(products$ProductGroup))),
+        choices = c('All', `Product Group` = list(product_groups)),
         multiple = T,
         selected = 'All',
         selectize = T
         
       ),
+    
       selectInput(
         'pin',
         'Product',
@@ -38,9 +38,11 @@ sidebar = dashboardSidebar(
         selectize = T
       ),
       
-      ),
+      )
+},
   
-      
+  ### Product Type, High Quantity & Underperforming 
+  {
       #### THESE ARE ONLY NECESSARY IN PRODUCTS AND DATA
       ## product_type in preprocessing
     conditionalPanel("input.tabs == 'PRODUCTS' || input.tabs == 'DATA'",
@@ -82,13 +84,14 @@ sidebar = dashboardSidebar(
           )
         )
     )
-    
-  ,
-  
+},
+
+  ### Top Product
+  {
   ###Only to be seen if in TOP_PRODUCTS
   conditionalPanel(
     'input.tabs == "TOP_PRODUCTS"',
     selectInput('topProduct', 'Product', choices = head(unique(tot_test2$Product), 8))
   )
-  
+}
 )

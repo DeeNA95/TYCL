@@ -1,89 +1,99 @@
-
-
 source('preprocessing.R')
 
-
-
-
 server <- function(input, output, session) {
-  ###For current year display Graphs
-  touy = reactive({
+  
+  ### Reactives for Data and Products
+  {
+  ## Initialising for with year specified
+  {
+  Preac1 = reactive({
     tot_test2 %>% 
       group_by(Product,ProductGroup) %>% 
       subset(year == input$yearnum) %>% 
-      summarise(Total = sum(Total),Quantity = sum(Quantity)) %>% 
+      summarise(Total = round(sum(Total),2),Quantity = round(sum(Quantity),2))%>% 
       arrange(desc(Total))
   })
-  touo = reactive({
+  }
+  
+  ## Initialising for without year specified
+  {
+  Preac2 = reactive({
     tot_test2 %>% 
       group_by(Product,ProductGroup) %>% 
-      summarise(Total = sum(Total),Quantity = sum(Quantity)) %>% 
+      summarise(Total = round(sum(Total),2),Quantity = round(sum(Quantity),2)) %>% 
       arrange(desc(Total))
-    
   })
-  
-  tout = reactive({
-  if('All' %in% input$yearnum){
-   touo()
-  }else{
-   touy()
   }
-    
+  
+  ## Year number functionality
+  {
+  Preac3 = reactive({
+  if('All' %in% input$yearnum){
+   Preac2()
+  }else{
+   Preac1()
+  }
   })
-  toug = reactive({
+  }
+  
+  ## Product Group functionality
+  {
+  Preac4 = reactive({
     if ("All" %in% input$pgroupin) {
-      tout()
+      Preac3()
     } else{
-      subset(tout(), ProductGroup %in% input$pgroupin)
+      subset(Preac3(), ProductGroup %in% input$pgroupin)
     }
   })
+  }
   
-  observe({
-    product_choice = subset(products, products$ProductGroup %in% input$pgroupin)
-    
-    
-    updateSelectInput(inputId = 'pin',choices = c('All',product_choice$Name),selected = 'All')
-    })
-  
-  
-  toud = reactive({
-    
+  ## High Quantity functionality
+  {
+  Preac5 = reactive({
     if (T == input$highquantity) {
-      toug() %>% 
+      Preac4() %>% 
       filter(Quantity > input$minquant)
     } else {
-      toug()
+      Preac4()
     }
-    
   })
-  
-  toup = reactive({
+  }
+
+  ## Product functionality
+  {
+  Preac6 = reactive({
     if('All' %in% input$pin){
-    toud()
+    Preac5()
     } else{
-      subset(toud(),Product %in% input$pin)
+      subset(Preac5(),Product %in% input$pin)
     }
   })
+  }
   
-  touf = reactive({
+  ## Underperforming functionality
+  {
+  Preac7 = reactive({
     if(T == input$undperf ){
     if('Quantity' == input$undperftype){
-      subset(toup(),Quantity < input$undperfnum) %>% 
+      subset(Preac6(),Quantity < input$undperfnum) %>% 
         arrange(Quantity)
     } else{
-      filter(toup(),Total < input$undperfnum) %>% 
+      filter(Preac6(),Total < input$undperfnum) %>% 
         arrange(Total)
     }
     } else {
-      toup()
+      Preac6()
     }
   })
+  }
   
-  touk = reactive({
+  ## Product Type functionality
+  {
+  Preac8 = reactive({
     if("All" %in% input$ptype){
-      touf()
+      Preac7()
     } else{
-      subset(touf(), 
+      subset(Preac7(), 
              Product %in% 
                tot_test2$Product[
                  grepl( paste(input$ptype,collapse='|'), 
@@ -91,15 +101,14 @@ server <- function(input, output, session) {
                        ignore.case = T)])
     }
   })
+  }
+  }
   
-  
-  
+  ### Graph For Products
+  {
   output$plo = renderPlotly({
-    
-    
-   
     plot_ly(
-      head(touk(),10),
+      head(Preac8(),10),
       x = ~reorder(Product,desc(if (T == input$highquantity) Quantity else if (T == input$undperf && 'Quantity' == input$undperftype) Quantity else Total)),
       y = ~(if (T == input$highquantity) Quantity else if (T == input$undperf && 'Quantity' == input$undperftype) Quantity else Total),
       type = "bar",
@@ -125,20 +134,22 @@ server <- function(input, output, session) {
             paste0('20',input$yearnum)
           })
       )
-    
-    
-    
   })
+  }
     
-  ##current year datatable
-  output$pout = renderDataTable(datatable(touk(),options = list(pageLength = 20)),server = T)
-  
-  
-  ###YoY analysis
-  
-  #reactives for yoy\
+  ### Data tab table
   {
-    
+  output$pout = renderDataTable(
+    datatable(Preac8(),
+              options = list(pageLength = 20),
+              rownames = F),
+    server = T )
+  }
+  
+  ### Reactives for Year on Year Table
+  {
+  ## Year on Year initialisation
+  {
     yoy1dat = reactive({
       left_join(tot_test2 %>% 
         group_by(month,year) %>% 
@@ -152,7 +163,10 @@ server <- function(input, output, session) {
           summarise(Total = sum(Total)) %>% 
           mutate(Total = comma_format()(as.numeric(Total))),by = 'year')
     })
-    
+  }
+  
+  ## Product Group functionality
+  {
     yoy2dat = reactive({
       if('All' %in% input$pgroupin){
         yoy1dat()
@@ -171,9 +185,10 @@ server <- function(input, output, session) {
           
       }
     })
-    
-    
-    
+  }
+  
+  ## Product Functionality
+  {
     yoy3dat = reactive({
       if('All' %in% input$pin){
         yoy2dat()
@@ -191,12 +206,18 @@ server <- function(input, output, session) {
             mutate(Total = comma_format()(as.numeric(Total))) ,by = 'year'
       )}
     })
-    
-    
+  }
+  }
    
+  ### Table for Year On Year
+  {
   output$yoydata = renderTable(yoy3dat(),striped = T,hover = T,digits = 1,na = '-',colnames = T,server = T)
+  }
   
-    
+  ### Reactives for Year On Year Graph
+  {
+  ## Initialise and Product Group functionality
+  {
   yoy1 = reactive({
     if(("All" %in% input$pgroupin ) ){
     tot_test2 %>% 
@@ -209,6 +230,10 @@ server <- function(input, output, session) {
         summarise(Total = sum(Total))
     }
   })
+  }
+  
+  ## Product functionality
+  {
   yoy2 = reactive({
     if( ("All" %in% input$pin)){
       yoy1()
@@ -219,45 +244,53 @@ server <- function(input, output, session) {
         summarise(Total = sum(Total))
     }
   })
+  }
+  }
   
-  
-  
-  #graph for yoy
+  ### Graph for Year on Year
   {
   output$yoy = renderPlotly({
-    
     plot_ly(data = yoy2(), x = ~month, y = ~Total, type = "bar", color = ~year,
             text = ~paste0('GHs ', round(Total/1000,1),'k\n','20',year),
             hoverinfo = text)%>%
       layout(xaxis = list(title = 'Month'), yaxis = list(title = 'Total'))
-      
   })
-  
-  }
   }
   
-  
-  topie = reactive({
-    tout() %>% 
+  ### Reactives for Distribution tab
+  {
+  DistReac = reactive({
+    Preac7() %>% 
       group_by(ProductGroup) %>% 
       summarise(Total = sum(Total))
   })
+  }
   
+  ### Graph for Distribution tab
+  {
   output$pie = renderPlotly({
-    plot_ly(topie(),
+    plot_ly(DistReac(),
             type = 'pie',
             labels = ~ProductGroup,
             values = ~Total
             ) %>%
       layout(title = paste0( if('All' %in% input$yearnum) paste('All years') else paste0('20',input$yearnum)))
   })
+  }
   
+  ### Reactives for Top Products tab
+  {
+  ## Initialise and filter functionality for Graph
+  {
   TPreacGraph = reactive({
     tot_test2 %>% filter(Product %in% input$topProduct) %>% 
       group_by(month,year) %>% 
       summarise(Total = sum(Total))
   })
+  }
   
+  ## Initialise and filter for total table
+  {
   TPreactabletotal = reactive({
     left_join(tot_test2 %>% filter(Product %in% input$topProduct) %>% 
       group_by(month,year) %>% 
@@ -269,7 +302,10 @@ server <- function(input, output, session) {
         summarise(Total = sum(Total)) %>% 
         mutate(Total = comma_format()(as.numeric(Total))), by = 'year')
   })
+  }
   
+  ## Initialise and filter for quantity table
+  {
   TPreactablequantity = reactive({
     left_join(tot_test2 %>% filter(Product %in% input$topProduct) %>% 
                 group_by(month,year) %>% 
@@ -281,7 +317,10 @@ server <- function(input, output, session) {
               summarise(Quantity = sum(Quantity)) %>% 
                 mutate(Quantity = comma_format()(as.numeric(Quantity))), by = 'year')
   })
+  }
   
+  ## Graph for Top Products
+  {
   output$topProductGraph = renderPlotly({
     plot_ly(TPreacGraph(),
             x = ~month,
@@ -290,22 +329,37 @@ server <- function(input, output, session) {
             color = ~year) %>% 
       layout(title = input$topProduct)
   })
+  }
   
+  ##Total and Quantity tables
+  {
   output$topProductsTableTotal = renderTable(TPreactabletotal(),na = '-',width = 12)
   output$topProductsTableQuantity = renderTable(TPreactablequantity(),na = '-',width = 12,)
+  }
+  }
   
- 
-  
-  
-  
-  
-  ####server side select for yearnum
+  ### Server side select/selectize
+  {
+  ##server side select for yearnum
+    {
   updateSelectizeInput(session, 'yearnum', choices = c('All', `Years` = list(tot_test2$year)), server = TRUE)
-  
-  
-  ### server side select for product
+    }
+    
+  ## server side select for product
+    {
   updateSelectInput(session, 'pin', choices = c('All', `Products` = list(tot_test2$Product)),selected = 'All')
+    }
+  }
   
-  
+  ### Observes
+  {
+  ## Observe for changing product options when product group is selected
+  {
+  observe({
+    product_choice = subset(products, ProductGroup %in% input$pgroupin)
+    updateSelectInput(inputId = 'pin',choices = c('All',product_choice$Name),selected = 'All')
+  })
+  }
+  }
   
 }
