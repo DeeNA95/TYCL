@@ -119,7 +119,7 @@ server <- function(input, output, session) {
   })
     
   ##current year datatable
-  output$pout = renderDataTable(touf(),server = T)
+  output$pout = renderDataTable(datatable(touf(),options = list(pageLength = 20)),server = T)
   
   
   ###YoY analysis
