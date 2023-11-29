@@ -79,6 +79,18 @@ server <- function(input, output, session) {
     }
   })
   
+  touk = reactive({
+    if("All" %in% input$ptype){
+      touf()
+    } else{
+      subset(touf(), 
+             Product %in% 
+               tot_test2$Product[
+                 grepl( paste(input$ptype,collapse='|'), 
+                       tot_test2$Product,
+                       ignore.case = T)])
+    }
+  })
   
   
   
@@ -87,7 +99,7 @@ server <- function(input, output, session) {
     
    
     plot_ly(
-      head(touf(),10),
+      head(touk(),10),
       x = ~reorder(Product,desc(if (T == input$highquantity) Quantity else if (T == input$undperf && 'Quantity' == input$undperftype) Quantity else Total)),
       y = ~(if (T == input$highquantity) Quantity else if (T == input$undperf && 'Quantity' == input$undperftype) Quantity else Total),
       type = "bar",
@@ -119,7 +131,7 @@ server <- function(input, output, session) {
   })
     
   ##current year datatable
-  output$pout = renderDataTable(datatable(touf(),options = list(pageLength = 20)),server = T)
+  output$pout = renderDataTable(datatable(touk(),options = list(pageLength = 20)),server = T)
   
   
   ###YoY analysis
@@ -291,10 +303,9 @@ server <- function(input, output, session) {
   updateSelectizeInput(session, 'yearnum', choices = c('All', `Years` = list(tot_test2$year)), server = TRUE)
   
   
-  #### server side selec for product group
-  updateSelectizeInput(session, 'pgroupin', choices = c('All', `Product Group` = list(tot_test2$ProductGroup)), server = TRUE,selected = 'All')
-  
-  
   ### server side select for product
-  updateSelectizeInput(session, 'pin', choices = c('All', `Products` = list(tot_test2$Product)), server = TRUE,selected = 'All')
+  updateSelectInput(session, 'pin', choices = c('All', `Products` = list(tot_test2$Product)),selected = 'All')
+  
+  
+  
 }

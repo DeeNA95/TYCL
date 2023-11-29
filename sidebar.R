@@ -1,23 +1,29 @@
 sidebar = dashboardSidebar(
-  conditionalPanel(
-    'input.tabs != "5"',
-    conditionalPanel(
-      'input.tabs != "1"',
-      selectizeInput('yearnum', 'Which year', choices = NULL),
-    )
-    ,
+  
+  
+  
+  
+  
+  
+  ### YEAR NUMBER WORKS IN ALL TABS BUT YOY AND TOP_PRODUCTS
+  
+    conditionalPanel("input.tabs != 'YOY' && input.tabs != 'TOP_PRODUCTS'",
+      
+      selectizeInput('yearnum', 'Which year', choices = NULL)
+    ),
     
+  
     
-    
-    conditionalPanel(
-      "input.tabs != '3'",
+  ### THIS INFORMATION IS ONLY NECESSARY WHEN NOT IN  TOP_PRODUCTS OR DISTRIBUTION 
+   
+  conditionalPanel("input.tabs != 'TOP_PRODUCTS' && input.tabs != 'DISTRIBUTION'",
       h6(
         'To change from \'All\', click on \'All\' and then click delete or backspace'
       ),
       selectInput(
         'pgroupin',
         'Product Group',
-        choices = NULL,
+        choices = c('All', `Product Group` = list(unique(products$ProductGroup))),
         multiple = T,
         selected = 'All',
         selectize = T
@@ -32,21 +38,34 @@ sidebar = dashboardSidebar(
         selectize = T
       ),
       
-      conditionalPanel(
-        'input.tabs == "2" || input.tabs == "4" ',
+      ),
+  
+      
+      #### THESE ARE ONLY NECESSARY IN PRODUCTS AND DATA
+      ## product_type in preprocessing
+    conditionalPanel("input.tabs == 'PRODUCTS' || input.tabs == 'DATA'",
+                     selectInput(
+                       'ptype',
+                       'Product Type',
+                       choices = product_type,
+                       multiple = T,
+                       selected = "All",
+                       selectize = T
+                     ),
         checkboxInput(inputId = 'highquantity',
                       'See high Quantity Items Only?'),
+  
         conditionalPanel(
           'input.highquantity == true' ,
           numericInput(
             'minquant',
-            '
-                        Set the minimum quantity',
+          'Set the minimum quantity',
             value = 1100,
             max = 500000,
             min = 0
-          )
-        ),
+          ))
+        ,
+  
         checkboxInput('undperf', 'See Under Performing SKUs'),
         conditionalPanel(
           "input.undperf == true",
@@ -62,11 +81,13 @@ sidebar = dashboardSidebar(
             min = 0
           )
         )
-      )
     )
-  ),
+    
+  ,
+  
+  ###Only to be seen if in TOP_PRODUCTS
   conditionalPanel(
-    'input.tabs == 5',
+    'input.tabs == "TOP_PRODUCTS"',
     selectInput('topProduct', 'Product', choices = head(unique(tot_test2$Product), 8))
   )
   

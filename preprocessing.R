@@ -122,7 +122,8 @@
     'Beef Tripe \\(Intestines\\) Yemad3E'
   )
   
-  
+  product_type = c('All','Chicken','Layer','Back','Drumstick','Kpanla', 'Tripe','Salmon',
+                   'Lele','Olonka','Frytol','Mom','Oba')
   
   
  

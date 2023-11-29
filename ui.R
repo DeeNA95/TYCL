@@ -10,7 +10,7 @@ ui <- dashboardPage(skin = 'purple',
                         id = 'tabs',
                         tabPanel(
                           'Year On Year',
-                          value = '1',
+                          value = 'YOY',
                           
                           box(
                             tableOutput('yoydata'),
@@ -34,7 +34,7 @@ ui <- dashboardPage(skin = 'purple',
                         
                         tabPanel(
                           'Products',
-                          value = '2',
+                          value = 'PRODUCTS',
                           box(
                             plotlyOutput('plo', height = '800px'),
                             title = 'Top 10',
@@ -46,7 +46,7 @@ ui <- dashboardPage(skin = 'purple',
                         ),
                         tabPanel(
                           'Distribution Of Sales By Product Group',
-                          value = '3',
+                          value = 'DISTRIBUTION',
                           box(
                             plotlyOutput('pie', height = '800px'),
                             title = 'Distribution Of Sales By Product Group',
@@ -58,14 +58,14 @@ ui <- dashboardPage(skin = 'purple',
                         ),
                         tabPanel(
                           'Top Products',
-                          value = '5',
+                          value = 'TOP_PRODUCTS',
                           box(plotlyOutput('topProductGraph',height = '550px'), width = 12),
                           box('Sales',tableOutput('topProductsTableTotal'),
                               'Quantity',tableOutput('topProductsTableQuantity'),width = 12)
                         )
                         
                         ,
-                        tabPanel('Data', dataTableOutput(outputId = 'pout'), value = '4')
+                        tabPanel('Data', dataTableOutput(outputId = 'pout'), value = 'DATA')
                         
                         
                       ))
