@@ -194,7 +194,7 @@ server <- function(input, output, session) {
     
     
    
-  output$yoydata = renderTable(yoy3dat(),striped = T,hover = T,digits = 1,na = '-',width = 2000,colnames = T,server = T)
+  output$yoydata = renderTable(yoy3dat(),striped = T,hover = T,digits = 1,na = '-',colnames = T,server = T)
   
     
   yoy1 = reactive({
