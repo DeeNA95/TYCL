@@ -42,7 +42,7 @@
       selection = c('Code', 'Product', 'Quantity', 'Total')
       
       read_xlsx(paste0('test/', month, ' ', year, '.xlsx'), trim_ws = T) %>%
-        select(selection) %>%
+        select(all_of(selection)) %>%
         subset(!(Code %in% c('NA', 'Code')),Total != 'NA')  %>%
        filter(Total != 'NA', Quantity != 'Quantity') %>%
 
@@ -61,7 +61,7 @@
     yars = c(22, 23)
     for (i in  month.abb) {
       for (y in yars) {
-        if (file.exists(paste0('test/', i, ' ', y, '.xlsx')) == T) {
+        if (file.exists(paste0('test/', i, ' ', y, '.xlsx'))) {
           processed_name <- paste0(i, y)
           
           assign(processed_name, load_month(i, y))

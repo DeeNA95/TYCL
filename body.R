@@ -72,6 +72,22 @@ body = dashboardBody(
    ### Data tab
    {
     tabPanel('Data', dataTableOutput(outputId = 'pout'), value = 'DATA')
+   },
+   
+   ### Insights Tab
+   {
+     tabPanel('Insights',value = 'INSIGHTS',
+     ## Highest Selling Product
+     verbatimTextOutput('HiSa'),
+     
+     ## Expected highest month
+     verbatimTextOutput('ExMo'),
+     
+     ##Minimum stocks expected for the month
+     verbatimTextOutput('ExSt'),
+     dataTableOutput('ExStTable')
+     
+   )
    }
     
   ))

@@ -338,6 +338,54 @@ server <- function(input, output, session) {
   }
   }
   
+  ### Reactives for Insights
+  {
+    HiSa = reactive({
+      if('All' %in% input$pgroupin){
+      tot_test2 %>% group_by(Product) %>% 
+        summarise(Total = sum(Total)) %>%arrange(desc(Total)) %>%  head(1) %>% select(1)
+      } else {
+        tot_test2  %>% group_by(Product) %>% subset(ProductGroup %in% input$pgroupin) %>% summarise(Total = sum(Total)) %>% 
+           arrange(desc(Total)) %>%  head(1) %>% select(1)
+      }
+    })
+    
+    ExMo = reactive({
+      if('All' %in% input$pgroupin){
+        tot_test2 %>% 
+          filter(year == 22)%>% group_by(month) %>%  summarise(Total = sum(Total)) %>% arrange(desc(Total)) %>% mutate(ExTotal = Total*2.5) %>% head(1) %>% select(1,3) 
+      } else {
+        tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>% 
+          filter(year == 22)%>% group_by(month) %>%  summarise(Total = sum(Total)) %>% arrange(desc(Total)) %>% mutate(ExTotal = Total*2.5) %>% head(1) %>% select(1,3) 
+      }
+    })
+    
+    ExSt = reactive({
+      if('All' %in% input$pgroupin){
+        tot_test2 %>% 
+          filter(year == 23) %>%filter(month %in% 'Oct') %>% arrange(desc(Quantity)) %>% mutate(ExQuantity =round( Quantity * 1.25,0)) %>% select(2,8)
+      } else {
+        tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>% 
+          filter(year == 23) %>%filter(month %in% 'Oct') %>% arrange(desc(Quantity)) %>% mutate(ExQuantity =round( Quantity * 1.25,0)) %>% select(2,8)
+      }
+    })
+  }
+  
+  ### text for Insights
+  {
+    ## high sales
+    output$HiSa = renderText(paste('Our highest selling product in',if('All' %in% input$pgroupin) 'All Product Groups' else input$pgroupin,'is',as.vector(HiSa()),'\n'))
+    
+    ## highest month
+    output$ExMo = renderText(paste('Expected highest month is',as.vector(ExMo()$month),'\nWe expect to sell Ghs',comma_format()(as.vector(ExMo()$ExTotal))))
+    
+    ## required stocks to sell thatmuch
+    output$ExSt = renderText(paste('Required Stocks to meet planned sales for',as.vector(ExMo()$month)))
+    
+    output$ExStTable = renderDataTable(ExSt())
+    
+  }
+  
   ### Server side select/selectize
   {
   ##server side select for yearnum
@@ -347,7 +395,7 @@ server <- function(input, output, session) {
     
   ## server side select for product
     {
-  updateSelectInput(session, 'pin', choices = c('All', `Products` = list(tot_test2$Product)),selected = 'All')
+  updateSelectInput(session, 'pin', choices = c('All', `Products` = list(products$Name)),selected = 'All')
     }
   }
   
