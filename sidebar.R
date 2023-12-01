@@ -42,10 +42,11 @@ sidebar = dashboardSidebar(
 },
   
   ### Product Type, High Quantity & Underperforming 
-  {
+  
       #### THESE ARE ONLY NECESSARY IN PRODUCTS AND DATA
       ## product_type in preprocessing
-    conditionalPanel("input.tabs == 'PRODUCTS' || input.tabs == 'DATA'",
+    
+    conditionalPanel('input.tabs == "INSIGHTS" || input.tabs == "PRODUCTS" || input.tabs == "DATA"',
                      selectInput(
                        'ptype',
                        'Product Type',
@@ -53,7 +54,10 @@ sidebar = dashboardSidebar(
                        multiple = T,
                        selected = "All",
                        selectize = T
-                     ),
+                     )),
+{
+    conditionalPanel("input.tabs == 'PRODUCTS' || input.tabs == 'DATA'",
+                     
         checkboxInput(inputId = 'highquantity',
                       'See high Quantity Items Only?'),
   

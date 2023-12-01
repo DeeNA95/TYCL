@@ -353,20 +353,47 @@ server <- function(input, output, session) {
     ExMo = reactive({
       if('All' %in% input$pgroupin){
         tot_test2 %>% 
-          filter(year == 22)%>% group_by(month) %>%  summarise(Total = sum(Total)) %>% arrange(desc(Total)) %>% mutate(ExTotal = Total*2.5) %>% head(1) %>% select(1,3) 
+          filter(year == 22)%>% group_by(month) %>%  summarise(Total = sum(Total)) %>%arrange(desc(Total)) %>% mutate(ExTotal = Total*2.5) %>% head(1) %>% select(1,3) 
       } else {
         tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>% 
           filter(year == 22)%>% group_by(month) %>%  summarise(Total = sum(Total)) %>% arrange(desc(Total)) %>% mutate(ExTotal = Total*2.5) %>% head(1) %>% select(1,3) 
       }
     })
     
+    ptyp = reactive({
+      if ('All' %in% input$ptype) {
+      arrange(desc(Quantity))
+    } else {
+      subset(Product %in% tot_test2$Product[
+                  grepl(paste(input$ptype,collapse='|'), 
+                         tot_test2$Product,
+                         ignore.case = T)])
+    }})
+      
+    
     ExSt = reactive({
       if('All' %in% input$pgroupin){
         tot_test2 %>% 
-          filter(year == 23) %>%filter(month %in% 'Oct') %>% arrange(desc(Quantity)) %>% mutate(ExQuantity =round( Quantity * 1.25,0)) %>% select(2,8)
+          filter(year == 23) %>% filter(month %in% 'Oct') %>% 
+          arrange(desc(Quantity)) %>% 
+          mutate(ExQuantity =round( Quantity * 1.25,0)) %>% 
+          select(2,8)
       } else {
         tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>% 
-          filter(year == 23) %>%filter(month %in% 'Oct') %>% arrange(desc(Quantity)) %>% mutate(ExQuantity =round( Quantity * 1.25,0)) %>% select(2,8)
+          filter(year == 23) %>%filter(month %in% 'Oct') %>% 
+           mutate(ExQuantity =round( Quantity * 1.25,0)) %>% select(2,8)
+      }
+    })
+    
+    ExStPy = reactive({
+      if('All' %in% input$ptype){
+        ExSt()
+      } else {
+        ExSt() %>% 
+          subset(Product %in% tot_test2$Product[
+            grepl(paste(input$ptype,collapse='|'), 
+                  tot_test2$Product,
+                  ignore.case = T)]) 
       }
     })
   }
@@ -382,7 +409,7 @@ server <- function(input, output, session) {
     ## required stocks to sell thatmuch
     output$ExSt = renderText(paste('Required Stocks to meet planned sales for',as.vector(ExMo()$month)))
     
-    output$ExStTable = renderDataTable(ExSt())
+    output$ExStTable = renderDataTable(ExStPy())
     
   }
   
