@@ -1,109 +1,109 @@
 Name,ProductGroup,SKU,Barcode,MeasurementUnit,Cost,Markup,Price,Tax,IsTaxInclusivePrice,IsPriceChangeAllowed,IsUsingDefaultQuantity,IsService,IsEnabled,Description,Quantity,Supplier,ReorderPoint,PreferredQuantity,LowStockWarning,WarningQuantity
-Lele Rice 1kg,Rice,TY00000,8858669700180,1kg,22.5,6.6667,24.0,,1,0,1,0,1,,27,,5,20,0,10
-Lele Rice 5kg,Rice,TY00001,8858669700203,5kg,105.6,4.1667,110.0,,1,0,1,0,1,,-10,,5,20,0,10
+Lele Rice 1kg,Rice,TY00000,8858669700180,1kg,22.5,6.6667,24.0,,1,0,1,0,1,,25,,5,20,0,10
+Lele Rice 5kg,Rice,TY00001,8858669700203,5kg,105.6,4.1667,110.0,,1,0,1,0,1,,-14,,5,20,0,10
 Lele Rice 25kg,Rice,TY00002,,25kg,525,3.8095,545.0,,1,0,1,0,1,,0,,5,20,0,10
 Lele Rice 10kg,Rice,TY00003,6034000179019,10kg,0,0,230.0,,1,0,1,0,0,,0,Unknown,5,20,0,10
-Sultana Thai Rice 4.5kg,Rice,TY00004,,4.5kg,100,6,106.0,,1,0,1,0,1,,1,,5,20,0,10
+Sultana Thai Rice 4.5kg,Rice,TY00004,,4.5kg,100,6,106.0,,1,0,1,0,1,,-4,,5,20,0,10
 Diora Thai Rice 5kg,Rice,TY00005,6034000399370,5kg,0,0,40.0,,1,0,1,0,0,,0,,5,20,0,10
 Fortune Orange 5kg,Rice,TY00006,6034000329032,5kg,81,3.7037,84.0,,1,0,1,0,1,,2,,5,20,0,10
 Emerald,Rice,TY00007,6036000014383,5kg,0,0,57.0,,1,0,1,0,0,,0,,5,20,0,10
-Gino Rice 5kg,Rice,TY00008,4897052891115,5kg,118,3.3898,122.0,,1,0,1,0,1,,-3,,5,20,0,10
-Bella Rice Viet 5kg,Rice,TY00009,6034000187137,5kg,65,6.1538,69.0,,1,0,1,0,1,,-3,,5,20,0,10
+Gino Rice 5kg,Rice,TY00008,4897052891115,5kg,130,3.0769,134.0,,1,0,1,0,1,,-7,,5,20,0,10
+Bella Rice Viet 5kg,Rice,TY00009,6034000187137,5kg,65,6.1538,69.0,,1,0,1,0,1,,-4,,5,20,0,10
 Mother'S Pride Blue,Rice,TY00010,8906007178617,5kg,0,0,90.5,,1,0,1,0,0,,0,,5,20,0,10
 Mother'S Pride Orange,Rice,TY00011,8906007170239,5kg,0,0,110.0,,1,0,1,0,0,,0,,5,20,0,10
 Supreme Round Rice 25kgs,Rice,TY00012,,25kg,0,0,124.384,,1,0,1,0,0,,0,,5,20,0,10
 Supreme Round Rice 50kgs,Rice,TY00013,,50kg,590,0,610.0,,1,0,1,0,0,,1,,5,20,0,10
-Ruby Viet Rice 5 % Broken 4.5kg,Rice,TY00014,,4.5kg,67,8.9552,73.0,,1,0,1,0,1,,0,,5,20,0,10
-Ruby Viet Rice 5 % Broken 22.5kg,Rice,TY00015,,22.5kg,325,9.2308,355.0,,1,0,1,0,1,,0,,5,20,0,10
+Ruby Viet Rice 5 % Broken 4.5kg,Rice,TY00014,,4.5kg,65,4.6154,68.0,,1,0,1,0,1,,-1,,5,20,0,10
+Ruby Viet Rice 5 % Broken 22.5kg,Rice,TY00015,,22.5kg,325,4.6154,340.0,,1,0,1,0,1,,0,,5,20,0,10
 Ruby Viet Rice 5 % Broken 45kg,Rice,TY00016,,45kg,630,0,650.0,,1,0,1,0,1,,0,,5,20,0,10
 Special Viet Rice 4.5kg,Rice,TY00017,6034000242003,4.5kg,31.57894737,124.8258,71.0,,1,0,1,0,1,,0,,5,20,0,10
-Royal Aroma 5kg,Rice,TY00018,6033000380913,5kg,77,5.1948,81.0,,1,0,1,0,1,,5,,5,20,0,10
+Royal Aroma 5kg,Rice,TY00018,6033000380913,5kg,76,3.9474,79.0,,1,0,1,0,1,,-4,,5,20,0,10
 Royal Aroma Jasmine,Rice,TY00019,,4.5kg,0,0,85.0,,1,0,1,0,0,,0,,5,20,0,10
 Special Viet Rice 5 % Broken 50kg,Rice,TY00020,,50kg,605,4.9587,635.0,,1,0,1,0,1,,0,,5,20,0,10
-Cindy Jasmine 1kg,Rice,TY00217,6034000179354,1kg,17,0,18.0,,1,0,1,0,1,,38,,5,20,0,10
-Cindy Jasmine 25kg,Rice,TY00021,,25kg,385,5.1948,405.0,,1,0,1,0,1,,2,,5,20,0,10
+Cindy Jasmine 1kg,Rice,TY00217,6034000179354,1kg,16.5,6.0606,17.5,,1,0,1,0,1,,35,,5,20,0,10
+Cindy Jasmine 25kg,Rice,TY00021,,25kg,353,5.6657,373.0,,1,0,1,0,1,,5,,5,20,0,10
 Cindy Jasmine 50kg,Rice,TY00022,,50kg,785,0,805.0,,1,0,1,0,1,,0,,5,20,0,10
-Sultana Viet 4.25kg,Rice,TY00023,6034000187144,4.5kg,64,4.6875,67.0,,1,0,1,0,1,,-12,,5,20,0,10
-Sultana Viet 45kg,Rice,TY00024,,45kg,620,3.2258,640.0,,1,0,1,0,1,,2,,5,20,0,10
-Sultana Viet 22.5kg,Rice,TY00025,,22.5kg,320,6.25,340.0,,1,0,1,0,1,,2,,5,20,0,10
+Sultana Viet 4.25kg,Rice,TY00023,6034000187144,4.5kg,64,4.6875,67.0,,1,0,1,0,1,,-39,,5,20,0,10
+Sultana Viet 45kg,Rice,TY00024,,45kg,620,3.2258,640.0,,1,0,1,0,1,,0,,5,20,0,10
+Sultana Viet 22.5kg,Rice,TY00025,,22.5kg,320,6.25,340.0,,1,0,1,0,1,,1,,5,20,0,10
 Mario,Rice,TY00026,8936144482735,4.5kg,0,0,65.0,,1,0,1,0,0,,0,,5,20,0,10
 Wonder,Rice,TY00027,,4.5kg,0,0,30.71744,,1,0,1,0,0,,0,,5,20,0,10
 Mala,Rice,TY00028,,50kg,0,0,302.848,,1,0,1,0,0,,0,,5,20,0,10
-Fortune Green 5kg,Rice,TY00029,,5kg,79,0,83.0,,1,0,1,0,1,,-1,,5,20,0,10
-K75 5kg,Rice,TY00030,6036000120428,5kg,77.4,4.6512,81.0,,1,0,1,0,1,,-2,,5,20,0,10
-K75 25kg,Rice,TY00213,,25kg,382,6.0209,405.0,,1,0,1,0,1,,1,,5,20,0,10
-Red Eagle 5kg,Rice,TY00031,,4.5kg,77.5,5.8065,82.0,,1,0,1,0,1,,2,,5,20,0,10
-Millicent Rice 5kg,Rice,TY00032,,5kg,79.6,5.5276,84.0,,1,0,1,0,1,,1,,5,20,0,10
-Millicent Rice 25kg,Rice,TY00033,,25kg,395,5.0633,415.0,,1,0,1,0,1,,-2,,5,20,0,10
+Fortune Green 5kg,Rice,TY00029,,5kg,79,0,83.0,,1,0,1,0,1,,-2,,5,20,0,10
+K75 5kg,Rice,TY00030,6036000120428,5kg,77.4,3.3592,80.0,,1,0,1,0,1,,-11,,5,20,0,10
+K75 25kg,Rice,TY00213,,25kg,380,3.9474,395.0,,1,0,1,0,1,,-1,,5,20,0,10
+Red Eagle 5kg,Rice,TY00031,,4.5kg,75,4,78.0,,1,0,1,0,1,,0,,5,20,0,10
+Millicent Rice 5kg,Rice,TY00032,,5kg,74.5,5.3691,78.5,,1,0,1,0,1,,-7,,5,20,0,10
+Millicent Rice 25kg,Rice,TY00033,,25kg,370,5.4054,390.0,,1,0,1,0,1,,-2,,5,20,0,10
 Cindy Gold Rice 5kgx5,Rice,TY00034,,25kg,0,0,385.0,,1,0,1,0,0,,0,,5,20,0,10
-Cindy Rice 5X5kg,Rice,TY00035,,25kg,360,13.8889,410.0,,1,0,1,0,1,,2,,5,20,0,10
+Cindy Rice 5X5kg,Rice,TY00035,,25kg,358,5.5866,378.0,,1,0,1,0,1,,5,,5,20,0,10
 Prime Choice Thai 4.5kg,Rice,TY00036,,5kg,0,0,53.0,,1,0,1,0,0,,0,,5,20,0,10
 Prime Choice Thai 22.5kg,Rice,TY00037,,50lbs,0,0,240.0,,1,0,1,0,0,,0,,5,20,0,10
 Queen,Rice,TY00038,,5kg,0,0,40.0,,1,0,1,0,0,,0,,5,20,0,10
 Abena Viet 22.5kg,Rice,TY00039,,22.5kg,345,0,365.0,,1,0,1,0,1,,0,,5,20,0,10
-Abena Viet 4.5kg,Rice,TY00040,6033000430373,4.5kg,74,0,78.0,,1,0,1,0,1,,0,,5,20,0,10
+Abena Viet 4.5kg,Rice,TY00040,6033000430373,4.5kg,70,4.2857,73.0,,1,0,1,0,1,,-3,,5,20,0,10
 Texas 22.5kg,Rice,TY00041,,22.5kg,0,0,175.0,,1,0,1,0,0,,1,,5,20,0,10
 Texas 45.kg,Rice,TY00042,,45kg,0,0,285.0,,1,0,1,0,0,,1,,5,20,0,10
-Abena Rice 1kg,Rice,TY00043,6033000430861,1kg,16,6.25,17.0,,1,0,1,0,1,,7,,5,20,0,10
+Abena Rice 1kg,Rice,TY00043,6033000430861,1kg,15,6.6667,16.0,,1,0,1,0,1,,0,,5,20,0,10
 Miss U Rice 45kg,Rice,TY00044,,45kg,645,2.3256,660.0,,1,0,1,0,1,,3,,5,20,0,10
-Chanel Rice 45kg,Rice,TY00045,,45kg,625,3.2,645.0,,1,0,1,0,1,,7,,5,20,0,10
-Chanel Rice 4.5kg,Rice,TY00046,8936089964570,4.5kg,67,4.4776,70.0,,1,0,1,0,1,,-10,,5,20,0,10
-Pretty Lady 5kg,Rice,TY00047,,5kg,66,6.0606,70.0,,1,0,1,0,1,,-3,,5,20,0,10
+Chanel Rice 45kg,Rice,TY00045,,45kg,625,3.2,645.0,,1,0,1,0,1,,10,,5,20,0,10
+Chanel Rice 4.5kg,Rice,TY00046,8936089964570,4.5kg,67,2.9851,69.0,,1,0,1,0,1,,-41,,5,20,0,10
+Pretty Lady 5kg,Rice,TY00047,,5kg,66,6.0606,70.0,,1,0,1,0,1,,-4,,5,20,0,10
 Aaba Rice 50kg,Rice,TY00048,,50kg,259,104.6332,530.0,,1,0,1,0,1,,-1,,5,20,0,10
 Mama Joy Rice 22.5kg,Rice,TY00049,,22.5kg,155.3333333,0,248.0,,1,0,1,0,1,,0,,5,20,0,10
 Ginny,Rice,TY00050,8938508808007,4.5kg,0,0,77.5,,1,0,1,0,0,,0,,5,20,0,10
-Peacock Rice 5kg,Rice,TY00051,8410184039536,5kg,111,6.3063,118.0,,1,0,1,0,1,,1,,5,20,0,10
-Nigeria Rice (Olonka) 2kg,Rice,TY00052,,2kg,28,0,30.0,,1,0,1,0,1,,-1.5,,,,,
-Oba Rice,Rice,TY00053,,5kg,0,0,69.0,,1,0,1,0,0,,3,,0,5,0,0
-Gino Tomato Sachet 60G,Tomato Paste,TY00054,8410300361428,pcs,1.88,17.0213,2.2,,1,0,1,0,1,,-108,,0,1,0,0
+Peacock Rice 5kg,Rice,TY00051,8410184039536,5kg,111,6.3063,118.0,,1,0,1,0,1,,-4,,5,20,0,10
+Nigeria Rice (Olonka) 2kg,Rice,TY00052,,2kg,28,0,30.0,,1,0,1,0,1,,-33.5,,,,,
+Oba Rice 5kg,Rice,TY00053,,5kg,0,0,67.0,,1,0,1,0,0,,3,,0,5,0,0
+Gino Tomato Sachet 60G,Tomato Paste,TY00054,8410300361428,pcs,1.88,17.0213,2.2,,1,0,1,0,1,,-197,,0,1,0,0
 Pogo Rice,Rice,TY00055,,50kg,0,0,0.0,,1,0,1,0,0,,0,,0,1,0,0
-Cic Rice 5kg Green,Rice,TY00056,7640113770921,5kg,0,0,85.0,,1,0,1,0,1,,3,,,,,
+Cic Rice 5kg Green,Rice,TY00056,7640113770921,5kg,0,0,85.0,,1,0,1,0,1,,-3,,,,,
 Mom'S Recipe Sunflower Oil 1L,Oil,TY00057,4820001116588,1l,0,0,36.0,,1,0,1,0,1,,1,,12,0,0,0
-Mom'S Recipe Sunflower Oil 3L,Oil,TY00058,4820225760833,3l,88.33,13.2118,100.0,,1,0,1,0,1,,-3,,0,6,0,0
-Mom'S Recipe Sunflower Oil 5L,Oil,TY00059,4820001116649,5l,190,5.2632,200.0,,1,0,1,0,1,,0,,0,3,0,0
+Mom'S Recipe Sunflower Oil 3L,Oil,TY00058,4820225760833,3l,95,10.5263,105.0,,1,0,1,0,1,,-3,,0,6,0,0
+Mom'S Recipe Sunflower Oil 5L,Oil,TY00059,4820001116649,5l,140,10.7143,155.0,,1,0,1,0,1,,-2,,0,3,0,0
 Vega Oil 25L,Oil,TY00060,,25l,0,0,310.0,,1,0,1,0,0,,0,,0,1,0,0
 Viking Veg Oil 20L,Oil,TY00061,,20l,0,0,0.0,,1,0,1,0,0,,0,,0,1,0,0
 Talisha Oil 5L,Oil,TY00062,,5l,0,0,103.0,,1,0,1,0,0,,0,,0,4,0,0
 Talisha Oil 25L,Oil,TY00063,,25l,0,0,420.0,,1,0,1,0,0,,0,,0,1,0,0
 Frytol 0.5L,Oil,TY00064,6034000190113,0.5l,15.4,10.3896,17.0,,1,0,1,0,1,,0,,0,24,0,0
-Frytol 0.9L,Oil,TY00065,6033000570109,0.9l,26.5,13.2075,30.0,,1,0,1,0,1,,-18,,0,12,0,0
-Frytol 4.5L,Oil,TY00066,6034000190199,4.5l,98.75,6.3291,105.0,,1,0,1,0,1,,-9,,0,4,0,0
+Frytol 0.9L,Oil,TY00065,6033000570109,0.9l,26.5,13.2075,30.0,,1,0,1,0,1,,-34,,0,12,0,0
+Frytol 4.5L,Oil,TY00066,6034000190199,4.5l,98.75,11.3924,110.0,,1,0,1,0,1,,-22,,0,4,0,0
 Frytol 5L,Oil,TY00067,,5l,0,0,250.0,,1,0,1,0,1,,0,,0,4,0,0
-Frytol 25L,Oil,TY00068,,25l,450,4.4444,470.0,,1,0,1,0,1,,-1,,0,1,0,0
+Frytol 25L,Oil,TY00068,,25l,480,3.125,495.0,,1,0,1,0,1,,-8,,0,1,0,0
 Ginny 5L,Oil,TY00069,,5l,0,0,90.0,,1,0,1,0,0,,0,,0,3,0,0
 Aya 25L,Oil,TY00070,,25l,0,0,470.0,,1,0,1,0,0,,0,,0,4,0,0
 Aya 10L,Oil,TY00071,,10l,0,0,215.0,,1,0,1,0,0,,0,,0,9,0,0
-Unoli Sunflower Oil 0.9L,Oil,TY00072,8715715030335,0.9l,0,0,42.0,,1,0,1,0,1,,10,,0,15,0,0
+Unoli Sunflower Oil 0.9L,Oil,TY00072,8715715030335,0.9l,0,0,42.0,,1,0,1,0,1,,6,,0,15,0,0
 Collina D'Oro,Oil,TY00073,,,0,0,0.0,,1,0,1,0,0,,0,,,,,
 Semi Vari Oil,Oil,TY00074,8017596010155,1l,0,0,25.0,,1,0,1,0,0,,0,,,,,
-Tasty Tom Sachets 210g,Tomato Paste,TY00075,6033000303974|6154000050115,sachet,3.45,88.4058,6.5,,1,0,1,0,1,,-22,,0,24,0,0
-Tasty Tom 210g Tin,Tomato Paste,TY00076,6033000300010,tin,6,0,7.0,,1,0,1,0,1,,47,,0,24,0,0
-Tasty Tom Sachets 400g,Tomato Paste,TY00077,6033000303981,sachet,9.25,8.1081,10.0,,1,0,1,0,1,,-88,,0,24,0,0
-Tasty Tom Tin 400g,Tomato Paste,TY00078,6925157900529,tin,9.583,9.569,10.5,,1,0,1,0,1,,16,,0,24,0,0
-Tasty Tom Sachets 1.05kg,Tomato Paste,TY00079,6033000303998,sachet,22.25,5.618,23.5,,1,0,1,0,1,,-20,,0,12,0,0
-Tasty Tom Tin 2.2kg,Tomato Paste,TY00080,6033000300034,tin,46,4.3478,48.0,,1,0,1,0,1,,-4,,0,6,0,0
-Tasty Tom Sachets 60g,Tomato Paste,TY00081,6033000300140,sachet,2,10,2.2,,1,0,1,0,1,,-137,,0,50,0,0
+Tasty Tom Sachets 210g,Tomato Paste,TY00075,6033000303974|6154000050115,sachet,3.45,88.4058,6.5,,1,0,1,0,1,,-81,,0,24,0,0
+Tasty Tom 210g Tin,Tomato Paste,TY00076,6033000300010,tin,6,0,7.0,,1,0,1,0,1,,41,,0,24,0,0
+Tasty Tom Sachets 400g,Tomato Paste,TY00077,6033000303981,sachet,9.25,8.1081,10.0,,1,0,1,0,1,,-150,,0,24,0,0
+Tasty Tom Tin 400g,Tomato Paste,TY00078,6925157900529,tin,9.583,9.569,10.5,,1,0,1,0,1,,10,,0,24,0,0
+Tasty Tom Sachets 1.05kg,Tomato Paste,TY00079,6033000303998,sachet,22.25,5.618,23.5,,1,0,1,0,1,,-63,,0,12,0,0
+Tasty Tom Tin 2.2kg,Tomato Paste,TY00080,6033000300034,tin,46,4.3478,48.0,,1,0,1,0,1,,-14,,0,6,0,0
+Tasty Tom Sachets 60g,Tomato Paste,TY00081,6033000300140,sachet,2,10,2.2,,1,0,1,0,1,,-332,,0,50,0,0
 Tasty Tom Tin 400g Box,Tomato Paste,TY00082,,box,227,0,4.0,,1,0,1,0,1,,1,,0,24,0,0
 Gino Sachet 200g Box,Tomato Paste,TY00083,,box,5,20,6.0,,1,0,1,0,1,,4,,0,24,0,0
 Lyzy Tin Tomato 210g Box,Tomato Paste,TY00084,6036000116537,box,0,0,14.0,,1,0,1,0,1,,1,,0,12,0,0
 Sweet Mama 70G Sachet,Tomato Paste,TY00085,6036000116506,sachet,0,0,1.0,,1,0,1,0,1,,0,,0,50,0,0
-Rosa Tomato Paste 2.2kg Tin,Tomato Paste,TY00086,6034600188817,tin,3.518555556,894.3182,35.0,,1,0,1,0,1,,-8,,0,6,0,0
+Rosa Tomato Paste 2.2kg Tin,Tomato Paste,TY00086,6034600188817,tin,3.518555556,894.3182,35.0,,1,0,1,0,1,,-24,,0,6,0,0
 Leap 210Gm Tin,Tomato Paste,TY00087,,tin,0,0,4.0,,1,0,1,0,0,,0,,0,24,0,0
 Lyzy Tin Tomato 2.2kg,Tomato Paste,TY00088,6032479100053,tin,0,0,34.0,,1,0,1,0,0,,0,,0,6,0,0
 Lyzy Tomato Paste Sachet 210G,Tomato Paste,TY00089,,sachet,0,0,4.0,,1,0,1,0,0,,0,,0,24,0,0
-Gino Sachet 200g,Tomato Paste,TY00090,8410300574903,sachet,5.958333333,9.0909,6.5,,1,0,1,0,1,,-37,,0,24,0,0
-Gino Tin 2.2kg,Tomato Paste,TY00091,8410300366539,tin,46.8,2.5641,48.0,,1,0,1,0,1,,2,,0,6,0,0
+Gino Sachet 200g,Tomato Paste,TY00090,8410300574903,sachet,5.958333333,9.0909,6.5,,1,0,1,0,1,,-81,,0,24,0,0
+Gino Tin 2.2kg,Tomato Paste,TY00091,8410300366539,tin,42,7.1429,45.0,,1,0,1,0,1,,-7,,0,6,0,0
 Kivo Tomato Paste 2.2kg,Tomato Paste,TY00092,630282995819,tin,0,0,42.0,,1,0,1,0,0,,0,,0,6,0,0
 Salsa Tomato Paste 400G,Tomato Paste,TY00093,,tin,0,0,20.5,,1,0,1,0,1,,0,,,,,
 Enapa Mackerel 425G Green (Eo),Mackerel,TY00094,8852111003683,pcs,13.88,22.4784,17.0,,1,0,1,0,1,,21,,0,24,0,0
-Enapa Mackerel(Ho) Red,Mackerel,TY00095,8853112351988,pcs,5.86,19.4539,7.0,,1,0,1,0,1,,29,,0,50,0,0
-Enapa Mackerel(Eo) Green,Mackerel,TY00096,8853112351919,pcs,6.04,15.894,7.0,,1,0,1,0,1,,116,,0,50,0,0
+Enapa Mackerel(Ho) Red,Mackerel,TY00095,8853112351988,pcs,5.86,19.4539,7.0,,1,0,1,0,1,,24,,0,50,0,0
+Enapa Mackerel(Eo) Green,Mackerel,TY00096,8853112351919,pcs,6.04,15.894,7.0,,1,0,1,0,1,,114,,0,50,0,0
 Vega Mackerel (Ho) 400g,Mackerel,TY00097,8886409508529,pcs,0,0,11.0,,1,0,1,0,0,,0,,0,24,0,0
 Tonoli 125g,Mackerel,TY00098,6032016091219,pcs,0,0,5.0,,1,0,1,0,0,,0,,0,50,0,0
 Vega Sardines,Sardine,TY00099,8886409508901,pcs,0,0,8.3,,1,0,1,0,1,,0,,0,50,0,0
-Bella Sardine,Sardine,TY00100,2004090418897,pcs,7.39,0,8.3,,1,0,1,0,1,,0,,0,50,0,0
-Enapa Sardines,Sardine,TY00101,244641749021,pcs,2.81,17.6471,8.0,,1,0,1,0,1,,19,,0,50,0,0
-Titus Sardine 125G,Sardine,TY00102,6111239500026,pcs,8.5,17.6471,10.0,,1,0,1,0,1,,-24,,0,50,0,0
+Bella Sardine,Sardine,TY00100,2004090418897,pcs,6.3,19.0476,7.5,,1,0,1,0,1,,-3,,0,50,0,0
+Enapa Sardines,Sardine,TY00101,244641749021,pcs,2.81,17.6471,8.0,,1,0,1,0,1,,6,,0,50,0,0
+Titus Sardine 125G,Sardine,TY00102,6111239500026,pcs,8.5,17.6471,10.0,,1,0,1,0,1,,-45,,0,50,0,0
 Abena Sardine,Sardine,TY00103,6033000431103,pcs,2.163265306,8.9239,8.3,,1,0,1,0,1,,0,,0,50,0,0
 Pavani Sardine,Sardine,TY00104,8886409508765,pcs,0,0,3.5,,1,0,1,0,0,,0,,0,50,0,0
 Moms,Sardine,TY00105,8994420199401,pcs,0,0,4.0,,1,0,1,0,0,,0,,0,50,0,0
@@ -113,7 +113,7 @@ Enapa Tuna Chunks 160G,Tuna Flakes\Chunks,TY00108,8852111017710,pcs,15.5,6.4516,
 Royal Atlantic Chunks 160G,Tuna Flakes\Chunks,TY00109,6033000460066,pcs,16.5,6.0606,17.5,,1,0,1,0,1,,0,,0,24,0,0
 Royal Atlantic Flakes 160G,Tuna Flakes\Chunks,TY00110,6033000460134,pcs,15.5,6.4516,16.5,,1,0,1,0,1,,0,,0,24,0,0
 Mom'S Recipe Ketchup 340G,Ketchup\Mayonnaise\Baked Beans,TY00111,6294002433391,pcs,0,0,4.5,,1,0,1,0,0,,0,,0,24,0,0
-Alfa Ketchup 340G,Ketchup\Mayonnaise\Baked Beans,TY00112,6291003191091,pcs,8.75,14.2857,10.0,,1,0,1,0,1,,1,,0,24,0,0
+Alfa Ketchup 340G,Ketchup\Mayonnaise\Baked Beans,TY00112,6291003191091,pcs,8.75,14.2857,10.0,,1,0,1,0,1,,-10,,0,24,0,0
 Alfa Mayonaisse 900G,Ketchup\Mayonnaise\Baked Beans,TY00113,6291003191022,pcs,0,0,15.0,,1,0,1,0,1,,0,,0,12,0,0
 Heinze Baked Beans 420G,Ketchup\Mayonnaise\Baked Beans,TY00114,35553901,pcs,6,13.3333,6.8,,1,0,1,0,0,,0,,0,12,0,0
 Golden Country Bb 420G,Ketchup\Mayonnaise\Baked Beans,TY00115,5032619507170,pcs,0,0,5.5,,1,0,1,0,0,,0,,0,24,0,0
@@ -123,8 +123,8 @@ Roch Spaghettie,Spaghetti,TY00118,,pcs,0,0,2.2,,1,0,1,0,1,,0,,0,40,0,0
 Moms Spaghetti,Spaghetti,TY00119,,pcs,0,0,3.0,,1,0,1,0,1,,0,,0,20,0,0
 Oba Spaghetti 450G,Spaghetti,TY00120,8690828645617,pcs,3.69,143.9024,9.0,,1,0,1,0,0,,0,,0,20,0,0
 Gino Spaghetti,Spaghetti,TY00121,,pcs,0,0,3.5,,1,0,1,0,0,,0,,0,20,0,0
-Maman Macaroni,Spaghetti,TY00122,6181100094091,pcs,0,0,12.0,,1,0,1,0,1,,0,,0,20,0,0
-Angelina Spaghetti 400G,Spaghetti,TY00123,8690946412900,pcs,6.25,12,7.0,,1,0,1,0,1,,60,,,,,
+Maman Macaroni,Spaghetti,TY00122,6181100093063,pcs,0,0,12.0,,1,0,1,0,1,,-11,,0,20,0,0
+Angelina Spaghetti 400G,Spaghetti,TY00123,8690946412900,pcs,6.25,12,7.0,,1,0,1,0,1,,17,,,,,
 Combino Spaghetti,Spaghetti,TY00124,,pcs,0,0,8.5,,1,0,1,0,0,,0,,,,,
 Indomie Onion 70G,Indomie,TY00125,,pcs,0,0,1.70352,,1,0,1,0,0,,0,,0,40,0,0
 Indomie  70G,Indomie,TY00126,,pcs,0,0,75.0,,1,0,1,0,0,,0,,0,40,0,0
@@ -132,25 +132,25 @@ Indomie 120G,Indomie,TY00127,,pcs,0,0,2.62288,,1,0,1,0,0,,0,,0,40,0,0
 Indomie 180G,Indomie,TY00128,6034000390216,pcs,0,0,9.5,,1,0,1,0,0,,0,,0,24,0,0
 U2 Spice,Spices,TY00129,8850259054116,pcs,0,0,0.8,,1,0,1,0,1,,0,,0,1,0,0
 Sugar Bag Morocco 50kg,Sugar,TY00130,6111029000422,50kg,0,0,640.0,,1,0,1,0,1,,0,,0,1,0,0
-Gino Curry Powder 40G,Spices,TY00131,8410300366645,pcs,0.45,33.3333,0.6,,1,0,1,0,1,,-52,,0,200,0,0
+Gino Curry Powder 40G,Spices,TY00131,8410300366645,pcs,0.45,33.3333,0.6,,1,0,1,0,1,,-106,,0,200,0,0
 Unoli Margerine 1kg,Oil,TY00132,,1kg,0,0,5.5,,1,0,1,0,0,,0,,0,60,0,0
 Wâ†„Fa Chef Goat / Fish / Jollof,Spices,TY00133,6034000557046,pcs,0,0,0.6,,1,0,1,0,1,,0,,0,200,0,0
-Remies Chicken Seasoning 10G,Spices,TY00134,6989546014556,pcs,0.484603735,0,1.0,,1,0,1,0,1,,334,,0,200,0,0
+Remies Chicken Seasoning 10G,Spices,TY00134,6989546014556,pcs,0.484603735,0,1.0,,1,0,1,0,1,,140,,0,200,0,0
 Remies Jollof 50G Seasoning Powder,Spices,TY00135,6969228810126,pcs,0,0,4.0,,1,0,1,0,1,,-12,,,,,
-Sankofa Spice Stew 5G,Spices,TY00136,6036000063497,5g,0.561784387,0,0.8,,1,0,1,0,1,,282,,0,1,0,0
-Bennies Chicken Powder,Spices,TY00137,6009633520002,pcs,0,0,1.5,,1,0,1,0,1,,123,,,,,
-Onga Strip Blue,Spices,TY00138,6008155013610,pcs,0,0,1.0,,1,0,1,0,1,,443,,,,,
-Onga Strips Small Red,Spices,TY00139,6008155015324,pcs,0,0,1.0,,1,0,1,0,1,,114,,,,,
+Sankofa Spice Stew 5G,Spices,TY00136,6036000063497,5g,0.561784387,0,0.8,,1,0,1,0,1,,184,,0,1,0,0
+Bennies Chicken Powder,Spices,TY00137,6009633520002,pcs,0,0,1.5,,1,0,1,0,1,,75,,,,,
+Onga Strip Blue,Spices,TY00138,6008155013610,pcs,0,0,1.0,,1,0,1,0,1,,427,,,,,
+Onga Strips Small Red,Spices,TY00139,6008155015324,pcs,0,0,1.0,,1,0,1,0,1,,71,,,,,
 Egye Aware [rplc],Spices,TY00140,,pcs,0,0,0.0,,1,0,1,0,0,,0,,,,,
-Onga Beef Tablet (3Pcs),Spices,TY00141,,3pcs,1.6927,18.15442784,2.0,,1,0,1,0,1,,-16,,0,24,0,0
-Onga Shrimp Tablet (3Pcs,Spices,TY00142,,3pcs,0,0,2.0,,1,0,1,0,1,,-250,,0,24,0,0
-Maggi  10G Tablet (3Pcs),Spices,TY00143,,3pcs,1.5104,32.41525424,2.0,,1,0,1,0,1,,-53,,,,,
+Onga Beef Tablet (3Pcs),Spices,TY00141,,3pcs,1.6927,18.15442784,2.0,,1,0,1,0,1,,-21,,0,24,0,0
+Onga Shrimp Tablet (3Pcs,Spices,TY00142,,3pcs,0,0,2.0,,1,0,1,0,1,,-454,,0,24,0,0
+Maggi  10G Tablet (3Pcs),Spices,TY00143,,3pcs,1.5104,32.41525424,2.0,,1,0,1,0,1,,-107,,,,,
 Vinegar,Spices,TY00144,,,0,0,30.0,,1,0,1,0,0,,0,,,,,
 Coca Cola 2L,Beverages,TY00145,5449000000286,2l,0,0,24.0,,1,0,1,0,0,,0,,3,6,0,0
 Coca Cola Cans 330Ml,Beverages,TY00146,5449000000996|6130003000258,330ml,0,0,9.0,,1,0,1,0,1,,0,,0,24,0,0
-Coca Cola 300Ml,Beverages,TY00147,90338052,300ml,4.416666667,13.2075,5.0,,1,0,1,0,1,,0,,0,12,0,0
-Coca Cola 1.5L,Beverages,TY00148,5449000000439,1.5l,0,0,20.0,,1,0,1,0,1,,-6,,0,6,0,0
-Fanta 1.5L,Beverages,TY00149,5449000234261,1.5l,16.17,11.3173,18.0,,1,0,1,0,1,,0,,0,6,0,0
+Coca Cola 300Ml,Beverages,TY00147,90338052,300ml,4.416666667,13.2075,5.0,,1,0,1,0,1,,-19,,0,12,0,0
+Coca Cola 1.5L,Beverages,TY00148,5449000000439,1.5l,0,0,20.0,,1,0,1,0,1,,-16,,0,6,0,0
+Fanta 1.5L,Beverages,TY00149,5449000234261,1.5l,16.17,23.6858,20.0,,1,0,1,0,1,,-6,,0,6,0,0
 Malta Guinness Cans 330Ml,Beverages,TY00150,6034000106893,330ml,0,0,8.0,,1,0,1,0,0,,0,,0,24,0,0
 Malta Guinness Pet 350Ml,Beverages,TY00151,5000213019160,350ml,0,0,7.0,,1,0,1,0,0,,0,,0,12,0,0
 Bel Malt 350Ml,Beverages,TY00152,6034000351255,350ml,0,0,3.5,,1,0,1,0,0,,0,,0,12,0,0
@@ -159,451 +159,451 @@ Bel Energy (Boss) 300Ml,Beverages,TY00154,6034000351187,300ml,0,0,2.5,,1,0,1,0,0
 Bel Soda 350Ml,Beverages,TY00155,6034000351569,350ml,0,0,2.0,,1,0,1,0,0,,1,,0,16,0,0
 Bel-Aqua Medium 750Ml,Beverages,TY00156,6034000181142,750ml,0,0,3.0,,1,0,1,0,0,,0,,0,15,0,0
 Bel-Aqua Small 500Ml,Beverages,TY00157,,500ml,0,0,2.0,,1,0,1,0,0,,0,,0,15,0,0
-Fanta 300Ml,Beverages,TY00158,90377235,300ml,3.46,44.5087,5.0,,1,0,1,0,1,,2,,0,12,0,0
-Spar-Leta Tonic Pet 350Ml,Beverages,TY00159,5449000232731,350ml,0,0,4.5,,1,0,1,0,1,,6,,0,16,0,0
-Spar-Leta Soda Pet 350Ml,Beverages,TY00160,5449000232755,350ml,3.4583,0,5.0,,1,0,1,0,1,,6,,0,16,0,0
-Spar-Leta Orange Pet 350Ml,Beverages,TY00161,5449000232816,350ml,0,0,5.0,,1,0,1,0,1,,0,,0,16,0,0
-Schweppes Citrus Pet 350Ml,Beverages,TY00162,54011397,350ml,2.015463815,13.20669278,5.0,,1,0,1,0,1,,-1,,0,12,0,0
+Fanta 300Ml,Beverages,TY00158,90377235,300ml,3.46,44.5087,5.0,,1,0,1,0,1,,-10,,0,12,0,0
+Spar-Leta Tonic Pet 350Ml,Beverages,TY00159,5449000232731,350ml,0,0,4.5,,1,0,1,0,1,,2,,0,16,0,0
+Spar-Leta Soda Pet 350Ml,Beverages,TY00160,5449000232755,350ml,3.4583,0,5.0,,1,0,1,0,1,,-6,,0,16,0,0
+Spar-Leta Orange Pet 350Ml,Beverages,TY00161,5449000232816,350ml,0,0,5.0,,1,0,1,0,1,,-1,,0,16,0,0
+Schweppes Citrus Pet 350Ml,Beverages,TY00162,54011397,350ml,2.015463815,13.20669278,5.0,,1,0,1,0,1,,-20,,0,12,0,0
 Predator 350Ml,Beverages,TY00163,5060608740512,350ml,2.127272727,0,5.0,,1,0,1,0,1,,0,,0,12,0,0
 Fanta Cans 330Ml,Beverages,TY00164,5449000011527,330ml,0,0,9.0,,1,0,1,0,1,,0,,0,24,0,0
 Sprite Cans 330Ml,Beverages,TY00165,5449000014535,330ml,0,0,9.0,,1,0,1,0,1,,0,,0,24,0,0
-Voltic Water Small 500Ml,Beverages,TY00166,6034000048032,500ml,1.54,29.8701,2.0,,1,0,1,0,1,,-20,,0,15,0,0
-Voltic Water Medium 750Ml,Beverages,TY00167,6034000048018,750ml,2.09,43.5407,3.0,,1,0,1,0,1,,-11,,0,12,0,0
+Voltic Water Small 500Ml,Beverages,TY00166,6034000048032,500ml,1.54,29.8701,2.0,,1,0,1,0,1,,-37,,0,15,0,0
+Voltic Water Medium 750Ml,Beverages,TY00167,6034000048018,750ml,2.09,43.5407,3.0,,1,0,1,0,1,,-26,,0,12,0,0
 Storm Energy Pet 350Ml,Beverages,TY00168,6033000342034,350ml,0,0,2.5,,1,0,1,0,0,,0,,0,12,0,0
 Rush 350Ml,Beverages,TY00169,6034000252064,350ml,0,0,2.5,,1,0,1,0,0,,0,,0,12,0,0
 Vimto Pet 300Ml,Beverages,TY00170,6034000247107,300ml,0,0,3.0,,1,0,1,0,0,,0,,,,,
-Chicken Thighs Soft(Broilers),Meat\Fish,TY00171,,1kg,26.51,5.6205,28.0,,1,0,1,0,1,,-77.3,,20,50,1,0
-Boneless Beef,Meat\Fish,TY00172,,1kg,56,25,70.0,,1,0,1,0,1,,-33.3,,0,1,0,0
+Chicken Thighs Soft(Broilers),Meat\Fish,TY00171,,1kg,26.51,5.6205,28.0,,1,0,1,0,1,,-191.3,,20,50,1,0
+Boneless Beef,Meat\Fish,TY00172,,1kg,56,25,70.0,,1,0,1,0,1,,-80.3,,0,1,0,0
 Beef(Boned),Meat\Fish,TY00173,,1kg,0,0,38.0,,1,0,1,0,0,,0,,0,1,0,0
 Goat Meat,Meat\Fish,TY00174,,kg,70,14.2857,80.0,,1,1,1,1,1,,0,,0,1,0,0
-Pork - Local,Meat\Fish,TY00175,,1kg,55,0,55.0,,1,0,1,0,1,,-118.33,,0,1,0,0
-Chicken Layer Thigh Hard,Meat\Fish,TY00176,,kg,30.79,3.9298,32.0,,1,0,1,0,1,,-264.5,,,,,
-Drumstick,Meat\Fish,TY00177,,kg,27,25.9259,34.0,,1,0,1,0,1,,-41,,,,,
-Chicken Wings Hard,Meat\Fish,TY00178,,kg,33,3.0303,34.0,,1,0,1,0,1,,-142.5,,,,,
-Chicken Wings Soft,Meat\Fish,TY00179,,kg,22.96,48.0836,34.0,,1,0,1,0,1,,-15.5,,,,,
-Cvale Gizzard,Meat\Fish,TY00180,,kg,26.5,9.434,29.0,,1,0,1,0,1,,-37,,,,,
-Chicken Back,Meat\Fish,TY00181,,kg,19,15.7895,22.0,,1,0,1,0,1,,-135,,,,,
-Kpanla 16+,Meat\Fish,TY00182,,kg,24,25,30.0,,1,0,1,0,1,,-28.5,,,,,
-Kpanla 20+,Meat\Fish,TY00343,,kg,31.6,10.7595,35.0,,1,0,1,0,1,,28.935,,,,,
-Red Fish Small,Meat\Fish,TY00183,,kg,0,0,38.0,,1,0,1,0,1,,-41.5,,,,,
-Cassava Fish,Meat\Fish,TY00184,,kg,32.67,22.4365,40.0,,1,0,1,0,1,,-18.545,,,,,
+Pork - Local,Meat\Fish,TY00175,,1kg,55,0,55.0,,1,0,1,0,1,,-163.23,,0,1,0,0
+Chicken Layer Thigh Hard,Meat\Fish,TY00176,,kg,30.79,3.9298,32.0,,1,0,1,0,1,,-658,,,,,
+Drumstick,Meat\Fish,TY00177,,kg,27,25.9259,34.0,,1,0,1,0,1,,-125.5,,,,,
+Chicken Wings Hard,Meat\Fish,TY00178,,kg,33,3.0303,34.0,,1,0,1,0,1,,-369.5,,,,,
+Chicken Wings Soft,Meat\Fish,TY00179,,kg,22.96,48.0836,34.0,,1,0,1,0,1,,-18.5,,,,,
+Cvale Gizzard,Meat\Fish,TY00180,,kg,27,11.1111,30.0,,1,0,1,0,1,,-96,,,,,
+Chicken Back,Meat\Fish,TY00181,,kg,19,15.7895,22.0,,1,0,1,0,1,,-329.5,,,,,
+Kpanla 16+,Meat\Fish,TY00182,,kg,24,25,30.0,,1,0,1,0,1,,-268.5,,,,,
+Kpanla 20+,Meat\Fish,TY00343,,kg,31.6,10.7595,35.0,,1,0,1,0,1,,7.435,,,,,
+Red Fish Small,Meat\Fish,TY00183,,kg,0,0,38.0,,1,0,1,0,1,,-75,,,,,
+Cassava Fish,Meat\Fish,TY00184,,kg,42,7.1429,45.0,,1,0,1,0,1,,-49.445,,,,,
 Salmon,Meat\Fish,TY00185,,kg,0,0,25.0,,1,0,1,0,0,,0,,,,,
 Amah,Meat\Fish,TY00186,,kg,0,0,25.0,,1,0,1,0,0,,0,,,,,
-Chicken Breast  1kg,Meat\Fish,TY00187,,kg,45,11.1111,50.0,,1,0,1,0,1,,-3.5,,,,,
-Cow Leg Kotodwe,Meat\Fish,TY00188,,kg,24,8.3333,26.0,,1,0,1,0,1,,-30.2,,,,,
-Pork Feet,Meat\Fish,TY00189,,kg,26,7.6923,28.0,,1,0,1,0,1,,7.6,,,,,
-Beef Tripe (Intestines)  Yemad3E,Meat\Fish,TY00190,,kg,24,16.6667,28.0,,1,0,1,0,1,,-106.5,,,,,
+Chicken Breast  1kg,Meat\Fish,TY00187,,kg,45,11.1111,50.0,,1,0,1,0,1,,-19.5,,,,,
+Cow Leg Kotodwe,Meat\Fish,TY00188,,kg,24,8.3333,26.0,,1,0,1,0,1,,-85.2,,,,,
+Pork Feet,Meat\Fish,TY00189,,kg,26,7.6923,28.0,,1,0,1,0,1,,4.3,,,,,
+Beef Tripe (Intestines)  Yemad3E,Meat\Fish,TY00190,,kg,24,16.6667,28.0,,1,0,1,0,1,,-131.5,,,,,
 Full Whole Chicken [rplc,Meat\Fish,TY00191,,kg,0,0,380.0,,1,0,1,0,0,,0,,,,,
 Doux,Meat\Fish,TY00192,3280316027442,kg,0,0,12.0,,1,0,1,0,0,,3,,,,,
-Seara Sausage,Meat\Fish,TY00193,7894904038305,pcs,13.5,11.1111,15.0,,1,0,1,0,1,,-14,,,,,
-Sadia Sausage,Meat\Fish,TY00194,7893000050785,pcs,14.16,12.9944,16.0,,1,0,1,0,1,,-36,,,,,
-Chicken Legs (Feet),Meat\Fish,TY00195,,kg,23,13.0435,26.0,,1,0,1,0,1,,-24.5,,,,,
-Turkey Wings,Meat\Fish,TY00196,,kg,40,12.5,45.0,,1,0,1,0,1,,-8,,,,,
+Seara Sausage,Meat\Fish,TY00193,7894904038305,pcs,13.5,11.1111,15.0,,1,0,1,0,1,,-49,,,,,
+Sadia Sausage,Meat\Fish,TY00194,7893000050785,pcs,14,10.7143,15.5,,1,0,1,0,1,,-126,,,,,
+Chicken Legs (Feet),Meat\Fish,TY00195,,kg,23,13.0435,26.0,,1,0,1,0,1,,-35.5,,,,,
+Turkey Wings,Meat\Fish,TY00196,,kg,40,12.5,45.0,,1,0,1,0,1,,-44,,,,,
 Goat Head And Leg,Meat\Fish,TY00197,,kg,0,0,45.0,,1,0,1,0,1,,0,,,,,
 Goat Tripe Intestines,Meat\Fish,TY00198,,kg,0,0,40.0,,1,0,1,0,0,,0,,,,,
-Beef Sinews Ntini [Veins],Meat\Fish,TY00199,,kg,32,9.375,35.0,,1,0,1,0,1,,-4.21,,,,,
-Facemask (Cow Face),Meat\Fish,TY00200,,kg,32.5,7.6923,35.0,,1,0,1,0,1,,-9.9,,,,,
-Yellow Tail,Meat\Fish,TY00201,,kg,19.72,62.2718,32.0,,1,0,1,0,1,,2.61,,,,,
+Beef Sinews Ntini [Veins],Meat\Fish,TY00199,,kg,32,9.375,35.0,,1,0,1,0,1,,-15.21,,,,,
+Facemask (Cow Face),Meat\Fish,TY00200,,kg,32.5,7.6923,35.0,,1,0,1,0,1,,-17.4,,,,,
+Yellow Tail,Meat\Fish,TY00201,,kg,19.72,62.2718,32.0,,1,0,1,0,1,,-15.99,,,,,
 Beef Sausage - Seara,Meat\Fish,TY00341,,kg,0,0,16.0,,1,0,1,0,1,,0,,,,,
 Beef Sausage - Sadia,Meat\Fish,TY00202,,kg,0,0,18.0,,1,0,1,0,1,,0,,,,,
-Amani,Meat\Fish,TY00203,,kg,0,0,24.0,,1,0,1,0,1,,-15,,,,,
+Amani,Meat\Fish,TY00203,,kg,0,0,24.0,,1,0,1,0,1,,-30,,,,,
 Turkey Tail,Meat\Fish,TY00204,,kg,0,0,50.0,,1,0,1,0,1,,7.8,,,,,
 Turkey Tips,Meat\Fish,TY00340,,kg,32.41841004,0,40.0,,1,0,1,0,1,,10.8,,,,,
 Local Salmon,Meat\Fish,TY00342,,kg,23.62453949,35.4784,32.0,,1,0,1,0,1,,-13.2,,,,,
 Boerewors Sausage,Meat\Fish,TY00205,,kg,0,0,0.0,,1,0,1,0,0,,0,,,,,
-Hake [Ama],Meat\Fish,TY00206,,kg,32,9.375,35.0,,1,0,1,0,1,,-19.485,,,,,
+Hake [Ama],Meat\Fish,TY00206,,kg,32,9.375,35.0,,1,0,1,0,1,,-65.985,,,,,
 Special Rice 25kg,Rice,TY00207,,25kg,335,4.4776,350.0,,1,0,1,0,1,,0,,,,,
-Gino Pepper & Onion 60G,Tomato Paste,TY00208,8410300361435,sachet,0,0,2.2,,1,0,1,0,1,,-37,,,,,
-Chanel Rice 4.5kgx5,Rice,TY00209,,5x4.5kg,332,5.4217,350.0,,1,0,1,0,1,,6,,,,,
-Chanel Rice 25kg,Rice,TY00210,,25kg,323,8.3591,350.0,,1,0,1,0,1,,-1,,,,,
-Peacock Rice 5X5kg,Rice,TY00211,,25kg,570,3.5088,590.0,,1,0,1,0,1,,0,,,,,
+Gino Pepper & Onion 60G,Tomato Paste,TY00208,8410300361435,sachet,0,0,2.2,,1,0,1,0,1,,-85,,,,,
+Chanel Rice 4.5kgx5,Rice,TY00209,,5x4.5kg,325,6.1538,345.0,,1,0,1,0,1,,26,,,,,
+Chanel Rice 25kg,Rice,TY00210,,25kg,322,6.2112,342.0,,1,0,1,0,1,,6,,,,,
+Peacock Rice 5X5kg,Rice,TY00211,,25kg,570,3.5088,590.0,,1,0,1,0,1,,-2,,,,,
 Viking 25Ltr Oil,Oil,TY00212,6034000190779,25l,0,0,460.0,,1,0,1,0,1,,0,,,,,
-Sugar Morocco  Olonka 3kg,Sugar,TY00214,,2kg,0,0,40.0,,1,0,1,0,1,,-22.5,,,,,
+Sugar Morocco  Olonka 3kg,Sugar,TY00214,,2kg,0,0,40.0,,1,0,1,0,1,,-39,,,,,
 Wofa Stew Spice,Spices,TY00215,6034000557060,pcs,0,0,0.6,,1,0,1,0,1,,0,,,,,
-Cindy Rice 5kg,Rice,TY00216,6034000179002,5kg,79,3.7975,82.0,,1,0,1,0,1,,-2,,,,,
+Cindy Rice 5kg,Rice,TY00216,6034000179002,5kg,72,4.1667,75.0,,1,0,1,0,1,,-9,,,,,
 [rplc,Indomie,TY00218,,box,0,0,96.0,,1,0,1,0,0,,2,,,,,
 Indomie Onion  Box,Indomie,TY00251,,box,0,0,96.0,,1,0,1,0,0,,0,,,,,
 Indomie Super Full Box Small,Indomie,TY00219,,box,0,0,102.0,,1,0,1,0,0,,-6,,,,,
 Vega Tomato Paste Sachet,Tomato Paste,TY00220,,sachet,0,0,3.0,,1,0,1,0,1,,0,,,,,
 Hot & Spicy Sausage,Meat\Fish,TY00221,,1kg,0,0,20.0,,1,0,1,0,1,,0,,,,,
-Pig Head (Pork),Meat\Fish,TY00222,,kg,0,0,35.0,,1,0,1,0,1,,-3.4,,,,,
+Pig Head (Pork),Meat\Fish,TY00222,,kg,0,0,35.0,,1,0,1,0,1,,-15.3,,,,,
 Gino Tomato Tin 210G,Tomato Paste,TY00223,8410300361374,tin,0,0,7.0,,1,0,1,0,1,,0,,,,,
 Fortune Orange Rice 25kg,Rice,TY00224,,25kg,0,0,375.0,,1,0,1,0,1,,1,,,,,
 Diora 5kgx5,Rice,TY00226,,25kg,0,0,200.0,,1,0,1,0,1,,0,,,,,
 Diora Thai Rice 25kg,Rice,TY00225,,25kg,0,0,200.0,,1,0,1,0,1,,0,,,,,
 Kontomire,Spices,TY00227,,pcs,0,0,12.0,,1,0,1,0,1,,0,,,,,
 Oba Rice 22.5kg,Rice,TY00229,,22.5kg,330,4.5455,345.0,,1,0,1,0,1,,0,,,,,
-Oba Rice 4.5kg,Rice,TY00228,8936089969278,5kg,65,6.1538,69.0,,1,0,1,0,1,,0,,,,,
-Red Fish Big,Meat\Fish,TY00230,,1kg,0,0,42.0,,1,0,1,0,1,,-1.9,,,,,
+Oba Rice 4.5kg x5,Rice,TY00228,8936089969278,5x5,320,4.6875,335.0,,1,0,1,0,1,,-1,,,,,
+Red Fish Big,Meat\Fish,TY00230,,1kg,0,0,42.0,,1,0,1,0,1,,-31.2,,,,,
 Cindy Gold Rice 5kg,Rice,TY00231,6033000431905,5kg,70.9,5.7828,75.0,,1,0,1,0,1,,0,,,,,
-Bella Rice Viet 22.5kg,Rice,TY00232,,22.5kg,320,6.25,340.0,,1,0,1,0,1,,4,,1,2,1,1
+Bella Rice Viet 22.5kg,Rice,TY00232,,22.5kg,320,6.25,340.0,,1,0,1,0,1,,3,,1,2,1,1
 Ruby Margarine,Oil,TY00233,,pcs,0,0,4.5,,1,0,1,0,0,,0,,,,,
 Viva Rice 5X4.5kg,Rice,TY00239,,5x4.5kg,0,0,370.0,,1,0,1,0,1,,0,,,,,
 Viva 4.5kg Rice,Rice,TY00240,,5kg,71,0,74.0,,1,0,1,0,1,,0,,,,,
 Starlite Rice 50kg,Rice,TY00546,,50kg,0,0,310.0,,1,0,1,0,1,,0,,,,,
 Indomie 120G Box,Indomie,TY00241,,box,0,0,108.0,,1,0,1,0,0,,0,,,,,
 Indomie 70G Box,Indomie,TY00314,,box,0,0,75.0,,1,0,1,0,0,,0,,,,,
-Yellow Tail Big,Meat\Fish,TY00243,,kg,0,0,34.0,,1,0,1,0,1,,6.1,,,,,
+Yellow Tail Big,Meat\Fish,TY00243,,kg,0,0,34.0,,1,0,1,0,1,,-4.8,,,,,
 Unoli Margarine 250G,Oil,TY00246,8715715100335,pcs,0,0,0.0,,1,0,1,0,1,,0,,,,,
-Enapa Mackerel Red Ho 425G,Mackerel,TY00245,8852111003669,pcs,13.46,26.3001,17.0,,1,0,1,0,1,,62,,,,,
-Lyzy Tin Tomato 210G,Tomato Paste,TY00247,6032479100022,tin,0,0,6.5,,1,0,1,0,1,,-5,,,,,
-Remie Beef Seasoning 10G,Spices,TY00248,6969228800141,pcs,0.700729927,0,1.0,,1,0,1,0,1,,19,,,,,
-Remies 10G Jollof,Spices,TY00249,6969228800127,pcs,0,0,1.0,,1,0,1,0,1,,451,,,,,
+Enapa Mackerel Red Ho 425G,Mackerel,TY00245,8852111003669,pcs,13.46,26.3001,17.0,,1,0,1,0,1,,53,,,,,
+Lyzy Tin Tomato 210G,Tomato Paste,TY00247,6032479100022,tin,0,0,6.5,,1,0,1,0,1,,-16,,,,,
+Remie Beef Seasoning 10G,Spices,TY00248,6969228800141,pcs,0.700729927,0,1.0,,1,0,1,0,1,,4,,,,,
+Remies 10G Jollof,Spices,TY00249,6969228800127,pcs,0,0,1.0,,1,0,1,0,1,,423,,,,,
 Bennies Beef Powder,Spices,TY00252,6009633520019,pcs,0,0,1.5,,1,0,1,0,1,,-7,,,,,
 Onga 64X12G Beef Tablet Box,Spices,TY00253,6008155016383,64x12g,0,0,32.0,,1,0,1,0,1,,0,,,,,
 Morocco Sugar Half Olonka,Sugar,TY00254,6008155007404,64p,0,0,30.0,,1,0,1,0,0,,23,,,,,
-Maggi 60X10G Shrimp Tablets Box,Spices,TY00255,6181002001265,60x10g,28.3333,0,32.0,,1,0,1,0,1,,19.5,,,,,
-Coca Cola 30Cl Pack,Beverages,TY00234,5449000265289,0.3lx12,53,5.6604,56.0,,1,0,1,0,1,,0,,,,,
-Schweppes Citrus 35Cl Pack,Beverages,TY00235,5449000308306,0.35lx12,41.5,0,58.0,,1,0,1,0,1,,1,,,,,
+Maggi 60X10G Shrimp Tablets Box,Spices,TY00255,6181002001265,60x10g,28.3333,0,32.0,,1,0,1,0,1,,17.5,,,,,
+Coca Cola 30Cl Pack,Beverages,TY00234,5449000265289,0.3lx12,53,5.6604,56.0,,1,0,1,0,1,,-2,,,,,
+Schweppes Citrus 35Cl Pack,Beverages,TY00235,5449000308306,0.35lx12,41.5,39.759,58.0,,1,0,1,0,1,,1,,,,,
 Wofa Beef Spice 10G,Spices,TY00236,6034000557039,pcs,0,0,0.6,,1,0,1,0,1,,0,,,,,
 Oba Spaghetti 450G Box,Spaghetti,TY00237,,20x450g,0,0,158.0,,1,0,1,0,0,,0,,,,,
-Royal Umbrella 5kg,Rice,TY00356,8850187400030,5kg,106,3.7736,110.0,,1,0,1,0,1,,1,,,,,
-Bella 45kg,Rice,TY00256,,45kg,620,3.2258,640.0,,1,0,1,0,1,,4,,0,2,1,1
-Chanel Gold 5kg,Rice,TY00257,,5kg,65,6.1538,69.0,,1,0,1,0,1,,2,,,,,
-Indomie Super Pack Box,Indomie,TY00349,,box,210,9.5238,230.0,,1,0,1,0,1,,29.5,,,,,
-Indomie Hungryman Box,Indomie,TY00350,,box,205,7.3171,220.0,,1,0,1,0,1,,4,,,,,
+Royal Umbrella 5kg,Rice,TY00356,8850187400030,5kg,111,2.7027,114.0,,1,0,1,0,1,,-6,,,,,
+Bella 45kg,Rice,TY00256,,45kg,620,3.2258,640.0,,1,0,1,0,1,,3,,0,2,1,1
+Chanel Gold 5kg,Rice,TY00257,,5kg,65,6.1538,69.0,,1,0,1,0,1,,1,,,,,
+Indomie Super Pack Box,Indomie,TY00349,,box,228,5.2632,240.0,,1,0,1,0,1,,27,,,,,
+Indomie Hungryman Box,Indomie,TY00350,,box,205,7.3171,220.0,,1,0,1,0,1,,2.5,,,,,
 Pretty Lady 45kg,Rice,TY00258,,45kg,630,1.5873,640.0,,1,0,1,0,1,,5,,,,,
 Viking  Oil 25L,Oil,TY00336,,25l,0,0,460.0,,1,0,1,0,1,,0,,,,,
 Chanel Gold 5X5kg,Rice,TY00337,,5x5kg,325,6.1538,345.0,,1,0,1,0,1,,-2,,,,,
 Lyzy 2.2 Paste,Tomato Paste,TY00296,,tin,0,0,23.0,,1,0,1,0,1,,0,,,,,
-Lele Sardine,Sardine,TY00261,6034000179279,pcs,8,12.5,9.0,,1,0,1,0,1,,68,,,,,
+Lele Sardine,Sardine,TY00261,6034000179279,pcs,8,12.5,9.0,,1,0,1,0,1,,54,,,,,
 Medaase Spag 435G,Spaghetti,TY00272,8697480070566,pcs,6.75,18.5185,8.0,,1,0,1,0,1,,0,,,,,
 Angelina Macaroni,Spaghetti,TY00263,8690946413143,pcs,0,0,6.5,,1,0,1,0,1,,0,,,,,
 Abena Beef Pate,Ketchup\Mayonnaise\Baked Beans,TY00264,6033000431981,pcs,0,0,14.0,,1,0,1,0,1,,-1,,,,,
-Lele Beef Pate,Ketchup\Mayonnaise\Baked Beans,TY00265,6033000431721,pcs,0,0,14.5,,1,0,1,0,1,,6,,,,,
+Lele Beef Pate,Ketchup\Mayonnaise\Baked Beans,TY00265,6033000431721,pcs,0,0,14.5,,1,0,1,0,1,,0,,,,,
 Tilemsi,Rice,TY00266,,5x5kg,0,0,600.0,,1,0,1,0,1,,1,,,,,
-Unoli Soya Oil 1L,Oil,TY00355,8715715030618,1l,39.17,22.5428,48.0,,1,0,1,0,1,,0,,,,,
-Abena Rice 4.5kgx5,Rice,TY00250,,5x4.5kg,373,4.5576,390.0,,1,0,1,0,1,,0,,1,2,1,1
-Kpanla 25+,Meat\Fish,TY00259,,kg,34,11.7647,38.0,,1,0,1,0,1,,-21.765,,,,,
-Chicken Broiler Carton Holland Mountaire,Meat\Fish,TY00260,,10kg,270,7.4074,290.0,,1,0,1,0,1,,0,,,,,
+Unoli Soya Oil 1L,Oil,TY00355,8715715030618,1l,39.17,22.5428,48.0,,1,0,1,0,1,,-2,,,,,
+Abena Rice 4.5kgx5,Rice,TY00250,,5x4.5kg,345,5.7971,365.0,,1,0,1,0,1,,-2,,1,2,1,1
+Kpanla 25+,Meat\Fish,TY00259,,kg,34,11.7647,38.0,,1,0,1,0,1,,-38.965,,,,,
+Chicken Broiler Carton Holland Mountaire,Meat\Fish,TY00260,,10kg,270,7.4074,290.0,,1,0,1,0,1,,-0.5,,,,,
 Gino 210G Box,Tomato Paste,TY00262,,box,0,0,155.0,,1,0,1,0,1,,0,,,,,
-Full Chicken Box,Meat\Fish,TY00268,,10kg,340,11.7647,380.0,,1,0,1,0,1,,-40,,,,,
+Full Chicken Box,Meat\Fish,TY00268,,10kg,340,11.7647,380.0,,1,0,1,0,1,,-67,,,,,
 Full Chicken Med,Meat\Fish,TY00269,,1kg,0,0,38.0,,1,0,1,0,0,,-8,,,,,
-Fanta Lemon 300Ml,Beverages,TY00270,90418723,300ml,3.46,44.5087,5.0,,1,0,1,0,1,,9,,,,,
-Fanta Cocktail 30Cl,Beverages,TY00271,42116011,30cl,3.46,44.5087,5.0,,1,0,1,0,1,,-5,,10,20,1,10
-Onga Jollof,Spices,TY00273,6008155008029,pcs,0,0,2.0,,1,0,1,0,1,,-18,,,,,
-Kpanla 14+ Box 10kg,Meat\Fish,TY00276,,carton,390,0,290.0,,1,0,1,0,1,,8,,,,,
-Full Chicken Small,Meat\Fish,TY00277,,pcs,36,5.5556,38.0,,1,0,1,0,1,,-4,,,,,
-Gino Tomato Paste 380G,Tomato Paste,TY00278,8410300361459,sachet,8.958333333,6.0465,9.5,,1,0,1,0,1,,-33,,,,,
-Gino Tomato Paste 1.05kg,Tomato Paste,TY00279,8410300361466,sachet,21.92,4.927,23.0,,1,0,1,0,1,,-74,,,,,
+Fanta Lemon 300Ml,Beverages,TY00270,90418723,300ml,3.46,44.5087,5.0,,1,0,1,0,1,,-10,,,,,
+Fanta Cocktail 30Cl,Beverages,TY00271,42116011,30cl,3.46,44.5087,5.0,,1,0,1,0,1,,-19,,10,20,1,10
+Onga Jollof,Spices,TY00273,6008155008029,pcs,0,0,2.0,,1,0,1,0,1,,-28,,,,,
+Kpanla 14+ Box 10kg,Meat\Fish,TY00276,,carton,390,0,290.0,,1,0,1,0,1,,7,,,,,
+Full Chicken Small,Meat\Fish,TY00277,,pcs,36,5.5556,38.0,,1,0,1,0,1,,-25,,,,,
+Gino Tomato Paste 380G,Tomato Paste,TY00278,8410300361459,sachet,8.958333333,6.0465,9.5,,1,0,1,0,1,,-72,,,,,
+Gino Tomato Paste 1.05kg,Tomato Paste,TY00279,8410300361466,sachet,21.92,4.927,23.0,,1,0,1,0,1,,-125,,,,,
 Kivo Tomato Paste 400G,Tomato Paste,TY00290,630282995871,sachet,7.397260274,0,8.5,,1,0,1,0,0,,0,,,,,
 Lele Oil 5L,Oil,TY00339,8699443801705,5l,0,0,255.0,,1,0,1,0,1,,0,,,,,
 Viva 22.5 kg,Rice,TY00280,,22.5kg,0,0,370.0,,1,0,1,0,1,,1,,,,,
-Tasty Tom 65g Box,Tomato Paste,TY00338,,box,94.5,0,104.0,,1,0,1,0,1,,13,,,,,
-Chicken Layer Box,Meat\Fish,TY00281,,carton,285,8.7719,310.0,,1,0,1,0,1,,23,,,,,
+Tasty Tom 65g Box,Tomato Paste,TY00338,,box,94.5,0,104.0,,1,0,1,0,1,,11,,,,,
+Chicken Layer Box,Meat\Fish,TY00281,,carton,285,8.7719,310.0,,1,0,1,0,1,,15.5,,,,,
 Red Fish Box,Meat\Fish,TY00282,,carton,0,0,440.0,,1,0,1,0,1,,0,,,,,
 Fortune Delicious,Rice,TY00283,,5kg,0,0,48.0,,1,0,1,0,0,,0,,,,,
-Frytol 2L,Oil,TY00284,6034000329728,2l,57.5,7.8261,62.0,,1,0,1,0,1,,-2,,,,,
+Frytol 2L,Oil,TY00284,6034000329728,2l,59,10.1695,65.0,,1,0,1,0,1,,-8,,,,,
 Google Rice,Rice,TY00285,,45kg,0,0,630.0,,1,0,1,0,1,,0,,,,,
-Chicken Back Box,Meat\Fish,TY00295,,carton,184,8.6957,200.0,,1,0,1,0,1,,27.5,,,,,
+Chicken Back Box,Meat\Fish,TY00295,,carton,184,8.6957,200.0,,1,0,1,0,1,,9.5,,,,,
 Fortune Green 25kg,Rice,TY00286,,25kg,0,0,390.0,,1,0,1,0,1,,0,,,,,
-Kpanla 20+ Box 10kg,Meat\Fish,TY00287,,carton,255,0,340.0,,1,0,1,0,1,,38,,,,,
-Kpanla 16+ Box 10kg,Meat\Fish,TY00288,,carton,250,16,290.0,,1,0,1,0,1,,-3.5,,,,,
+Kpanla 20+ Box 10kg,Meat\Fish,TY00287,,carton,255,0,340.0,,1,0,1,0,1,,36.25,,,,,
+Kpanla 16+ Box 10kg,Meat\Fish,TY00288,,carton,250,16,290.0,,1,0,1,0,1,,-8.5,,,,,
 Red Fish Small Box,Meat\Fish,TY00315,,carton,930,0,340.0,,1,0,1,0,1,,1,,,,,
 Viking 5L,Oil,TY00289,6034000190748,5l,0,0,135.0,,1,0,1,0,1,,0,,,,,
 Vega Rice 5kg,Rice,TY00291,8886409530759,5kg,0,0,48.0,,1,0,1,0,1,,1,,,,,
-Miss U Viet 4.5kg Rice,Rice,TY00354,8936089965379,4.5kg,66.4,6.9277,71.0,,1,0,1,0,1,,1,,,,,
-Lamore 2.2kg,Tomato Paste,TY00353,6034600188800,pcs,29.16666667,19.9863,35.0,,1,0,1,0,1,,-7,,,,,
+Miss U Viet 4.5kg Rice,Rice,TY00354,8936089965379,4.5kg,66.4,6.9277,71.0,,1,0,1,0,1,,-2,,,,,
+Lamore 2.2kg,Tomato Paste,TY00353,6034600188800,pcs,29.16666667,19.9863,35.0,,1,0,1,0,1,,-20,,,,,
 Abba 5kg Rice,Rice,TY00351,,5kg,0,0,105.0,,1,0,1,0,0,,0,,,,,
-Royal Aroma 5X5kg,Rice,TY00300,,5x5kg,385,3.8961,400.0,,1,0,1,0,1,,1,,,,,
+Royal Aroma 5X5kg,Rice,TY00300,,5x5kg,375,5.3333,395.0,,1,0,1,0,1,,-3,,,,,
 Anna 25L,Oil,TY00301,9557803018486,25l,0,0,470.0,,1,0,1,0,1,,0,,,,,
 Tasty Tom Jollof 1.1kg,Tomato Paste,TY00302,6033000304018,sachet,0,0,22.5,,1,0,1,0,1,,0,,,,,
-Salmon Abidjan,Meat\Fish,TY00294,,kg,35.5,7.0423,38.0,,1,0,1,0,1,,-209.2,,,,,
+Salmon Abidjan,Meat\Fish,TY00294,,kg,35.5,7.0423,38.0,,1,0,1,0,1,,-373.2,,,,,
 Waakye Rice Olonka,Rice,TY00293,,olonka,0,0,20.0,,1,0,1,0,1,,0,,,,,
 Kivo Tomato Paste 1kg,Tomato Paste,TY00352,630282995888,pcs,4.615384615,13.3333,17.0,,1,0,1,0,0,,0,,,,,
 Full Chicken Box Big,Meat\Fish,TY00303,,carton,340,0,380.0,,1,0,1,0,0,,15,,,,,
 Drumstick Carton,Meat\Fish,TY00304,,box,270,0,320.0,,1,0,1,0,1,,3,,,,,
 Frangosul,Meat\Fish,TY00306,7896589554132,pcs,0,0,14.0,,1,0,1,0,1,,0,,,,,
-Bella Olonka,Rice,TY00307,,olonka,0,0,40.0,,1,0,1,0,1,,-26,,,,,
+Bella Olonka,Rice,TY00307,,olonka,0,0,40.0,,1,0,1,0,1,,-64,,,,,
 Kivo 210G,Tomato Paste,TY00308,630282995864,sachet,5.2083,15.1631,6.0,,1,0,1,0,1,,0,,,,,
 Paganini,Spaghetti,TY00309,6181100094114,pcs,0,0,12.0,,1,0,1,0,1,,0,,,,,
 Nana Sausage,Meat\Fish,TY00274,,pcs,0,0,8.0,,1,0,1,0,1,,0,,,,,
 Montaire Drumstick 10kg Box,Meat\Fish,TY00292,,10kg,0,0,335.0,,1,0,1,0,1,,3,,60,90,1,0
 Montaire Drumstick 1kg,Meat\Fish,TY00275,,1kg,16.1038961,0,34.0,,1,0,1,0,1,,-0.5,,,,,
-Gino Rice 5X5kg,Rice,TY00267,,25kg,590,3.3898,610.0,,1,0,1,0,1,,2,,,,,
-Large Crate Of Eggs,Meat\Fish,TY00316,,crate,50,0,55.0,,1,0,1,0,1,,-10,,,,,
-Eggs,Meat\Fish,TY00317,,pcs,0,0,1.8,,1,0,1,0,1,,-314,,,,,
+Gino Rice 5X5kg,Rice,TY00267,,25kg,650,3.0769,670.0,,1,0,1,0,1,,0,,,,,
+Large Crate Of Eggs,Meat\Fish,TY00316,,crate,50,0,55.0,,1,0,1,0,1,,-34.5,,,,,
+Eggs,Meat\Fish,TY00317,,pcs,0,0,1.8,,1,0,1,0,1,,-726,,,,,
 Nigeria Sugar Bag,Sugar,TY00318,,50kg,0,0,560.0,,1,0,1,0,1,,0,,,,,
 Nigeria Sugar Olonka,Sugar,TY00319,,olonka,0,0,36.0,,1,0,1,0,1,,0,,,,,
-Rambo Beef Pate 400G,Ketchup\Mayonnaise\Baked Beans,TY00297,3434350004666,pcs,14.75,8.4746,16.0,,1,0,1,0,1,,18,,,,,
+Rambo Beef Pate 400G,Ketchup\Mayonnaise\Baked Beans,TY00297,3434350004666,pcs,14.75,8.4746,16.0,,1,0,1,0,1,,1,,,,,
 Miss U Viet Rice 5X4.5kg,Rice,TY00298,,25kg,332,6.9277,355.0,,1,0,1,0,1,,9,,,,,
 Miss U 5kg Rice,Rice,TY00299,,5kg,0,0,64.0,,1,0,1,0,0,,0,,,,,
 Cic Daibon 5kg Rice,Rice,TY00305,,5kg,0,0,83.0,,1,0,1,0,1,,-1,,,,,
 K75 50kg,Rice,TY00310,,50kg,725,3.4483,750.0,,1,0,1,0,1,,0,,,,,
 City Rice 50kg,Rice,TY00311,,50kg,0,0,355.0,,1,0,1,0,1,,0,,,,,
-Royal Aroma 50kg,Rice,TY00312,,50kg,740,2.7027,760.0,,1,0,1,0,1,,1,,,,,
-Dubai Gold 5x4.5kg,Rice,TY00313,,5x4.5kg,335,4.4776,350.0,,1,0,1,0,1,,3,,,,,
+Royal Aroma 50kg,Rice,TY00312,,50kg,730,2.7397,750.0,,1,0,1,0,1,,-2,,,,,
+Dubai Gold 5x4.5kg,Rice,TY00313,,5x4.5kg,320,4.6875,335.0,,1,0,1,0,1,,0,,,,,
 Frytol Sunnia 25L,Oil,TY00344,,25l,0,0,535.0,,1,0,1,0,1,,0,,2,5,0,0
-Royal Aroma 25kg,Rice,TY00320,,25kg,383,5.2219,403.0,,1,0,1,0,1,,1,,2,5,0,0
+Royal Aroma 25kg,Rice,TY00320,,25kg,370,5.4054,390.0,,1,0,1,0,1,,1,,2,5,0,0
 Fortune Green 5X5kg,Rice,TY00321,,5x5kg,400,3.75,415.0,,1,0,1,0,1,,3,,,,,
 Fortune Orange 5X5kg,Rice,TY00322,,5x5kg,405,3.7037,420.0,,1,0,1,0,1,,1,,,,,
 Pena Sausage Box,Meat\Fish,TY00323,,box,295,11.8644,330.0,,1,0,1,0,1,,4,,,,,
-Chicken Wings Hard Box,Meat\Fish,TY00324,,carton,320,6.25,340.0,,1,0,1,0,1,,23,,,,,
+Chicken Wings Hard Box,Meat\Fish,TY00324,,carton,320,3.125,330.0,,1,0,1,0,1,,16.25,,,,,
 Leap Tomato 2.2kg Tin,Tomato Paste,TY00238,6935773104263,tin,0,0,34.0,,1,0,1,0,1,,0,,,,,
 Sultana Thai Rice 5x4.5kg,Rice,TY00325,,5x4.5kg,500,6,530.0,,1,0,1,0,1,,0,,,,,
 Konkord Salt 250G Sachet,Spices,TY00357,3454302004124,pcs,0,0,2.5,,1,0,1,0,1,,1,,,,,
 Konkord Iodised Salt 500G,Spices,TY00358,3454302004247,pcs,0,0,5.0,,1,0,1,0,1,,-1,,,,,
-Annapurna Iodated Salt 900G,Spices,TY00359,6033000298782,pcs,0,0,8.0,,1,0,1,0,1,,-6,,,,,
+Annapurna Iodated Salt 900G,Spices,TY00359,6033000298782,pcs,0,0,8.0,,1,0,1,0,1,,-30,,,,,
 Viva Rice 45kg,Rice,TY00360,,45kg,433.3333333,0,690.0,,1,0,1,0,1,,1,,,,,
 Special Rice 5X4.5kg,Rice,TY00361,,5x4.5kg,340,4.4118,355.0,,1,0,1,0,1,,9,,,,,
 Sultana Viet 45kg [rplc],Rice,TY00345,,45kg,620,5.6452,655.0,,1,0,1,0,0,,2,,,,,
-Millicent Rice 5X5kg,Rice,TY00346,,5x5kg,398,5.0251,418.0,,1,0,1,0,1,,0,,,,,
-Sultana Viet Rice 5X4.25kg,Rice,TY00326,,5x5kg,320,4.6875,335.0,,1,0,1,0,1,,1,,,,,
+Millicent Rice 5X5kg,Rice,TY00346,,5x5kg,372,5.3763,392.0,,1,0,1,0,1,,0,,,,,
+Sultana Viet Rice 5X4.25kg,Rice,TY00326,,5x5kg,320,4.6875,335.0,,1,0,1,0,1,,-3,,,,,
 Vega Rice 5X5kg,Rice,TY00327,,5x5kg,0,0,195.0,,1,0,1,0,1,,0,,,,,
-Heaven Soy Sauce,Oil,TY00328,6933362420886,pcs,0,0,16.5,,1,0,1,0,1,,2,,,,,
-Oba Spaghetti 200G,Spaghetti,TY00329,8690828069024,pcs,0,0,4.0,,1,0,1,0,1,,-25,,,,,
+Heaven Soy Sauce,Oil,TY00328,6933362420886,pcs,0,0,16.5,,1,0,1,0,1,,1,,,,,
+Oba Spaghetti 200G,Spaghetti,TY00329,8690828069024,pcs,0,0,4.0,,1,0,1,0,1,,-57,,,,,
 Rambo Baked Beans,Ketchup\Mayonnaise\Baked Beans,TY00330,,pcs,0,0,9.0,,1,0,1,0,1,,0,,,,,
-K75 Gold 45kg,Rice,TY00331,,45kg,570,3.5088,590.0,,1,0,1,0,1,,1,,,,,
+K75 Gold 45kg,Rice,TY00331,,45kg,570,3.5088,590.0,,1,0,1,0,1,,0,,,,,
 Rich City Rice 5X5,Rice,TY00332,,5x5kg,0,0,46.0,,1,0,1,0,1,,0,,,,,
 Medaase Spag 20X435G Box,Spaghetti,TY00333,,20x435g,135,14.8148,155.0,,1,0,1,0,1,,0,,,,,
 Medo Rice 5X5,Rice,TY00334,,5x5kg,0,0,240.0,,1,0,1,0,1,,1,,,,,
 Hug Me Rice  5X4.5kg,Rice,TY00362,,5x4.5kg,0,0,195.0,,1,0,1,0,1,,2,,,,,
-Lele Rice 5kgx5,Rice,TY00363,,25kg,528,3.7879,548.0,,1,0,1,0,1,,0,,,,,
-Sprite Zero 300Ml Pet,Beverages,TY00364,54007888,300ml,3.46,44.5087,5.0,,1,0,1,0,1,,-9,,10,20,1,10
+Lele Rice 5kgx5,Rice,TY00363,,25kg,528,4.1667,550.0,,1,0,1,0,1,,3,,,,,
+Sprite Zero 300Ml Pet,Beverages,TY00364,54007888,300ml,3.46,44.5087,5.0,,1,0,1,0,1,,-19,,10,20,1,10
 Coca Cola 50Cl Pet,Beverages,TY00365,,50cl,0,0,8.0,,1,0,1,0,1,,0,,10,20,1,10
 Tasty Tom Onion & Ginger 60g Box,Tomato Paste,TY00335,,Box,0,0,12.5,,1,0,1,0,1,,0,,,,,
 Lezita Sausage,Meat\Fish,TY00366,,pcs,0,0,10.0,,1,0,1,0,1,,0,,,,,
 Beef Sinews Box,Meat\Fish,TY00381,,kg,280,23.2143,345.0,,1,0,1,0,1,,7,,,,,
-Red Eagle,Rice,TY00388,,5x5kg,395,3.7975,410.0,,1,0,1,0,1,,2,,,,,
+Red Eagle 5x5kg,Rice,TY00388,,5x5kg,375,4,390.0,,1,0,1,0,1,,1,,,,,
 Frytol Sachet 200Ml,Oil,TY00403,6034000190335,pcs,0,-3.6145,8.0,,1,0,1,0,1,,0,,,,,
 Medaase Rice 5kg,Rice,TY00400,8936089962781,5kg,0,0,74.0,,1,0,1,0,1,,1,,,,,
 Royal Aroma Fortified 0.9kg,Rice,TY00368,6033000380418,0.9kg,0,0,16.5,,1,0,1,0,0,,0,,,,,
-Royal Aroma 1kg,Rice,TY00367,6033000380081,1kg,17,5.8824,18.0,,1,0,1,0,1,,34,,,,,
+Royal Aroma 1kg,Rice,TY00367,6033000380081,1kg,17,5.8824,18.0,,1,0,1,0,1,,29,,,,,
 Unoli Sunflower Oil 1.8L,Oil,TY00369,,1.8l,0,0,68.0,,1,0,1,0,1,,0,,,,,
 Royal Aroma Fortified 5X5kg,Rice,TY00370,,5x5kg,0,0,415.0,,1,0,1,0,0,,0,,,,,
 Royal Aroma Fortified 5kg,Rice,TY00371,,5kg,0,0,83.0,,1,0,1,0,0,,0,,,,,
 Sumavi 25L Oil,Oil,TY00372,,25l,0,0,610.0,,1,0,1,0,0,,0,,,,,
 Gizzard Box,Meat\Fish,TY00391,,box,0,0,330.0,,1,0,1,0,1,,0,,,,,
-Tripe Full Box 10kg,Meat\Fish,TY00408,,carton,240,12.5,270.0,,1,0,1,0,1,,34.5,,,,,
-Millicent 1kg Rice,Rice,TY00407,6033000430991,1kg,0,0,18.5,,1,0,1,0,1,,30,,,,,
+Tripe Full Box 10kg,Meat\Fish,TY00408,,carton,240,12.5,270.0,,1,0,1,0,1,,34,,,,,
+Millicent 1kg Rice,Rice,TY00407,6033000430991,1kg,0,0,18.0,,1,0,1,0,1,,22,,,,,
 Leap Box,Tomato Paste,TY00406,,box,0,0,138.0,,1,0,1,0,1,,0,,,,,
 Lamore Box,Tomato Paste,TY00405,,,0,0,35.0,,1,0,1,0,0,,2,,,,,
 Salsa 2.2kg,Tomato Paste,TY00410,,tin,0,0,88.0,,1,0,1,0,1,,0,,,,,
 Tolo Beef,Meat\Fish,TY00411,,kg,0,0,24.0,,1,0,1,0,1,,0,,,,,
-Hayat Veg Oil 25Ltrs,Oil,TY00374,,25l,445,0,460.0,,1,0,1,0,1,,9,,,,,
-Sugar Bag Brazil 50kg,Sugar,TY00375,,50kg,0,0,650.0,,1,0,1,0,1,,-2,,,,,
+Hayat Veg Oil 25Ltrs,Oil,TY00374,,25l,465,4.3011,485.0,,1,0,1,0,1,,7,,,,,
+Sugar Bag Brazil 50kg,Sugar,TY00375,,50kg,0,0,650.0,,1,0,1,0,1,,-11,,,,,
 Ayekoo Spice,Spices,TY00382,,pcs,0,0,0.7,,1,0,1,0,1,,0,,,,,
 Onga Cube Tablet 12G,Spices,TY00383,,pcs,0,0,0.6,,1,0,1,0,0,,0,,,,,
-Kivo Pepper Small,Spices,TY00384,630282995963,pcs,0.48,0,0.8,,1,0,1,0,1,,259,,,,,
-Remie Spice Line,Spices,TY00385,,line,0,0,10.0,,1,0,1,0,1,,-42,,,,,
-Hake Box,Meat\Fish,TY00409,,10kg,310,0,340.0,,1,0,1,0,1,,-3,,,,,
-Yellow Tail Fish Full Box,Meat\Fish,TY00412,,carton,0,0,320.0,,1,0,1,0,1,,1.5,,,,,
-Kpanla 14+,Meat\Fish,TY00386,,1kg,23,17.3913,27.0,,1,0,1,0,1,,-19.465,,,,,
+Kivo Pepper Small,Spices,TY00384,630282995963,pcs,0.48,0,0.8,,1,0,1,0,1,,203,,,,,
+Remie Spice Line,Spices,TY00385,,line,0,0,10.0,,1,0,1,0,1,,-50,,,,,
+Hake Box,Meat\Fish,TY00409,,10kg,310,0,340.0,,1,0,1,0,1,,-6.5,,,,,
+Yellow Tail Fish Full Box,Meat\Fish,TY00412,,carton,0,0,320.0,,1,0,1,0,1,,0.5,,,,,
+Kpanla 14+,Meat\Fish,TY00386,,1kg,23,17.3913,27.0,,1,0,1,0,1,,-60.465,,,,,
 ....,Oil,TY00404,6034000190687,,0,0,16.0,,1,0,1,0,0,,0,,,,,
-Mom'S 45kg Rice,Rice,TY00376,,45kg,495,5.0505,520.0,,1,0,1,0,1,,-1,,,,,
+Mom'S 45kg Rice,Rice,TY00376,,45kg,495,5.0505,520.0,,1,0,1,0,1,,-3,,,,,
 Mom's Recipe Sunflower Oil 10L,Oil,TY00377,4820225760703,10l,0,0,280.0,,1,0,1,0,1,,0,,,,,
 Viola Spagheti 400G,Spaghetti,TY00379,,pcs,0,0,6.0,,1,0,1,0,1,,0,,,,,
-Mom's Recipe Sunflower Oil 4.5L,Oil,TY00380,8691313998324,4.5l,125,8,135.0,,1,0,1,0,1,,1,,,,,
+Mom's Recipe Sunflower Oil 4.5L,Oil,TY00380,8691313998324,4.5l,125,12,140.0,,1,0,1,0,1,,1,,,,,
 Medaase Rice 5X5kg,Rice,TY00401,,5x5kg,0,0,370.0,,1,0,1,0,1,,0,,,,,
 Loki Mayonnaise 250Ml,Ketchup\Mayonnaise\Baked Beans,TY00402,5412723503037,pcs,0,0,10.0,,1,0,1,0,1,,0,,,,,
 Aaba 5X5,Rice,TY00387,,5x5kg,495,5.0505,520.0,,1,0,1,0,1,,5,,1,3,1,1
-Aaba 5kg,Rice,TY00389,,5kg,0,0,127.0,,1,0,1,0,1,,0,,5,10,1,5
-Mom'S Recipe Sunflower Oil 0.85L,Oil,TY00390,8691313998300,0.85l,0,0,28.0,,1,0,1,0,1,,-9,,,,,
-Royal Umbrella 5X5kg,Rice,TY00392,,5x5kg,535,2.8037,550.0,,1,0,1,0,1,,-3,,,,,
-Sadia Box,Meat\Fish,TY00393,,box,320,0,382.0,,1,0,1,0,1,,4.5,,,,,
+Aaba 5kg,Rice,TY00389,,5kg,0,0,108.0,,1,0,1,0,1,,-3,,5,10,1,5
+Mom'S Recipe Sunflower Oil 0.85L,Oil,TY00390,8691313998300,0.85l,0,0,32.0,,1,0,1,0,1,,-14,,,,,
+Royal Umbrella 5X5kg,Rice,TY00392,,5x5kg,550,3.6364,570.0,,1,0,1,0,1,,-3,,,,,
+Sadia Box,Meat\Fish,TY00393,,box,320,7.8125,345.0,,1,0,1,0,1,,4.5,,,,,
 Frangusol Sausage Box,Meat\Fish,TY00394,,box,0,0,350.0,,1,0,1,0,1,,0,,,,,
-Rosa Tomato Box,Tomato Paste,TY00395,,box,0,0,210.0,,1,0,1,0,1,,3,,,,,
-Bella Olonka Half,Rice,TY00397,,olonka,0,0,20.0,,1,0,1,0,1,,-76,,,,,
-Cic Green 5X5,Rice,TY00413,,kg,0,0,425.0,,1,0,1,0,1,,4,,,,,
+Rosa Tomato Box,Tomato Paste,TY00395,,box,0,0,210.0,,1,0,1,0,1,,2,,,,,
+Bella Olonka Half,Rice,TY00397,,olonka,0,0,20.0,,1,0,1,0,1,,-167,,,,,
+Cic Green 5X5,Rice,TY00413,,kg,0,0,425.0,,1,0,1,0,1,,3,,,,,
 Royal Panda Rice 5X5kg,Rice,TY00424,,5x5kg,320,10.9375,355.0,,1,0,1,0,1,,1,,,,,
 My Boss,Rice,TY00433,,45kg,510,3.9216,530.0,,1,0,1,0,1,,1,,,,,
 Oba Rice 45kg,Rice,TY00434,,45kg,605,4.1322,630.0,,1,0,1,0,1,,3,,,,,
 Cic Daibon 5X5kg,Rice,TY00435,,5x5kg,0,0,415.0,,1,0,1,0,1,,0,,,,,
 Chelsea 5X5,Rice,TY00436,,5x5kg,310,-4.3478,330.0,,1,0,1,0,1,,1,,,,,
-Turkey Wings Carton,Meat\Fish,TY00437,,carton,400,10,440.0,,1,0,1,0,1,,4.5,,,,,
+Turkey Wings Carton,Meat\Fish,TY00437,,carton,400,10,440.0,,1,0,1,0,1,,4,,,,,
 Palm Oil 25L,Oil,TY00438,,25l,585,0,585.0,,1,0,1,0,1,,0,,,,,
 Indomie Belleful Box,Indomie,TY00439,,box,0,0,190.0,,1,0,1,0,0,,0,,,,,
 Onga Line,Spices,TY00414,,line,0,0,12.0,,1,0,1,0,1,,-2,,,,,
 Kpanla,Meat\Fish,TY00415,,kg,0,0,35.0,,1,0,1,0,0,,-5,,,,,
-Kwabena 5X5kg Rice,Rice,TY00416,,5x5kg,358,5.5866,378.0,,1,0,1,0,1,,4,,,,,
+Kwabena 5X5kg Rice,Rice,TY00416,,5x5kg,332,5.4217,350.0,,1,0,1,0,1,,4,,,,,
 Chelsea Rice 5kg,Rice,TY00417,,5kg,65,4.6154,68.0,,1,0,1,0,1,,0,,,,,
-Kwabena 5kg,Rice,TY00418,,5kg,73,4.1096,76.0,,1,0,1,0,1,,-14,,,,,
+Kwabena 5kg,Rice,TY00418,,5kg,67,10.4478,74.0,,1,0,1,0,1,,-43,,,,,
 Tilemsi 5 kg,Rice,TY00710,,5kg,0,0,120.0,,1,0,1,0,1,,2,,,,,
-Pena Sausage,Meat\Fish,TY00419,7894904078042,pcs,13,7.6923,14.0,,1,0,1,0,1,,0,,,,,
-Broken Rice Olonka,Rice,TY00420,,olonka,0,0,32.0,,1,0,1,0,1,,-8.5,,,,,
-Sankofa Line (12Pcs),Spices,TY00421,,line,0,0,8.6,,1,0,1,0,1,,-17.5,,,,,
+Pena Sausage,Meat\Fish,TY00419,7894904078042,pcs,13,7.6923,14.0,,1,0,1,0,1,,-29,,,,,
+Broken Rice Olonka,Rice,TY00420,,olonka,0,0,32.0,,1,0,1,0,1,,-22,,,,,
+Sankofa Line (12Pcs),Spices,TY00421,,line,0,0,8.6,,1,0,1,0,1,,-35.5,,,,,
 Indomie Belleful,Indomie,TY00422,,pcs,13.5,0,13.5,,1,0,1,0,1,,0,,,,,
 Medaase 50kg,Rice,TY00423,,50kg,0,0,645.0,,1,0,1,0,1,,0,,,,,
-K75 5X5kg,Rice,TY00425,,5x5kg,385,5.1948,405.0,,1,0,1,0,1,,9,,,,,
-K75 Gold 5X4kg,Rice,TY00426,,5x4kg,318,21.0692,385.0,,1,0,1,0,1,,5,,,,,
+K75 5X5kg,Rice,TY00425,,5x5kg,385,3.8961,400.0,,1,0,1,0,1,,7,,,,,
+K75 Gold 5X4kg,Rice,TY00426,,5x4kg,310,4.8387,325.0,,1,0,1,0,1,,5,,,,,
 Royal Aroma Gold 5X5kg,Rice,TY00427,,5x5kg,385,3.8961,400.0,,1,0,1,0,1,,0,,,,,
-Bella Spaghetti,Spaghetti,TY00428,8690946412146,pcs,4.38,0,8.5,,1,0,1,0,1,,-4,,,,,
+Bella Spaghetti,Spaghetti,TY00428,8690946412146,pcs,4.38,0,8.5,,1,0,1,0,1,,-16,,,,,
 Mom'S Rice 22.5kg,Rice,TY00429,,22.5kg,231,21.2121,280.0,,1,0,1,0,1,,0,,,,,
-Yellow Taill Small  {Emule},Meat\Fish,TY00430,,kg,27,11.1111,30.0,,1,0,1,0,1,,2.5,,,,,
+Yellow Taill Small  {Emule},Meat\Fish,TY00430,,kg,27,11.1111,30.0,,1,0,1,0,1,,-9,,,,,
 Salmon Abidjan 10kg Box,Meat\Fish,TY00431,,carton,350,0,350.0,,1,0,1,0,1,,0,,,,,
-K75 Gold 4kg,Rice,TY00432,,4kg,63,7.9365,68.0,,1,0,1,0,1,,0,,,,,
-Salmon Local Box Small,Meat\Fish,TY00443,,carton,0,0,290.0,,1,0,1,0,1,,2.5,,,,,
+K75 Gold 4kg,Rice,TY00432,,4kg,63,3.1746,65.0,,1,0,1,0,1,,-1,,,,,
+Salmon Local Box Small,Meat\Fish,TY00443,,carton,0,0,270.0,,1,0,1,0,1,,2,,,,,
 Salmon Local Big Box,Meat\Fish,TY00442,,carton,0,0,310.0,,1,0,1,0,1,,-0.5,,,,,
-Full Chicken Big,Meat\Fish,TY00441,,pcs,44,9.0909,48.0,,1,0,1,0,1,,-6,,,,,
-Broiler Holland,Meat\Fish,TY00444,,kg,305,6.5574,325.0,,1,0,1,0,1,,6,,,,,
-Salmon Local Medium,Meat\Fish,TY00445,,kg,0,0,30.0,,1,0,1,0,1,,-54.9,,,,,
+Full Chicken Big,Meat\Fish,TY00441,,pcs,44,9.0909,48.0,,1,0,1,0,1,,-20,,,,,
+Broiler Holland,Meat\Fish,TY00444,,kg,305,6.5574,325.0,,1,0,1,0,1,,2,,,,,
+Salmon Local Medium,Meat\Fish,TY00445,,kg,0,0,30.0,,1,0,1,0,1,,-136.6,,,,,
 Frytol 450Ml,Oil,TY00440,,450ml,0,0,16.0,,1,0,1,0,1,,0,,,,,
 Ricci,Spices,TY00460,781718159685,pcs,0,0,1.0,,1,0,1,0,1,,0,,,,,
-My Deer Gold 4.5kg,Rice,TY00470,,4.5kg,85,4.7059,89.0,,1,0,1,0,1,,3,,,,,
-My Deer Gold 5X4.5kg,Rice,TY00481,,5x4.5kg,425,4.7059,445.0,,1,0,1,0,1,,2,,,,,
+My Deer Gold 4.5kg,Rice,TY00470,,4.5kg,86,3.4884,89.0,,1,0,1,0,1,,-1,,,,,
+My Deer Gold 5X4.5kg,Rice,TY00481,,5x4.5kg,430,3.4884,445.0,,1,0,1,0,1,,1,,,,,
 Royal Feast,Rice,TY00490,,5kg,0,0,113.0,,1,0,1,0,1,,0,,,,,
 Olia 25L,Oil,TY00542,,25l,0,0,720.0,,1,0,1,0,0,,0,,,,,
 Bella Rice Viet 5X5kg,Rice,TY00681,,5x5kg,320,7.8125,345.0,,1,0,1,0,1,,5,,1,2,1,1
 Unoli 3L,Oil,TY00707,,3l,0,0,150.0,,1,0,1,0,1,,0,,,,,
-Beypllie Gizzard,Meat\Fish,TY00709,,pcs,27,0,30.0,,1,0,1,0,1,,-1,,,,,
+Beypllie Gizzard,Meat\Fish,TY00709,,pcs,27,0,30.0,,1,0,1,0,1,,-11,,,,,
 Cic Memo 5X5kg,Rice,TY00708,,5x5kg,0,0,540.0,,1,0,1,0,1,,-1,,,,,
 Cic Memo 5kg,Rice,TY00461,,5kg,104,3.8462,108.0,,1,0,1,0,1,,2,,,,,
-Indomie Hungryman,Indomie,TY00462,,pcs,0,0,9.5,,1,0,1,0,1,,-33,,,,,
-Kwabena 22.5kg,Rice,TY00463,,22.5kg,353,5.6657,373.0,,1,0,1,0,1,,0,,,,,
+Indomie Hungryman,Indomie,TY00462,,pcs,0,0,9.5,,1,0,1,0,1,,-92,,,,,
+Kwabena 22.5kg,Rice,TY00463,,22.5kg,358,5.5866,378.0,,1,0,1,0,1,,0,,,,,
 Palme D'Or 4L,Oil,TY00464,,4l,107.5,11.6279,120.0,,1,0,1,0,1,,0,,,,,
 Frytol 100Ml,Oil,TY00446,6034000190328,100ml,0,0,4.0,,1,0,0,0,1,,0,Unknown,36,36,1,5
-Annapurna Salt 450G,Spices,TY00447,6033000298829,pcs,0,0,5.0,,1,0,1,0,1,,-31,,,,,
+Annapurna Salt 450G,Spices,TY00447,6033000298829,pcs,0,0,5.0,,1,0,1,0,1,,-49,,,,,
 Jaba,Spices,TY00465,6008155003406,pcs,0,0,1.2,,1,0,1,0,1,,0,,,,,
-Remie Fish Spice,Spices,TY00451,6969228800165,pcs,0,0,1.0,,1,0,1,0,1,,108,,,,,
-Lele Salt,Spices,TY00466,6034000179477,pcs,0,0,2.5,,1,0,1,0,1,,1,,,,,
-Oba Spaghetti 400G,Spaghetti,TY00467,8690828009020,pcs,6.75,18.5185,8.0,,1,0,1,0,1,,-102,,,,,
+Remie Fish Spice,Spices,TY00451,6969228800165,pcs,0,0,1.0,,1,0,1,0,1,,88,,,,,
+Lele Salt,Spices,TY00466,6034000179477,pcs,0,0,2.5,,1,0,1,0,1,,0,,,,,
+Oba Spaghetti 400G,Spaghetti,TY00467,8690828009020,pcs,6.75,18.5185,8.0,,1,0,1,0,1,,-166,,,,,
 Pearl,Rice,TY00468,,45kg,0,0,500.0,,1,0,1,0,1,,0,,,,,
 Royal Aroma Gold 5kg,Rice,TY00469,,5kg,73,5.4795,77.0,,1,0,1,0,0,,0,,,,,
-Moms Magic 4.5L,Oil,TY00471,8691313998546,4.5l,132.5,5.6604,140.0,,1,0,1,0,1,,0,,,,,
+Moms Magic 4.5L,Oil,TY00471,8691313998546,4.5l,132.5,5.6604,140.0,,1,0,1,0,1,,-5,,,,,
 Royal Panda 5kg,Rice,TY00472,,5kg,65,9.2308,71.0,,1,0,1,0,1,,0,,,,,
-Lar Gizzard,Meat\Fish,TY00473,7896419720744,pcs,0,0,28.0,,1,0,1,0,1,,-2,,,,,
-Sprite 1.5L,Beverages,TY00474,5449000110039,1.5l,0,0,18.0,,1,0,1,0,1,,-4,,10,20,1,10
+Lar Gizzard,Meat\Fish,TY00473,7896419720744,pcs,0,0,30.0,,1,0,1,0,1,,-20,,,,,
+Sprite 1.5L,Beverages,TY00474,5449000110039,1.5l,0,0,20.0,,1,0,1,0,1,,-5,,10,20,1,10
 Tasty Tom 400g Box,Tomato Paste,TY00475,,box,223,0,240.0,,1,0,1,0,1,,6,,,,,
 Oba Spaghetti 400G Box,Spaghetti,TY00476,,box,135,14.8148,155.0,,1,0,1,0,1,,-1.5,,,,,
-Broiler Brazil Box,Meat\Fish,TY00477,,carton,250,8,270.0,,1,0,1,0,1,,35,,,,,
-Hen Back,Meat\Fish,TY00478,,kg,20.23,18.6357,24.0,,1,0,1,0,1,,-22.5,,,,,
-Oba Spaghetti 200G Box,Spaghetti,TY00479,,box,130,0,155.0,,1,0,1,0,1,,2,,,,,
+Broiler Brazil Box,Meat\Fish,TY00477,,carton,250,8,270.0,,1,0,1,0,1,,-12.5,,,,,
+Hen Back,Meat\Fish,TY00478,,kg,20.23,18.6357,24.0,,1,0,1,0,1,,-45,,,,,
+Oba Spaghetti 200G Box,Spaghetti,TY00479,,box,130,11.5385,145.0,,1,0,1,0,1,,2,,,,,
 Kivo Ikg Box,Tomato Paste,TY00480,,box,180,42.2222,256.0,,1,0,1,0,0,,0,,,,,
 Chelsea 45kg,Rice,TY00482,,45kg,610,-2.3256,630.0,,1,0,1,0,1,,0,,,,,
-Mom'S Magic Oil 0.8L Box,Oil,TY00483,,12x0.8l,270,0,380.0,,1,0,1,0,1,,3,,,,,
+Mom'S Magic Oil 0.8L Box,Oil,TY00483,,12x0.8l,270,40.7407,380.0,,1,0,1,0,1,,3,,,,,
 8.69E+12,Oil,TY00484,,,27,18.5185,32.0,,1,0,1,0,0,,0,,,,,
-Remie Ginger And Garlic 10G Sachet,Spices,TY00398,6969228800325,pcs,0,0,1.0,,1,0,1,0,1,,60,,50,200,1,100
+Remie Ginger And Garlic 10G Sachet,Spices,TY00398,6969228800325,pcs,0,0,1.0,,1,0,1,0,1,,25,,50,200,1,100
 Sultana Spaghetti 435G,Spaghetti,TY00485,,pcs,6,16.6667,7.0,,1,0,1,0,0,,0,,,,,
 Chelsea Veit Rice 22.5kg,Rice,TY00486,,22.5kg,305,-5.7971,325.0,,1,0,1,0,1,,1,,,,,
 Royal Panda Veit 5kg,Rice,TY00487,,5kg,65,4.6154,68.0,,1,0,1,0,0,,0,,,,,
-Remie Chicken 50G,Spices,TY00488,6969228810102,pcs,3.5,14.2857,4.0,,1,0,1,0,1,,-55,,0,60,0,0
+Remie Chicken 50G,Spices,TY00488,6969228810102,pcs,3.5,14.2857,4.0,,1,0,1,0,1,,-108,,0,60,0,0
 Fanta 50Cl Pet,Beverages,TY00378,,50cl,0,0,7.0,,1,0,1,0,1,,0,,10,20,1,10
 Sprite 50Cl Pet,Beverages,TY00373,,50cl,0,0,7.0,,1,0,1,0,1,,0,,10,20,1,10
 Coca Cola Zero Pet 300Ml,Beverages,TY00347,,300ml,0,0,4.5,,1,0,1,0,1,,0,,10,20,1,10
 Coca Cola Zero Pet 50Cl,Beverages,TY00348,,50cl,0,0,7.0,,1,0,1,0,1,,0,,10,20,1,10
 Sultana Sardine,Sardine,TY00489,,pcs,0,0,7.0,,1,0,1,0,1,,0,,,,,
-Onga Shrimp 64X11G Tablets Pack,Spices,TY00399,6008155018592,64x11g,30,0,32.0,,1,0,1,0,1,,53.5,,30,20,1,30
-Cutting Fee,Meat\Fish,TY00448,,,10,0,10.0,,1,0,1,0,1,,-14,,,,,
-Fanta Lemon 30Cl Pack,Beverages,TY00491,,0.3lx12,41.5,13.253,47.0,,1,0,1,0,1,,0,,,,,
-Annapurna 200G,Spices,TY00492,,pcs,0,0,2.5,,1,0,1,0,1,,13,,,,,
-Bino Sausage,Meat\Fish,TY00493,6036000039300,pcs,30,16.6667,35.0,,1,0,1,0,1,,-5,,,,,
+Onga Shrimp 64X11G Tablets Pack,Spices,TY00399,6008155018592,64x11g,30,0,32.0,,1,0,1,0,1,,23.25,,30,20,1,30
+Cutting Fee,Meat\Fish,TY00448,,,10,0,10.0,,1,0,1,0,1,,-28,,,,,
+Fanta Lemon 30Cl Pack,Beverages,TY00491,,0.3lx12,41.5,34.9398,56.0,,1,0,1,0,1,,0,,,,,
+Annapurna 200G,Spices,TY00492,,pcs,0,0,2.5,,1,0,1,0,1,,5,,,,,
+Bino Sausage,Meat\Fish,TY00493,6036000039300,pcs,30,16.6667,35.0,,1,0,1,0,1,,-25,,,,,
 Turkey Tail Carton,Meat\Fish,TY00494,,kg,430,13.9535,490.0,,1,0,1,0,1,,0,,,,,
-Pig Intestines,Meat\Fish,TY00495,,kg,0,0,28.0,,1,0,1,0,1,,16.4,,,,,
+Pig Intestines,Meat\Fish,TY00495,,kg,0,0,28.0,,1,0,1,0,1,,9.8,,,,,
 Sultana Sardine [rplc],Sardine,TY00496,,,0,0,7.0,,1,0,1,0,0,,0,,,,,
-Sultana Spaghetti 400G,Spaghetti,TY00497,8690828619458,pcs,120,-94.1667,7.0,,1,0,1,0,1,,-23,,,,,
-Annapuna Salt Small,Spices,TY00498,6033000298805,pcs,0,0,2.5,,1,0,1,0,1,,15,,,,,
+Sultana Spaghetti 400G,Spaghetti,TY00497,8690828619458,pcs,120,-94.1667,7.0,,1,0,1,0,1,,-44,,,,,
+Annapuna Salt Small,Spices,TY00498,6033000298805,pcs,0,0,2.5,,1,0,1,0,1,,12,,,,,
 Viva Olonka,Rice,TY00449,,olonka,0,0,38.0,,1,0,1,0,1,,0,,2,10,1,4
-Remie Noodle Spice,Spices,TY00450,6971368010380,pcs,0.8,0,1.0,,1,0,1,0,1,,271,,,,,
-Remie Goat Spices,Spices,TY00452,6969228800103,pcs,0,0,1.0,,1,0,1,0,1,,-99,,,,,
-Remie Fried Rice Spices,Spices,TY00454,,pcs,0,0,1.0,,1,0,1,0,1,,140,,,,,
+Remie Noodle Spice,Spices,TY00450,6971368010380,pcs,0.8,0,1.0,,1,0,1,0,1,,263,,,,,
+Remie Goat Spices,Spices,TY00452,6969228800103,pcs,0,0,1.0,,1,0,1,0,1,,-116,,,,,
+Remie Fried Rice Spices,Spices,TY00454,,pcs,0,0,1.0,,1,0,1,0,1,,139,,,,,
 Onga Stew 64X12G Spices Pack,Spices,TY00457,6008155016376,pack,28.3333,9.4246,31.0,,1,0,1,0,1,,0,,,,,
-Onga  Cube Tablets 1P,Spices,TY00458,,pcs,0,0,0.7,,1,0,1,0,1,,-12,,,,,
-Dubai Gold 4.5kg,Rice,TY00499,,4.5kg,67,4.4776,70.0,,1,0,1,0,1,,-4,,,,,
+Onga  Cube Tablets 1P,Spices,TY00458,,pcs,0,0,0.7,,1,0,1,0,1,,-39,,,,,
+Dubai Gold 4.5kg,Rice,TY00499,,4.5kg,67,4.4776,70.0,,1,0,1,0,1,,-8,,,,,
 Wings Soft,Meat\Fish,TY00500,,kg,0,0,35.0,,1,0,1,0,0,,13.1,,,,,
 Hen Back Box,Meat\Fish,TY00459,,carton,185,24.3243,230.0,,1,0,1,0,1,,11,,,,,
-Onga Strip 3 Mix,Spices,TY00456,6008155015317,pcs,0.85,0,1.0,,1,0,1,0,1,,-88,,,,,
+Onga Strip 3 Mix,Spices,TY00456,6008155015317,pcs,0.85,0,1.0,,1,0,1,0,1,,-114,,,,,
 Kpanla 14 Box,Meat\Fish,TY00501,,carton,0,0,260.0,,1,0,1,0,0,,0,,,,,
-Yums Mayonnaise,Ketchup\Mayonnaise\Baked Beans,TY00502,5285004114846,pcs,11.42,35.7268,15.5,,1,0,1,0,1,,14,,,,,
+Yums Mayonnaise,Ketchup\Mayonnaise\Baked Beans,TY00502,5285004114846,pcs,11.42,35.7268,15.5,,1,0,1,0,1,,9,,,,,
 Medaase Pakistan,Rice,TY00503,,45kg,490,12.2449,550.0,,1,0,1,0,1,,1,,,,,
-Sofia Gold 4.5kg,Rice,TY00504,,4.5kg,65,12.3077,73.0,,1,0,1,0,1,,-8,,,,,
+Sofia Gold 4.5kg,Rice,TY00504,,4.5kg,65,12.3077,73.0,,1,0,1,0,1,,-10,,,,,
 Nana 25L,Oil,TY00505,,25l,500,4,520.0,,1,0,1,0,1,,0,,,,,
 Festin 59G,Tomato Paste,TY00506,6033000300058,,1.3,30.7692,1.7,,1,0,1,0,0,,0,,,,,
-Egg Crate Small,Meat\Fish,TY00507,,crate,45,0,50.0,,1,0,1,0,1,,-5,,,,,
+Egg Crate Small,Meat\Fish,TY00507,,crate,45,0,50.0,,1,0,1,0,1,,-20.5,,,,,
 Pretty Lady 5x4.5kg,Rice,TY00508,,5x4.5kg,325,7.6923,350.0,,1,0,1,0,1,,5,,,,,
 Sofia Gold 5X5,Rice,TY00509,,5x5kg,345,5.7971,365.0,,1,0,1,0,1,,0,,,,,
 Kpanla 20 Plus 10kg,Meat\Fish,TY00510,,carton,0,0,340.0,,1,0,1,0,0,,0,,,,,
 Zelda Veit 5X5,Rice,TY00511,,5x5kg,0,0,290.0,,1,0,1,0,1,,1,,,,,
 Zelda 5kg,Rice,TY00512,,5kg,0,0,58.0,,1,0,1,0,1,,0,,,,,
-Baracuda,Meat\Fish,TY00513,,carton,0,0,520.0,,1,0,1,0,1,,-0.5,,,,,
-Baracuda 1kg,Meat\Fish,TY00514,,kg,39,33.3333,52.0,,1,0,1,0,1,,4.6,,,,,
-Potato Chips,Meat\Fish,TY00515,,pcs,68.75,16.3636,80.0,,1,0,1,0,1,,10,,,,,
+Baracuda,Meat\Fish,TY00513,,carton,0,0,520.0,,1,0,1,0,1,,-1.5,,,,,
+Baracuda 1kg,Meat\Fish,TY00514,,kg,39,33.3333,52.0,,1,0,1,0,1,,2.2,,,,,
+Potato Chips,Meat\Fish,TY00515,,pcs,68.75,16.3636,80.0,,1,0,1,0,1,,-5,,,,,
 Granja Gizzard,Meat\Fish,TY00516,,pcs,25,12,28.0,,1,0,1,0,1,,0,,,,,
-White Eggs,Meat\Fish,TY00517,,pcs,0,0,2.0,,1,0,1,0,1,,-243,,,,,
+White Eggs,Meat\Fish,TY00517,,pcs,0,0,2.0,,1,0,1,0,1,,-376,,,,,
 Hondi Box,Tomato Paste,TY00518,,box,190,10.5263,210.0,,1,0,1,0,0,,5,,,,,
 Remekes Layer,Meat\Fish,TY00519,,carton,300,13.3333,340.0,,1,0,1,0,1,,0,,,,,
 King Star 45,Rice,TY00242,,45kg,370,10.8108,410.0,,1,0,1,0,1,,0,,,,,
-Mom'S Oil 1.8L,Oil,TY00244,4820001116625,1.8l,60,8.3333,65.0,,1,0,1,0,1,,-2,,,,,
+Mom'S Oil 1.8L,Oil,TY00244,4820001116625,1.8l,60,8.3333,65.0,,1,0,1,0,1,,-6,,,,,
 Lele Sardine Box,Sardine,TY00396,,box,395,6.3291,420.0,,1,0,1,0,1,,-1,,,,,
 Gino 2.2Box,Tomato Paste,TY00453,,box,0,0,268.0,,1,0,1,0,1,,-1,,,,,
-Chicken Wings Box,Meat\Fish,TY00455,,10kg,0,0,370.0,,1,0,1,0,1,,0,,,,,
-Gino Tomato 60G Box,Tomato Paste,TY00522,,box,92,8.6957,100.0,,1,0,1,0,1,,3,,,,,
-Chicken Feet Box 10kg,Meat\Fish,TY00523,,carton,230,4.3478,240.0,,1,0,1,0,1,,5,,,,,
-Tasty Tom 210g Box,Tomato Paste,TY00524,,box,144,0,155.0,,1,0,1,0,1,,2,,,,,
-Tuna Fish 1kg,Meat\Fish,TY00525,,1kg,0,0,28.0,,1,0,1,0,1,,16.7,,,,,
+Chicken Wings Box,Meat\Fish,TY00455,,10kg,0,0,330.0,,1,0,1,0,1,,-0.25,,,,,
+Gino Tomato 60G Box,Tomato Paste,TY00522,,box,92,8.6957,100.0,,1,0,1,0,1,,2,,,,,
+Chicken Feet Box 10kg,Meat\Fish,TY00523,,carton,230,4.3478,240.0,,1,0,1,0,1,,3,,,,,
+Tasty Tom 210g Box,Tomato Paste,TY00524,,box,144,0,155.0,,1,0,1,0,1,,1.75,,,,,
+Tuna Fish 1kg,Meat\Fish,TY00525,,1kg,0,0,28.0,,1,0,1,0,1,,14.7,,,,,
 Tuna Fish Box,Meat\Fish,TY00526,,carton,0,0,270.0,,1,0,1,0,1,,0,,,,,
-Green Grent[Buebue],Meat\Fish,TY00527,,kg,0,0,28.0,,1,0,1,0,1,,-27,,,,,
+Green Grent[Buebue],Meat\Fish,TY00527,,kg,0,0,26.0,,1,0,1,0,1,,-78.6,,,,,
 Ola Tomato Paste Box,Tomato Paste,TY00528,,box,200,7.5,215.0,,1,0,1,0,0,,1,,,,,
-Ola Tomato Paste 2.2kg,Tomato Paste,TY00529,6034600188879,tin,34,2.9412,35.0,,1,0,1,0,1,,0,,,,,
-Kitchen King 5X4.5kg,Rice,TY00531,,5x4.5kg,325,6.1538,345.0,,1,0,1,0,1,,0,,,,,
-Kitchen King 4.5kg,Rice,TY00532,,4.5kg,65,6.1538,69.0,,1,0,1,0,1,,-3,,,,,
+Ola Tomato Paste 2.2kg,Tomato Paste,TY00529,6034600188879,tin,34,2.9412,35.0,,1,0,1,0,1,,-4,,,,,
+Kitchen King 5X4.5kg,Rice,TY00531,,5x4.5kg,325,4.6154,340.0,,1,0,1,0,1,,-1,,,,,
+Kitchen King 4.5kg,Rice,TY00532,,4.5kg,65,4.6154,68.0,,1,0,1,0,1,,-6,,,,,
 Jilans Basmati 5X5,Rice,TY00533,,5x5kg,505,6.9307,540.0,,1,0,1,0,1,,0,,,,,
 Jilans Basmati 5kg,Rice,TY00536,,5kg,132.5,1.8868,135.0,,1,0,1,0,1,,0,,,,,
 Gino Tin,Tomato Paste,TY00537,,tin,8.7,14.9425,10.0,,1,0,1,0,1,,0,,,,,
 Green Grent Box,Meat\Fish,TY00538,,carton,0,0,270.0,,1,0,1,0,1,,0,,,,,
 Chicken Feet 15kg Box,Meat\Fish,TY00539,,carton,340,5.8824,360.0,,1,0,1,0,1,,3,,,,,
-Cool Water,Beverages,TY00540,,500ml,0.27,85.1852,0.5,,1,0,1,0,1,,-145,,,,,
+Cool Water,Beverages,TY00540,,500ml,0.27,85.1852,0.5,,1,0,1,0,1,,-479,,,,,
 Miss U 25kg,Rice,TY00541,,25kg,310,9.6774,340.0,,1,0,1,0,1,,0,,,,,
-Pena Gizzard,Meat\Fish,TY00543,7894904271986,pcs,290,-90,29.0,,1,0,1,0,1,,-5,,,,,
-Brazil Drumstick Box,Meat\Fish,TY00544,,carton,295,11.8644,330.0,,1,0,1,0,1,,-15.5,,,,,
+Pena Gizzard,Meat\Fish,TY00543,7894904271986,pcs,290,-90,29.0,,1,0,1,0,1,,-22,,,,,
+Brazil Drumstick Box,Meat\Fish,TY00544,,carton,295,11.8644,330.0,,1,0,1,0,1,,-21,,,,,
 Festiva Soy Sauce,Ketchup\Mayonnaise\Baked Beans,TY00545,,pcs,9.1,15.3846,10.5,,1,0,1,0,1,,0,,,,,
 Sunrise Basmati 5X5,Rice,TY00547,,5x5kg,119.8,4.3406,125.0,,1,0,1,0,1,,0,,,,,
-Dubai 45 kg,Rice,TY00548,,45kg,640,3.125,660.0,,1,0,1,0,1,,3,,,,,
-Frytol 10L,Oil,TY00550,,10l,195,-13.4615,225.0,,1,0,1,0,1,,2,,,,,
+Dubai 45 kg,Rice,TY00548,,45kg,620,3.2258,640.0,,1,0,1,0,1,,3,,,,,
+Frytol 10L,Oil,TY00550,,10l,195,-13.4615,225.0,,1,0,1,0,1,,-2,,,,,
 Oba Macaroni,Spaghetti,TY00551,8690828009648,pcs,7.8,28.2051,10.0,,1,0,1,0,1,,0,,,,,
-Mutlu Macaroni,Spaghetti,TY00552,8690946251660,pcs,8.25,21.2121,10.0,,1,0,1,0,1,,11,,,,,
-Tasty Tom 2.2kg Box,Tomato Paste,TY00553,,box,0,0,287.0,,1,0,1,0,1,,-1,,,,,
+Mutlu Macaroni,Spaghetti,TY00552,8690946251660,pcs,8.25,21.2121,10.0,,1,0,1,0,1,,-14,,,,,
+Tasty Tom 2.2kg Box,Tomato Paste,TY00553,,box,0,0,287.0,,1,0,1,0,1,,-3,,,,,
 Abena Sardine Box,Sardine,TY00554,,box,390,3.8462,405.0,,1,0,1,0,1,,0,,,,,
 Frytol 50Ml,Oil,TY00555,6034000190311,50ml,0,0,2.5,,1,0,1,0,1,,-1,,,,,
-Full Chicken Big[9],Meat\Fish,TY00556,,pcs,0,0,43.0,,1,0,1,0,1,,-5,,,,,
+Full Chicken Big[9],Meat\Fish,TY00556,,pcs,0,0,43.0,,1,0,1,0,1,,-7,,,,,
 Nhyira Rice 5X4kg,Rice,TY00557,,5x4kg,290,6.8966,310.0,,1,0,1,0,1,,1,,,,,
 Nhyira 4kg,Rice,TY00558,,4kg,58,6.8966,62.0,,1,0,1,0,1,,0,,,,,
-Enapa Soya Sauce,Oil,TY00559,6933362421944,pcs,13.33,20.03,16.0,,1,0,1,0,1,,-15,,,,,
+Enapa Soya Sauce,Oil,TY00559,6933362421944,pcs,13.33,20.03,16.0,,1,0,1,0,1,,-45,,,,,
 Chale 22.5kg,Rice,TY00562,,22.5kg,300,6.6667,320.0,,1,0,1,0,1,,0,,,,,
 King'S Oil 25L,Oil,TY00563,,25l,545,-2.7523,565.0,,1,0,1,0,0,,0,,,,,
 Pastaluso Spag,Spaghetti,TY00564,8690946103433,pcs,0,0,6.5,,1,0,1,0,1,,0,,,,,
 Nile Spag,Spaghetti,TY00565,8690946421780,pcs,0,0,6.0,,1,0,1,0,1,,0,,,,,
-Perdix Gizzard,Meat\Fish,TY00566,7891515499655,pcs,24,8.3333,26.0,,1,0,1,0,1,,-42,,,,,
-Nat Sausage,Meat\Fish,TY00568,7898506329205,pcs,11.5,13.0435,13.0,,1,0,1,0,1,,-48,,,,,
+Perdix Gizzard,Meat\Fish,TY00566,7891515931711,pcs,24,8.3333,26.0,,1,0,1,0,1,,-77,,,,,
+Nat Sausage,Meat\Fish,TY00568,7898506329205,pcs,11.5,13.0435,13.0,,1,0,1,0,1,,-184,,,,,
 Pork Belly,Meat\Fish,TY00569,,kg,0,0,70.0,,1,0,1,0,1,,0,,,,,
 Cic Jasmine,Rice,TY00570,,5kg,70,4.2857,73.0,,1,0,1,0,1,,1,,,,,
-Nat Sausage Box,Meat\Fish,TY00571,,box,280,17.8571,330.0,,1,0,1,0,1,,-1,,,,,
-Minu Sausage,Meat\Fish,TY00572,7896000938138,pcs,0,0,15.0,,1,0,1,0,1,,-111,,,,,
+Nat Sausage Box,Meat\Fish,TY00571,,box,280,7.1429,300.0,,1,0,1,0,1,,-7,,,,,
+Minu Sausage,Meat\Fish,TY00572,7896000938138,pcs,0,0,15.0,,1,0,1,0,1,,-231,,,,,
 Moi Select 5X5kg,Rice,TY00573,,5x5kg,0,0,385.0,,1,0,1,0,1,,0,,,,,
 Moi Select 25kg,Rice,TY00574,,25kg,0,0,365.0,,1,0,1,0,1,,1,,,,,
-Mom'S Recipe Sunflower Oil 4L,Oil,TY00575,,4l,105,9.5238,115.0,,1,0,1,0,1,,-3,,,,,
+Mom'S Recipe Sunflower Oil 4L,Oil,TY00575,,4l,105,9.5238,115.0,,1,0,1,0,1,,-4,,,,,
 Hake Small,Meat\Fish,TY00577,,1kg,28,0,28.0,,1,0,1,0,1,,10.1,,,,,
-Super Pack Chicken,Indomie,TY00530,89686130027,pcs,0,0,6.2,,1,0,1,0,1,,-30,,,,,
-Hondi 2.2kg,Tomato Paste,TY00578,6971006991118,tin,31.7,10.4101,35.0,,1,0,1,0,1,,-17,,,,,
-Chicken Breast 2kg,Meat\Fish,TY00579,,2kg,90,22.2222,110.0,,1,0,1,0,1,,-1,,,,,
+Super Pack Chicken,Indomie,TY00530,89686130027,pcs,0,0,6.2,,1,0,1,0,1,,-40,,,,,
+Hondi 2.2kg,Tomato Paste,TY00578,6971006991118,tin,31.7,10.4101,35.0,,1,0,1,0,1,,-47,,,,,
+Chicken Breast 2kg,Meat\Fish,TY00579,,2kg,90,22.2222,110.0,,1,0,1,0,1,,-3,,,,,
 Mario 5X5,Rice,TY00580,,5x5kg,280,10.7143,310.0,,1,0,1,0,1,,0,,,,,
 Moi Select 5kg,Rice,TY00581,6186000301133,5kg,0,0,77.0,,1,0,1,0,1,,0,,,,,
-Super Pack,Indomie,TY00582,6034000390124|089686130201,pcs,5.7,8.7719,6.2,,1,0,1,0,1,,-32,,,,,
+Super Pack,Indomie,TY00582,6034000390124|089686130201,pcs,5.7,8.7719,6.2,,1,0,1,0,1,,-43,,,,,
 Tiana Veit Rice 5X5,Rice,TY00583,,5x5kg,335,4.4776,350.0,,1,0,1,0,1,,0,,,,,
-Tiana 1kg,Rice,TY00584,6033000430823,1kg,14.95,7.0234,16.0,,1,0,1,0,1,,15,,,,,
+Tiana 1kg,Rice,TY00584,6033000430823,1kg,14.95,7.0234,16.0,,1,0,1,0,1,,10,,,,,
 Tiana 5kg,Rice,TY00585,,5kg,0,0,70.0,,1,0,1,0,1,,2,,,,,
 Chanel Broken 22.5,Rice,TY00586,,22.5kg,325,0,257.0,,1,0,1,0,1,,4,,,,,
 Konkord Salt 1kg,Spices,TY00567,3454302004353,pcs,0,0,9.0,,1,0,1,0,1,,0,,,,,
-Cool Water Pack,Beverages,TY00560,,30x500ml,8,25,10.0,,1,0,1,0,1,,4,,,,,
+Cool Water Pack,Beverages,TY00560,,30x500ml,8,25,10.0,,1,0,1,0,1,,-4,,,,,
 Red Fish Medium Box,Meat\Fish,TY00587,,carton,360,11.1111,400.0,,1,0,1,0,1,,0,,,,,
-Nutmeg,Spices,TY00589,8908180600114,pcs,0,0,1.0,,1,0,1,0,1,,556,,,,,
-Onga  Classic Big,Spices,TY00588,6008155008036,pcs,2.9,20.6897,3.5,,1,0,1,0,1,,95,,,,,
+Nutmeg,Spices,TY00589,8908180600114,pcs,0,0,1.0,,1,0,1,0,1,,536,,,,,
+Onga  Classic Big,Spices,TY00588,6008155008036,pcs,2.9,20.6897,3.5,,1,0,1,0,1,,89,,,,,
 Viola Spag 200,Spaghetti,TY00535,55,pcs,2.7,11.1111,3.0,,1,0,1,0,1,,0,,,,,
-Tasty Tom Jollof 210g,Tomato Paste,TY00590,6033000303943,sachet,6.9,8.6957,7.5,,1,0,1,0,1,,-2,,,,,
+Tasty Tom Jollof 210g,Tomato Paste,TY00590,6033000303943,sachet,6.9,8.6957,7.5,,1,0,1,0,1,,-18,,,,,
 Arima Rice 4.5,Rice,TY00591,,4.5kg,0,0,62.0,,1,0,1,0,1,,1,,,,,
 Arima Rice 4.5X5,Rice,TY00592,,5x4.5kg,290,6.8966,310.0,,1,0,1,0,1,,-2,,,,,
-Wings Box,Meat\Fish,TY00593,,carton,350,12233.3333,370.0,,1,0,1,0,0,,0,,,,,
+Wings Box,Meat\Fish,TY00593,,carton,350,-5.7143,330.0,,1,0,1,0,0,,0,,,,,
 Red Fish Medium,Meat\Fish,TY00594,,kg,0,0,40.0,,1,0,1,0,1,,-1.615,,,,,
 Seara Box,Meat\Fish,TY00600,,box,0,0,350.0,,1,0,1,0,1,,3,,,,,
 Pena Box [rplc],Meat\Fish,TY00601,,box,0,0,350.0,,1,0,1,0,1,,0,,,,,
-Tasty Tom 1.05kg Box,Tomato Paste,TY00602,,box,268,0,280.0,,1,0,1,0,1,,4,,,,,
+Tasty Tom 1.05kg Box,Tomato Paste,TY00602,,box,268,0,280.0,,1,0,1,0,1,,1.5,,,,,
 Sultana Sardine Box,Sardine,TY00603,,box,0,0,348.0,,1,0,1,0,1,,0,,,,,
-Bino Box,Meat\Fish,TY00604,,box,0,0,340.0,,1,0,1,0,1,,-1,,,,,
+Bino Box,Meat\Fish,TY00604,,box,0,0,340.0,,1,0,1,0,1,,-2,,,,,
 Yellow Tail Large Box,Meat\Fish,TY00605,,carton,250,8,270.0,,1,0,1,0,1,,2,,,,,
-Kivo Pepper 180G,Spices,TY00606,630282995987,pcs,11.05,0,13.0,,1,0,1,0,1,,30,,,,,
+Kivo Pepper 180G,Spices,TY00606,630282995987,pcs,11.05,0,13.0,,1,0,1,0,1,,-33,,,,,
 Paganini Box,Spaghetti,TY00607,,box,0,0,238.0,,1,0,1,0,1,,0,,,,,
-Beef Filet,Meat\Fish,TY00608,,kg,64,9.375,70.0,,1,0,1,0,1,,-5,,,,,
+Beef Filet,Meat\Fish,TY00608,,kg,64,9.375,70.0,,1,0,1,0,1,,-10,,,,,
 Voltic Water 500Ml Pack,Beverages,TY00610,,pack,21,0,24.0,,1,0,1,0,1,,7,,,,,
-Dubai 22.5kg,Rice,TY00612,,22.5kg,325,4.6154,340.0,,1,0,1,0,1,,-3,,,,,
+Dubai 22.5kg,Rice,TY00612,,22.5kg,320,4.6875,335.0,,1,0,1,0,1,,-6,,,,,
 Moi Select 4kg,Rice,TY00613,,4kg,0,0,66.0,,1,0,1,0,1,,-1,,,,,
 Moi Select 5/4.5kg,Rice,TY00614,,5x4.5kg,0,0,330.0,,1,0,1,0,1,,0,,,,,
 Zoey Rice  5X5,Rice,TY00615,,5x5kg,320,4.6875,335.0,,1,0,1,0,1,,0,,,,,
@@ -613,8 +613,8 @@ Follow Me 22.5,Rice,TY00618,,22.5kg,0,0,320.0,,1,0,1,0,1,,0,,,,,
 Follow Me 5X5,Rice,TY00619,,5x5kg,0,0,335.0,,1,0,1,0,1,,0,,,,,
 Follow Me 5kg,Rice,TY00620,,5kg,0,0,67.0,,1,0,1,0,1,,0,,,,,
 Doga Spaghetti Box,Spaghetti,TY00622,,box,0,0,120.0,,1,0,1,0,1,,-6.5,,,,,
-Doga Spaghetti,Spaghetti,TY00534,8690967500457,pcs,4.75,26.3158,6.0,,1,0,1,0,1,,-27,,,,,
-Cassava Fish Carton 15kg,Meat\Fish,TY00628,,carton,490,8.1633,530.0,,1,0,1,0,1,,2,,,,,
+Doga Spaghetti,Spaghetti,TY00534,8690967500457,pcs,4.75,26.3158,6.0,,1,0,1,0,1,,-84,,,,,
+Cassava Fish Carton 15kg,Meat\Fish,TY00628,,carton,600,10,660.0,,1,0,1,0,1,,1,,,,,
 Platinum 5X 4.5kg,Rice,TY00630,,5x4.5kg,0,0,325.0,,1,0,1,0,1,,0,,,,,
 Platinum 4.5kg,Rice,TY00633,,4.5kg,0,0,65.0,,1,0,1,0,1,,0,,,,,
 Dada Nigerian Rice,Rice,TY00634,,45kg,0,0,500.0,,1,0,1,0,1,,1,,,,,
@@ -622,115 +622,115 @@ Minu Sausage Box,Meat\Fish,TY00637,,box,420,11.9048,470.0,,1,0,1,0,1,,4.75,,,,,
 Yellow Tail Small Box,Meat\Fish,TY00638,,box,240,0,290.0,,1,0,1,0,1,,2,,,,,
 Royal Secret Thai 5X4.5,Rice,TY00639,,5x4.5kg,510,7.8431,550.0,,1,0,1,0,1,,0,,,,,
 Royal Secret 5kg,Rice,TY00640,,5kg,102,3.9216,106.0,,1,0,1,0,1,,0,,,,,
-Dubai 5X5,Rice,TY00641,,5x5kg,340,4.4118,355.0,,1,0,1,0,1,,1,,,,,
+Dubai 5X5,Rice,TY00641,,5x5kg,320,4.6875,335.0,,1,0,1,0,1,,0,,,,,
 Jasmine Rice 25Pounds,Rice,TY00642,,25lbs,350,0,350.0,,1,0,1,0,1,,1,,,,,
-Pena Gizzard Box 12kg,Meat\Fish,TY00643,,box,320,3.125,330.0,,1,0,1,0,1,,-2,,,,,
+Pena Gizzard Box 12kg,Meat\Fish,TY00643,,box,320,3.125,330.0,,1,0,1,0,1,,-3,,,,,
 Kivo Curry Powder,Spices,TY00644,786411642090,pcs,0,0,11.0,,1,0,1,0,1,,0,,,,,
-Dubai 5kg,Rice,TY00645,,5kg,68,4.4118,71.0,,1,0,1,0,1,,-4,,,,,
+Dubai 5kg,Rice,TY00645,,5kg,64,4.6875,67.0,,1,0,1,0,1,,-8,,,,,
 Obaapa Oil 250Ml,Oil,TY00646,8992829112090,pcs,9.7,13.4021,11.0,,1,0,1,0,1,,0,,,,,
-Beef Sinews Half,Meat\Fish,TY00647,,kg,0,0,17.5,,1,0,1,0,1,,-37,,,,,
-Chicken Feet Half,Meat\Fish,TY00648,,kg,11.5,13.0435,13.0,,1,0,1,0,1,,-73,,,,,
-Facemask Half,Meat\Fish,TY00649,,kg,0,0,18.0,,1,0,1,0,1,,14,,,,,
-Kpanla 16+ Half,Meat\Fish,TY00652,,0.5kg,12,25,15.0,,1,0,1,0,1,,-193,,,,,
-Chicken Back Half Box,Meat\Fish,TY00653,,carton,95,5.2632,100.0,,1,0,1,0,1,,-14,,,,,
-Sankofa Jollof,Spices,TY00654,6036000144318,pcs,0,0,0.8,,1,0,1,0,1,,-1,,,,,
+Beef Sinews Half,Meat\Fish,TY00647,,kg,0,0,17.5,,1,0,1,0,1,,-100.35,,,,,
+Chicken Feet Half,Meat\Fish,TY00648,,kg,11.5,13.0435,13.0,,1,0,1,0,1,,-121,,,,,
+Facemask Half,Meat\Fish,TY00649,,kg,0,0,18.0,,1,0,1,0,1,,-24,,,,,
+Kpanla 16+ Half,Meat\Fish,TY00652,,0.5kg,12,25,15.0,,1,0,1,0,1,,-309,,,,,
+Chicken Back Half Box,Meat\Fish,TY00653,,carton,95,5.2632,100.0,,1,0,1,0,1,,-31,,,,,
+Sankofa Jollof,Spices,TY00654,6036000144318,pcs,0,0,0.8,,1,0,1,0,1,,-13,,,,,
 Kpanla 20+ Half,Meat\Fish,TY00657,,kg,0,0,17.5,,1,0,1,0,1,,-6,,,,,
 Medina Viet 22.5kg,Rice,TY00658,,22.5kg,300,6.6667,320.0,,1,0,1,0,1,,0,,,,,
 Ginny Mayonnaise Small,Ketchup\Mayonnaise\Baked Beans,TY00671,5412723502504,pcs,0,0,18.0,,1,0,1,0,1,,0,,,,,
 A-One,Spices,TY00675,,pcs,0,0,28.0,,1,0,1,0,1,,4,,,,,
-Aaba Oil 0.9L,Oil,TY00676,8888168016604,0.9l,0,0,25.0,,1,0,1,0,1,,-6,,,,,
+Aaba Oil 0.9L,Oil,TY00676,8888168016604,0.9l,0,0,25.0,,1,0,1,0,1,,-18,,,,,
 Amani 20kg Box,Meat\Fish,TY00595,,kg,0,0,395.0,,1,0,1,0,1,,0,,,,,
 Amani Sardine 10kg,Meat\Fish,TY00596,,kg,205,0,220.0,,1,0,1,0,1,,6,,,,,
-Chicken Broiler Half kg,Meat\Fish,TY00597,,0.5kg,13.26,5.5807,14.0,,1,0,1,0,1,,-18,,,,,
-Kpanla 14+ Half,Meat\Fish,TY00598,,kg,11.5,17.3913,13.5,,1,0,1,0,1,,-77,,,,,
-Chicken Layer Hard Half,Meat\Fish,TY00599,,0.5kg,15.4,3.8961,16.0,,1,0,1,0,1,,-153,,,,,
+Chicken Broiler Half kg,Meat\Fish,TY00597,,0.5kg,13.26,5.5807,14.0,,1,0,1,0,1,,-122,,,,,
+Kpanla 14+ Half,Meat\Fish,TY00598,,kg,11.5,17.3913,13.5,,1,0,1,0,1,,-138,,,,,
+Chicken Layer Hard Half,Meat\Fish,TY00599,,0.5kg,15.4,3.8961,16.0,,1,0,1,0,1,,-455,,,,,
 Eggs Crate Small,Meat\Fish,TY00677,,crate,0,0,48.0,,1,0,1,0,1,,0,,,,,
-Drumstick Half,Meat\Fish,TY00678,,0.5kg,0,0,17.0,,1,0,1,0,1,,-52,,,,,
-Sardine Amani 1kg,Meat\Fish,TY00679,,kg,0,0,23.0,,1,0,1,0,1,,-5,,,,,
+Drumstick Half,Meat\Fish,TY00678,,0.5kg,0,0,17.0,,1,0,1,0,1,,-131,,,,,
+Sardine Amani 1kg,Meat\Fish,TY00679,,kg,0,0,23.0,,1,0,1,0,1,,-13.5,,,,,
 Risha Basmati 5X5,Rice,TY00680,,kg,0,0,127.0,,1,0,1,0,1,,0,,,,,
-Gino Curry Powder Line,Spices,TY00682,,line,4.5,33.3333,6.0,,1,0,1,0,1,,-28,,,,,
+Gino Curry Powder Line,Spices,TY00682,,line,4.5,33.3333,6.0,,1,0,1,0,1,,-41,,,,,
 [rplc,Meat\Fish,TY00520,,kg,0,0,15.0,,1,0,1,0,1,,0,,,,,
-Half Beef Tripe Intestine(Yemade3),Meat\Fish,TY00521,,0.5kg,12,25,15.0,,1,0,1,0,1,,-116,,,,,
-Sprite 30Cl Pack,Beverages,TY00561,,0.3lx12,41.5,10.8434,46.0,,1,0,1,0,1,,2,,,,,
+Half Beef Tripe Intestine(Yemade3),Meat\Fish,TY00521,,0.5kg,12,16.6667,14.0,,1,0,1,0,1,,-141,,,,,
+Sprite 30Cl Pack,Beverages,TY00561,,0.3lx12,41.5,34.9398,56.0,,1,0,1,0,1,,2,,,,,
 Kpanla 14+Big,Meat\Fish,TY00683,,kg,0,0,27.0,,1,0,1,0,0,,-1,,,,,
 Three Horses 50kg,Rice,TY00684,,50kg,465,4.3011,485.0,,1,0,1,0,1,,1,,,,,
 Precious 45kg Rice,Rice,TY00685,,kg,600,4.1667,625.0,,1,0,1,0,1,,0,,,,,
 Oki Rice 22.5kg,Rice,TY00686,,kg,0,0,310.0,,1,0,1,0,1,,0,,,,,
-Kivo Pepper 400G,Spices,TY00687,630282995994,g,23.75,13.6842,27.0,,1,0,1,0,1,,1,,,,,
-Dubai 1kg,Rice,TY00688,8936089965676,1kg,13,7.6923,14.0,,1,0,1,0,1,,44,,,,,
+Kivo Pepper 400G,Spices,TY00687,630282995994,g,23.75,13.6842,27.0,,1,0,1,0,1,,-1,,,,,
+Dubai 1kg,Rice,TY00688,8936089965676,1kg,13,7.6923,14.0,,1,0,1,0,1,,39,,,,,
 Cow Leg Box,Meat\Fish,TY00689,,kg,430,6.9767,460.0,,1,0,1,0,1,,-0.5,,,,,
 K75 1kg,Rice,TY00611,6036000120435,1kg,0,0,18.0,,1,0,1,0,1,,1,,,,,
 Captain Rice 45kg,Rice,TY00609,,45kg,0,0,480.0,,1,0,1,0,1,,0,,,,,
 Sofia  Viet Rice 5X4.5kg,Rice,TY00690,,kg,340,5.8824,360.0,,1,0,1,0,1,,1,,,,,
-Lele Monosodium 1Lib,Spices,TY00691,,pcs,0,0,19.0,,1,0,1,0,1,,54,,,,,
+Lele Monosodium 1Lib,Spices,TY00691,,pcs,0,0,19.0,,1,0,1,0,1,,52,,,,,
 Salmon Foreign 20kg Box,Meat\Fish,TY00692,,Carton,720,5.5556,760.0,,1,0,1,0,1,,0.5,,,,,
 Golden Drop 25L,Oil,TY00693,,25l,435,4.5977,455.0,,1,0,1,0,1,,0,,,,,
-Lele Monosodium Mesh,Spices,TY00694,,pcs,16,12.5,18.0,,1,0,1,0,1,,-16,,,,,
-Mama'S Pride Spaghetti,Spaghetti,TY00695,8690828619403,pcs,0,0,7.0,,1,0,1,0,1,,84,,,,,
-La Vounce Paste 70g,Tomato Paste,TY00696,6971006991040,sachet,0,0,1.8,,1,0,1,0,1,,-49,,,,,
+Lele Monosodium Mesh,Spices,TY00694,,pcs,16,12.5,18.0,,1,0,1,0,1,,-30,,,,,
+Mama'S Pride Spaghetti,Spaghetti,TY00695,8690828619403,pcs,0,0,7.0,,1,0,1,0,1,,75,,,,,
+La Vounce Paste 70g,Tomato Paste,TY00696,6971006991040,sachet,0,0,1.8,,1,0,1,0,1,,-137,,,,,
 Mom'S Vegetable Oil,Oil,TY00697,,4.5l,100,10,110.0,,1,0,1,0,1,,0,,,,,
-La Vonce 210Gms Tin,Tomato Paste,TY00698,6971006991033,tin,5.3,13.2075,6.0,,1,0,1,0,1,,-4,,,,,
-My Deer Gold 22.5kg,Rice,TY00699,,22.5kg,420,4.7619,440.0,,1,0,1,0,1,,0,,,,,
-Gino Pepper Mix 1.1,Tomato Paste,TY00700,8410300367345,sachet,22.16,8.3032,24.0,,1,0,1,0,1,,1,,,,,
+La Vonce 210Gms Tin,Tomato Paste,TY00698,6971006991033,tin,5.3,13.2075,6.0,,1,0,1,0,1,,-16,,,,,
+My Deer Gold 22.5kg,Rice,TY00699,,22.5kg,425,3.5294,440.0,,1,0,1,0,1,,0,,,,,
+Gino Pepper Mix 1.1,Tomato Paste,TY00700,8410300367345,sachet,22.16,8.3032,24.0,,1,0,1,0,1,,-23,,,,,
 Punjab Royal Basmatic  5X4kg,Rice,TY00701,8904213322022,kg,550,5.4545,580.0,,1,0,1,0,1,,0,,,,,
 Punjab Royal Basmatic 5kg,Rice,TY00621,,kg,137.5,5.4545,145.0,,1,0,1,0,1,,0,,,,,
-Kivo Pepper 13Gm,Spices,TY00702,630282995970,pcs,0.88,0,1.2,,1,0,1,0,1,,225,,,,,
+Kivo Pepper 13Gm,Spices,TY00702,630282995970,pcs,0.88,0,1.2,,1,0,1,0,1,,156,,,,,
 Full Chicken Small Carton,Meat\Fish,TY00703,,kg,340,11.7647,380.0,,1,0,1,0,1,,16,,,,,
 Pasta Mondoe 200Gm Spagetti,Spaghetti,TY00623,8697427080283,pcs,0,0,3.0,,1,0,1,0,1,,0,,,,,
-Tasty Tom Onion And Ginger 60g,Tomato Paste,TY00624,6033000303172,sachet,2,10,2.2,,1,0,1,0,1,,0,,,,,
-Kivo Baked Beans,Ketchup\Mayonnaise\Baked Beans,TY00625,630282995918,pcs,0,0,14.0,,1,0,1,0,1,,0,,,,,
-Sankofa Fish 5G,Spices,TY00626,6036000144301,g,0,0,0.8,,1,0,1,0,1,,193,,,,,
-Sankofa Ginger And Galic5G,Spices,TY00627,6036000063435,pcs,0,0,0.8,,1,0,1,0,1,,399,,,,,
+Tasty Tom Onion And Ginger 60g,Tomato Paste,TY00624,6033000303172,sachet,2,10,2.2,,1,0,1,0,1,,-19,,,,,
+Kivo Baked Beans,Ketchup\Mayonnaise\Baked Beans,TY00625,630282995918,pcs,0,0,14.0,,1,0,1,0,1,,-6,,,,,
+Sankofa Fish 5G,Spices,TY00626,6036000144301,g,0,0,0.8,,1,0,1,0,1,,174,,,,,
+Sankofa Ginger And Galic5G,Spices,TY00627,6036000063435,pcs,0,0,0.8,,1,0,1,0,1,,303,,,,,
 Coca Cola Pet 45Cl,Beverages,TY00629,42105220,45cl,0,0,8.0,,1,0,1,0,1,,0,,,,,
 Africa Gold Nigeria 50kg,Rice,TY00631,,kg,450,5.5556,475.0,,1,0,1,0,1,,-0.5,,,,,
 Flamingo 22.5 Broken Rice,Rice,TY00632,,kg,270,9.2593,295.0,,1,0,1,0,1,,0,,,,,
-Gino Pepper & Onion 210,Tomato Paste,TY00673,8410300367338,sachet,0,0,7.5,,1,0,1,0,1,,-4,,,,,
-Tasty Tom Jollof  60g,Tomato Paste,TY00704,6033000303936,sachet,0,0,2.5,,1,0,1,0,1,,66,,,,,
+Gino Pepper & Onion 210,Tomato Paste,TY00673,8410300367338,sachet,0,0,7.5,,1,0,1,0,1,,-24,,,,,
+Tasty Tom Jollof  60g,Tomato Paste,TY00704,6033000303936,sachet,0,0,2.5,,1,0,1,0,1,,26,,,,,
 Red Fish Box Big,Meat\Fish,TY00549,,carton,0,0,440.0,,1,0,1,0,1,,23.7,,,,,
-Frytol Sachet 900Ml,Oil,TY00635,6034000190694,0.9l,19,10.5263,21.0,,1,0,1,0,1,,13,,,,,
+Frytol Sachet 900Ml,Oil,TY00635,6034000190694,0.9l,19,10.5263,21.0,,1,0,1,0,1,,-3,,,,,
 Fortune Vegetable Oil 4.5L,Oil,TY00636,,4.5l,99,9.0909,108.0,,1,0,1,0,1,,0,,,,,
-Lele Tuna Chunks 160G,Tuna Flakes\Chunks,TY00655,8852111004796,pcs,13.9,7.9137,15.0,,1,0,1,0,1,,4,,,,,
-Nhyira 40kg,Rice,TY00650,,40kg,568,3.8732,590.0,,1,0,1,0,1,,5,,,,,
+Lele Tuna Chunks 160G,Tuna Flakes\Chunks,TY00655,8852111004796,pcs,13.9,7.9137,15.0,,1,0,1,0,1,,-15,,,,,
+Nhyira 40kg,Rice,TY00650,,40kg,568,3.8732,590.0,,1,0,1,0,1,,4,,,,,
 Chanel 1kg,Rice,TY00651,8936089965270,1kg,13.25,9.434,14.5,,1,0,1,0,1,,0,,,,,
 Three Dolphins 45,Rice,TY00660,,kg,500,4,520.0,,1,0,1,0,1,,0,,,,,
-Cindy Sardine,Sardine,TY00674,6033000431363,pcs,6,16.6667,7.0,,1,0,1,0,1,,72,,,,,
+Cindy Sardine,Sardine,TY00674,6033000431363,pcs,6,16.6667,7.0,,1,0,1,0,1,,53,,,,,
 Arima Waakye Rice,Rice,TY00659,,45kg,500,4,520.0,,1,0,1,0,1,,0,,,,,
-Hubbards Spaghetti,Spaghetti,TY00661,359627,pcs,25,12,28.0,,1,0,1,0,1,,0,,,,,
+Hubbards Spaghetti,Spaghetti,TY00661,359627,pcs,25,12,28.0,,1,0,1,0,1,,-1,,,,,
 Simply Spaghetti,Spaghetti,TY00662,4056489810377,pcs,13,7.6923,14.0,,1,0,1,0,1,,22,,,,,
-Hearty Spaghetti,Spaghetti,TY00663,5057545092514,pcs,13,7.6923,14.0,,1,0,1,0,1,,-14,,,,,
-Maggi Dedeede Pack,Spices,TY00664,6181002001647,60x11g,36,5.5556,38.0,,1,0,1,0,1,,2.5,,,,,
-Egye Aware,Spices,TY00665,,pcs,13,15.3846,15.0,,1,0,1,0,1,,0,,,,,
-Badia Complete Seasoning Small,Spices,TY00666,033844001285,pcs,20,15,23.0,,1,0,1,0,1,,0,,,,,
-Badia Complete Seasoning Large,Spices,TY00667,033844001193,pcs,58.5,11.1111,65.0,,1,0,1,0,1,,2,,,,,
-Magic Mayo 1000Ml,Ketchup\Mayonnaise\Baked Beans,TY00668,793420641105,pcs,42,11.9048,47.0,,1,0,1,0,1,,2,,,,,
+Hearty Spaghetti,Spaghetti,TY00663,5057545092514,pcs,13,7.6923,14.0,,1,0,1,0,1,,-19,,,,,
+Maggi Dedeede Pack,Spices,TY00664,6181002001647,60x11g,36,5.5556,38.0,,1,0,1,0,1,,0.25,,,,,
+Egye Aware 250g Small,Spices,TY00665,,pcs,13,15.3846,15.0,,1,0,1,0,1,,-2,,,,,
+Badia Complete Seasoning Small,Spices,TY00666,033844001285,pcs,20,15,23.0,,1,0,1,0,1,,-4,,,,,
+Badia Complete Seasoning Large,Spices,TY00667,033844001193,pcs,58.5,11.1111,65.0,,1,0,1,0,1,,-1,,,,,
+Magic Mayo 1000Ml,Ketchup\Mayonnaise\Baked Beans,TY00668,793420641105,pcs,42,11.9048,47.0,,1,0,1,0,1,,-5,,,,,
 Paganini Spaghetti 500G,Spaghetti,TY00669,6181100094107,pcs,7,14.2857,8.0,,1,0,1,0,1,,0,,,,,
-maggie dedeede 1p,Spices,TY00670,,pcs,0.7,14.2857,0.8,,1,0,1,0,1,,-30,,,,,
+maggie dedeede 1p,Spices,TY00670,,pcs,0.7,14.2857,0.8,,1,0,1,0,1,,-51,,,,,
 Red Fish,Meat\Fish,TY00705,,kg,40,0,40.0,,1,0,1,0,0,,3.2,,,,,
-Adja Spice,Spices,TY00672,6044000017037,pcs,2.5,20,3.0,,1,0,1,0,1,,24,,,,,
-BADIA Curry Powder Small,Spices,TY00706,033844002008,pcs,25,20,30.0,,1,0,1,0,1,,-4,,,,,
-Salmon Local Small,Meat\Fish,TY00576,,kg,24,8.3333,26.0,,1,0,1,0,1,,14.2,,,,,
-Philfry Oil 25L,Oil,TY00711,,25l,430,4.6512,450.0,,1,0,1,0,1,,0,,,,,
+Adja Spice,Spices,TY00672,6044000017037,pcs,2.5,20,3.0,,1,0,1,0,1,,2,,,,,
+BADIA Curry Powder Small,Spices,TY00706,033844002008,pcs,25,20,30.0,,1,0,1,0,1,,-7,,,,,
+Salmon Local Small,Meat\Fish,TY00576,,kg,25,12,28.0,,1,0,1,0,1,,0.199999999999999,,,,,
+Philfry Oil 25L,Oil,TY00711,,25l,470,4.2553,490.0,,1,0,1,0,1,,0,,,,,
 Kpanla 25+ Box 20kg,Meat\Fish,TY00712,,carton,520,0,740.0,,1,0,1,0,1,,8,,,,,
-Mannish Ginger & Garlic Pcs,Mabel Spices,TY00713,,pcs,2,0,2.0,,1,0,1,0,1,,-67,,,,,
+Mannish Ginger & Garlic Pcs,Mabel Spices,TY00713,,pcs,2,0,2.0,,1,0,1,0,1,,-118,,,,,
 Mannish Ginger & Garlic Pouch Large,Mabel Spices,TY00714,,pouch,20,0,20.0,,1,0,1,0,1,,3,,,,,
-Mannish Groundnut Paste Small,Mabel Spices,TY00715,,pcs,15,0,15.0,,1,0,1,0,1,,-18,,,,,
+Mannish Groundnut Paste Small,Mabel Spices,TY00715,,pcs,15,0,15.0,,1,0,1,0,1,,-35,,,,,
 Mannish Groundnut Paste Medium 2,Mabel Spices,TY00716,,pcs,40,0,40.0,,1,0,1,0,1,,3,,,,,
 Mannish Groundnut Paste Large,Mabel Spices,TY00717,,pcs,60,0,60.0,,1,0,1,0,1,,0,,,,,
 Vatkum Shitor Large,External,TY00718,,pcs,95,0,95.0,,1,0,1,0,1,,0,,,,,
 Vatkum Shitor Small,External,TY00719,,pcs,35,0,35.0,,1,0,1,0,1,,-2,,,,,
 Vatkum Shitor Medium 1,External,TY00720,,pcs,40,0,40.0,,1,0,1,0,1,,-1,,,,,
-Vatkum Shitor Medium 2,External,TY00721,,pcs,75,0,75.0,,1,0,1,0,1,,-2,,,,,
+Vatkum Shitor Medium 2,External,TY00721,,pcs,75,0,75.0,,1,0,1,0,1,,-4,,,,,
 Mannish Groundnut Paste Medium 1,Mabel Spices,TY00722,,pcs,30,0,30.0,,1,0,1,0,1,,-3,,,,,
 Mannish Dawadawa Pouch Large,Mabel Spices,TY00723,,pouch,20,0,20.0,,1,0,1,0,1,,-1,,,,,
 Mannish Dawadawa Pouch Small,Mabel Spices,TY00724,,pouch,10,0,10.0,,1,0,1,0,1,,0,,,,,
-Mannish Ginger & Garlic Pouch Small,Mabel Spices,TY00725,,pouch,10,0,10.0,,1,0,1,0,1,,-7,,,,,
-Fanta Orange 30Cl Pack,Beverages,TY00726,,0.3lx12,41.5,13.253,47.0,,1,0,1,0,1,,2,,,,,
+Mannish Ginger & Garlic Pouch Small,Mabel Spices,TY00725,,pouch,10,0,10.0,,1,0,1,0,1,,-11,,,,,
+Fanta Orange 30Cl Pack,Beverages,TY00726,,0.3lx12,41.5,34.9398,56.0,,1,0,1,0,1,,1,,,,,
 LOCAL SPICES (AUNT MAY),Mabel Spices,TY00800,,,2,0,2.0,,1,0,1,0,0,,0,,,,,
 Gari Olonka,Spices,TY00801,,,0,0,22.0,,1,0,1,0,1,,0,,,,,
-Fanta Cocktail 30Cl Pack,Beverages,TY00727,,0.3lx12,41.5,13.253,47.0,,1,0,1,0,1,,1,,,,,
-Remie Beef 50g,Spices,TY00728,,pcs,3.5,14.2857,4.0,,1,0,1,0,1,,-23,,,,,
+Fanta Cocktail 30Cl Pack,Beverages,TY00727,,0.3lx12,41.5,34.9398,56.0,,1,0,1,0,1,,1,,,,,
+Remie Beef 50g,Spices,TY00728,,pcs,3.5,14.2857,4.0,,1,0,1,0,1,,-47,,,,,
 Perdix Gizzard Box,Meat\Fish,TY00729,,10x1kg,220,13.6364,250.0,,1,0,1,0,1,,3.5,,,,,
-Makkah 4.25kg,Rice,TY00730,,4.25kg,64,6.25,68.0,,1,0,1,0,1,,-23,,,,,
+Makkah 4.25kg,Rice,TY00730,,4.25kg,64,6.25,68.0,,1,0,1,0,1,,-24,,,,,
 Makkah 5x4.25kg,Rice,TY00731,,5x4.25kg,320,6.25,340.0,,1,0,1,0,1,,5,,,,,
 Arima 25kg,Rice,TY00734,,25kg,0,0,0.0,,1,0,0,0,0,,0,,,,,
 Enapa Soya Sauce Box,Oil,TY00752,,1lx12,162,0,0.0,,1,0,0,0,0,,5,,,,,
@@ -748,62 +748,94 @@ Mom's Oil 4.5l Box,Oil,TY00747,,4x4.5l,0,0,0.0,,1,0,0,0,0,,1,,,,,
 Oba Gold 4.5x5,Rice,TY00736,,25kg,325,6.1538,345.0,,1,0,0,0,0,,3,,,,,
 Oliya 1l,Oil,TY00743,,1l,0,0,36.0,,1,0,0,1,1,,-1,,,,,
 Oliya 1l Box,Oil,TY00744,,12x1l,390,5.1282,410.0,,1,0,0,0,0,,1,,,,,
-Red Eagle 50kg,Rice,TY00732,,50kg,745,2.0134,760.0,,1,0,0,0,1,,-1,,,,,
+Red Eagle 50kg,Rice,TY00732,,50kg,700,2.8571,720.0,,1,0,0,0,1,,-2,,,,,
 Riz Mimo 5kg,Rice,TY00737,,5kg,0,0,0.0,,1,0,0,0,0,,4,,,,,
 Riz Mimo 5x5kg,Rice,TY00751,,5x5kg,0,0,0.0,,1,0,0,0,0,,2,,,,,
 Ruby Viet Rice 5 % Broken 4.5kgx5,Rice,TY00735,,25kg,0,0,0.0,,1,0,0,0,0,,2,,,,,
 Unoli Sunflower Oil 1l Box,Oil,TY00739,,12x1l,0,0,0.0,,1,0,0,0,0,,0,,,,,
-Chicken Wings Hard Half Kilo,Meat\Fish,TY00754,,0.5kg,16.5,3.0303,17.0,,1,0,1,0,1,,-107,,,,,
-Onga Shrimp Quarter Box,Spices,TY00753,,box,0,0,8.5,,1,0,1,0,1,,-12,,,,,
-Turkey Wings Half Kilo,Meat\Fish,TY00755,,0.5kg,20,15,23.0,,1,0,1,0,1,,8,,,,,
-Cow Leg Kotodwe Half Kilo,Meat\Fish,TY00756,,0.5kg,0,0,13.0,,1,0,1,0,1,,-11,,,,,
-Chicken Back Half Kilo,Meat\Fish,TY00757,,0.5kg,9.5,15.7895,11.0,,1,0,1,0,1,,-151,,,,,
-Boneless Beef Half Kilo,Meat\Fish,TY00758,,0.5kg,32,9.375,35.0,,1,0,1,0,1,,-71,,,,,
+Chicken Wings Hard Half Kilo,Meat\Fish,TY00754,,0.5kg,16.5,3.0303,17.0,,1,0,1,0,1,,-314,,,,,
+Onga Shrimp Quarter Box,Spices,TY00753,,box,0,0,8.0,,1,0,1,0,1,,-35,,,,,
+Turkey Wings Half Kilo,Meat\Fish,TY00755,,0.5kg,20,15,23.0,,1,0,1,0,1,,-16,,,,,
+Cow Leg Kotodwe Half Kilo,Meat\Fish,TY00756,,0.5kg,0,0,13.0,,1,0,1,0,1,,-68,,,,,
+Chicken Back Half Kilo,Meat\Fish,TY00757,,0.5kg,9.5,15.7895,11.0,,1,0,1,0,1,,-402,,,,,
+Boneless Beef Half Kilo,Meat\Fish,TY00758,,0.5kg,32,9.375,35.0,,1,0,1,0,1,,-157,,,,,
 Chicken Breast Half Kilo,Meat\Fish,TY00759,,0.5kg,0,0,0.0,,1,0,1,0,0,,1,,,,,
 White Tripe half Kilo,Meat\Fish,TY00760,,0.5kg,0,0,0.0,,1,0,1,0,1,,13,,,,,
-Hen Back Half Kilo,Meat\Fish,TY00761,,0.5kg,10.12,18.5771,12.0,,1,0,1,0,1,,19,,,,,
+Hen Back Half Kilo,Meat\Fish,TY00761,,0.5kg,10.12,18.5771,12.0,,1,0,1,0,1,,-78,,,,,
 Facemask Box,Meat\Fish,TY00762,,carton,330,0,330.0,,1,0,1,0,1,,4,,,,,
-Cvale Gizzard Box,Meat\Fish,TY00763,,box,265,0,0.0,,1,0,1,0,1,,1,,,,,
+Cvale Gizzard Box,Meat\Fish,TY00763,,box,270,9.2593,295.0,,1,0,1,0,1,,-1,,,,,
 Kpanla 16+ Box 20kg,Meat\Fish,TY00764,,carton,0,0,0.0,,1,0,1,0,1,,1.5,,,,,
 Salmon Abidjan 25kg Box,Meat\Fish,TY00765,,carton,720,27.7778,920.0,,1,0,1,0,1,,3,,,,,
 Maggi Dedeede Half Box,Spices,TY00766,,box,18,5.5556,19.0,,1,0,1,0,1,,0,,,,,
-Maggi Dedeede Quarter Box,Spices,TY00767,,box,9,5.5556,9.5,,1,0,1,0,1,,-3,,,,,
+Maggi Dedeede Quarter Box,Spices,TY00767,,box,9,5.5556,9.5,,1,0,1,0,1,,-4,,,,,
 Maggi Shrimp Half Box,Spices,TY00768,,box,15,6.6667,16.0,,1,0,1,0,1,,0,,,,,
-Maggi Shrimp Quater Box,Spices,TY00769,,box,7.5,6.6667,8.0,,1,0,1,0,1,,-1,,,,,
+Maggi Shrimp Quater Box,Spices,TY00769,,box,7.5,6.6667,8.0,,1,0,1,0,1,,-3,,,,,
 Tam-Tam Box,Tomato Paste,TY00770,,box,190,10.5263,210.0,,1,0,1,0,1,,0,,,,,
-Tam-Tam 2.2kg,Tomato Paste,TY00771,,tin,31.67,10.5147,35.0,,1,0,1,0,1,,-6,,,,,
+Tam-Tam 2.2kg,Tomato Paste,TY00771,,tin,31.67,10.5147,35.0,,1,0,1,0,1,,-13,,,,,
 Voltic 750ml Pack,Beverages,TY00772,,pack,21,19.0476,25.0,,1,0,1,0,1,,6,,,,,
-SIMPLY SPAG BIG,Spaghetti,TY00773,00359627,pcs,0,0,28.0,,1,0,1,0,1,,4,,,,,
-Tasty Tom 1.1kg box,Tomato Paste,TY00774,,pcs,0,0,280.0,,1,0,1,0,1,,-1,,,,,
-Local Salmon Medium Box,Meat\Fish,TY00776,,carton,250,16,290.0,,1,0,1,0,1,,12.5,,,,,
+SIMPLY SPAG BIG,Spaghetti,TY00773,00359627,pcs,0,0,28.0,,1,0,1,0,1,,2,,,,,
+Tasty Tom 1.1kg box,Tomato Paste,TY00774,,pcs,0,0,280.0,,1,0,1,0,1,,-2,,,,,
+Local Salmon Medium Box,Meat\Fish,TY00776,,carton,250,16,290.0,,1,0,1,0,1,,10,,,,,
 Lar Gizzard Box,Meat\Fish,TY00775,,carton,375,12,420.0,,1,0,1,0,1,,2,,,,,
 Mountaire Broiler box,Meat\Fish,TY00806,,kg,250,8,270.0,,1,0,1,1,1,,0,,,,,
 Kpanla 16+ big,Meat\Fish,TY00822,,KG,0,0,30.0,,1,0,1,1,1,,0,,,,,
 Dubai waakye rice 50kg,Rice,TY00823,,kg,500,4,520.0,,1,0,1,1,1,,0,,,,,
-spar leta tonic pack,Beverages,TY00824,,,41.5,10.8434,46.0,,1,0,1,1,1,,0,,,,,
-spar leta soda water pack,Beverages,TY00825,,,41.5,10.8434,46.0,,1,0,1,1,1,,0,,,,,
-OBA GOLD 4.5,Rice,TY00802,,,65,6.1538,69.0,,1,0,1,0,1,,-10,,,,,
+spar leta tonic pack,Beverages,TY00824,,,41.5,34.9398,56.0,,1,0,1,1,1,,0,,,,,
+spar leta soda water pack,Beverages,TY00825,,,41.5,34.9398,56.0,,1,0,1,1,1,,0,,,,,
+OBA GOLD 4.5,Rice,TY00802,,,65,6.1538,69.0,,1,0,1,0,1,,-14,,,,,
 DUBAI 20X800G BAG,Rice,TY00803,,,260,7.6923,280.0,,1,0,1,0,1,,0,,,,,
-GINO CURRY POWDER 22G,Spices,TY00804,8410300367833,,2.16,15.7407,2.5,,1,0,1,0,1,,31,Unknown,30,100,0,0
+GINO CURRY POWDER 22G,Spices,TY00804,8410300367833,,2.16,15.7407,2.5,,1,0,1,0,1,,-26,Unknown,30,100,0,0
 GINO CURRY POWDER 22G BOX,Spices,TY00805,8410300577836,,260,15.3846,300.0,,1,0,1,0,1,,0,,,,,
-HABIBA RICE 45KG,Rice,TY00826,,45KG,420,7.1429,450.0,,1,0,1,0,1,,4,,,,,
+HABIBA RICE 45KG,Rice,TY00826,,45KG,420,7.1429,450.0,,1,0,1,0,1,,2,,,,,
 Oba Basmatic,Rice,TY00813,,kg,420,4.7619,440.0,,1,0,1,0,1,,0,,,,,
 Tradekey 25l oil,Oil,TY00811,,,625,-29.6,440.0,,1,0,1,1,1,,0,,,,,
 Kitchen king 45kg,Rice,TY00812,,kg,625,3.2,645.0,,1,0,1,1,1,,0,,,,,
-OBA BASMATIC 5KG,Rice,TY00814,,KG,0,0,110.0,,1,0,1,0,1,,-10,,,,,
-Sankofa Spice Soup 5g,Spices,TY00827,,g,0,0,0.8,,1,0,1,0,1,,-14,,,,,
+OBA BASMATIC 5KG,Rice,TY00814,,KG,0,0,110.0,,1,0,1,0,1,,-37,,,,,
+Sankofa Spice Soup 5g,Spices,TY00827,,g,0,0,0.8,,1,0,1,0,1,,-21,,,,,
 KIVO PEPPER 180G BOX,Spices,TY00828,,,0,0,0.0,,1,0,1,0,1,,0,,,,,
 TASTY TOM JOLLOF MIX 210G BOX,Tomato Paste,TY00829,,,0,0,0.0,,1,0,1,0,1,,0,,,,,
-TRIPE NICE ONE,Meat\Fish,TY00807,,,0,0,30.0,,1,0,1,0,1,,-128,,,,,
-LAYER WHITE BOX,Meat\Fish,TY00808,,BOX,0,0,300.0,,1,0,1,0,1,,-6.5,,,,,
+TRIPE NICE ONE,Meat\Fish,TY00807,,,0,0,30.0,,1,0,1,0,1,,-414.9,,,,,
+LAYER WHITE BOX,Meat\Fish,TY00808,,BOX,0,0,300.0,,1,0,1,0,1,,-24.5,,,,,
 coconut oil 1L,Oil,TY00810,6036000065415,L,42,7.1429,45.0,,1,0,1,1,1,,0,,,,,
-TRIPE NICE ONE BOX,Meat\Fish,TY00821,,,0,0,300.0,,1,0,1,0,1,,-1.5,,,,,
+TRIPE NICE ONE BOX,Meat\Fish,TY00821,,,0,0,300.0,,1,0,1,0,1,,-4,,,,,
 Sofia ,Rice,TY00809,,,0,0,72.0,,1,0,1,0,1,,-1,,,,,
 CHANEL BROKEN 45KG,Rice,TY00815,,45KG,490,4.0816,510.0,,1,0,1,0,1,,4,,,,,
 AABA VEGETABLE OIL BOX 0.9L,Oil,TY00818,,LTR,240,16.6667,280.0,,1,0,1,0,0,,3,,,,,
 La vonce 210g Box,Tomato Paste,TY00819,,,130,10.7692,144.0,,1,0,1,0,0,,2,,,,,
 MOMS RECIPE 50KG,Rice,TY00820,,,490,0,0.0,,1,0,1,0,1,,10,,,,,
-Delicious Rice 22.5Kg,Rice,TY00777,,Kg,320,6.25,340.0,,1,0,1,0,1,,-1,,,,,
-Lucky Horse Rice 50kg,Rice,TY00778,,Kg,520,3.8462,540.0,,1,0,1,0,1,,-2,,,,,
-CANADA DRUMSTICK 10KG,Meat\Fish,TY00817,,,270,7.4074,290.0,,1,0,1,0,1,,-2,,,,,
-COPACO GIZZARD ,Meat\Fish,TY00816,,,0,0,30.0,,1,0,1,0,1,,-21,,,,,
+Delicious Rice 22.5Kg,Rice,TY00777,,Kg,320,4.6875,335.0,,1,0,1,0,1,,-7,,,,,
+Lucky Horse Rice 50kg,Rice,TY00778,,Kg,520,3.8462,540.0,,1,0,1,0,1,,-3,,,,,
+CANADA DRUMSTICK 10KG,Meat\Fish,TY00817,,,270,7.4074,290.0,,1,0,1,0,1,,-4,,,,,
+COPACO GIZZARD ,Meat\Fish,TY00816,,,0,0,30.0,,1,0,1,0,1,,-22,,,,,
+Rivelli Gizzard Box,Meat\Fish,TY00831,,,0,0,0.0,,1,0,1,0,1,,-1,,,,,
+Rivelli Gizzard,Meat\Fish,TY00830,,,0,0,30.0,,1,0,1,0,1,,-44,,,,,
+Habiba 50kg,Rice,1,,,485,7.2165,520.0,,1,0,1,1,1,,0,,,,,
+makkah,Rice,2,,,0,0,640.0,,1,0,1,0,1,,-3,,,,,
+Egye Awaree 500g Large,Spices,TY00779,,500g,0,0,25.0,,1,0,1,0,1,,0,,,,,
+Gino  tomato paste,Tomato Paste,3,,,0,0,226.0,,1,0,1,1,1,,0,,,,,
+Delious 1kg,Rice,4,,,0,0,15.0,,1,0,1,0,1,,-4,,,,,
+Makkah 22.5g Rice,Rice,TY00656,,kg,0,0,335.0,,1,0,1,0,1,,-5,,,,,
+C -Vale Broiler Box,Meat\Fish,TY00782,,,0,0,270.0,,1,0,1,0,1,,-2,,,,,
+salmon 12.5kg,Meat\Fish,5,,,0,0,462.5,,1,0,1,0,1,,-2,,,,,
+Sara oil 25l,Oil,6,,litre,470,3.1915,485.0,,1,0,1,0,1,,-4,,,,,
+Delicious rice 5x5,Rice,7,,kg,320,4.6875,335.0,,1,0,1,0,1,,-1,,,,,
+Delicious 5kg,Rice,8,,kg,64,4.6875,67.0,,1,0,1,0,1,,-1,,,,,
+Rambo Sardine,Sardine,9,,gr,5.7,14.0351,6.5,,1,0,1,0,1,,-23,,,,,
+Proor oil 1litre,Oil,10,,litre,0,0,0.0,,1,0,1,0,1,,0,,,,,
+Pyoor 900ml oil,Oil,11,8885020120219,ml,22,13.6364,25.0,,1,0,1,0,1,,-1,,,,,
+St. Louis Local Rice,Rice,TY00833,,pcs,0,0,70.0,,1,0,1,0,1,,-1,,,,,
+Pork Face/Mask Box,Rice,TY00832,,pcs,0,0,350.0,,1,0,1,0,1,,-3,,,,,
+St. Louis Local 5x5,Rice,TY00834,,pcs,0,0,350.0,,1,0,1,0,1,,-1,,,,,
+BRISK FARM 56G,Tomato Paste,12,8410300361510,,0,0,1.8,,1,0,1,0,1,,-6,,,,,
+UNOLI 1LITRE SUNFLOWER,Oil,13,8715715100243,,0,0,50.0,,1,0,1,0,1,,-2,,,,,
+Hondi 210gm,Tomato Paste,14,,,0,0,6.0,,1,0,1,0,1,,-1,,,,,
+tasty tom 210 can,Tomato Paste,15,,,0,0,160.0,,1,0,1,0,1,,0,,,,,
+Cheval fort nigeria rice 50kg,Rice,16,,kg,0,0,490.0,,1,0,1,0,1,,-1,,,,,
+Cassava fish 20kg,Meat\Fish,17,,kg,0,0,880.0,,1,0,1,0,1,,0,,,,,
+Cassava fish 10kg,Meat\Fish,18,,kg,0,0,440.0,,1,0,1,0,1,,-1,,,,,
+AMI 25L OIL,Oil,19,,L,0,0,490.0,,1,0,1,0,1,,0,,,,,
+GINO BAKED BEANS,Tuna Flakes\Chunks,20,4897052890002,,0,0,15.0,,1,0,1,0,1,,-4,,,,,
+aaba rice 5kg,Rice,21,,,0,0,110.0,,1,0,1,0,1,,-1,,,,,
+Coca Cola 1.5L Pack,Beverages,TY00835,,Liter,0,0,118.0,,1,0,1,0,1,,0,,,,,
+Fanta Orange 1.5L Pack,Beverages,TY00836,,Liter,0,0,118.0,,1,0,1,0,1,,0,,,,,
+Sprite 1.5L Pack,Beverages,TY00837,,Liter,0,0,118.0,,1,0,1,0,1,,0,,,,,
