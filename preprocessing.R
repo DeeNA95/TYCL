@@ -100,7 +100,7 @@
     Sep23 %>% mutate(month = 'Sep', year = 23),
     Oct23 %>% mutate(month = 'Oct', year = 23),
     # un comment when Nov and dec exist
-    #Nov23   %>% mutate(month = 'Nov',year = 23),
+    Nov23 %>% mutate(month = 'Nov', year = 23),
     #Dec %>% mutate(month = 'Dec',year = 23)
   )
   tot_test$month = factor(tot_test$month, levels = month.abb)
