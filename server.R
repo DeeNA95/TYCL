@@ -360,27 +360,19 @@ server <- function(input, output, session) {
       }
     })
     
-    ptyp = reactive({
-      if ('All' %in% input$ptype) {
-      arrange(desc(Quantity))
-    } else {
-      subset(Product %in% tot_test2$Product[
-                  grepl(paste(input$ptype,collapse='|'), 
-                         tot_test2$Product,
-                         ignore.case = T)])
-    }})
+   
       
     
     ExSt = reactive({
       if('All' %in% input$pgroupin){
         tot_test2 %>% 
-          filter(year == 23) %>% filter(month %in% 'Oct') %>% 
+          filter(year == 23) %>% filter(month %in% 'Nov') %>% 
           arrange(desc(Quantity)) %>% 
           mutate(ExQuantity =round( Quantity * 1.25,0)) %>% 
           select(2,8)
       } else {
         tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>% 
-          filter(year == 23) %>%filter(month %in% 'Oct') %>% 
+          filter(year == 23) %>%filter(month %in% 'Nov') %>% 
            mutate(ExQuantity =round( Quantity * 1.25,0)) %>% select(2,8)
       }
     })
@@ -396,6 +388,14 @@ server <- function(input, output, session) {
                   ignore.case = T)]) 
       }
     })
+    
+    AvgSaPDData = reactive({
+      tot_test2 %>% 
+        group_by(month,year) %>% 
+        summarise(Total = round(sum(Total)/26,0) )%>% 
+        pivot_wider(names_from = month,values_from = Total)
+    })
+    
   }
   
   ### text for Insights
@@ -410,6 +410,8 @@ server <- function(input, output, session) {
     output$ExSt = renderText(paste('Required Stocks to meet planned sales for',as.vector(ExMo()$month)))
     
     output$ExStTable = renderDataTable(ExStPy())
+    
+    output$AvgSaPD = renderTable(AvgSaPDData(),rownames = F,na = "-",digits = 0)
     
   }
   

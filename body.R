@@ -76,7 +76,14 @@ body = dashboardBody(
    
    ### Insights Tab
    {
+    
+     
      tabPanel('Insights',value = 'INSIGHTS',
+              
+      h3('Daily Sales Average'),
+      ## AVg sales per working day
+      tableOutput('AvgSaPD'),
+              
      ## Highest Selling Product
      verbatimTextOutput('HiSa'),
      
@@ -86,6 +93,8 @@ body = dashboardBody(
      ##Minimum stocks expected for the month
      verbatimTextOutput('ExSt'),
      dataTableOutput('ExStTable')
+     
+     
      
    )
    }
