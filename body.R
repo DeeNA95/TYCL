@@ -80,7 +80,7 @@ body = dashboardBody(
      
      tabPanel('Insights',value = 'INSIGHTS',
               
-      h3('Daily Sales Average'),
+      h3('Daily Sales Average (Ghs)'),
       ## AVg sales per working day
       tableOutput('AvgSaPD'),
               

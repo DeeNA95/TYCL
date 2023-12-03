@@ -4,7 +4,7 @@ sidebar = dashboardSidebar(
   {
   ### YEAR NUMBER WORKS IN ALL TABS BUT YOY AND TOP_PRODUCTS
   
-    conditionalPanel("input.tabs != 'YOY' && input.tabs != 'TOP_PRODUCTS', input.tabs != 'INSIGHTS'",
+    conditionalPanel("input.tabs != 'YOY' && input.tabs != 'TOP_PRODUCTS' && input.tabs != 'INSIGHTS'",
       
       selectizeInput('yearnum', 'Which year', choices =NULL)
     )
@@ -95,7 +95,7 @@ sidebar = dashboardSidebar(
   ###Only to be seen if in TOP_PRODUCTS
   conditionalPanel(
     'input.tabs == "TOP_PRODUCTS"',
-    selectInput('topProduct', 'Product', choices = head(unique(tot_test2$Product), 10))
+    selectInput('topProduct', 'Product', choices = head(unique(tot_test2 %>% group_by(Product) %>%  summarise(ProductValue = sum(Total)) %>% arrange(desc(ProductValue)) %>% select(1)), 10))
   )
 }
 )

@@ -260,7 +260,7 @@ server <- function(input, output, session) {
   ### Reactives for Distribution tab
   {
   DistReac = reactive({
-    Preac7() %>% 
+    Preac3() %>% 
       group_by(ProductGroup) %>% 
       summarise(Total = sum(Total))
   })
@@ -390,10 +390,12 @@ server <- function(input, output, session) {
     })
     
     AvgSaPDData = reactive({
-      tot_test2 %>% 
+      left_join(tot_test2 %>% 
         group_by(month,year) %>% 
         summarise(Total = round(sum(Total)/26,0) )%>% 
-        pivot_wider(names_from = month,values_from = Total)
+        pivot_wider(names_from = month,values_from = Total),tot_test2 %>% 
+          group_by(year) %>% 
+          summarise('Year Average' = round(sum(Total)/(365-48-27),0) ),by = 'year')
     })
     
   }
