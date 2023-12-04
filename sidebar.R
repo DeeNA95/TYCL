@@ -28,6 +28,9 @@ sidebar = dashboardSidebar(
         selectize = T
         
       ),
+      conditionalPanel('input.tabs == "PRODUCTS"',
+      numericInput('pnum','View Top?',value = 10, max = 25)),
+      
     
       selectInput(
         'pin',

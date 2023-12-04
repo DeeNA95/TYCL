@@ -108,7 +108,7 @@ server <- function(input, output, session) {
   {
   output$plo = renderPlotly({
     plot_ly(
-      head(Preac8(),10),
+      head(Preac8(),input$pnum),
       x = ~reorder(Product,desc(if (T == input$highquantity) Quantity else if (T == input$undperf && 'Quantity' == input$undperftype) Quantity else Total)),
       y = ~(if (T == input$highquantity) Quantity else if (T == input$undperf && 'Quantity' == input$undperftype) Quantity else Total),
       type = "bar",
@@ -150,68 +150,196 @@ server <- function(input, output, session) {
   {
   ## Year on Year initialisation
   {
+    eomnov = tot_test2 %>%
+      group_by(year, month) %>%
+      summarise(Total = sum(round(Total, 0))) %>%
+      mutate(MTD = cumsum(Total)) %>%
+      pivot_wider(names_from = month,
+                  values_from = c("Total", "MTD"),
+                  names_sep = "_") %>% select(21)
+    
     yoy1dat = reactive({
-      left_join(tot_test2 %>% 
+     left_join(tot_test2 %>% 
         group_by(month,year) %>% 
-        summarise(Total = sum(Total)) %>% 
-        mutate(Total = comma_format()(as.numeric(Total)))%>% 
+        summarise(Total = sum(round(Total,0))) %>% 
+       #mutate(Total = comma_format()(as.numeric(Total)))%>% 
         pivot_wider(names_from = month,
                     values_from = c("Total"),
-                    names_sep = "_") ,
-        tot_test2 %>% 
-          group_by(year) %>% 
-          summarise(Total = sum(Total)) %>% 
-          mutate(Total = comma_format()(as.numeric(Total))),by = 'year')
+                    names_sep = "_") %>% rowwise() %>% 
+        mutate('Total' = rowSums(pick(where(is.numeric)),na.rm = T)),
+       eomnov,by = 'year')
     })
   }
   
   ## Product Group functionality
   {
+    
+    
     yoy2dat = reactive({
       if('All' %in% input$pgroupin){
         yoy1dat()
       } else{
+        eomnov = tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>% 
+        group_by(year, month) %>%
+        summarise(Total = sum(round(Total, 0))) %>%
+        mutate(MTD = cumsum(Total)) %>%
+        pivot_wider(names_from = month,
+                    values_from = c("Total", "MTD"),
+                    names_sep = "_") %>% select(21)
+        
         left_join(tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>% 
           group_by(month,year) %>% 
-          summarise(Total = sum(Total)) %>% 
-          mutate(Total = comma_format()(as.numeric(Total)))%>% 
+          summarise(Total = sum(round(Total,0))) %>% 
+          #mutate(Total = comma_format()(as.numeric(Total)))%>% 
           pivot_wider(names_from = month,
                       values_from = c("Total"),
-                      names_sep = "_")  ,
-          tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>% 
-            group_by(year) %>% 
-            summarise(Total = sum(Total)) %>% 
-            mutate(Total = comma_format()(as.numeric(Total))),by = 'year')
+                      names_sep = "_") %>% 
+          mutate('Total' = rowSums(pick(where(is.numeric)),na.rm = T) ), eomnov,by = 'year')
           
       }
     })
   }
-  
+    
   ## Product Functionality
   {
     yoy3dat = reactive({
       if('All' %in% input$pin){
         yoy2dat()
       } else {
-        left_join(tot_test2 %>% subset(Product %in% input$pin) %>% 
+        eomnov = tot_test2 %>%
+          group_by(year, month) %>%
+          summarise(Total = sum(round(Total, 0))) %>%
+          mutate(MTD = cumsum(Total)) %>%
+          pivot_wider(names_from = month,
+                      values_from = c("Total", "MTD"),
+                      names_sep = "_") %>% select(21)
+        
+        left_join(tot_test2 %>%  subset(Product %in% input$pin) %>% 
           group_by(month,year) %>% 
-          summarise(Total = sum(Total)) %>% 
-          mutate(Total = comma_format()(as.numeric(Total)))%>% 
+          summarise(Total = sum(round(Total,0)) )%>% 
+          #mutate(Total = comma_format()(as.numeric(Total)))%>% 
           pivot_wider(names_from = month,
                       values_from = c("Total"),
-                      names_sep = "_") ,
-          tot_test2 %>% subset(Product %in% input$pin) %>% 
-            arrange(desc(year))%>% group_by(year) %>% 
-            summarise(Total = sum(Total)) %>% 
-            mutate(Total = comma_format()(as.numeric(Total))) ,by = 'year'
-      )}
-    })
+                      names_sep = "_") %>% 
+          mutate('Total' = rowSums(pick(where(is.numeric)),na.rm = T) ),eomnov, by = 'year')
+    }
+      })
+  
   }
+  }
+  
+  ### Reactives for Year on Year Variance Table
+  {
+      ## initialise
+      {
+    yoyvardat = reactive({
+      t1 = tot_test2 %>%
+        group_by(month,year) %>%
+        summarise(Total = sum(Total)) %>%  
+        pivot_wider(names_from = year, values_from = "Total") %>% 
+        mutate(percentage_change = ((`23` - `22`) / `22`) * 100) 
+      
+      
+      
+      
+     outpre = t1 %>% 
+        select(1,4)  %>% 
+        mutate(
+          Year = '23 vs 22',
+          percentage_change = if_else(is.na(percentage_change),'-',paste0(round(percentage_change,1),'%')
+          ))  %>%
+        pivot_wider(names_from = month,values_from = percentage_change)
+     
+     novpc =tot_test2 %>%
+       group_by(year, month) %>% 
+       summarise(Total = sum(Total)) %>%
+       mutate(MTD = cumsum(Total)) %>%
+       pivot_wider(names_from = year, values_from = c("Total",'MTD') )%>%
+       mutate('MTD %' = (MTD_23/MTD_22 -1) * 100) %>% select(1,4,5,6)
+     
+     MTD = paste0(round(novpc[8,4],1),'%')
+     
+      cbind(outpre,MTD)
+     
+    })
+      }
+      
+      ## product group functionality
+      {
+    yoyvardat2 =reactive({
+      if('All' %in% input$pgroupin){
+        yoyvardat()
+      } else {
+        t3 =  tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>% 
+          group_by(month,year) %>%
+          summarise(Total = sum(Total)) %>%  
+          pivot_wider(names_from = year, values_from = "Total") %>% 
+          mutate(percentage_change = ((`23` - `22`) / `22`) * 100) 
+        
+        
+       
+        
+       outpre2 = t3 %>% 
+          select(1,4)  %>% 
+          mutate(
+            Year = '23 vs 22',
+            percentage_change = if_else(is.na(percentage_change),'-',paste0(round(percentage_change,1),'%')
+            ))  %>%
+          pivot_wider(names_from = month,values_from = percentage_change)
+       
+       novpc =tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>% 
+         group_by(year, month) %>% 
+         summarise(Total = sum(Total)) %>%
+         mutate(MTD = cumsum(Total)) %>%
+         pivot_wider(names_from = year, values_from = c("Total",'MTD') )%>%
+         mutate('MTD %' = (MTD_23/MTD_22 -1) * 100) %>% select(1,4,5,6)
+       
+       MTD = paste0(round(novpc[8,4],1),'%')
+       
+       cbind(outpre2,MTD)
+      }
+    })
+      }
+      
+      ## product functionality
+      {
+        yoyvardat3 = reactive({
+          if('All' %in% input$pin){
+            yoyvardat2()
+          } else{
+            t5 =  tot_test2 %>% subset(Product %in% input$pin) %>% 
+              group_by(month,year) %>%
+              summarise(Total = sum(Total)) %>%  
+              pivot_wider(names_from = year, values_from = "Total") %>% 
+              mutate(percentage_change = ((`23` - `22`) / `22`) * 100)  
+            
+            outpre3 = t5 %>% 
+              select(1,4)  %>% 
+              mutate(
+                Year = '23 vs 22',
+                percentage_change = if_else(is.na(percentage_change),'-',paste0(round(percentage_change,1),'%')
+                ))  %>%
+              pivot_wider(names_from = month,values_from = percentage_change)
+            
+            
+            
+            MTD = paste0(round(novpc[8,4],1),'%')
+            
+            cbind(outpre3,MTD)
+            
+          }
+        })
+      }
+    
   }
    
-  ### Table for Year On Year
+  ### Tables for Year On Year
   {
-  output$yoydata = renderTable(yoy3dat(),striped = T,hover = T,digits = 1,na = '-',colnames = T,server = T)
+    ## sales table
+  output$yoydata = renderTable(yoy3dat(),striped = T,hover = T,digits = 0,na = '-',colnames = T,server = T,width = '100%',align = 'r')
+    
+    ## variance table
+    output$yoyvar = renderTable(yoyvardat3(),striped = T,hover = T,digits = 1,na = '-',colnames = T,server = T,width = '100%',align = 'r',)
   }
   
   ### Reactives for Year On Year Graph
@@ -223,6 +351,7 @@ server <- function(input, output, session) {
     tot_test2 %>% 
       group_by(month,year) %>% 
         summarise(Total = sum(Total))
+      
     } else {
       tot_test2 %>% 
         subset(ProductGroup %in% input$pgroupin) %>% 
@@ -244,6 +373,41 @@ server <- function(input, output, session) {
         summarise(Total = sum(Total))
     }
   })
+    
+    
+    yoytot1 = reactive({
+      if(("All" %in% input$pgroupin ) ){
+        tot_test2 %>% 
+          group_by(year) %>% 
+          reframe(Total = sum(Total))
+        
+      } else {
+        tot_test2 %>% 
+          subset(ProductGroup %in% input$pgroupin) %>% 
+          group_by(year) %>% 
+          summarise(Total = sum(Total))
+      }
+    })
+  }
+    
+    ## Product functionality
+    {
+      yoytot2 = reactive({
+        if( ("All" %in% input$pin)){
+          yoytot1()
+        } else {
+          tot_test2 %>% 
+            subset(Product %in% input$pin) %>% 
+            group_by(year) %>% 
+            summarise(Total = sum(Total))
+        }
+      })
+    
+    
+    
+    
+    
+    
   }
   }
   
@@ -251,10 +415,17 @@ server <- function(input, output, session) {
   {
   output$yoy = renderPlotly({
     plot_ly(data = yoy2(), x = ~month, y = ~Total, type = "bar", color = ~year,
-            text = ~paste0('GHs ', round(Total/1000,1),'k\n','20',year),
+            text = ~paste0('GHs ', round(Total/1000,1),'k\n','20',year,'\n'),
             hoverinfo = text)%>%
       layout(xaxis = list(title = 'Month'), yaxis = list(title = 'Total'))
   })
+    
+    output$yoytot = renderPlotly({
+      plot_ly(data = yoytot2(), x = ~Total, y = ~year, type = "bar", color = ~year,
+              text = ~paste0('GHs ', round(Total/1000,1),'k\n','20',year,'\n'),
+              hoverinfo = text)%>%
+        layout()
+    })
   }
   
   ### Reactives for Distribution tab
@@ -280,6 +451,11 @@ server <- function(input, output, session) {
   
   ### Reactives for Top Products tab
   {
+    ## title for box
+    
+    output$tptitle = renderText(input$topProduct)
+    output$tptitlegraph = renderText(input$topProduct)
+    
   ## Initialise and filter functionality for Graph
   {
   TPreacGraph = reactive({
@@ -327,14 +503,14 @@ server <- function(input, output, session) {
             y = ~Total,
             type = 'bar',
             color = ~year) %>% 
-      layout(title = input$topProduct)
+      layout()
   })
   }
   
   ##Total and Quantity tables
   {
-  output$topProductsTableTotal = renderTable(TPreactabletotal(),na = '-',width = 12)
-  output$topProductsTableQuantity = renderTable(TPreactablequantity(),na = '-',width = 12,)
+  output$topProductsTableTotal = renderTable(TPreactabletotal(),na = '-',width = '100%',align = 'r')
+  output$topProductsTableQuantity = renderTable(TPreactablequantity(),na = '-',width = '100%',align = 'r')
   }
   }
   
@@ -390,12 +566,38 @@ server <- function(input, output, session) {
     })
     
     AvgSaPDData = reactive({
+      if('All' %in% input$pgroupin){
       left_join(tot_test2 %>% 
         group_by(month,year) %>% 
         summarise(Total = round(sum(Total)/26,0) )%>% 
         pivot_wider(names_from = month,values_from = Total),tot_test2 %>% 
           group_by(year) %>% 
-          summarise('Year Average' = round(sum(Total)/(365-48-27),0) ),by = 'year')
+          summarise('Year Average' = round(sum(Total,na.rm = T)/(365-48-27),0) ),by = 'year')
+      } else {
+        left_join(tot_test2 %>% subset( ProductGroup %in% input$pgroupin) %>% 
+                    group_by(month,year) %>% 
+                    summarise(Total = round(sum(Total)/26,0) )%>% 
+                    pivot_wider(names_from = month,values_from = Total),
+                  tot_test2  %>%
+                  subset( ProductGroup %in% input$pgroupin) %>% 
+                    group_by(year) %>% 
+                    summarise('Year Average' = round(sum(Total,na.rm = T)/(365-48-27),0) ),by = 'year')
+      }
+    })
+    
+    AvgSaPDData2 = reactive({
+      if('All' %in% input$pin){
+        AvgSaPDData()
+      } else {
+        left_join(tot_test2 %>% subset( Product %in% input$pin) %>% 
+                    group_by(month,year) %>% 
+                    summarise(Total = round(sum(Total)/26,0) )%>% 
+                    pivot_wider(names_from = month,values_from = Total),
+                  tot_test2  %>%
+                    subset( Product %in% input$pin) %>% 
+                    group_by(year) %>% 
+                    summarise('Year Average' = round(sum(Total,na.rm = T)/(365-48-27),0) ),by = 'year')
+      }
     })
     
   }
@@ -413,7 +615,7 @@ server <- function(input, output, session) {
     
     output$ExStTable = renderDataTable(ExStPy())
     
-    output$AvgSaPD = renderTable(AvgSaPDData(),rownames = F,na = "-",digits = 0)
+    output$AvgSaPD = renderTable(AvgSaPDData2(),rownames = F,na = "-",digits = 0,width = '100%',align = 'r')
     
   }
   
@@ -440,5 +642,12 @@ server <- function(input, output, session) {
   })
   }
   }
+  
+  pntit = reactive({
+    
+    paste('Top',input$pnum)
+  })
+  output$pnumtitle = renderText(pntit())
+  
   
 }

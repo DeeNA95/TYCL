@@ -16,7 +16,7 @@ ui <- dashboardPage(
         height: 100%;
       }
       .content-wrapper {
-        margin-left: 250px; 
+        margin-left: 15%; 
       }
     ")
                     )))

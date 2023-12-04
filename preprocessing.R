@@ -125,7 +125,36 @@
   
   
  
-}
+  
+  
+  
+  tot_test2 %>% 
+    group_by(month,year) %>% 
+    summarise(Total = sum(Total)) %>% 
+   # mutate(Total = comma_format()(as.numeric(Total)))%>% 
+    pivot_wider(names_from = month,
+                values_from = c("Total"),
+                names_sep = "_") %>% mutate('Month to Date' = rowSums(pick(where(is.numeric)),na.rm = T))
+  
+  
+  
+  eomnov = tot_test2 %>%
+    group_by(year, month) %>%
+    summarise(Total = sum(round(Total, 0))) %>%
+    mutate(MTD = cumsum(Total)) %>%
+    pivot_wider(names_from = month,
+                values_from = c("Total", "MTD"),
+                names_sep = "_") %>% select(21)
+  
+  novpc =tot_test2 %>%
+    group_by(year, month) %>% 
+    summarise(Total = sum(Total)) %>%
+    mutate(MTD = cumsum(Total)) %>%
+    pivot_wider(names_from = year, values_from = c("Total",'MTD') )%>%
+    mutate('MTD %' = (MTD_23/MTD_22 -1) * 100) %>% select(1,4,5,6)
+  
+  mtdnov = paste0(round(novpc[8,4],1),'%')
+ }
 
 
 

@@ -7,21 +7,33 @@ body = dashboardBody(
       value = 'YOY',
       
       box(
+        h4('Sales In GHs'),
         tableOutput('yoydata'),
         title = 'Month On Month',
         status = 'primary',
         solidHeader = T,
-        width = 12,
-        height = 150
+        width = '100%',
+        height = '150%',
+        h4('Variance'),
+        tableOutput('yoyvar'),
       ),
       
       box(
-        plotlyOutput('yoy', height = '550px'),
+        plotlyOutput('yoy', height = '100%'),
         title = 'YoY',
         solidHeader = T,
         status = 'primary',
         collapsible = T,
-        width = 12
+        width = '100%'
+      ),
+      
+      box(
+        plotlyOutput('yoytot', height = '100%'),
+        title = 'Year on Year Totals',
+        solidHeader = T,
+        status = 'primary',
+        collapsible = T,
+        width = '100%'
       )
       
     )},
@@ -32,11 +44,11 @@ body = dashboardBody(
       'Products',
       value = 'PRODUCTS',
       box(
-        plotlyOutput('plo', height = '800px'),
-        title = 'Top 10',
+        plotlyOutput('plo',height = '750px'),
+        title = textOutput('pnumtitle'),
         status = 'primary',
         solidHeader = T,
-        width = 12,
+        width = '100%',
         collapsible = T
       )
     )
@@ -52,7 +64,7 @@ body = dashboardBody(
         title = 'Distribution Of Sales By Product Group',
         status = 'primary',
         solidHeader = T,
-        width = 12,
+        width = '100%',
         collapsible = T
       )
     )
@@ -63,10 +75,12 @@ body = dashboardBody(
     tabPanel(
       'Top Products',
       value = 'TOP_PRODUCTS',
-      box(plotlyOutput('topProductGraph',height = '550px'), width = 12),
-      box('Sales',tableOutput('topProductsTableTotal'),
-          'Quantity',tableOutput('topProductsTableQuantity'),width = 12)
-    )
+      box(title = textOutput('tptitle'),'Sales',tableOutput('topProductsTableTotal'),status = 'primary',
+          'Quantity',tableOutput('topProductsTableQuantity'),width = '100%',solidHeader = T)
+      ,
+      box(title = textOutput('tptitlegraph'),plotlyOutput('topProductGraph',height = '450px'), width = '100%',solidHeader = T ,status = 'primary' ))
+      
+    
    },
    
    ### Data tab
