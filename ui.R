@@ -10,13 +10,19 @@ ui <- dashboardPage(
   sidebar,
   body,
   tags$head(tags$style(
-              HTML("
+    HTML("
       .main-sidebar {
         position: fixed;
         height: 100%;
       }
+      
+      .main-header {
+      position: sticky;
+      width: 100%;
+      }
+     
       .content-wrapper {
         margin-left: 15%; 
       }
     ")
-                    )))
+  )))
