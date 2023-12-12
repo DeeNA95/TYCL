@@ -239,9 +239,6 @@ server <- function(input, output, session) {
         pivot_wider(names_from = year, values_from = "Total") %>% 
         mutate(percentage_change = ((`23` - `22`) / `22`) * 100) 
       
-      
-      
-      
      outpre = t1 %>% 
         select(1,4)  %>% 
         mutate(
@@ -336,7 +333,7 @@ server <- function(input, output, session) {
   ### Tables for Year On Year
   {
     ## sales table
-  output$yoydata = renderTable(yoy3dat(),striped = T,hover = T,digits = 0,na = '-',colnames = T,server = T,width = '100%',align = 'r')
+  output$yoydata = renderTable(yoy3dat() ,striped = T,hover = T,digits = 0,na = '-',colnames = T,server = T,width = '100%',align = 'r')
     
     ## variance table
     output$yoyvar = renderTable(yoyvardat3(),striped = T,hover = T,digits = 1,na = '-',colnames = T,server = T,width = '100%',align = 'r',)

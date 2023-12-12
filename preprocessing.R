@@ -131,10 +131,13 @@
   tot_test2 %>% 
     group_by(month,year) %>% 
     summarise(Total = sum(Total)) %>% 
-   # mutate(Total = comma_format()(as.numeric(Total)))%>% 
     pivot_wider(names_from = month,
                 values_from = c("Total"),
-                names_sep = "_") %>% mutate('Month to Date' = rowSums(pick(where(is.numeric)),na.rm = T))
+                names_sep = "_") %>%
+    mutate(
+          'Month to Date' = rowSums(
+           pick(where(is.numeric)),
+           na.rm = T))
   
   
   
@@ -157,6 +160,27 @@
  }
 
 
+top_products_meat = head(tot_test2 %>%
+                           group_by(Product) %>%
+                     filter(ProductGroup %in% 'Meat\\Fish') %>%
+                     summarise(ProductValue = sum(Total))%>% 
+                     arrange(desc(ProductValue)),7)
+top_products_rice = head(tot_test2 %>%
+                                  group_by(Product) %>%
+                                  filter(ProductGroup %in% 'Rice') %>%
+                                  summarise(ProductValue = sum(Total))%>% arrange(desc(ProductValue)) %>% select(1),5)
+top_products_oil =  head(tot_test2 %>%
+                                  group_by(Product) %>%
+                                  filter(ProductGroup %in% 'Oil') %>%
+                                  summarise(ProductValue = sum(Total))%>% arrange(desc(ProductValue)) %>% select(1),3)
+top_products_sugar = head(tot_test2 %>%
+                                  group_by(Product) %>%
+                                  filter(ProductGroup %in% 'Sugar') %>%
+                                  summarise(ProductValue = sum(Total))%>% arrange(desc(ProductValue)) %>% select(1),2)
+top_products_tomatoe = head(tot_test2 %>%
+                                  group_by(Product) %>%
+                                  filter(ProductGroup %in% 'Tomato Paste') %>%
+                                  summarise(ProductValue = sum(Total)) %>% arrange(desc(ProductValue)) %>% select(1),3)
 
 
 

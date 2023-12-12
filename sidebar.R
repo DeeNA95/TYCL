@@ -1,20 +1,4 @@
-sidebar = dashboardSidebar(
-  
- 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+sidebar = dashboardSidebar(  
   ### Year Number
   {
     ### YEAR NUMBER WORKS IN ALL TABS BUT YOY AND TOP_PRODUCTS
@@ -117,7 +101,8 @@ sidebar = dashboardSidebar(
     ###Only to be seen if in TOP_PRODUCTS
     conditionalPanel(
       'input.tabs == "TOP_PRODUCTS"',
-      selectInput('topProduct', 'Product', choices = head(unique(tot_test2 %>% group_by(Product) %>%  summarise(ProductValue = sum(Total)) %>% arrange(desc(ProductValue)) %>% select(1)), 10))
+      selectInput('topProduct', 'Product',
+      choices = list( `Meat/Fish` = top_products_meat$Product,`Oil`=top_products_oil$Product,`Rice` =top_products_rice$Product,`Sugar`=top_products_sugar$Product))
     )
   }
 )
