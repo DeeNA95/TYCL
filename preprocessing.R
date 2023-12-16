@@ -1,5 +1,5 @@
 #packages
-{
+{ 
   library(shiny)
   library(readr)
   library(dplyr)
@@ -22,16 +22,13 @@
 }
 
 ##product list
-{
-  products = read_csv('products.csv')
+{products = read_csv('products.csv')
   products = distinct(products)
   product_groups = unique(products$ProductGroup)
   products_headers = names(products)
   products_headers[3] = "Code"
   names(products) = products_headers
 }
-
-
 
 ##monthlys over the years
 {
@@ -40,11 +37,11 @@
     load_month = function(month, year) {
       # month should be in quotes and year should be 2 digits
       selection = c('Code', 'Product', 'Quantity', 'Total')
-      
+
       read_xlsx(paste0('test/', month, ' ', year, '.xlsx'), trim_ws = T) %>%
         select(all_of(selection)) %>%
         subset(!(Code %in% c('NA', 'Code')),Total != 'NA')  %>%
-       filter(Total != 'NA', Quantity != 'Quantity') %>%
+        filter(Total != 'NA', Quantity != 'Quantity') %>%
 
         mutate(
           Code = as.character(Code),
@@ -54,11 +51,10 @@
         )
     }
   }
-  
+
   #loading months
-  
-  {
-    yars = c(22, 23)
+
+  {yars = c(22, 23)
     for (i in  month.abb) {
       for (y in yars) {
         if (file.exists(paste0('test/', i, ' ', y, '.xlsx'))) {
@@ -70,12 +66,7 @@
       }
     }
   }
-  
-  
-  
-  
-  
-  
+
   tot_test = bind_rows(
     Jan22 %>% mutate(month = 'Jan', year = 22),
     Feb22 %>% mutate(month = 'Feb', year = 22),
@@ -159,33 +150,35 @@
   mtdnov = paste0(round(novpc[8,4],1),'%')
  }
 
-
 top_products_meat = head(tot_test2 %>%
                            group_by(Product) %>%
-                     filter(ProductGroup %in% 'Meat\\Fish') %>%
-                     summarise(ProductValue = sum(Total))%>% 
-                     arrange(desc(ProductValue)),7)
+                           filter(ProductGroup %in% 'Meat\\Fish') %>%
+                           summarise(ProductValue = sum(Total))%>% 
+                           arrange(desc(ProductValue)), 7)
 top_products_rice = head(tot_test2 %>%
-                                  group_by(Product) %>%
-                                  filter(ProductGroup %in% 'Rice') %>%
-                                  summarise(ProductValue = sum(Total))%>% arrange(desc(ProductValue)) %>% select(1),5)
+                           group_by(Product) %>%
+                           filter(ProductGroup %in% 'Rice') %>%
+                           summarise(ProductValue = sum(Total))%>%
+                           arrange(desc(ProductValue)) %>%
+                           select(1)
+                         , 5)
 top_products_oil =  head(tot_test2 %>%
-                                  group_by(Product) %>%
-                                  filter(ProductGroup %in% 'Oil') %>%
-                                  summarise(ProductValue = sum(Total))%>% arrange(desc(ProductValue)) %>% select(1),3)
+                          group_by(Product) %>%
+                          filter(ProductGroup %in% 'Oil') %>%
+                          summarise(ProductValue = sum(Total)) %>%
+                          arrange(desc(ProductValue)) %>%
+                          select(1),
+                        3)
 top_products_sugar = head(tot_test2 %>%
-                                  group_by(Product) %>%
-                                  filter(ProductGroup %in% 'Sugar') %>%
-                                  summarise(ProductValue = sum(Total))%>% arrange(desc(ProductValue)) %>% select(1),2)
+                           group_by(Product) %>%
+                           filter(ProductGroup %in% 'Sugar') %>%
+                           summarise(ProductValue = sum(Total))%>%
+                            arrange(desc(ProductValue)) %>% 
+                            select(1),2)
 top_products_tomatoe = head(tot_test2 %>%
                                   group_by(Product) %>%
                                   filter(ProductGroup %in% 'Tomato Paste') %>%
-                                  summarise(ProductValue = sum(Total)) %>% arrange(desc(ProductValue)) %>% select(1),3)
-
-
-
-
-
-
-
-
+                                  summarise(ProductValue = sum(Total)) %>% 
+                                  arrange(desc(ProductValue)) %>%
+                                   select(1),
+                            3)

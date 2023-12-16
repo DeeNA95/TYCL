@@ -9,6 +9,7 @@ ui <- dashboardPage(
   header,
   sidebar,
   body,
+ 
   tags$head(tags$style(
     HTML("
       .main-sidebar {
@@ -16,13 +17,17 @@ ui <- dashboardPage(
         height: 100%;
       }
       
-      .main-header {
-      position: sticky;
+     .main-header {
+      position: fixed; /* Change from sticky to fixed */
       width: 100%;
-      }
+      background-color: #333; /* Set your preferred background color */
+      color: white; /* Set your preferred text color */
+      padding: 1px; /* Adjust padding as needed */
+    }
      
       .content-wrapper {
         margin-left: 15%; 
+         margin-top: 60px; /* Adjust margin-top to accommodate header height */
       }
     ")
   )))

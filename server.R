@@ -516,10 +516,10 @@ server <- function(input, output, session) {
     HiSa = reactive({
       if('All' %in% input$pgroupin){
       tot_test2 %>% group_by(Product) %>% 
-        summarise(Total = sum(Total)) %>%arrange(desc(Total)) %>%  head(1) %>% select(1)
+        summarise(Total = sum(Total)) %>%arrange(desc(Total)) %>%  head(1)
       } else {
         tot_test2  %>% group_by(Product) %>% subset(ProductGroup %in% input$pgroupin) %>% summarise(Total = sum(Total)) %>% 
-           arrange(desc(Total)) %>%  head(1) %>% select(1)
+           arrange(desc(Total)) %>%  head(1) 
       }
     })
     
@@ -602,10 +602,10 @@ server <- function(input, output, session) {
   ### text for Insights
   {
     ## high sales
-    output$HiSa = renderText(paste('Our highest selling product in',if('All' %in% input$pgroupin) 'All Product Groups' else input$pgroupin,'is',as.vector(HiSa()),'\n'))
+    output$HiSa = renderText(paste('Our highest selling product in',if('All' %in% input$pgroupin) 'All Product Groups' else input$pgroupin,'is',as.vector(HiSa()$Product),'with',dollar_format(prefix = 'GHs')(HiSa()$Total),'\n'))
     
     ## highest month
-    output$ExMo = renderText(paste('Expected highest month is',as.vector(ExMo()$month),'\nWe expect to sell Ghs',comma_format()(as.vector(ExMo()$ExTotal))))
+    output$ExMo = renderText(paste('Expected highest month is',as.vector(ExMo()$month),'\nWe expect to sell',dollar_format(prefix = 'GHs')(ExMo()$ExTotal),if('All' %in% input$pgroupin) '' else paste('of', input$pgroupin)))
     
     ## required stocks to sell thatmuch
     output$ExSt = renderText(paste('Required Stocks to meet planned sales for',as.vector(ExMo()$month)))
@@ -645,8 +645,5 @@ server <- function(input, output, session) {
     paste('Top',input$pnum)
   })
   output$pnumtitle = renderText(pntit())
-  
-  
-  
   
 }

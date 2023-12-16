@@ -1,4 +1,4 @@
-sidebar = dashboardSidebar(  
+sidebar = dashboardSidebar(
   ### Year Number
   {
     ### YEAR NUMBER WORKS IN ALL TABS BUT YOY AND TOP_PRODUCTS
@@ -23,7 +23,8 @@ sidebar = dashboardSidebar(
                      selectInput(
                        'pgroupin',
                        'Product Group',
-                       choices = c('All', `Product Group` = list(product_groups)),
+                       choices = c('All',
+                                  `Product Group` = list(product_groups)),
                        multiple = T,
                        selected = 'All',
                        selectize = T
@@ -105,4 +106,5 @@ sidebar = dashboardSidebar(
       choices = list( `Meat/Fish` = top_products_meat$Product,`Oil`=top_products_oil$Product,`Rice` =top_products_rice$Product,`Sugar`=top_products_sugar$Product))
     )
   }
-)
+
+  )

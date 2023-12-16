@@ -88,29 +88,22 @@ body = dashboardBody(
     tabPanel('Data', dataTableOutput(outputId = 'pout'), value = 'DATA')
    },
    
-   ### Insights Tab
-   {
-    
-     
-     tabPanel('Insights',value = 'INSIGHTS',
-              
+### Insights Tab
+{ tabPanel('Insights',value = 'INSIGHTS',
+
       h3('Daily Sales Average (Ghs)'),
       ## AVg sales per working day
       tableOutput('AvgSaPD'),
-              
+
      ## Highest Selling Product
-     verbatimTextOutput('HiSa'),
-     
+     textOutput('HiSa',container = tags$h3,inline = T),
+
      ## Expected highest month
      verbatimTextOutput('ExMo'),
-     
+
      ##Minimum stocks expected for the month
      verbatimTextOutput('ExSt'),
      dataTableOutput('ExStTable')
-     
-     
-     
    )
-   }
-    
-  ))
+} 
+))
