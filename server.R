@@ -1,4 +1,5 @@
 source('preprocessing.R')
+source('packages.R')
 
 server <- function(input, output, session) {
   
@@ -139,7 +140,7 @@ server <- function(input, output, session) {
     
   ### Data tab table
   {
-  output$pout = renderDataTable(
+  output$pout = renderDT(
     datatable(Preac8(),
               options = list(pageLength = 20),
               rownames = F),
@@ -156,13 +157,12 @@ server <- function(input, output, session) {
       mutate(MTD = cumsum(Total)) %>%
       pivot_wider(names_from = month,
                   values_from = c("Total", "MTD"),
-                  names_sep = "_") %>% select(21)
+                  names_sep = "_") %>% select(21) ## increment by one as the months go by ## find a better way to do that though
     
     yoy1dat = reactive({
      left_join(tot_test2 %>% 
         group_by(month,year) %>% 
         summarise(Total = sum(round(Total,0))) %>% 
-       #mutate(Total = comma_format()(as.numeric(Total)))%>% 
         pivot_wider(names_from = month,
                     values_from = c("Total"),
                     names_sep = "_") %>% rowwise() %>% 
@@ -190,7 +190,6 @@ server <- function(input, output, session) {
         left_join(tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>% 
           group_by(month,year) %>% 
           summarise(Total = sum(round(Total,0))) %>% 
-          #mutate(Total = comma_format()(as.numeric(Total)))%>% 
           pivot_wider(names_from = month,
                       values_from = c("Total"),
                       names_sep = "_") %>% 
@@ -201,7 +200,7 @@ server <- function(input, output, session) {
   }
     
   ## Product Functionality
-  {
+  
     yoy3dat = reactive({
       if('All' %in% input$pin){
         yoy2dat()
@@ -217,7 +216,6 @@ server <- function(input, output, session) {
         left_join(tot_test2 %>%  subset(Product %in% input$pin) %>% 
           group_by(month,year) %>% 
           summarise(Total = sum(round(Total,0)) )%>% 
-          #mutate(Total = comma_format()(as.numeric(Total)))%>% 
           pivot_wider(names_from = month,
                       values_from = c("Total"),
                       names_sep = "_") %>% 
@@ -225,115 +223,121 @@ server <- function(input, output, session) {
     }
       })
   
-  }
+  
   }
   
-  ### Reactives for Year on Year Variance Table
-  {
-      ## initialise
-      {
-    yoyvardat = reactive({
-      t1 = tot_test2 %>%
-        group_by(month,year) %>%
-        summarise(Total = sum(Total)) %>%  
-        pivot_wider(names_from = year, values_from = "Total") %>% 
-        mutate(percentage_change = ((`23` - `22`) / `22`) * 100) 
-      
-     outpre = t1 %>% 
-        select(1,4)  %>% 
-        mutate(
-          Year = '23 vs 22',
-          percentage_change = if_else(is.na(percentage_change),'-',paste0(round(percentage_change,1),'%')
-          ))  %>%
-        pivot_wider(names_from = month,values_from = percentage_change)
-     
-     novpc =tot_test2 %>%
-       group_by(year, month) %>% 
-       summarise(Total = sum(Total)) %>%
-       mutate(MTD = cumsum(Total)) %>%
-       pivot_wider(names_from = year, values_from = c("Total",'MTD') )%>%
-       mutate('MTD %' = (MTD_23/MTD_22 -1) * 100) %>% select(1,4,5,6)
-     
-     MTD = paste0(round(novpc[8,4],1),'%')
-     
-      cbind(outpre,MTD)
-     
-    })
-      }
-      
-      ## product group functionality
-      {
-    yoyvardat2 =reactive({
+### Reactives for Year on Year Variance Table
+
+  ## initialise
+yoyvardat = reactive({
+
+# Calculate Total and Percentage Change
+t1 <- tot_test2 %>%
+  group_by(month, year) %>%
+  summarise(Total = sum(Total)) %>%
+  spread(key = year, value = Total) %>%
+  mutate(percentage_change = ((`23` - `22`) / `22`) * 100) %>%
+  select(1, 4) %>%
+  mutate(
+    Year = '23 vs 22',
+    percentage_change = if_else(is.na(percentage_change), '-', paste0(round(percentage_change, 1), '%'))
+  ) %>%
+  pivot_wider(names_from = month, values_from = percentage_change)
+
+# Calculate Month-to-Date (MTD) and Percentage Change
+novpc <- tot_test2 %>%
+  group_by(year, month) %>%
+  summarise(Total = sum(Total)) %>%
+  mutate(MTD = cumsum(Total)) %>%
+  pivot_wider(names_from = year, values_from = c("Total", 'MTD')) %>%
+  mutate('MTD %' = (MTD_23 / MTD_22 - 1) * 100) %>%
+  select(1, 4, 5, 6)
+
+# Extract MTD percentage for later use
+MTD <- paste0(round(novpc[8, 4], 1), '%')
+
+# Combine the output
+cbind(t1, MTD)
+})
+
+  ## product group functionality
+yoyvardat2 =reactive({
       if('All' %in% input$pgroupin){
         yoyvardat()
       } else {
-        t3 =  tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>% 
-          group_by(month,year) %>%
-          summarise(Total = sum(Total)) %>%  
-          pivot_wider(names_from = year, values_from = "Total") %>% 
-          mutate(percentage_change = ((`23` - `22`) / `22`) * 100) 
-        
-        
-       
-        
-       outpre2 = t3 %>% 
-          select(1,4)  %>% 
-          mutate(
-            Year = '23 vs 22',
-            percentage_change = if_else(is.na(percentage_change),'-',paste0(round(percentage_change,1),'%')
-            ))  %>%
-          pivot_wider(names_from = month,values_from = percentage_change)
-       
-       novpc =tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>% 
-         group_by(year, month) %>% 
-         summarise(Total = sum(Total)) %>%
-         mutate(MTD = cumsum(Total)) %>%
-         pivot_wider(names_from = year, values_from = c("Total",'MTD') )%>%
-         mutate('MTD %' = (MTD_23/MTD_22 -1) * 100) %>% select(1,4,5,6)
-       
-       MTD = paste0(round(novpc[8,4],1),'%')
-       
-       cbind(outpre2,MTD)
+        # Calculate Total and Percentage Change
+t1 <- tot_test2 %>%
+  subset(ProductGroup %in% input$pgroupin) %>% 
+  group_by(month, year) %>%
+  summarise(Total = sum(Total)) %>%
+  spread(key = year, value = Total) %>%
+  mutate(percentage_change = ((`23` - `22`) / `22`) * 100) %>%
+  select(1, 4) %>%
+  mutate(
+    Year = '23 vs 22',
+    percentage_change = if_else(is.na(percentage_change), '-', paste0(round(percentage_change, 1), '%'))
+  ) %>%
+  pivot_wider(names_from = month, values_from = percentage_change)
+
+# Calculate Month-to-Date (MTD) and Percentage Change
+novpc <- tot_test2 %>%
+  subset(ProductGroup %in% input$pgroupin) %>% 
+  group_by(year, month) %>%
+  summarise(Total = sum(Total)) %>%
+  mutate(MTD = cumsum(Total)) %>%
+  pivot_wider(names_from = year, values_from = c("Total", 'MTD')) %>%
+  mutate('MTD %' = (MTD_23 / MTD_22 - 1) * 100) %>%
+  select(1, 4, 5, 6)
+
+# Extract MTD percentage for later use
+MTD <- paste0(round(novpc[8, 4], 1), '%')
+
+# Combine the output
+cbind(t1, MTD)
       }
-    })
-      }
-      
-      ## product functionality
-      {
-        yoyvardat3 = reactive({
+})
+     
+ ## product functionality    
+yoyvardat3 = reactive({
           if('All' %in% input$pin){
             yoyvardat2()
           } else{
-            t5 =  tot_test2 %>% subset(Product %in% input$pin) %>% 
-              group_by(month,year) %>%
-              summarise(Total = sum(Total)) %>%  
-              pivot_wider(names_from = year, values_from = "Total") %>% 
-              mutate(percentage_change = ((`23` - `22`) / `22`) * 100)  
-            
-            outpre3 = t5 %>% 
-              select(1,4)  %>% 
-              mutate(
-                Year = '23 vs 22',
-                percentage_change = if_else(is.na(percentage_change),'-',paste0(round(percentage_change,1),'%')
-                ))  %>%
-              pivot_wider(names_from = month,values_from = percentage_change)
-            
-            
-            
-            MTD = paste0(round(novpc[8,4],1),'%')
-            
-            cbind(outpre3,MTD)
-            
+             # Calculate Total and Percentage Change
+t1 <- tot_test2 %>%
+  subset(Product %in% input$pin) %>% 
+  group_by(month, year) %>%
+  summarise(Total = sum(Total)) %>%
+  spread(key = year, value = Total) %>%
+  mutate(percentage_change = ((`23` - `22`) / `22`) * 100) %>%
+  select(1, 4) %>%
+  mutate(
+    Year = '23 vs 22',
+    percentage_change = if_else(is.na(percentage_change), '-', paste0(round(percentage_change, 1), '%'))
+  ) %>%
+  pivot_wider(names_from = month, values_from = percentage_change)
+
+# Calculate Month-to-Date (MTD) and Percentage Change
+novpc <- tot_test2 %>%
+  subset(Product %in% input$pin) %>% 
+  group_by(year, month) %>%
+  summarise(Total = sum(Total)) %>%
+  mutate(MTD = cumsum(Total)) %>%
+  pivot_wider(names_from = year, values_from = c("Total", 'MTD')) %>%
+  mutate('MTD %' = (MTD_23 / MTD_22 - 1) * 100) %>%
+  select(1, 4, 5, 6)
+
+# Extract MTD percentage for later use
+MTD <- paste0(round(novpc[8, 4], 1), '%')
+
+# Combine the output
+cbind(t1, MTD)
           }
-        })
-      }
-    
-  }
+})
    
   ### Tables for Year On Year
   {
     ## sales table
-  output$yoydata = renderTable(yoy3dat() ,striped = T,hover = T,digits = 0,na = '-',colnames = T,server = T,width = '100%',align = 'r')
+  output$yoydata = renderTable(yoy3dat(),striped = T,hover = T,digits = 0,na = '-',colnames = T,server = T,width = '100%',align = 'r')
     
     ## variance table
     output$yoyvar = renderTable(yoyvardat3(),striped = T,hover = T,digits = 1,na = '-',colnames = T,server = T,width = '100%',align = 'r',)
@@ -546,7 +550,8 @@ server <- function(input, output, session) {
       } else {
         tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>% 
           filter(year == 23) %>%filter(month %in% 'Nov') %>% 
-           mutate(ExQuantity =round( Quantity * 1.25,0)) %>% select(2,8)
+           mutate(ExQuantity =round( Quantity * 1.25,0))%>%
+          arrange(desc(ExQuantity) ) %>% select(2,8)
       }
     })
     
@@ -558,7 +563,8 @@ server <- function(input, output, session) {
           subset(Product %in% tot_test2$Product[
             grepl(paste(input$ptype,collapse='|'), 
                   tot_test2$Product,
-                  ignore.case = T)]) 
+                  ignore.case = T)]) %>%
+          arrange(desc(ExQuantity) )
       }
     })
     

@@ -1,34 +1,12 @@
-#packages
-{ 
-  library(shiny)
-  library(readr)
-  library(dplyr)
-  library(ggplot2)
-  library(shinyjs)
-  library(stringr)
-  library(shinythemes)
-  library(readxl)
-  library(dplyr)
-  library(purrr)
-  library(base)
-  library(tidyr)
-  library(scales)
-  library(shinydashboard)
-  library(plotly)
-  library(shiny)
-  library(DT)
-  library(shinyjs)
-  library(stringr)
-}
-
+source('packages.R')
 ##product list
-{products = read_csv('products.csv')
+products = read_csv('products.csv')
   products = distinct(products)
   product_groups = unique(products$ProductGroup)
   products_headers = names(products)
   products_headers[3] = "Code"
   names(products) = products_headers
-}
+
 
 ##monthlys over the years
 {
@@ -51,19 +29,19 @@
 }
 
 # Loading months
-yars = c(22, 23)
+active_years = c(22, 23)
 all_data_frames = list()
 
-for (y in yars) {
-  for (i in month.abb) {
-    file_path <- paste0('test/', i, ' ', y, '.xlsx')
-    
-    if (file.exists(file_path)) {
-      processed_name <- paste0(i, y)
-      data_frame <- load_month(i, y) %>% mutate(month = i, year = y)
-      
-      all_data_frames[[processed_name]] <- data_frame
-    }
+  for (y in active_years) {
+    for (i in month.abb) {
+      file_path <- paste0('test/', i, ' ', y, '.xlsx')
+
+      if (file.exists(file_path)) {
+        processed_name <- paste0(i, y)
+        data_frame <- load_month(i, y) %>% mutate(month = i, year = y)
+
+        all_data_frames[[processed_name]] <- data_frame
+      }
   }
 }
 
@@ -74,10 +52,10 @@ tot_test <- bind_rows(all_data_frames)
 tot_test$month = factor(tot_test$month, levels = month.abb)
 tot_test$year = factor(tot_test$year, levels = c(22, 23))
 
-  
+
   pgjoin = data.frame(products[, c(1:3)])
-  
-  
+
+ 
   tot_test2 = left_join(tot_test, pgjoin, by = "Code")
   tot_test2 = tot_test2 %>% select(-Name) %>% arrange(desc(Total))
   
@@ -92,40 +70,7 @@ tot_test$year = factor(tot_test$year, levels = c(22, 23))
   product_type = c('All','Chicken','Layer','Back','Drumstick','Kpanla', 'Tripe','Salmon',
                    'Lele','Olonka','Frytol','Mom','Oba')
   
-  
  
-  
-  
-  
-  tot_test2 %>% 
-    group_by(month,year) %>% 
-    summarise(Total = sum(Total)) %>% 
-    pivot_wider(names_from = month,
-                values_from = c("Total"),
-                names_sep = "_") %>%
-    mutate(
-          'Month to Date' = rowSums(
-           pick(where(is.numeric)),
-           na.rm = T))
-  
-  
-  
-  eomnov = tot_test2 %>%
-    group_by(year, month) %>%
-    summarise(Total = sum(round(Total, 0))) %>%
-    mutate(MTD = cumsum(Total)) %>%
-    pivot_wider(names_from = month,
-                values_from = c("Total", "MTD"),
-                names_sep = "_") %>% select(21)
-  
-  novpc =tot_test2 %>%
-    group_by(year, month) %>% 
-    summarise(Total = sum(Total)) %>%
-    mutate(MTD = cumsum(Total)) %>%
-    pivot_wider(names_from = year, values_from = c("Total",'MTD') )%>%
-    mutate('MTD %' = (MTD_23/MTD_22 -1) * 100) %>% select(1,4,5,6)
-  
-  mtdnov = paste0(round(novpc[8,4],1),'%')
  }
 
 top_products_meat = head(tot_test2 %>%
@@ -160,6 +105,3 @@ top_products_tomatoe = head(tot_test2 %>%
                                   arrange(desc(ProductValue)) %>%
                                    select(1),
                             3)
-
-
-

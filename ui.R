@@ -2,7 +2,7 @@ source('preprocessing.R')
 source('sidebar.R')
 source('header.R')
 source('body.R')
-
+source('packages.R')
 
 ui <- dashboardPage(
   skin = 'purple',

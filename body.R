@@ -85,25 +85,38 @@ body = dashboardBody(
    
    ### Data tab
    {
-    tabPanel('Data', dataTableOutput(outputId = 'pout'), value = 'DATA')
+    tabPanel('Data', DTOutput(outputId = 'pout'), value = 'DATA')
    },
    
 ### Insights Tab
 { tabPanel('Insights',value = 'INSIGHTS',
 
-      h3('Daily Sales Average (Ghs)'),
+      
       ## AVg sales per working day
-      tableOutput('AvgSaPD'),
+      box(
+        tableOutput('AvgSaPD'),
+        title = 'Daily Sales Average (Ghs)',
+        width = '100%',
+        collapsible = T,
+        solidHeader = T,
+        status = 'primary'),
 
      ## Highest Selling Product
-     textOutput('HiSa',container = tags$h3,inline = T),
+     box(textOutput('HiSa',container = tags$h3,inline = T),
 
      ## Expected highest month
-     verbatimTextOutput('ExMo'),
+     textOutput('ExMo',container = tags$h3,inline = T),
+     width = '100%',
+        collapsible = T,
+        solidHeader = T,
+        status = 'primary'),
 
      ##Minimum stocks expected for the month
-     verbatimTextOutput('ExSt'),
-     dataTableOutput('ExStTable')
+     box(textOutput('ExSt',container = tags$h3,inline = T),
+     dataTableOutput('ExStTable'),width = '100%',
+        collapsible = T,
+        solidHeader = T,
+        status = 'primary')
    )
 } 
 ))
