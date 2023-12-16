@@ -1,8 +1,9 @@
 name: Deploy to shinyapps.io
 
 on:
-  # run on any push
   push:
+    branches:
+      - main
 
   # run on request (via button in actions menu)
   workflow_dispatch:
