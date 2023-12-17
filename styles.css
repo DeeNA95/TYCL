@@ -1,0 +1,56 @@
+/* styles.css */
+
+/* Body background color */
+body {
+    background-color: #f0f8f7; /* Light greenish background color */
+    font-family: 'Times New Roman', Times, serif; /* Apply Times New Roman font to body text */
+}
+
+/* Header background color */
+header {
+    background-color: #4caf50; /* Dark green header color */
+    color: white; /* Text color for the header */
+}
+
+/* Sidebar background color */
+.sidebar {
+    background-color: #d3f7e9; /* Light green sidebar color */
+}
+
+/* Main content background color */
+.main-content {
+    background-color: #e6ffe0; /* Very light green main content color */
+}
+
+/* Button styles */
+.btn {
+    background-color: #4caf50; /* Dark green button color */
+    color: white; /* Text color for the buttons */
+}
+
+/* Link styles */
+a {
+    color: #4caf50; /* Dark green link color */
+}
+
+/* Panel background color */
+.panel {
+    background-color: #e6ffe0; /* Very light green panel color */
+}
+
+/* Table styles */
+table {
+    background-color: #d3f7e9; /* Light green table background color */
+}
+
+/* Input styles */
+input {
+    border-color: #4caf50; /* Dark green border color for input elements */
+}
+
+/* Apply Times New Roman font to all paragraphs */
+p {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Customize other elements as needed */

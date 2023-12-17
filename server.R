@@ -4,9 +4,9 @@ source('packages.R')
 server <- function(input, output, session) {
   
   ### Reactives for Data and Products
-  {
+  
   ## Initialising for with year specified
-  {
+  
   Preac1 = reactive({
     tot_test2 %>% 
       group_by(Product,ProductGroup) %>% 
@@ -14,20 +14,20 @@ server <- function(input, output, session) {
       summarise(Total = round(sum(Total),2),Quantity = round(sum(Quantity),2))%>% 
       arrange(desc(Total))
   })
-  }
+  
   
   ## Initialising for without year specified
-  {
+  
   Preac2 = reactive({
     tot_test2 %>% 
       group_by(Product,ProductGroup) %>% 
       summarise(Total = round(sum(Total),2),Quantity = round(sum(Quantity),2)) %>% 
       arrange(desc(Total))
   })
-  }
+  
   
   ## Year number functionality
-  {
+  
   Preac3 = reactive({
   if('All' %in% input$yearnum){
    Preac2()
@@ -35,10 +35,10 @@ server <- function(input, output, session) {
    Preac1()
   }
   })
-  }
+  
   
   ## Product Group functionality
-  {
+  
   Preac4 = reactive({
     if ("All" %in% input$pgroupin) {
       Preac3()
@@ -46,10 +46,10 @@ server <- function(input, output, session) {
       subset(Preac3(), ProductGroup %in% input$pgroupin)
     }
   })
-  }
+  
   
   ## High Quantity functionality
-  {
+  
   Preac5 = reactive({
     if (T == input$highquantity) {
       Preac4() %>% 
@@ -58,10 +58,10 @@ server <- function(input, output, session) {
       Preac4()
     }
   })
-  }
+  
 
   ## Product functionality
-  {
+  
   Preac6 = reactive({
     if('All' %in% input$pin){
     Preac5()
@@ -69,10 +69,10 @@ server <- function(input, output, session) {
       subset(Preac5(),Product %in% input$pin)
     }
   })
-  }
+  
   
   ## Underperforming functionality
-  {
+  
   Preac7 = reactive({
     if(T == input$undperf ){
     if('Quantity' == input$undperftype){
@@ -86,10 +86,10 @@ server <- function(input, output, session) {
       Preac6()
     }
   })
-  }
+  
   
   ## Product Type functionality
-  {
+  
   Preac8 = reactive({
     if("All" %in% input$ptype){
       Preac7()
@@ -102,11 +102,11 @@ server <- function(input, output, session) {
                        ignore.case = T)])
     }
   })
-  }
-  }
+  
+  
   
   ### Graph For Products
-  {
+  
   output$plo = renderPlotly({
     plot_ly(
       head(Preac8(),input$pnum),
@@ -136,56 +136,60 @@ server <- function(input, output, session) {
           })
       )
   })
-  }
+  
     
   ### Data tab table
-  {
+  
   output$pout = renderDT(
     datatable(Preac8(),
               options = list(pageLength = 20),
               rownames = F),
     server = T )
-  }
+  
   
   ### Reactives for Year on Year Table
-  {
+  
   ## Year on Year initialisation
-  {
-    eomnov = tot_test2 %>%
-      group_by(year, month) %>%
-      summarise(Total = sum(round(Total, 0))) %>%
-      mutate(MTD = cumsum(Total)) %>%
-      pivot_wider(names_from = month,
-                  values_from = c("Total", "MTD"),
-                  names_sep = "_") %>% select(21) ## increment by one as the months go by ## find a better way to do that though
     
     yoy1dat = reactive({
-     left_join(tot_test2 %>% 
+      eomnov = tot_test2 %>%
+      group_by(year, month) %>%
+      summarise(Total = sum(round(Total, 0))) %>%
+      mutate(MTD = cumsum(Total), MTD = comma_format()(MTD)) %>%
+      select(year,month,MTD) %>% 
+      pivot_wider(names_from = month,
+                  values_from = c( "MTD"),
+                  names_sep = "_")  %>% 
+      select(9) ## increment by one as the months go by ## find a better way to do that though
+
+     left_join(
+      tot_test2 %>% 
         group_by(month,year) %>% 
         summarise(Total = sum(round(Total,0))) %>% 
         pivot_wider(names_from = month,
                     values_from = c("Total"),
                     names_sep = "_") %>% rowwise() %>% 
         mutate('Total' = rowSums(pick(where(is.numeric)),na.rm = T)),
-       eomnov,by = 'year')
+      eomnov,
+      by = 'year',
+      suffix= c('','MTD'))
     })
-  }
   
   ## Product Group functionality
-  {
-    
     
     yoy2dat = reactive({
       if('All' %in% input$pgroupin){
         yoy1dat()
       } else{
-        eomnov = tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>% 
-        group_by(year, month) %>%
-        summarise(Total = sum(round(Total, 0))) %>%
-        mutate(MTD = cumsum(Total)) %>%
-        pivot_wider(names_from = month,
-                    values_from = c("Total", "MTD"),
-                    names_sep = "_") %>% select(21)
+        eomnov = tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>%
+      group_by(year, month) %>%
+      summarise(Total = sum(round(Total, 0))) %>%
+      mutate(MTD = cumsum(Total), MTD = comma_format()(MTD)) %>%
+      select(year,month,MTD) %>% 
+      pivot_wider(names_from = month,
+                  values_from = c( "MTD"),
+                  names_sep = "_")  %>% 
+      select(9) ## increment by one as the months go by ## find a better way to do that though
         
         left_join(tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>% 
           group_by(month,year) %>% 
@@ -193,25 +197,28 @@ server <- function(input, output, session) {
           pivot_wider(names_from = month,
                       values_from = c("Total"),
                       names_sep = "_") %>% 
-          mutate('Total' = rowSums(pick(where(is.numeric)),na.rm = T) ), eomnov,by = 'year')
-          
+          mutate('Total' = rowSums(pick(where(is.numeric)),na.rm = T)),
+      eomnov,
+      by = 'year',
+      suffix= c('','MTD'))
       }
     })
-  }
-    
+  
   ## Product Functionality
   
     yoy3dat = reactive({
       if('All' %in% input$pin){
         yoy2dat()
       } else {
-        eomnov = tot_test2 %>%
-          group_by(year, month) %>%
-          summarise(Total = sum(round(Total, 0))) %>%
-          mutate(MTD = cumsum(Total)) %>%
-          pivot_wider(names_from = month,
-                      values_from = c("Total", "MTD"),
-                      names_sep = "_") %>% select(21)
+        eomnov = tot_test2 %>% subset(Product %in% input$pin) %>%
+      group_by(year, month) %>%
+      summarise(Total = sum(round(Total, 0))) %>%
+      mutate(MTD = cumsum(Total),MTD = comma_format()(MTD)) %>%
+      select(-Total) %>% 
+      pivot_wider(names_from = month,
+                  values_from = c( "MTD"),
+                  names_sep = "_",)  %>% 
+      select(9) ## increment by one as the months go by ## find a better way to do that though
         
         left_join(tot_test2 %>%  subset(Product %in% input$pin) %>% 
           group_by(month,year) %>% 
@@ -219,12 +226,13 @@ server <- function(input, output, session) {
           pivot_wider(names_from = month,
                       values_from = c("Total"),
                       names_sep = "_") %>% 
-          mutate('Total' = rowSums(pick(where(is.numeric)),na.rm = T) ),eomnov, by = 'year')
+          mutate('Total' = rowSums(pick(where(is.numeric)),na.rm = T) ),
+      eomnov,
+      by = 'year',
+      suffix= c('','MTD'))
     }
       })
-  
-  
-  }
+
   
 ### Reactives for Year on Year Variance Table
 
@@ -335,18 +343,18 @@ cbind(t1, MTD)
 })
    
   ### Tables for Year On Year
-  {
+  
     ## sales table
   output$yoydata = renderTable(yoy3dat(),striped = T,hover = T,digits = 0,na = '-',colnames = T,server = T,width = '100%',align = 'r')
     
     ## variance table
-    output$yoyvar = renderTable(yoyvardat3(),striped = T,hover = T,digits = 1,na = '-',colnames = T,server = T,width = '100%',align = 'r',)
-  }
+  output$yoyvar = renderTable(yoyvardat3(),striped = T,hover = T,digits = 1,na = '-',colnames = T,server = T,width = '100%',align = 'r',)
+  
   
   ### Reactives for Year On Year Graph
-  {
+  
   ## Initialise and Product Group functionality
-  {
+  
   yoy1 = reactive({
     if(("All" %in% input$pgroupin ) ){
     tot_test2 %>% 
@@ -360,10 +368,9 @@ cbind(t1, MTD)
         summarise(Total = sum(Total))
     }
   })
-  }
   
   ## Product functionality
-  {
+  
   yoy2 = reactive({
     if( ("All" %in% input$pin)){
       yoy1()
@@ -375,8 +382,7 @@ cbind(t1, MTD)
     }
   })
     
-    
-    yoytot1 = reactive({
+  yoytot1 = reactive({
       if(("All" %in% input$pgroupin ) ){
         tot_test2 %>% 
           group_by(year) %>% 
@@ -388,12 +394,11 @@ cbind(t1, MTD)
           group_by(year) %>% 
           summarise(Total = sum(Total))
       }
-    })
-  }
-    
+  })
+  
     ## Product functionality
-    {
-      yoytot2 = reactive({
+    
+  yoytot2 = reactive({
         if( ("All" %in% input$pin)){
           yoytot1()
         } else {
@@ -402,15 +407,9 @@ cbind(t1, MTD)
             group_by(year) %>% 
             summarise(Total = sum(Total))
         }
-      })
+  })
     
     
-    
-    
-    
-    
-  }
-  }
   
   ### Graph for Year on Year
   {
@@ -451,24 +450,24 @@ cbind(t1, MTD)
   }
   
   ### Reactives for Top Products tab
-  {
+
     ## title for box
     
     output$tptitle = renderText(input$topProduct)
     output$tptitlegraph = renderText(input$topProduct)
     
   ## Initialise and filter functionality for Graph
-  {
+  
   TPreacGraph = reactive({
     tot_test2 %>% filter(Product %in% input$topProduct) %>% 
       group_by(month,year) %>% 
       summarise(Total = sum(Total))
   })
-  }
+  
   
   ## Initialise and filter for total table
-  {
-  TPreactabletotal = reactive({
+  
+  TPreactabletotal = shiny::reactive({
     left_join(tot_test2 %>% filter(Product %in% input$topProduct) %>% 
       group_by(month,year) %>% 
       summarise(Total = sum(Total)) %>% 
@@ -479,10 +478,9 @@ cbind(t1, MTD)
         summarise(Total = sum(Total)) %>% 
         mutate(Total = comma_format()(as.numeric(Total))), by = 'year')
   })
-  }
   
   ## Initialise and filter for quantity table
-  {
+  
   TPreactablequantity = reactive({
     left_join(tot_test2 %>% filter(Product %in% input$topProduct) %>% 
                 group_by(month,year) %>% 
@@ -494,10 +492,9 @@ cbind(t1, MTD)
               summarise(Quantity = sum(Quantity)) %>% 
                 mutate(Quantity = comma_format()(as.numeric(Quantity))), by = 'year')
   })
-  }
   
   ## Graph for Top Products
-  {
+  
   output$topProductGraph = renderPlotly({
     plot_ly(TPreacGraph(),
             x = ~month,
@@ -506,17 +503,16 @@ cbind(t1, MTD)
             color = ~year) %>% 
       layout()
   })
-  }
   
   ##Total and Quantity tables
-  {
+  
   output$topProductsTableTotal = renderTable(TPreactabletotal(),na = '-',width = '100%',align = 'r')
   output$topProductsTableQuantity = renderTable(TPreactablequantity(),na = '-',width = '100%',align = 'r')
-  }
-  }
+  
+  
   
   ### Reactives for Insights
-  {
+  
     HiSa = reactive({
       if('All' %in% input$pgroupin){
       tot_test2 %>% group_by(Product) %>% 
@@ -536,9 +532,6 @@ cbind(t1, MTD)
           filter(year == 22)%>% group_by(month) %>%  summarise(Total = sum(Total)) %>% arrange(desc(Total)) %>% mutate(ExTotal = Total*2.5) %>% head(1) %>% select(1,3) 
       }
     })
-    
-   
-      
     
     ExSt = reactive({
       if('All' %in% input$pgroupin){
@@ -599,52 +592,68 @@ cbind(t1, MTD)
                   tot_test2  %>%
                     subset( Product %in% input$pin) %>% 
                     group_by(year) %>% 
-                    summarise('Year Average' = round(sum(Total,na.rm = T)/(365-48-27),0) ),by = 'year')
+                    summarise('Year Average' = round(sum(Total,na.rm = T)/(365-48-27),0)),
+                  by = 'year')
       }
     })
-    
-  }
-  
+
   ### text for Insights
-  {
+  
     ## high sales
-    output$HiSa = renderText(paste('Our highest selling product in',if('All' %in% input$pgroupin) 'All Product Groups' else input$pgroupin,'is',as.vector(HiSa()$Product),'with',dollar_format(prefix = 'GHs')(HiSa()$Total),'\n'))
+    output$HiSa = renderText(
+      paste('Our highest selling product in',
+      if('All' %in% input$pgroupin) 'All Product Groups' else input$pgroupin,
+      'is',
+      as.vector(HiSa()$Product),
+      'with',
+      dollar_format(prefix = 'GHs')(HiSa()$Total),
+      '\n')
+      )
     
     ## highest month
-    output$ExMo = renderText(paste('Expected highest month is',as.vector(ExMo()$month),'\nWe expect to sell',dollar_format(prefix = 'GHs')(ExMo()$ExTotal),if('All' %in% input$pgroupin) '' else paste('of', input$pgroupin)))
+    output$ExMo = renderText(
+      paste('Expected highest month is',
+      as.vector(ExMo()$month),
+      '\nWe expect to sell',
+      dollar_format(prefix = 'GHs')(ExMo()$ExTotal),
+      if('All' %in% input$pgroupin) '' else paste('of', input$pgroupin))
+      )
     
     ## required stocks to sell thatmuch
-    output$ExSt = renderText(paste('Required Stocks to meet planned sales for',as.vector(ExMo()$month)))
+    output$ExSt = renderText(
+      paste('Required Stocks to meet planned sales for',
+      as.vector(ExMo()$month))
+      )
     
-    output$ExStTable = renderDataTable(ExStPy())
+    output$ExStTable = DT::renderDataTable(ExStPy(),)
     
     output$AvgSaPD = renderTable(AvgSaPDData2(),rownames = F,na = "-",digits = 0,width = '100%',align = 'r')
     
-  }
+  
   
   ### Server side select/selectize
-  {
+  
   ##server side select for yearnum
-    {
-  updateSelectizeInput(session, 'yearnum', choices = c('All', `Years` = list(tot_test2$year)), server = TRUE)
-    }
+    
+  updateSelectizeInput(session, 'yearnum', choices = c('All', `Years` = list(tot_test2$year)), server = TRUE,selected = 23)
+    
     
   ## server side select for product
-    {
+    
   updateSelectInput(session, 'pin', choices = c('All', `Products` = list(products$Name)),selected = 'All')
-    }
-  }
+    
+  
   
   ### Observes
-  {
+  
   ## Observe for changing product options when product group is selected
-  {
+  
   observe({
     product_choice = subset(products, ProductGroup %in% input$pgroupin)
     updateSelectInput(inputId = 'pin',choices = c('All',product_choice$Name),selected = 'All')
   })
-  }
-  }
+  
+  
   
   pntit = reactive({
     
@@ -652,4 +661,4 @@ cbind(t1, MTD)
   })
   output$pnumtitle = renderText(pntit())
   
-}
+  }

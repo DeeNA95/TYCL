@@ -1,11 +1,13 @@
 body = dashboardBody(
-  tabsetPanel(id = 'tabs',
-    
+
+  tabsetPanel(
+    id = 'tabs',
+
     ### Year on Year tab
-   { tabPanel(
-      'Year On Year',
+    { tabPanel(
+      title = 'Year On Year',
       value = 'YOY',
-      
+
       box(
         h4('Sales In GHs'),
         tableOutput('yoydata'),
@@ -13,7 +15,7 @@ body = dashboardBody(
         status = 'primary',
         solidHeader = T,
         width = '100%',
-        height = '150%',
+        #height = 'auto',
         h4('Variance'),
         tableOutput('yoyvar'),
       ),
@@ -102,21 +104,23 @@ body = dashboardBody(
         status = 'primary'),
 
      ## Highest Selling Product
-     box(textOutput('HiSa',container = tags$h3,inline = T),
+     box(textOutput('HiSa',container = tags$h4,inline = T),
 
      ## Expected highest month
-     textOutput('ExMo',container = tags$h3,inline = T),
+     textOutput('ExMo',container = tags$h4,inline = T),
      width = '100%',
         collapsible = T,
         solidHeader = T,
         status = 'primary'),
 
      ##Minimum stocks expected for the month
-     box(textOutput('ExSt',container = tags$h3,inline = T),
+     box(title = textOutput('ExSt'),
      dataTableOutput('ExStTable'),width = '100%',
         collapsible = T,
         solidHeader = T,
         status = 'primary')
    )
 } 
-))
+)
+#, includeCSS('styles.css')
+)
