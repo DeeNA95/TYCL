@@ -11,11 +11,11 @@ products = read_csv('products.csv')
 ##monthlys over the years
 {
   #load and clean up function
- load_month = function(month, year) {
+ load_month = function(month, year, directory = 'test') {
   # month should be in quotes and year should be 2 digits
   selection = c('Code', 'Product', 'Quantity', 'Total')
 
-  read_xlsx(paste0('test/', month, ' ', year, '.xlsx'), trim_ws = T) %>%
+  read_xlsx(paste0(directory,'/', month, ' ', year, '.xlsx'), trim_ws = T) %>%
     select(all_of(selection)) %>%
     subset(!(Code %in% c('NA', 'Code')), Total != 'NA') %>%
     filter(Total != 'NA', Quantity != 'Quantity') %>%
