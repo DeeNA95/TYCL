@@ -26,7 +26,7 @@ ui <- dashboardPage(
      
      
     .content-wrapper {
-      margin-left: 13.65%; 
+      
       margin-top: 50px;
       background-color: azure;
       color: black;
