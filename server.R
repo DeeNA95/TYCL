@@ -15,7 +15,6 @@ server <- function(input, output, session) {
       arrange(desc(Total))
   })
   
-  
   ## Initialising for without year specified
   
   Preac2 = reactive({
@@ -24,7 +23,6 @@ server <- function(input, output, session) {
       summarise(Total = round(sum(Total),2),Quantity = round(sum(Quantity),2)) %>% 
       arrange(desc(Total))
   })
-  
   
   ## Year number functionality
   
@@ -36,7 +34,6 @@ server <- function(input, output, session) {
   }
   })
   
-  
   ## Product Group functionality
   
   Preac4 = reactive({
@@ -46,7 +43,6 @@ server <- function(input, output, session) {
       subset(Preac3(), ProductGroup %in% input$pgroupin)
     }
   })
-  
   
   ## High Quantity functionality
   
