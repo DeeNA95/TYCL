@@ -105,3 +105,9 @@ top_products_tomatoe = head(tot_test2 %>%
                                   arrange(desc(ProductValue)) %>%
                                    select(1),
                             3)
+
+minor_pgroups = c("Sardine","Ketchup\\Mayonnaise\\Baked Beans","Indomie" ,"Beverages","Tuna Flakes\\Chunks","Mackerel","Spaghetti","Spices")
+external_pgroups = c("External","Mabel Spices")
+
+unique((tot_test2 %>% mutate(category = if_else(ProductGroup %in% minor_pgroups,'Others',ProductGroup),
+      category = if_else(ProductGroup %in% external_pgroups,'Externals',category)))$category)

@@ -5,29 +5,45 @@ source('body.R')
 source('packages.R')
 
 ui <- dashboardPage(
-  skin = 'purple',
-  header,
-  sidebar,
+  
+ header,
+  sidebar = sidebar,
   body,
  
   tags$head(tags$style(
     HTML("
-      .main-sidebar {
+      .sidebar {
         position: fixed;
         height: 100%;
+        width: 13.65%;
+        background-color: #2F4F4F;
+        color: white;
+        margin-top: -50px;
+        border: 2px solid #333;
+        border-top: none;
       }
       
-     .main-header {
-      position: fixed; /* Change from sticky to fixed */
-      width: 100%;
-      background-color: #333; /* Set your preferred background color */
-      color: white; /* Set your preferred text color */
-      padding: 1px; /* Adjust padding as needed */
-    }
      
-      .content-wrapper {
-        margin-left: 15%; 
-         margin-top: 60px; /* Adjust margin-top to accommodate header height */
+     
+    .content-wrapper {
+      margin-left: 13.65%; 
+      margin-top: 50px;
+      background-color: azure;
+      color: black;
       }
-    ")
-  )))
+  
+  "),
+
+  tags$link(
+    rel = "stylesheet",
+    href = "https://fonts.googleapis.com/css2?family=Pacifico&display=swap",
+    type = "text/css"
+  ),tags$link(
+    rel = "stylesheet",
+    href = "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap",
+    type = "text/css"
+  )
+)
+
+    )
+  )

@@ -8,39 +8,28 @@ server <- function(input, output, session) {
   ## Initialising for with year specified
   
   Preac1 = reactive({
+    if('All' %in% input$yearnum){
+tot_test2 %>% 
+      group_by(Product,ProductGroup) %>% 
+      summarise(Total = round(sum(Total),2),Quantity = round(sum(Quantity),2)) %>% 
+      arrange(desc(Total))
+    } else {
     tot_test2 %>% 
       group_by(Product,ProductGroup) %>% 
       subset(year == input$yearnum) %>% 
       summarise(Total = round(sum(Total),2),Quantity = round(sum(Quantity),2))%>% 
       arrange(desc(Total))
-  })
-  
-  ## Initialising for without year specified
-  
-  Preac2 = reactive({
-    tot_test2 %>% 
-      group_by(Product,ProductGroup) %>% 
-      summarise(Total = round(sum(Total),2),Quantity = round(sum(Quantity),2)) %>% 
-      arrange(desc(Total))
-  })
-  
-  ## Year number functionality
-  
-  Preac3 = reactive({
-  if('All' %in% input$yearnum){
-   Preac2()
-  }else{
-   Preac1()
   }
-  })
+})
+  
   
   ## Product Group functionality
   
   Preac4 = reactive({
-    if ("All" %in% input$pgroupin) {
-      Preac3()
+    if ("All" %in% input$pgroupin || is.null(input$pgroupin)) {
+      Preac1()
     } else{
-      subset(Preac3(), ProductGroup %in% input$pgroupin)
+      subset(Preac1(), ProductGroup %in% input$pgroupin)
     }
   })
   
@@ -59,7 +48,7 @@ server <- function(input, output, session) {
   ## Product functionality
   
   Preac6 = reactive({
-    if('All' %in% input$pin){
+    if('All' %in% input$pin || is.null(input$pin)){
     Preac5()
     } else{
       subset(Preac5(),Product %in% input$pin)
@@ -87,7 +76,7 @@ server <- function(input, output, session) {
   ## Product Type functionality
   
   Preac8 = reactive({
-    if("All" %in% input$ptype){
+    if("All" %in% input$ptype || is.null(input$ptype)){
       Preac7()
     } else{
       subset(Preac7(), 
@@ -130,6 +119,7 @@ server <- function(input, output, session) {
           }else{
             paste0('20',input$yearnum)
           })
+          
       )
   })
   
@@ -174,7 +164,7 @@ server <- function(input, output, session) {
   ## Product Group functionality
     
     yoy2dat = reactive({
-      if('All' %in% input$pgroupin){
+      if('All' %in% input$pgroupin || is.null(input$pgroupin)){
         yoy1dat()
       } else{
         eomnov = tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>%
@@ -203,7 +193,7 @@ server <- function(input, output, session) {
   ## Product Functionality
   
     yoy3dat = reactive({
-      if('All' %in% input$pin){
+      if('All' %in% input$pin || is.null(input$pin)){
         yoy2dat()
       } else {
         eomnov = tot_test2 %>% subset(Product %in% input$pin) %>%
@@ -266,7 +256,7 @@ cbind(t1, MTD)
 
   ## product group functionality
 yoyvardat2 =reactive({
-      if('All' %in% input$pgroupin){
+      if('All' %in% input$pgroupin || is.null(input$pgroupin)){
         yoyvardat()
       } else {
         # Calculate Total and Percentage Change
@@ -303,7 +293,7 @@ cbind(t1, MTD)
      
  ## product functionality    
 yoyvardat3 = reactive({
-          if('All' %in% input$pin){
+          if('All' %in% input$pin || is.null(input$pin)){
             yoyvardat2()
           } else{
              # Calculate Total and Percentage Change
@@ -341,10 +331,10 @@ cbind(t1, MTD)
   ### Tables for Year On Year
   
     ## sales table
-  output$yoydata = renderTable(yoy3dat(),striped = T,hover = T,digits = 0,na = '-',colnames = T,server = T,width = '100%',align = 'r')
+  output$yoydata = renderTable(yoy3dat(),hover = T,digits = 0,na = '-',colnames = T,server = F,align = 'r',spacing = 'xs',width = '100%')
     
     ## variance table
-  output$yoyvar = renderTable(yoyvardat3(),striped = T,hover = T,digits = 1,na = '-',colnames = T,server = T,width = '100%',align = 'r',)
+  output$yoyvar = renderTable(yoyvardat3(),hover = T,digits = 1,na = '-',colnames = T,server = T,align = 'r',spacing = 'xs',width = '100%')
   
   
   ### Reactives for Year On Year Graph
@@ -352,7 +342,7 @@ cbind(t1, MTD)
   ## Initialise and Product Group functionality
   
   yoy1 = reactive({
-    if(("All" %in% input$pgroupin ) ){
+    if(("All" %in% input$pgroupin || is.null(input$pgroupin)) ){
     tot_test2 %>% 
       group_by(month,year) %>% 
         summarise(Total = sum(Total))
@@ -368,7 +358,7 @@ cbind(t1, MTD)
   ## Product functionality
   
   yoy2 = reactive({
-    if( ("All" %in% input$pin)){
+    if( ("All" %in% input$pin || is.null(input$pin))){
       yoy1()
     } else {
       tot_test2 %>% 
@@ -379,7 +369,7 @@ cbind(t1, MTD)
   })
     
   yoytot1 = reactive({
-      if(("All" %in% input$pgroupin ) ){
+      if(("All" %in% input$pgroupin || is.null(input$pgroupin) ) ){
         tot_test2 %>% 
           group_by(year) %>% 
           reframe(Total = sum(Total))
@@ -395,7 +385,7 @@ cbind(t1, MTD)
     ## Product functionality
     
   yoytot2 = reactive({
-        if( ("All" %in% input$pin)){
+        if( ("All" %in% input$pin || is.null(input$pin))){
           yoytot1()
         } else {
           tot_test2 %>% 
@@ -408,7 +398,7 @@ cbind(t1, MTD)
     
   
   ### Graph for Year on Year
-  {
+  
   output$yoy = renderPlotly({
     plot_ly(data = yoy2(), x = ~month, y = ~Total, type = "bar", color = ~year,
             text = ~paste0('GHs ', round(Total/1000,1),'k\n','20',year,'\n'),
@@ -416,34 +406,36 @@ cbind(t1, MTD)
       layout(xaxis = list(title = 'Month'), yaxis = list(title = 'Total'))
   })
     
-    output$yoytot = renderPlotly({
+  output$yoytot = renderPlotly({
       plot_ly(data = yoytot2(), x = ~Total, y = ~year, type = "bar", color = ~year,
               text = ~paste0('GHs ', round(Total/1000,1),'k\n','20',year,'\n'),
               hoverinfo = text)%>%
         layout()
-    })
-  }
+  })
+  
   
   ### Reactives for Distribution tab
-  {
+  
   DistReac = reactive({
-    Preac3() %>% 
-      group_by(ProductGroup) %>% 
+    Preac1() %>%
+      mutate(category = if_else(ProductGroup %in% minor_pgroups,'Others',ProductGroup),
+      category = if_else(ProductGroup %in% external_pgroups,'Externals',category))  %>% 
+      group_by(category) %>% 
       summarise(Total = sum(Total))
   })
-  }
+  
   
   ### Graph for Distribution tab
-  {
+  
   output$pie = renderPlotly({
     plot_ly(DistReac(),
             type = 'pie',
-            labels = ~ProductGroup,
+            labels = ~category,
             values = ~Total
             ) %>%
       layout(title = paste0( if('All' %in% input$yearnum) paste('All years') else paste0('20',input$yearnum)))
   })
-  }
+  
   
   ### Reactives for Top Products tab
 
@@ -510,7 +502,7 @@ cbind(t1, MTD)
   ### Reactives for Insights
   
     HiSa = reactive({
-      if('All' %in% input$pgroupin){
+      if('All' %in% input$pgroupin || is.null(input$pgroupin)){
       tot_test2 %>% group_by(Product) %>% 
         summarise(Total = sum(Total)) %>%arrange(desc(Total)) %>%  head(1)
       } else {
@@ -520,7 +512,7 @@ cbind(t1, MTD)
     })
     
     ExMo = reactive({
-      if('All' %in% input$pgroupin){
+      if('All' %in% input$pgroupin || is.null(input$pgroupin)){
         tot_test2 %>% 
           filter(year == 22)%>% group_by(month) %>%  summarise(Total = sum(Total)) %>%arrange(desc(Total)) %>% mutate(ExTotal = Total*2.5) %>% head(1) %>% select(1,3) 
       } else {
@@ -530,7 +522,7 @@ cbind(t1, MTD)
     })
     
     ExSt = reactive({
-      if('All' %in% input$pgroupin){
+      if('All' %in% input$pgroupin || is.null(input$pgroupin)){
         tot_test2 %>% 
           filter(year == 23) %>% filter(month %in% 'Nov') %>% 
           arrange(desc(Quantity)) %>% 
@@ -545,7 +537,7 @@ cbind(t1, MTD)
     })
     
     ExStPy = reactive({
-      if('All' %in% input$ptype){
+      if('All' %in% input$ptype || is.null(input$ptype)){
         ExSt()
       } else {
         ExSt() %>% 
@@ -558,7 +550,7 @@ cbind(t1, MTD)
     })
     
     AvgSaPDData = reactive({
-      if('All' %in% input$pgroupin){
+      if('All' %in% input$pgroupin || is.null(input$pgroupin)){
       left_join(tot_test2 %>% 
         group_by(month,year) %>% 
         summarise(Total = round(sum(Total)/26,0) )%>% 
@@ -578,7 +570,7 @@ cbind(t1, MTD)
     })
     
     AvgSaPDData2 = reactive({
-      if('All' %in% input$pin){
+      if('All' %in% input$pin || is.null(input$pin)){
         AvgSaPDData()
       } else {
         left_join(tot_test2 %>% subset( Product %in% input$pin) %>% 
@@ -593,12 +585,38 @@ cbind(t1, MTD)
       }
     })
 
+    AvgSaPDData3 = reactive({
+      if('All' %in% input$ptype || is.null(input$ptype)){
+        AvgSaPDData2()
+      } else {
+        left_join(tot_test2 %>%  subset( 
+             Product %in% 
+               tot_test2$Product[
+                 grepl( paste(input$ptype,collapse='|'), 
+                       tot_test2$Product,
+                       ignore.case = T)]) %>% 
+                    group_by(month,year) %>% 
+                    summarise(Total = round(sum(Total)/26,0) )%>% 
+                    pivot_wider(names_from = month,values_from = Total),
+                  tot_test2  %>%
+                     subset(
+             Product %in% 
+               tot_test2$Product[
+                 grepl( paste(input$ptype,collapse='|'), 
+                       tot_test2$Product,
+                       ignore.case = T)]) %>% 
+                    group_by(year) %>% 
+                    summarise('Year Average' = round(sum(Total,na.rm = T)/(365-48-27),0)),
+                  by = 'year')
+      }
+    })
+
   ### text for Insights
   
     ## high sales
     output$HiSa = renderText(
       paste('Our highest selling product in',
-      if('All' %in% input$pgroupin) 'All Product Groups' else input$pgroupin,
+      if('All' %in% input$pgroupin || is.null(input$pgroupin)) 'All Product Groups' else input$pgroupin,
       'is',
       as.vector(HiSa()$Product),
       'with',
@@ -612,7 +630,7 @@ cbind(t1, MTD)
       as.vector(ExMo()$month),
       '\nWe expect to sell',
       dollar_format(prefix = 'GHs')(ExMo()$ExTotal),
-      if('All' %in% input$pgroupin) '' else paste('of', input$pgroupin))
+      if('All' %in% input$pgroupin|| is.null(input$pgroupin)) '' else paste('of', input$pgroupin))
       )
     
     ## required stocks to sell thatmuch
@@ -623,7 +641,7 @@ cbind(t1, MTD)
     
     output$ExStTable = DT::renderDataTable(ExStPy(),)
     
-    output$AvgSaPD = renderTable(AvgSaPDData2(),rownames = F,na = "-",digits = 0,width = '100%',align = 'r')
+    output$AvgSaPD = renderTable(AvgSaPDData3(),rownames = F,na = "-",digits = 0,width = '100%',align = 'r')
     
   
   
@@ -648,6 +666,40 @@ cbind(t1, MTD)
     product_choice = subset(products, ProductGroup %in% input$pgroupin)
     updateSelectInput(inputId = 'pin',choices = c('All',product_choice$Name),selected = 'All')
   })
+
+   
+   # Show a 30s message when entering the YOY tab
+
+   welcome_message_count <- reactiveVal(0)
+
+   observe({
+  if (!is.null(input$tabs)) {
+    selected_tab <- input$tabs
+    if (selected_tab == 'YOY' && welcome_message_count() < 3) {
+      showModal(
+        modalDialog(
+          'Scroll Down For More Information On The Page',
+          h6(
+            'To change from \'All\', click on \'All\' and then click delete or backspace'
+          ),
+          footer = tagList(
+            actionButton("closeBtn", "Close")
+          )
+        )
+      )
+      # Increment the count
+      welcome_message_count(welcome_message_count() + 1)
+    }
+  }
+})
+
+  # Close the modal when the close button is clicked
+  observeEvent(input$closeBtn, {
+    removeModal()
+  })
+
+
+ 
   
   
   

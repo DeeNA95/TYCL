@@ -1,10 +1,11 @@
 sidebar = dashboardSidebar(
+
+tags$h3("Controls", style = "text-align: center; font-weight: bold; margin-top: 20px;  text-decoration: underline;"),
   ### Year Number
   {
     ### YEAR NUMBER WORKS IN ALL TABS BUT YOY AND TOP_PRODUCTS
     conditionalPanel(
-      "input.tabs != 'YOY' && 
-    input.tabs != 'TOP_PRODUCTS' && 
+      "input.tabs != 'TOP_PRODUCTS' && 
     input.tabs != 'INSIGHTS'",
       selectizeInput('yearnum', 'Which year', choices = NULL)
     )
@@ -17,10 +18,7 @@ sidebar = dashboardSidebar(
     conditionalPanel(
       "input.tabs != 'TOP_PRODUCTS' &&
     input.tabs != 'DISTRIBUTION'",
-      h6(
-        'To change from \'All\',
-         click on \'All\' and then click delete or backspace'
-      ),
+      
       selectInput(
         'pgroupin',
         'Product Group',

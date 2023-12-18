@@ -8,36 +8,44 @@ body = dashboardBody(
       title = 'Year On Year',
       value = 'YOY',
 
-      box(
-        h4('Sales In GHs'),
+      box(h4('Sales In GHs'),
         tableOutput('yoydata'),
         title = 'Month On Month',
-        status = 'primary',
+        status = 'warning',
         solidHeader = T,
-        width = '100%',
-        #height = 'auto',
         h4('Variance'),
         tableOutput('yoyvar'),
-      ),
-      
+        width = '100%', 
+        style = "font-family: 'Open Sans', sans-serif; ",
+        align = 'center'),
+
       box(
-        plotlyOutput('yoy', height = '100%'),
+        plotlyOutput('yoy', height = '50%'),
         title = 'YoY',
         solidHeader = T,
         status = 'primary',
         collapsible = T,
         width = '100%'
       ),
-      
+      fluidRow(
+        column(width = 6,
       box(
-        plotlyOutput('yoytot', height = '100%'),
+        plotlyOutput('yoytot'),
         title = 'Year on Year Totals',
         solidHeader = T,
         status = 'primary',
         collapsible = T,
-        width = '100%'
+        width = '50%'
+      )), column(width = 6,
+      box(
+        plotlyOutput('pie'),
+        title = 'Distribution Of Sales By Product Group',
+        status = 'primary',
+        solidHeader = T,
+        width = '50%',
+        collapsible = T
+      ))
       )
-      
     )},
     
    ### Products tab
@@ -56,29 +64,23 @@ body = dashboardBody(
     )
      },
    
-   ### Distribution tab
-   {
-    tabPanel(
-      'Distribution Of Sales By Product Group',
-      value = 'DISTRIBUTION',
-      box(
-        plotlyOutput('pie', height = '800px'),
-        title = 'Distribution Of Sales By Product Group',
-        status = 'primary',
-        solidHeader = T,
-        width = '100%',
-        collapsible = T
-      )
-    )
-     },
+  
    
    ### Top Products tab
    {
     tabPanel(
       'Top Products',
       value = 'TOP_PRODUCTS',
-      box(title = textOutput('tptitle'),'Sales',tableOutput('topProductsTableTotal'),status = 'primary',
-          'Quantity',tableOutput('topProductsTableQuantity'),width = '100%',solidHeader = T)
+
+      box(title = textOutput('tptitle'),
+      'Sales',
+      tableOutput('topProductsTableTotal'),
+      status = 'warning',
+      'Quantity',
+      tableOutput('topProductsTableQuantity'),
+      width = '100%',solidHeader = T,
+      style = "font-family: 'Open Sans', sans-serif;",
+      align = 'center' )
       ,
       box(title = textOutput('tptitlegraph'),plotlyOutput('topProductGraph',height = '450px'), width = '100%',solidHeader = T ,status = 'primary' ))
       
@@ -87,7 +89,7 @@ body = dashboardBody(
    
    ### Data tab
    {
-    tabPanel('Data', DTOutput(outputId = 'pout'), value = 'DATA')
+    tabPanel('Data', DTOutput(outputId = 'pout'), value = 'DATA',style = "background-color: white;")
    },
    
 ### Insights Tab
@@ -101,7 +103,8 @@ body = dashboardBody(
         width = '100%',
         collapsible = T,
         solidHeader = T,
-        status = 'primary'),
+        status = 'warning',
+        style = "font-family: 'Open Sans', sans-serif;"),
 
      ## Highest Selling Product
      box(textOutput('HiSa',container = tags$h4,inline = T),
@@ -111,14 +114,15 @@ body = dashboardBody(
      width = '100%',
         collapsible = T,
         solidHeader = T,
-        status = 'primary'),
+        status = 'info',
+        style = "font-family: 'Open Sans', sans-serif;"),
 
      ##Minimum stocks expected for the month
      box(title = textOutput('ExSt'),
      dataTableOutput('ExStTable'),width = '100%',
         collapsible = T,
         solidHeader = T,
-        status = 'primary')
+        status = 'primary',style = "font-family: 'Open Sans', sans-serif;")
    )
 } 
 )

@@ -1,9 +1,18 @@
-ot_test2 %>% subset(Product %in% input$pin) %>%
-      group_by(year, month) %>%
-      summarise(Total = sum(round(Total, 0))) %>%
-      mutate(MTD = cumsum(Total), MTD = comma_format()(MTD)) %>%
-      select(year,month,MTD) %>% 
-      pivot_wider(names_from = month,
-                  values_from = c( "MTD"),
-                  names_sep = "_")  %>% 
-      select(9)
+shinyApp(
+  ui = fluidPage(
+    plotlyOutput("mainChart"),
+    verbatimTextOutput("doubleClickOutput")
+  ),
+  server = function(input, output) {
+    output$mainChart <- renderPlotly({ main_chart })
+    
+    observeEvent(input$doubleClick, {
+      if (input$doubleClick) {
+        showModal(modalDialog(
+          title = "Double-Click Event",
+          "You double-clicked on the pie chart!"
+        ))
+      }
+    })
+  }
+)
