@@ -1,17 +1,16 @@
 source('packages.R')
+
 ##product list
 products = read_csv('products.csv')
-  products = distinct(products)
-  product_groups = unique(products$ProductGroup)
-  products_headers = names(products)
-  products_headers[3] = "Code"
-  names(products) = products_headers
+products = distinct(products)
+product_groups = unique(products$ProductGroup)
+products_headers = names(products)
+products_headers[3] = "Code"
+names(products) = products_headers
 
 
-##monthlys over the years
-{
-  #load and clean up function
- load_month = function(month, year, directory = 'test') {
+#load and clean up function
+load_month = function(month, year, directory = 'test') {
   # month should be in quotes and year should be 2 digits
   selection = c('Code', 'Product', 'Quantity', 'Total')
 
@@ -53,61 +52,64 @@ tot_test$month = factor(tot_test$month, levels = month.abb)
 tot_test$year = factor(tot_test$year, levels = c(22, 23))
 
 
-  pgjoin = data.frame(products[, c(1:3)])
+pgjoin = data.frame(products[, c(1:3)])
 
- 
-  tot_test2 = left_join(tot_test, pgjoin, by = "Code")
-  tot_test2 = tot_test2 %>% select(-Name) %>% arrange(desc(Total))
-  
-  #beef tripe amalgamation
-  
-  tot_test2$Product = str_replace_all(
-    tot_test2$Product,
-    'Beef Tripe \\(Intestines\\)  Yemad3E',
-    'Beef Tripe \\(Intestines\\) Yemad3E'
-  )
-  
-  product_type = c('All','Chicken','Layer','Back','Drumstick','Kpanla', 'Tripe','Salmon',
-                   'Lele','Olonka','Frytol','Mom','Oba')
-  
- 
- }
+
+tot_test2 = left_join(tot_test, pgjoin, by = "Code")
+tot_test2 = tot_test2 %>% select(-Name) %>% arrange(desc(Total))
+
+#beef tripe amalgamation
+
+tot_test2$Product = str_replace_all(
+  tot_test2$Product,
+  'Beef Tripe \\(Intestines\\)  Yemad3E',
+  'Beef Tripe \\(Intestines\\) Yemad3E'
+)
+
+product_type = c('All','Chicken','Layer','Back',
+                 'Drumstick','Kpanla', 'Tripe','Salmon',
+                 'Lele','Olonka','Frytol','Mom','Oba')
+
 
 top_products_meat = head(tot_test2 %>%
                            group_by(Product) %>%
                            filter(ProductGroup %in% 'Meat\\Fish') %>%
                            summarise(ProductValue = sum(Total))%>% 
-                           arrange(desc(ProductValue)), 7)
+                           arrange(desc(ProductValue)) %>% 
+                           select(1),
+                         7)
 top_products_rice = head(tot_test2 %>%
                            group_by(Product) %>%
                            filter(ProductGroup %in% 'Rice') %>%
                            summarise(ProductValue = sum(Total))%>%
                            arrange(desc(ProductValue)) %>%
-                           select(1)
-                         , 5)
-top_products_oil =  head(tot_test2 %>%
+                           select(1),
+                         5)
+top_products_oil = head(tot_test2 %>%
                           group_by(Product) %>%
                           filter(ProductGroup %in% 'Oil') %>%
                           summarise(ProductValue = sum(Total)) %>%
                           arrange(desc(ProductValue)) %>%
                           select(1),
-                        3)
+                      3)
 top_products_sugar = head(tot_test2 %>%
-                           group_by(Product) %>%
-                           filter(ProductGroup %in% 'Sugar') %>%
-                           summarise(ProductValue = sum(Total))%>%
+                            group_by(Product) %>%
+                            filter(ProductGroup %in% 'Sugar') %>%
+                            summarise(ProductValue = sum(Total))%>%
                             arrange(desc(ProductValue)) %>% 
-                            select(1),2)
+                            select(1),
+                          2)
 top_products_tomatoe = head(tot_test2 %>%
-                                  group_by(Product) %>%
-                                  filter(ProductGroup %in% 'Tomato Paste') %>%
-                                  summarise(ProductValue = sum(Total)) %>% 
-                                  arrange(desc(ProductValue)) %>%
-                                   select(1),
+                              group_by(Product) %>%
+                              filter(ProductGroup %in% 'Tomato Paste') %>%
+                              summarise(ProductValue = sum(Total)) %>% 
+                              arrange(desc(ProductValue)) %>%
+                              select(1),
                             3)
 
-minor_pgroups = c("Sardine","Ketchup\\Mayonnaise\\Baked Beans","Indomie" ,"Beverages","Tuna Flakes\\Chunks","Mackerel","Spaghetti","Spices")
+minor_pgroups = c("Sardine","Ketchup\\Mayonnaise\\Baked Beans",
+                  "Indomie" ,"Beverages","Tuna Flakes\\Chunks",
+                  "Mackerel","Spaghetti","Spices")
+
 external_pgroups = c("External","Mabel Spices")
 
-unique((tot_test2 %>% mutate(category = if_else(ProductGroup %in% minor_pgroups,'Others',ProductGroup),
-      category = if_else(ProductGroup %in% external_pgroups,'Externals',category)))$category)

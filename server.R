@@ -226,7 +226,7 @@ tot_test2 %>%
 yoyvardat = reactive({
 
 # Calculate Total and Percentage Change
-t1 <- tot_test2 %>%
+t1 <- tot_test2 %>%  
   group_by(month, year) %>%
   summarise(Total = sum(Total)) %>%
   spread(key = year, value = Total) %>%
@@ -698,15 +698,9 @@ cbind(t1, MTD)
     removeModal()
   })
 
-
- 
-  
-  
-  
   pntit = reactive({
-    
     paste('Top',input$pnum)
   })
   output$pnumtitle = renderText(pntit())
-  
+
   }
