@@ -644,13 +644,57 @@ cbind(t1, MTD)
     output$AvgSaPD = renderTable(AvgSaPDData3(),rownames = F,na = "-",digits = 0,width = '100%',align = 'r')
     
   
+  ### cross section
+  crossby1 = reactive({
+    if('All' %in% input$yearnum2){
+      tot_test2 %>% group_by(month,year, ProductGroup) %>% summarise(Total = sum(Total))
+    } else {
+      tot_test2 %>% group_by(month,year, ProductGroup)%>% filter(year == input$yearnum2) %>% summarise(Total = sum(Total))
+    }
+  })
+
+  crossbyplot = reactive({
+    if('Product Group' %in% input$cp){
+      p = ggplot(crossby1(), aes(month, Total, fill = year)) + 
+      facet_wrap(~ProductGroup, scales = 'free_y', nrow = 5, shrink = T,as.table = F) +
+      geom_col() +
+      theme(axis.text.x = element_text(angle = 90, hjust = 1),
+             panel.grid.major.y = element_line(color = 'grey'),  # Set color for horizontal gridlines
+             panel.grid.major.x = element_blank(),  # Remove vertical gridlines
+             panel.grid.minor = element_blank(),  # Remove minor gridlines
+             panel.background = element_rect(fill = 'white'),  # Set background color
+             plot.background = element_rect(fill = 'white'),
+             strip.text = element_text(color = 'black'),  # Set color for strip text
+             strip.background = element_rect(fill = 'white'),  # Set background color for the strip
+             panel.spacing = unit(0.5, "lines") )+
+      scale_fill_manual(values = c('orange','#8c8099','#7aba77'))
+
+
+      ggplotly(p, height = 820) 
+    } else {
+      p = ggplot(crossby1(), aes(ProductGroup, Total, fill = year)) +
+       facet_wrap(~month, scales = 'free_y',nrow = 5, shrink = T, as.table = F) + 
+       geom_col() +
+       theme(axis.text.x = element_text(angle = 90, hjust = 1))+
+      scale_fill_manual(values = c('orange','#8c8099','#7aba77'))
+
+
+      ggplotly(p,height = 820) 
+    }
+  })
+
   
+  output$cross1 = renderPlotly(crossbyplot())
+
+
+
+
   ### Server side select/selectize
   
   ##server side select for yearnum
     
   updateSelectizeInput(session, 'yearnum', choices = c('All', `Years` = list(tot_test2$year)), server = TRUE,selected = 23)
-    
+  updateSelectizeInput(session, 'yearnum2', choices = c('All', `Years` = list(tot_test2$year)), server = TRUE,selected = 'All')  
     
   ## server side select for product
     

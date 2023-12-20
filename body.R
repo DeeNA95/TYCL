@@ -8,16 +8,22 @@ body = dashboardBody(
       title = 'Year On Year',
       value = 'YOY',
 
-      box(h4('Sales In GHs'),
+      box(
         tableOutput('yoydata'),
-        title = 'Month On Month',
+        title = 'Sales In GHs',
         status = 'warning',
         solidHeader = T,
-        h4('Variance'),
-        tableOutput('yoyvar'),
         width = '100%', 
         style = "font-family: 'Open Sans', sans-serif; ",
         align = 'center'),
+        
+        box(
+        tableOutput('yoyvar'),
+        title = 'Variance',
+        status = 'warning',
+        width = '100%', 
+        style = "font-family: 'Open Sans', sans-serif; ",
+        align = 'center',solidHeader = T),
 
       box(
         plotlyOutput('yoy', height = '50%'),
@@ -73,10 +79,10 @@ body = dashboardBody(
       value = 'TOP_PRODUCTS',
 
       box(title = textOutput('tptitle'),
-      'Sales',
+      HTML("<span style='font-size: 22px; text-decoration: underline;'><strong>Sales</strong></span>"),
       tableOutput('topProductsTableTotal'),
       status = 'warning',
-      'Quantity',
+      HTML("<span style='font-size: 22px; text-decoration: underline;'><strong>Quantity</strong></span>"),
       tableOutput('topProductsTableQuantity'),
       width = '100%',solidHeader = T,
       style = "font-family: 'Open Sans', sans-serif;",
@@ -124,7 +130,13 @@ body = dashboardBody(
         solidHeader = T,
         status = 'primary',style = "font-family: 'Open Sans', sans-serif;")
    )
-} 
+} ,
+
+    tabPanel('Cross-Section', value = 'CROSS',
+    plotlyOutput('cross1')
+    )
+
+
 )
 #, includeCSS('styles.css')
 )

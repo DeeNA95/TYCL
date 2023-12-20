@@ -1,54 +1,62 @@
 sidebar = dashboardSidebar(
+
 width = '13.65%',
-tags$h3("Controls", style = "text-align: center; font-weight: bold; margin-top: 20px;  text-decoration: underline;"),
-  ### Year Number
-  {
-    ### YEAR NUMBER WORKS IN ALL TABS BUT YOY AND TOP_PRODUCTS
-    conditionalPanel(
-      "input.tabs != 'TOP_PRODUCTS' && 
-    input.tabs != 'INSIGHTS'",
-      selectizeInput('yearnum', 'Which year', choices = NULL)
-    )
-  },
 
-  ### Product Group, Product, note on how to change from all
-  {
-  ### THIS INFORMATION IS ONLY NECESSARY WHEN NOT IN  TOP_PRODUCTS OR DISTRIBUTION
+tags$h3("Controls",
+  style = "text-align: center; 
+             font-weight: bold; margin-top: 20px; 
+             text-decoration: underline;"
+),
 
-    conditionalPanel(
-      "input.tabs != 'TOP_PRODUCTS' &&
-    input.tabs != 'DISTRIBUTION'",
-      
-      selectInput(
-        'pgroupin',
-        'Product Group',
-        choices = c('All',
-                    `Product Group` = list(product_groups)),
-        multiple = T,
-        selected = 'All',
-        selectize = T
-      ),
-      conditionalPanel('input.tabs == "PRODUCTS"',
-                       numericInput('pnum','View Top?',value = 10, max = 25)),
-      selectInput(
-        'pin',
-        'Product',
-        choices = NULL,
-        multiple = T,
-        selected = 'All',
-        selectize = T
-      )
-      
+### Year Number
+
+### YEAR NUMBER WORKS IN ALL TABS BUT YOY AND TOP_PRODUCTS
+conditionalPanel(
+  condition = "input.tabs != 'TOP_PRODUCTS' && 
+    input.tabs != 'INSIGHTS' && input.tabs != 'CROSS' ",
+  selectizeInput(
+    'yearnum',
+    'Which year',
+    choices = NULL
+  )
+),
+
+### Product Group, Product, note on how to change from all
+
+### THIS INFORMATION IS ONLY NECESSARY WHEN NOT IN  TOP_PRODUCTS OR DISTRIBUTION
+conditionalPanel('input.tabs == "PRODUCTS"',
+                   numericInput('pnum','View Top?',value = 10, max = 25)),
+conditionalPanel(
+  condition = "input.tabs != 'TOP_PRODUCTS' &&
+  input.tabs != 'DISTRIBUTION'  && input.tabs != 'CROSS'" ,
+  selectInput(
+    'pgroupin',
+    'Product Group',
+    choices = c('All',
+                `Product Group` = list(product_groups)),
+    multiple = T,
+    selected = 'All',
+    selectize = T
+  ),
+  
+    selectInput(
+      'pin',
+      'Product',
+      choices = NULL,
+      multiple = T,
+      selected = 'All',
+      selectize = T
     )
-  },
+
+  ),
 
   ### Product Type, High Quantity & Underperforming
 
   #### THESE ARE ONLY NECESSARY IN PRODUCTS AND DATA
 
   conditionalPanel('input.tabs == "INSIGHTS" ||
-  input.tabs == "PRODUCTS" ||
-  input.tabs == "DATA"',
+                    input.tabs == "PRODUCTS" ||
+                    input.tabs == "DATA"',
                    selectInput(
                      'ptype',
                      'Product Type',
@@ -91,16 +99,23 @@ tags$h3("Controls", style = "text-align: center; font-weight: bold; margin-top: 
   },
 
   ### Top Product
-  {
-    ###Only to be seen if in TOP_PRODUCTS
-    conditionalPanel(
-      'input.tabs == "TOP_PRODUCTS"',
-      selectInput('topProduct', 'Product',
-        choices = list(`Meat/Fish` = top_products_meat$Product,
-                       `Oil`= top_products_oil$Product,
-                       `Rice` = top_products_rice$Product,
-                       `Sugar`= top_products_sugar$Product)
-      )
+
+  ###Only to be seen if in TOP_PRODUCTS
+  conditionalPanel(
+    'input.tabs == "TOP_PRODUCTS"',
+    selectInput('topProduct', 'Product',
+      choices = list(`Meat/Fish` = top_products_meat$Product,
+                     `Oil`= top_products_oil$Product,
+                     `Rice` = top_products_rice$Product,
+                     `Sugar`= top_products_sugar$Product)
     )
-  }
+  ),
+
+  conditionalPanel('input.tabs == "CROSS"',selectizeInput(
+    'yearnum2',
+    'Which year',
+    choices = NULL
+  ),
+  selectInput('cp', 'Cross-section by?', choices = c('Month','Product Group'),selected = 'Product Group'))
+
 )

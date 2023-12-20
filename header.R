@@ -11,5 +11,5 @@ header =
             padding: 1px; /* Adjust padding as needed */
             margin-left: 13.65%",  # Set the background color
     class = "main-header",  # Add a custom class for styling
-    "  TYCL Coldstore & Grocery"
+    "TYCL Coldstore & Grocery"
   )
