@@ -1,6 +1,6 @@
 body = dashboardBody(
 
-  tabsetPanel(
+  tabsetPanel(type = 'pills',
     id = 'tabs',
 
     ### Year on Year tab

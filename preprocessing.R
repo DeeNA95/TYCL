@@ -107,9 +107,9 @@ top_products_tomatoe = head(tot_test2 %>%
                               select(1),
                             3)
 
-minor_pgroups = c("Sardine","Ketchup\\Mayonnaise\\Baked Beans",
-                  "Indomie" ,"Beverages","Tuna Flakes\\Chunks",
-                  "Mackerel","Spaghetti","Spices")
+minor_pgroups = c("Sardine", "Ketchup\\Mayonnaise\\Baked Beans",
+                  "Indomie", "Beverages", "Tuna Flakes\\Chunks",
+                  "Mackerel", "Spaghetti", "Spices")
 
-external_pgroups = c("External","Mabel Spices")
+external_pgroups = c("External", "Mabel Spices")
 

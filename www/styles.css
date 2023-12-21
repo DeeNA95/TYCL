@@ -1,33 +1,35 @@
 /* styles.css */
 
-.tabbable > .nav-tabs > li > a {
+.tabbable > .nav-pills > li > a {
   color: black !important;
   background-color: #d8bfd8 !important;
   transition: background-color 0.3s ease; /* Add a transition effect */
 }
 
-.tabbable > .nav-tabs > li.active > a {
+.tabbable > .nav-pills > li.active > a {
   background-color: #ffdab9 !important;
 }
 
 .nav {
-  /*background-color: #2F4F4F;*/
+  background-color: #d8bfd8;
   display: flex;
   justify-content: center;
   margin-bottom: 5px;
   position: relative;
 }
 
-.nav-tabs {
-  border-radius: 25px; /* Adjust the border-radius to control the pill shape */
-  margin-right: 90px; /* Adjust the spacing between tabs */
-  margin-left: 30px;
+.nav-pills {
+  border-radius: 25px;
+  display: flex; /* Use flexbox for the tabs */
+  justify-content: space-between; /* Evenly space the tabs */
+  width: 50%; /* Make sure the tabs take up the full width */
+  border-bottom: 0;
 }
 
 .nav-item {
-  margin-right: 90px; /* Adjust the spacing between tabs */
-  margin-left: 30px;
+  flex: 1; /* Distribute the tabs equally */
 }
+
 
 .sidebar {
   position: fixed;
@@ -45,11 +47,21 @@
 }
 
 .content-wrapper {
-  width: 1px;
+  width: auto;
   margin-top: 50px;
   background-color: azure;
   color: black;
   min-width: auto;
 }
 
+.sidebar.collapsed {
+  width: 50px; /* Set the collapsed width as needed */
+}
 
+.sidebar.collapsed .sidebar-toggle {
+  display: block;
+}
+
+.sidebar.collapsed .sidebar-toggle i {
+  margin-left: 5px; /* Adjust the margin as needed */
+}

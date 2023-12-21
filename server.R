@@ -79,12 +79,11 @@ tot_test2 %>%
     if("All" %in% input$ptype || is.null(input$ptype)){
       Preac7()
     } else{
-      subset(Preac7(), 
-             Product %in% 
-               tot_test2$Product[
-                 grepl( paste(input$ptype,collapse='|'), 
-                       tot_test2$Product,
-                       ignore.case = T)])
+      subset(Preac7(),
+       Product %in%
+       tot_test2$Product[grepl('Lele Rice 25kg', 
+                              tot_test2$Product,
+                              ignore.case = TRUE)])
     }
   })
   
@@ -139,14 +138,17 @@ tot_test2 %>%
     
     yoy1dat = reactive({
       eomnov = tot_test2 %>%
-      group_by(year, month) %>%
-      summarise(Total = sum(round(Total, 0))) %>%
-      mutate(MTD = cumsum(Total), MTD = comma_format()(MTD)) %>%
-      select(year,month,MTD) %>% 
-      pivot_wider(names_from = month,
-                  values_from = c( "MTD"),
-                  names_sep = "_")  %>% 
-      select(9) ## increment by one as the months go by ## find a better way to do that though
+  group_by(year, month) %>%
+  summarise(Total = sum(round(Total, 0))) %>%
+  arrange(month, year) %>% 
+  mutate(YTD = cumsum(Total), YTD = comma_format()(coalesce(YTD, 0))) %>%
+  select(year, month, YTD) %>% 
+  pivot_wider(
+    names_from = month,
+    values_from = c("YTD"),
+    names_sep = "_"
+  ) %>% 
+  select(Nov)## increment by one as the months go by ## find a better way to do that though
 
      left_join(
       tot_test2 %>% 
@@ -158,7 +160,7 @@ tot_test2 %>%
         mutate('Total' = rowSums(pick(where(is.numeric)),na.rm = T)),
       eomnov,
       by = 'year',
-      suffix= c('','MTD'))
+      suffix= c('','YTD'))
     })
   
   ## Product Group functionality
@@ -169,13 +171,16 @@ tot_test2 %>%
       } else{
         eomnov = tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>%
       group_by(year, month) %>%
-      summarise(Total = sum(round(Total, 0))) %>%
-      mutate(MTD = cumsum(Total), MTD = comma_format()(MTD)) %>%
-      select(year,month,MTD) %>% 
-      pivot_wider(names_from = month,
-                  values_from = c( "MTD"),
-                  names_sep = "_")  %>% 
-      select(9) ## increment by one as the months go by ## find a better way to do that though
+      arrange(month, year) %>% 
+  summarise(Total = sum(round(Total, 0))) %>%
+  mutate(YTD = cumsum(Total), YTD = comma_format()(coalesce(YTD, 0))) %>%
+  select(year, month, YTD) %>% 
+  pivot_wider(
+    names_from = month,
+    values_from = c("YTD"),
+    names_sep = "_"
+  ) %>% 
+  select(Nov) ## increment by one as the months go by ## find a better way to do that though
         
         left_join(tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>% 
           group_by(month,year) %>% 
@@ -186,7 +191,7 @@ tot_test2 %>%
           mutate('Total' = rowSums(pick(where(is.numeric)),na.rm = T)),
       eomnov,
       by = 'year',
-      suffix= c('','MTD'))
+      suffix= c('','YTD'))
       }
     })
   
@@ -198,13 +203,16 @@ tot_test2 %>%
       } else {
         eomnov = tot_test2 %>% subset(Product %in% input$pin) %>%
       group_by(year, month) %>%
-      summarise(Total = sum(round(Total, 0))) %>%
-      mutate(MTD = cumsum(Total),MTD = comma_format()(MTD)) %>%
-      select(-Total) %>% 
-      pivot_wider(names_from = month,
-                  values_from = c( "MTD"),
-                  names_sep = "_",)  %>% 
-      select(9) ## increment by one as the months go by ## find a better way to do that though
+      arrange(month, year) %>% 
+  summarise(Total = sum(round(Total, 0))) %>%
+  mutate(YTD = cumsum(Total), YTD = comma_format()(coalesce(YTD, 0))) %>%
+  select(year, month, YTD) %>% 
+  pivot_wider(
+    names_from = month,
+    values_from = c("YTD"),
+    names_sep = "_"
+  ) %>% 
+  select(Nov) ## increment by one as the months go by ## find a better way to do that though
         
         left_join(tot_test2 %>%  subset(Product %in% input$pin) %>% 
           group_by(month,year) %>% 
@@ -215,7 +223,7 @@ tot_test2 %>%
           mutate('Total' = rowSums(pick(where(is.numeric)),na.rm = T) ),
       eomnov,
       by = 'year',
-      suffix= c('','MTD'))
+      suffix= c('','YTD'))
     }
       })
 
@@ -238,20 +246,20 @@ t1 <- tot_test2 %>%
   ) %>%
   pivot_wider(names_from = month, values_from = percentage_change)
 
-# Calculate Month-to-Date (MTD) and Percentage Change
+# Calculate Month-to-Date (YTD) and Percentage Change
 novpc <- tot_test2 %>%
   group_by(year, month) %>%
   summarise(Total = sum(Total)) %>%
-  mutate(MTD = cumsum(Total)) %>%
-  pivot_wider(names_from = year, values_from = c("Total", 'MTD')) %>%
-  mutate('MTD %' = (MTD_23 / MTD_22 - 1) * 100) %>%
+  mutate(YTD = cumsum(Total)) %>%
+  pivot_wider(names_from = year, values_from = c("Total", 'YTD')) %>%
+  mutate('YTD %' = (YTD_23 / YTD_22 - 1) * 100) %>%
   select(1, 4, 5, 6)
 
-# Extract MTD percentage for later use
-MTD <- paste0(round(novpc[8, 4], 1), '%')
+# Extract YTD percentage for later use
+YTD <- paste0(round(novpc[8, 4], 1), '%')
 
 # Combine the output
-cbind(t1, MTD)
+cbind(t1, YTD)
 })
 
   ## product group functionality
@@ -273,21 +281,21 @@ t1 <- tot_test2 %>%
   ) %>%
   pivot_wider(names_from = month, values_from = percentage_change)
 
-# Calculate Month-to-Date (MTD) and Percentage Change
+# Calculate Month-to-Date (YTD) and Percentage Change
 novpc <- tot_test2 %>%
   subset(ProductGroup %in% input$pgroupin) %>% 
   group_by(year, month) %>%
   summarise(Total = sum(Total)) %>%
-  mutate(MTD = cumsum(Total)) %>%
-  pivot_wider(names_from = year, values_from = c("Total", 'MTD')) %>%
-  mutate('MTD %' = (MTD_23 / MTD_22 - 1) * 100) %>%
+  mutate(YTD = cumsum(Total)) %>%
+  pivot_wider(names_from = year, values_from = c("Total", 'YTD')) %>%
+  mutate('YTD %' = (YTD_23 / YTD_22 - 1) * 100) %>%
   select(1, 4, 5, 6)
 
-# Extract MTD percentage for later use
-MTD <- paste0(round(novpc[8, 4], 1), '%')
+# Extract YTD percentage for later use
+YTD <- paste0(round(novpc[8, 4], 1), '%')
 
 # Combine the output
-cbind(t1, MTD)
+cbind(t1, YTD)
       }
 })
      
@@ -310,21 +318,21 @@ t1 <- tot_test2 %>%
   ) %>%
   pivot_wider(names_from = month, values_from = percentage_change)
 
-# Calculate Month-to-Date (MTD) and Percentage Change
+# Calculate Month-to-Date (YTD) and Percentage Change
 novpc <- tot_test2 %>%
   subset(Product %in% input$pin) %>% 
   group_by(year, month) %>%
   summarise(Total = sum(Total)) %>%
-  mutate(MTD = cumsum(Total)) %>%
-  pivot_wider(names_from = year, values_from = c("Total", 'MTD')) %>%
-  mutate('MTD %' = (MTD_23 / MTD_22 - 1) * 100) %>%
+  mutate(YTD = cumsum(Total)) %>%
+  pivot_wider(names_from = year, values_from = c("Total", 'YTD')) %>%
+  mutate('YTD %' = (YTD_23 / YTD_22 - 1) * 100) %>%
   select(1, 4, 5, 6)
 
-# Extract MTD percentage for later use
-MTD <- paste0(round(novpc[8, 4], 1), '%')
+# Extract YTD percentage for later use
+YTD <- paste0(round(novpc[8, 4], 1), '%')
 
 # Combine the output
-cbind(t1, MTD)
+cbind(t1, YTD)
           }
 })
    
@@ -673,13 +681,25 @@ cbind(t1, MTD)
       ggplotly(p, height = 820) 
     } else {
       p = ggplot(crossby1(), aes(ProductGroup, Total, fill = year)) +
-       facet_wrap(~month, scales = 'free_y',nrow = 5, shrink = T, as.table = F) + 
+       facet_wrap(~month, scales = 'free_y',nrow = 5, shrink = T, as.table = F,strip.position = 'right') + 
        geom_col() +
        theme(axis.text.x = element_text(angle = 90, hjust = 1))+
-      scale_fill_manual(values = c('orange','#8c8099','#7aba77'))
+      scale_fill_manual(values = c('orange','#8c8099','#7aba77')) +
+      theme(axis.text.x = element_text(angle = 90, hjust = 1),
+             panel.grid.major.y = element_line(color = 'grey'),  # Set color for horizontal gridlines
+             panel.grid.major.x = element_blank(),  # Remove vertical gridlines
+             panel.grid.minor = element_blank(),  # Remove minor gridlines
+             panel.background = element_rect(fill = 'white'),  # Set background color
+             plot.background = element_rect(fill = 'white'),
+             strip.text = element_text(color = 'black'),  # Set color for strip text
+             strip.background = element_rect(fill = 'white'),  # Set background color for the strip
+             panel.spacing = unit(0.5, "lines") )+
+      scale_y_log10( )+
+      labs(title = 'This is not to scale. It is plotted against a log scale to adequately visualise diferences among minor product groups')
 
 
-      ggplotly(p,height = 820) 
+      ggplotly(p,height = 820)  
+
     }
   })
 

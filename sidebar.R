@@ -2,7 +2,7 @@ sidebar = dashboardSidebar(
 
 width = '13.65%',
 
-tags$h3("Controls",
+tags$h1("Controls",
   style = "text-align: center; 
              font-weight: bold; margin-top: 20px; 
              text-decoration: underline;"
@@ -117,5 +117,16 @@ conditionalPanel(
     choices = NULL
   ),
   selectInput('cp', 'Cross-section by?', choices = c('Month','Product Group'),selected = 'Product Group'))
+
+
+
+
+
+
+
+
+
+
+ 
 
 )
