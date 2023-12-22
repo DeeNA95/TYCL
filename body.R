@@ -1,10 +1,33 @@
 body = dashboardBody(
 
-  tabsetPanel(type = 'pills',
+  tabsetPanel(
+    type = 'pills',
     id = 'tabs',
 
+    ### LAst Month
+    tabPanel(
+      'Month Analysis',
+      value = 'PM',
+      textOutput('monthtit'),
+      box(title = 'Month Figures',width = '100%',
+      HTML("<span style='font-size: 22px; text-decoration: underline;'><strong>Sales</strong></span>"),
+      tableOutput('monanaltableT'),
+      HTML("<span style='font-size: 22px; text-decoration: underline;'><strong>Quantity</strong></span>"),
+      tableOutput('monanaltableQ'),solidHeader = T,
+      style = "font-family: 'Open Sans', sans-serif;",
+      align = 'center', status = 'warning'),
+       box(width = '100%',title ='Variance',
+      tableOutput('varmonth'), status = 'warning',solidHeader = T, align = 'center'),
+      fluidRow(
+        column(width = 6,
+      box(solidHeader = T,status = 'primary',title = 'Top Products',plotlyOutput('tpmonthgraph'),width = '100%')),
+      column(width = 6,
+      box(solidHeader = T,status = 'primary',title = 'Distribution of Sales by Product Group',plotlyOutput('monthpie'),width = '100%'))),
+      style = "font-family: 'Open Sans', sans-serif;",
+    ),
+
     ### Year on Year tab
-    { tabPanel(
+    tabPanel(
       title = 'Year On Year',
       value = 'YOY',
 
@@ -52,10 +75,9 @@ body = dashboardBody(
         collapsible = T
       ))
       )
-    )},
-    
-   ### Products tab
-   {
+    ),
+
+    ### Products tab
     tabPanel(
       'Products',
       value = 'PRODUCTS',
@@ -67,13 +89,9 @@ body = dashboardBody(
         width = '100%',
         collapsible = T
       )
-    )
-     },
-   
-  
-   
-   ### Top Products tab
-   {
+    ),
+
+    ### Top Products tab
     tabPanel(
       'Top Products',
       value = 'TOP_PRODUCTS',
@@ -88,20 +106,14 @@ body = dashboardBody(
       style = "font-family: 'Open Sans', sans-serif;",
       align = 'center' )
       ,
-      box(title = textOutput('tptitlegraph'),plotlyOutput('topProductGraph',height = '450px'), width = '100%',solidHeader = T ,status = 'primary' ))
-      
-    
-   },
-   
-   ### Data tab
-   {
-    tabPanel('Data', DTOutput(outputId = 'pout'), value = 'DATA',style = "background-color: white;")
-   },
-   
-### Insights Tab
-{ tabPanel('Insights',value = 'INSIGHTS',
+      box(title = textOutput('tptitlegraph'),plotlyOutput('topProductGraph',height = '450px'), width = '100%',solidHeader = T ,status = 'primary' )
+    ),
 
-      
+    ### Insights Tab
+    tabPanel(
+      'Insights',
+      value = 'INSIGHTS',
+
       ## AVg sales per working day
       box(
         tableOutput('AvgSaPD'),
@@ -110,33 +122,45 @@ body = dashboardBody(
         collapsible = T,
         solidHeader = T,
         status = 'warning',
-        style = "font-family: 'Open Sans', sans-serif;"),
+        style = "font-family: 'Open Sans', sans-serif;"
+      ),
 
-     ## Highest Selling Product
-     box(textOutput('HiSa',container = tags$h4,inline = T),
+      ## Highest Selling Product
+      box(
+        textOutput('HiSa',container = tags$h4,inline = T),
 
-     ## Expected highest month
-     textOutput('ExMo',container = tags$h4,inline = T),
-     width = '100%',
+        # Expected highest month
+        textOutput('ExMo',container = tags$h4,inline = T),
+        width = '100%',
         collapsible = T,
         solidHeader = T,
         status = 'info',
-        style = "font-family: 'Open Sans', sans-serif;"),
+        style = "font-family: 'Open Sans', sans-serif;"
+      ),
 
-     ##Minimum stocks expected for the month
-     box(title = textOutput('ExSt'),
-     dataTableOutput('ExStTable'),width = '100%',
+      ##Minimum stocks expected for the month
+      box(
+        title = textOutput('ExSt'),
+        dataTableOutput('ExStTable'),width = '100%',
         collapsible = T,
         solidHeader = T,
-        status = 'primary',style = "font-family: 'Open Sans', sans-serif;")
-   )
-} ,
+        status = 'primary',style = "font-family: 'Open Sans', sans-serif;"
+      )
+    ),
 
-    tabPanel('Cross-Section', value = 'CROSS',
-    plotlyOutput('cross1')
-    )
+    ### Cross-section tab
+    tabPanel(
+      'Cross-Section',
+      value = 'CROSS',
+      plotlyOutput('cross1')
+    ),
 
-
-)
-#, includeCSS('styles.css')
+    ### Data tab
+    tabPanel(
+      'Data',
+      DTOutput(outputId = 'pout'),
+      value = 'DATA',
+      style = "background-color: white;"
+    ),
+  )
 )

@@ -10,7 +10,7 @@ names(products) = products_headers
 
 
 #load and clean up function
-load_month = function(month, year, directory = 'test') {
+load_month = function(month, year, directory = 'data') {
   # month should be in quotes and year should be 2 digits
   selection = c('Code', 'Product', 'Quantity', 'Total')
 
@@ -31,9 +31,10 @@ load_month = function(month, year, directory = 'test') {
 active_years = c(22, 23)
 all_data_frames = list()
 
+## explore replacing with lapply
   for (y in active_years) {
     for (i in month.abb) {
-      file_path <- paste0('test/', i, ' ', y, '.xlsx')
+      file_path <- paste0('data/', i, ' ', y, '.xlsx')
 
       if (file.exists(file_path)) {
         processed_name <- paste0(i, y)

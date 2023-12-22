@@ -2,6 +2,7 @@
 
 .tabbable > .nav-pills > li > a {
   color: black !important;
+  border-radius: 25px;
   background-color: #d8bfd8 !important;
   transition: background-color 0.3s ease; /* Add a transition effect */
 }
@@ -16,13 +17,14 @@
   justify-content: center;
   margin-bottom: 5px;
   position: relative;
+  
 }
 
 .nav-pills {
   border-radius: 25px;
   display: flex; /* Use flexbox for the tabs */
   justify-content: space-between; /* Evenly space the tabs */
-  width: 50%; /* Make sure the tabs take up the full width */
+  width: 60% !important; /* Make sure the tabs take up the full width */
   border-bottom: 0;
 }
 
@@ -54,14 +56,14 @@
   min-width: auto;
 }
 
-.sidebar.collapsed {
-  width: 50px; /* Set the collapsed width as needed */
+#monthtit {
+  background-color: black;
+  color: antiquewhite;
+  width: 15%;
+  font-size: 40px;
+  border-radius: 25px;
+  text-align: center;
+  margin-bottom: 5px;
 }
 
-.sidebar.collapsed .sidebar-toggle {
-  display: block;
-}
 
-.sidebar.collapsed .sidebar-toggle i {
-  margin-left: 5px; /* Adjust the margin as needed */
-}

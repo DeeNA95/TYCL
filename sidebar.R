@@ -24,11 +24,13 @@ conditionalPanel(
 ### Product Group, Product, note on how to change from all
 
 ### THIS INFORMATION IS ONLY NECESSARY WHEN NOT IN  TOP_PRODUCTS OR DISTRIBUTION
-conditionalPanel('input.tabs == "PRODUCTS"',
+conditionalPanel('input.tabs == "PRODUCTS" ',
                    numericInput('pnum','View Top?',value = 10, max = 25)),
 conditionalPanel(
   condition = "input.tabs != 'TOP_PRODUCTS' &&
-  input.tabs != 'DISTRIBUTION'  && input.tabs != 'CROSS'" ,
+  input.tabs != 'DISTRIBUTION'  &&
+  input.tabs != 'CROSS' &&
+  input.tabs != 'PM'" ,
   selectInput(
     'pgroupin',
     'Product Group',
@@ -116,9 +118,12 @@ conditionalPanel(
     'Which year',
     choices = NULL
   ),
-  selectInput('cp', 'Cross-section by?', choices = c('Month','Product Group'),selected = 'Product Group'))
+  selectInput('cp', 'Cross-section by?', choices = c('Month','Product Group'),selected = 'Product Group')),
 
+conditionalPanel('input.tabs == "PM"',
+  selectInput('month', 'Month?', choices = month.abb, selected = 'Nov'),
 
+numericInput('pnum2','View Top?',value = 5, max = 25))
 
 
 

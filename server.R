@@ -410,14 +410,22 @@ cbind(t1, YTD)
   output$yoy = renderPlotly({
     plot_ly(data = yoy2(), x = ~month, y = ~Total, type = "bar", color = ~year,
             text = ~paste0('GHs ', round(Total/1000,1),'k\n','20',year,'\n'),
-            hoverinfo = text)%>%
+            hoverinfo = text,
+            colors = c('orange','#8c8099'
+            #,'#7aba77'
+            )
+            )%>%
       layout(xaxis = list(title = 'Month'), yaxis = list(title = 'Total'))
   })
     
   output$yoytot = renderPlotly({
       plot_ly(data = yoytot2(), x = ~Total, y = ~year, type = "bar", color = ~year,
               text = ~paste0('GHs ', round(Total/1000,1),'k\n','20',year,'\n'),
-              hoverinfo = text)%>%
+              hoverinfo = text,
+              colors = c('orange','#8c8099'
+              #,'#7aba77'
+              )
+              )%>%
         layout()
   })
   
@@ -496,7 +504,11 @@ cbind(t1, YTD)
             x = ~month,
             y = ~Total,
             type = 'bar',
-            color = ~year) %>% 
+            color = ~year,
+            colors = c('orange','#8c8099'
+              #,'#7aba77'
+              )
+              ) %>% 
       layout()
   })
   
@@ -708,6 +720,146 @@ cbind(t1, YTD)
 
 
 
+### Month analysis
+
+monAnalTot = reactive({
+  if('All' != input$yearnum || is.null(input$yearnum)){
+  tot_test2 %>%
+  filter(month == input$month, year == input$yearnum) %>%
+  group_by(ProductGroup)%>%
+  summarise(Total = sum(Total)) %>%
+  mutate(Total = comma_format()(Total)) %>% 
+  pivot_wider(names_from = ProductGroup, values_from = c(Total))
+  } else {
+    tot_test2  %>%
+    filter(month == input$month)%>%
+  group_by(ProductGroup)%>%
+  summarise(Total = sum(Total)) %>%
+  mutate(Total = comma_format()(Total)) %>% 
+  pivot_wider(names_from = ProductGroup, values_from = c(Total))
+  }
+})
+
+monAnalQ = reactive({
+  if('All' != input$yearnum || is.null(input$yearnum)){
+  tot_test2 %>%
+  filter(month == input$month, year == input$yearnum) %>%
+  group_by(ProductGroup)%>%
+  summarise( Quantity = sum(Quantity)) %>%
+  mutate(Quantity = comma_format()(Quantity)) %>% 
+  pivot_wider(names_from = ProductGroup, values_from = c(Quantity))
+  } else {
+    tot_test2  %>%
+    filter(month == input$month)%>%
+  group_by(ProductGroup)%>%
+  summarise( Quantity = sum(Quantity)) %>%
+  mutate(Quantity = comma_format()(Quantity)) %>% 
+  pivot_wider(names_from = ProductGroup, values_from = c(Quantity))
+  }
+})
+
+monAnalVar = reactive({
+  if(input$yearnum == 'All'){
+    print('Viewing All')
+  } else if(input$month %in% c('Jan','Feb','Mar') || input$yearnum == 22){
+    print('No Past Data')
+  } else {
+  tot_test2 %>%  filter(month == input$month) %>%
+  group_by(year, ProductGroup) %>%
+  summarise(Total = sum(Total)) %>%
+  spread(key = year, value = Total) %>%
+  mutate(percentage_change = ((`23` - `22`) / `22`) * 100) %>%
+  select(1, 4) %>%
+  mutate(
+    Year = 'vs PY',
+    percentage_change = if_else(is.na(percentage_change), '-', paste0(round(percentage_change, 1), '%'))
+  ) %>%
+  pivot_wider(names_from = ProductGroup, values_from = percentage_change)
+  }
+
+
+  
+
+})
+
+output$monanaltableT = renderTable(monAnalTot())
+output$monanaltableQ = renderTable(monAnalQ())
+output$varmonth = renderTable(monAnalVar(), spacing = 'xs')
+## top month products
+
+tpmonth = reactive({
+  if('All' != input$yearnum){
+  tot_test2 %>%
+  group_by(Product,ProductGroup)%>%
+  filter(month == input$month, year == input$yearnum) %>%
+  summarise(Total = sum(Total), Quantity = sum(Quantity)) %>%
+  arrange(desc(Total)) %>% head(input$pnum2)
+  } else {
+    tot_test2 %>%
+  group_by(Product,ProductGroup)%>%
+  filter(month == input$month) %>%
+  summarise(Total = sum(Total), Quantity = sum(Quantity)) %>%
+  arrange(desc(Total)) %>% head(input$pnum2)
+  } 
+})
+
+
+
+output$tpmonthgraph = renderPlotly({
+  plot_ly(
+    tpmonth(),
+    y = ~reorder(Product,desc(Total)),
+    x = ~Total,
+    type = 'bar',
+    color = ~ProductGroup,
+    colors =  c('orange','#8c8099','#7aba77','#77b4ba','#aeba77')
+  ) %>% layout(
+    yaxis = list(title = 'Product'),
+    xaxis = list(title = 'Total')
+  )
+})
+
+tpmonthpiedat = reactive({
+   if('All' != input$yearnum){
+  tot_test2 %>% mutate(category = if_else(ProductGroup %in% minor_pgroups,'Others',ProductGroup),
+      category = if_else(ProductGroup %in% external_pgroups,'Externals',category))  %>% 
+      group_by(category) %>%
+  filter(month == input$month, year == input$yearnum) %>%
+  summarise(Total = sum(Total)) %>%
+  arrange(desc(Total))
+  } else {
+    tot_test2 %>% mutate(category = if_else(ProductGroup %in% minor_pgroups,'Others',ProductGroup),
+      category = if_else(ProductGroup %in% external_pgroups,'Externals',category))  %>% 
+      group_by(category) %>%
+  filter(month == input$month) %>%
+  summarise(Total = sum(Total)) %>%
+  arrange(desc(Total))
+  } 
+})
+
+output$monthpie = renderPlotly({
+  plot_ly(
+    tpmonthpiedat(),
+    type = 'pie',
+            labels = ~category,
+            values = ~Total
+            ) %>%
+      layout(title = paste0( if('All' %in% input$yearnum) paste('All years') else paste0('20',input$yearnum)))
+})
+
+
+output$monthtit = renderText(
+  paste(input$month,input$yearnum)
+)
+
+
+
+
+
+
+
+
+
 
   ### Server side select/selectize
   
@@ -739,7 +891,7 @@ cbind(t1, YTD)
    observe({
   if (!is.null(input$tabs)) {
     selected_tab <- input$tabs
-    if (selected_tab == 'YOY' && welcome_message_count() < 3) {
+    if (selected_tab == 'PM' && welcome_message_count() < 3) {
       showModal(
         modalDialog(
           'Scroll Down For More Information On The Page',

@@ -10,7 +10,7 @@ header =
             color: #333333; /* Set your preferred text color */
             padding: 1px; /* Adjust padding as needed */
             margin-left: 13.65%;
-            dispaly: flex",  # Set the background color
+            display: flex",  # Set the background color
     class = "main-header",  # Add a custom class for styling
     "TYCL Coldstore & Grocery"
   )
