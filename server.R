@@ -137,10 +137,28 @@ tot_test2 %>%
   ## Year on Year initialisation
     
     yoy1dat = reactive({
-      eomnov = tot_test2 %>%
+
+      main = tot_test2 %>% 
+        group_by(month,year) %>% 
+        summarise(Total = sum(round(Total,0))) %>% 
+        mutate(Total = comma_format()(Total))  %>% 
+        pivot_wider(names_from = month,
+                    values_from = c("Total"),
+                    names_sep = "_") 
+
+  
+
+ tot = tot_test2 %>% 
+        group_by(year) %>% arrange(desc(year)) %>%
+        summarise(Total = sum(round(Total,0))) %>% 
+        mutate(Total = comma_format()(Total)) 
+  
+ maintot = left_join(main,tot, by = 'year')
+
+ytd = tot_test2 %>%
   group_by(year, month) %>%
   summarise(Total = sum(round(Total, 0))) %>%
-  arrange(month, year) %>% 
+  arrange(month, desc(year))  %>% 
   mutate(YTD = cumsum(Total), YTD = comma_format()(coalesce(YTD, 0))) %>%
   select(year, month, YTD) %>% 
   pivot_wider(
@@ -150,17 +168,8 @@ tot_test2 %>%
   ) %>% 
   select(Nov)## increment by one as the months go by ## find a better way to do that though
 
-     left_join(
-      tot_test2 %>% 
-        group_by(month,year) %>% 
-        summarise(Total = sum(round(Total,0))) %>% 
-        pivot_wider(names_from = month,
-                    values_from = c("Total"),
-                    names_sep = "_") %>% rowwise() %>% 
-        mutate('Total' = rowSums(pick(where(is.numeric)),na.rm = T)),
-      eomnov,
-      by = 'year',
-      suffix= c('','YTD'))
+  left_join(maintot,ytd,by = 'year' ,suffix = c('','YTD'))
+
     })
   
   ## Product Group functionality
@@ -169,10 +178,27 @@ tot_test2 %>%
       if('All' %in% input$pgroupin || is.null(input$pgroupin)){
         yoy1dat()
       } else{
-        eomnov = tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>%
-      group_by(year, month) %>%
-      arrange(month, year) %>% 
+       main = tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>%
+        group_by(month,year) %>% 
+        summarise(Total = sum(round(Total,0))) %>% 
+        mutate(Total = comma_format()(Total))  %>% 
+        pivot_wider(names_from = month,
+                    values_from = c("Total"),
+                    names_sep = "_") 
+
+  
+
+ tot = tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>%
+        group_by(year) %>% arrange(desc(year)) %>%
+        summarise(Total = sum(round(Total,0))) %>% 
+        mutate(Total = comma_format()(Total)) 
+  
+ maintot = left_join(main,tot, by = 'year')
+
+ytd = tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>%
+  group_by(year, month) %>%
   summarise(Total = sum(round(Total, 0))) %>%
+  arrange(month, desc(year))  %>% 
   mutate(YTD = cumsum(Total), YTD = comma_format()(coalesce(YTD, 0))) %>%
   select(year, month, YTD) %>% 
   pivot_wider(
@@ -180,18 +206,9 @@ tot_test2 %>%
     values_from = c("YTD"),
     names_sep = "_"
   ) %>% 
-  select(Nov) ## increment by one as the months go by ## find a better way to do that though
-        
-        left_join(tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>% 
-          group_by(month,year) %>% 
-          summarise(Total = sum(round(Total,0))) %>% 
-          pivot_wider(names_from = month,
-                      values_from = c("Total"),
-                      names_sep = "_") %>% 
-          mutate('Total' = rowSums(pick(where(is.numeric)),na.rm = T)),
-      eomnov,
-      by = 'year',
-      suffix= c('','YTD'))
+  select(Nov)## increment by one as the months go by ## find a better way to do that though
+
+  left_join(maintot,ytd,by = 'year' ,suffix = c('','YTD'))
       }
     })
   
@@ -201,10 +218,27 @@ tot_test2 %>%
       if('All' %in% input$pin || is.null(input$pin)){
         yoy2dat()
       } else {
-        eomnov = tot_test2 %>% subset(Product %in% input$pin) %>%
-      group_by(year, month) %>%
-      arrange(month, year) %>% 
+        main = tot_test2 %>%  subset(Product %in% input$pin)%>%
+        group_by(month,year) %>% 
+        summarise(Total = sum(round(Total,0))) %>% 
+        mutate(Total = comma_format()(Total))  %>% 
+        pivot_wider(names_from = month,
+                    values_from = c("Total"),
+                    names_sep = "_") 
+
+  
+
+ tot = tot_test2 %>%  subset(Product %in% input$pin)%>%
+        group_by(year) %>% arrange(desc(year)) %>%
+        summarise(Total = sum(round(Total,0))) %>% 
+        mutate(Total = comma_format()(Total)) 
+  
+ maintot = left_join(main,tot, by = 'year')
+
+ytd = tot_test2 %>% subset(Product %in% input$pin)%>%
+  group_by(year, month) %>%
   summarise(Total = sum(round(Total, 0))) %>%
+  arrange(month, desc(year))  %>% 
   mutate(YTD = cumsum(Total), YTD = comma_format()(coalesce(YTD, 0))) %>%
   select(year, month, YTD) %>% 
   pivot_wider(
@@ -212,18 +246,9 @@ tot_test2 %>%
     values_from = c("YTD"),
     names_sep = "_"
   ) %>% 
-  select(Nov) ## increment by one as the months go by ## find a better way to do that though
-        
-        left_join(tot_test2 %>%  subset(Product %in% input$pin) %>% 
-          group_by(month,year) %>% 
-          summarise(Total = sum(round(Total,0)) )%>% 
-          pivot_wider(names_from = month,
-                      values_from = c("Total"),
-                      names_sep = "_") %>% 
-          mutate('Total' = rowSums(pick(where(is.numeric)),na.rm = T) ),
-      eomnov,
-      by = 'year',
-      suffix= c('','YTD'))
+  select(Nov)## increment by one as the months go by ## find a better way to do that though
+
+  left_join(maintot,ytd,by = 'year' ,suffix = c('','YTD'))
     }
       })
 
@@ -573,19 +598,24 @@ cbind(t1, YTD)
       if('All' %in% input$pgroupin || is.null(input$pgroupin)){
       left_join(tot_test2 %>% 
         group_by(month,year) %>% 
-        summarise(Total = round(sum(Total)/26,0) )%>% 
-        pivot_wider(names_from = month,values_from = Total),tot_test2 %>% 
+        summarise(Total = round(sum(Total)/26,0)) %>% 
+        mutate(Total = comma_format()(Total))%>% 
+        pivot_wider(names_from = month,values_from = Total),
+        tot_test2 %>% 
           group_by(year) %>% 
-          summarise('Year Average' = round(sum(Total,na.rm = T)/(365-48-27),0) ),by = 'year')
+          summarise('Year Average' = round(sum(Total,na.rm = T)/(365-48-27),0))%>% 
+        mutate("Year Average" = comma_format()(`Year Average`)) ,by = 'year')
       } else {
         left_join(tot_test2 %>% subset( ProductGroup %in% input$pgroupin) %>% 
                     group_by(month,year) %>% 
                     summarise(Total = round(sum(Total)/26,0) )%>% 
-                    pivot_wider(names_from = month,values_from = Total),
+        mutate(Total = comma_format()(Total))%>% 
+                    pivot_wider(names_from = month,values_from = Total) ,
                   tot_test2  %>%
                   subset( ProductGroup %in% input$pgroupin) %>% 
                     group_by(year) %>% 
-                    summarise('Year Average' = round(sum(Total,na.rm = T)/(365-48-27),0) ),by = 'year')
+                    summarise('Year Average' = round(sum(Total,na.rm = T)/(365-48-27),0))%>% 
+        mutate("Year Average" = comma_format()(`Year Average`)) ,by = 'year')
       }
     })
     
@@ -595,12 +625,14 @@ cbind(t1, YTD)
       } else {
         left_join(tot_test2 %>% subset( Product %in% input$pin) %>% 
                     group_by(month,year) %>% 
-                    summarise(Total = round(sum(Total)/26,0) )%>% 
+                    summarise(Total = round(sum(Total)/26,0) ) %>% 
+        mutate(Total = comma_format()(Total))%>% 
                     pivot_wider(names_from = month,values_from = Total),
                   tot_test2  %>%
                     subset( Product %in% input$pin) %>% 
                     group_by(year) %>% 
-                    summarise('Year Average' = round(sum(Total,na.rm = T)/(365-48-27),0)),
+                    summarise('Year Average' = round(sum(Total,na.rm = T)/(365-48-27),0))%>% 
+        mutate("Year Average" = comma_format()(`Year Average`)) ,
                   by = 'year')
       }
     })
@@ -616,7 +648,8 @@ cbind(t1, YTD)
                        tot_test2$Product,
                        ignore.case = T)]) %>% 
                     group_by(month,year) %>% 
-                    summarise(Total = round(sum(Total)/26,0) )%>% 
+                    summarise(Total = round(sum(Total)/26,0) ) %>% 
+        mutate(Total = comma_format()(Total))%>% 
                     pivot_wider(names_from = month,values_from = Total),
                   tot_test2  %>%
                      subset(
@@ -626,10 +659,14 @@ cbind(t1, YTD)
                        tot_test2$Product,
                        ignore.case = T)]) %>% 
                     group_by(year) %>% 
-                    summarise('Year Average' = round(sum(Total,na.rm = T)/(365-48-27),0)),
+                    summarise('Year Average' = round(sum(Total,na.rm = T)/(365-48-27),0))%>% 
+        mutate("Year Average" = comma_format()(`Year Average`)) ,
                   by = 'year')
       }
     })
+
+    output$AvgSaPD = renderTable(AvgSaPDData3(),rownames = F,na = "-",digits = 0,width = '100%',align = 'r')
+    
 
   ### text for Insights
   
@@ -659,10 +696,74 @@ cbind(t1, YTD)
       as.vector(ExMo()$month))
       )
     
-    output$ExStTable = DT::renderDataTable(ExStPy(),)
+    output$ExStTable = DT::renderDataTable(ExStPy())
+
+
+    ## prediction for 24
+
+    p241 = reactive({
+      if('All' %in% input$pgroupin || is.null(input$pgroupin) ){
+        main = predict24 %>% group_by(month) %>% summarise( Total = sum(ExTotal)) %>% 
+        mutate(Total = comma_format()(Total))  %>% 
+        pivot_wider(names_from = month, values_from = Total)
+
+        tot = predict24 %>% summarise( Total = sum(ExTotal))  %>% 
+        mutate(Total = comma_format()(Total))
+
+        cbind(main,tot)
+      } else {
+        main = predict24 %>% filter(ProductGroup %in% input$pgroupin) %>% group_by(month) %>% summarise( Total = sum(ExTotal)) %>% 
+        mutate(Total = comma_format()(Total))  %>% 
+        pivot_wider(names_from = month, values_from = Total)
+
+        tot = predict24 %>% filter(ProductGroup %in% input$pgroupin) %>% summarise( Total = sum(ExTotal)) %>% 
+        mutate(Total = comma_format()(Total))
+
+        cbind(main,tot)
+      }
+    })
+
+    p242 = reactive({
+      if('All' %in% input$ptype|| is.null(input$ptype) ){
+        p241()
+      } else {
+        main = predict24 %>% subset(
+             Product %in% 
+               tot_test2$Product[
+                 grepl( paste(input$ptype,collapse='|'), 
+                       tot_test2$Product,
+                       ignore.case = T)]) %>% group_by(month) %>% summarise( Total = sum(ExTotal)) %>% 
+        mutate(Total = comma_format()(Total))  %>% 
+        pivot_wider(names_from = month, values_from = Total)
+
+        tot = predict24 %>% subset(
+             Product %in% 
+               tot_test2$Product[
+                 grepl( paste(input$ptype,collapse='|'), 
+                       tot_test2$Product,
+                       ignore.case = T)]) %>% summarise( Total = sum(ExTotal)) %>% 
+        mutate(Total = comma_format()(Total))
+
+        cbind(main,tot)
+      }
+    })
     
-    output$AvgSaPD = renderTable(AvgSaPDData3(),rownames = F,na = "-",digits = 0,width = '100%',align = 'r')
+    p243 = reactive({
+      if('All' %in% input$pin|| is.null(input$pin) ){
+        p242()
+      } else {
+       main = predict24 %>% subset(Product %in% input$pin) %>% group_by(month) %>% summarise( Total = sum(ExTotal)) %>% 
+        mutate(Total = comma_format()(Total))  %>% 
+        pivot_wider(names_from = month, values_from = Total)
+
+        tot = predict24 %>% subset(Product %in% input$pin) %>% summarise( Total = sum(ExTotal)) %>% 
+        mutate(Total = comma_format()(Total))
+
+        cbind(main,tot)
+      }
+    })
     
+    output$p24 = renderTable(p243(), width = '100%')
   
   ### cross section
   crossby1 = reactive({
@@ -686,7 +787,8 @@ cbind(t1, YTD)
              plot.background = element_rect(fill = 'white'),
              strip.text = element_text(color = 'black'),  # Set color for strip text
              strip.background = element_rect(fill = 'white'),  # Set background color for the strip
-             panel.spacing = unit(0.5, "lines") )+
+             panel.spacing = unit(0.5, "lines")
+              )+
       scale_fill_manual(values = c('orange','#8c8099','#7aba77'))
 
 

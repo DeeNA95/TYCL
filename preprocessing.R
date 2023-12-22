@@ -114,3 +114,31 @@ minor_pgroups = c("Sardine", "Ketchup\\Mayonnaise\\Baked Beans",
 
 external_pgroups = c("External", "Mabel Spices")
 
+
+q1 = tot_test2 %>% filter(month %in% c('Jan','Feb','Mar'))
+q2 = tot_test2 %>% filter(month %in% c('Apr','May','Jun'))
+q3 = tot_test2 %>% filter(month %in% c('Jul','Aug','Sep'))
+###q4 except Dec
+q4 = tot_test2 %>% filter(month %in% c('Oct','Nov'))
+
+for(m in month.abb){
+  mname = paste(m)
+  mdata = tot_test2 %>% filter(month == m)
+  assign(mname, mdata)
+}
+
+ Jan24 = Jan %>% mutate(ExTotal = round(Total * 2.35,1),ExQuantity = round(Quantity * 2.35 ,1), year = factor(24)) %>% select(-Total,-Quantity)
+ Feb24 = Feb %>% mutate(ExTotal = round(Total * 1.95,1),ExQuantity = round(Quantity * 1.95 ,1), year = factor(24)) %>% select(-Total,-Quantity)
+ Mar24 = Mar %>% mutate(ExTotal = round(Total * 1.5,1),ExQuantity = round(Quantity * 1.5 ,1), year = factor(24)) %>% select(-Total,-Quantity)
+
+ q224 = q2 %>% mutate(ExTotal = round(Total * 1.1,1),ExQuantity = round(Quantity * 1.1 ,1), year = factor(24)) %>% select(-Total,-Quantity) 
+
+ q324 = q3 %>% filter(year == 23) %>% mutate(ExTotal = round(Total * 1.07,1),ExQuantity = round(Quantity * 1.07 ,1), year = factor(24)) %>% select(-Total,-Quantity)
+
+ q424 = q4 %>% filter(year == 23) %>% mutate(ExTotal = round(Total * 1.07,1),ExQuantity = round(Quantity * 1.07 ,1), year = factor(24)) %>% select(-Total,-Quantity) 
+
+ Dec24 = Dec %>% mutate(ExTotal = round(Total * 2.8,1),ExQuantity = round(Quantity * 2.8 ,1), year = factor(24)) %>% select(-Total,-Quantity) 
+
+ predict24 = bind_rows(Jan24,Feb24,Mar24,q224,q324,q424,Dec24)
+
+ predict24 %>% group_by(month) %>% summarise( Total = sum(ExTotal))

@@ -14,6 +14,10 @@
         style = "font-family: 'Open Sans', sans-serif;"
       ),
 
+     box(
+      tableOutput('p24')
+     ),
+
       ## Highest Selling Product
       box(
         textOutput('HiSa',container = tags$h4,inline = T),
@@ -35,4 +39,4 @@
         solidHeader = T,
         status = 'primary',style = "font-family: 'Open Sans', sans-serif;"
       )
-    ),
+    )
