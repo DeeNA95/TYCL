@@ -972,7 +972,7 @@ output$monthtit = renderText(
     
   ## server side select for product
     
-  updateSelectInput(session, 'pin', choices = c('All', `Products` = list(products$Name)),selected = 'All')
+  updateSelectInput(session, 'pin', choices = c('All', `Products` = list(products$Name)),selected = NULL)
     
   
   
@@ -982,7 +982,7 @@ output$monthtit = renderText(
   
   observe({
     product_choice = subset(products, ProductGroup %in% input$pgroupin)
-    updateSelectInput(inputId = 'pin',choices = c('All',product_choice$Name),selected = 'All')
+    updateSelectInput(inputId = 'pin',choices = c('All',product_choice$Name),selected = NULL)
   })
 
    
@@ -1021,4 +1021,6 @@ output$monthtit = renderText(
   })
   output$pnumtitle = renderText(pntit())
 
+
   }
+
