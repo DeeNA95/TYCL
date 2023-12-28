@@ -6,7 +6,7 @@ source('packages.R')
 
 ui <- dashboardPage(
   
- header,
+ header = header,
   sidebar = sidebar,
   body,
  

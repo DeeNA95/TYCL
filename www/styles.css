@@ -5,13 +5,10 @@
   border-radius: 25px;
   background-color: #d8bfd8 !important;
   transition: background-color 0.3s ease; /* Add a transition effect */
-  position: fixed;
-  
 }
 
 .tabbable > .nav-pills > li.active > a {
   background-color: #ffdab9 !important;
-  
 }
 
 .nav {
@@ -27,12 +24,13 @@
   border-radius: 25px;
   display: flex; /* Use flexbox for the tabs */
   justify-content: space-between; /* Evenly space the tabs */
-  width: 60%;
+  width: 60% !important; /* Make sure the tabs take up the full width */
   border-bottom: 0;
-  position: fixed;
 }
 
-
+.nav-item {
+  flex: 1; /* Distribute the tabs equally */
+}
 
 
 .sidebar {
@@ -47,12 +45,12 @@
 }
 
 .body {
-  min-width: 1500px; /* Set your desired minimum width */
+  min-width: 500px; /* Set your desired minimum width */
 }
 
 .content-wrapper {
   width: auto;
-  margin-top: 60px;
+  margin-top: 50px;
   background-color: azure;
   color: black;
   min-width: auto;
