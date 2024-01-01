@@ -140,5 +140,3 @@ for(m in month.abb){
  Dec24 = Dec %>% filter(year == 23)%>% mutate(ExTotal = round(Total * 1.2,1),ExQuantity = round(Quantity * 1.2 ,1), year = factor(24)) %>% select(-Total,-Quantity) 
 
  predict24 = bind_rows(Jan24, Feb24, Mar24, q224, q324, q424, Dec24)
-
-
