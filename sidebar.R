@@ -121,7 +121,7 @@ conditionalPanel(
   selectInput('cp', 'Cross-section by?', choices = c('Month','Product Group'),selected = 'Product Group')),
 
 conditionalPanel('input.tabs == "PM"',
-  selectInput('month', 'Month?', choices = month.abb, selected = 'Nov'),
+  selectInput('month', 'Month?', choices = month.abb, selected = 'Dec', multiple = T),
 
 numericInput('pnum2','View Top?',value = 5, max = 25))
 

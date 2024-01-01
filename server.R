@@ -827,14 +827,14 @@ cbind(t1, YTD)
 monAnalTot = reactive({
   if('All' != input$yearnum || is.null(input$yearnum)){
   tot_test2 %>%
-  filter(month == input$month, year == input$yearnum) %>%
+  filter(month %in% input$month, year == input$yearnum) %>%
   group_by(ProductGroup)%>%
   summarise(Total = sum(Total)) %>%
   mutate(Total = comma_format()(Total)) %>% 
   pivot_wider(names_from = ProductGroup, values_from = c(Total))
   } else {
     tot_test2  %>%
-    filter(month == input$month)%>%
+    filter(month %in% input$month)%>%
   group_by(ProductGroup)%>%
   summarise(Total = sum(Total)) %>%
   mutate(Total = comma_format()(Total)) %>% 
@@ -845,14 +845,14 @@ monAnalTot = reactive({
 monAnalQ = reactive({
   if('All' != input$yearnum || is.null(input$yearnum)){
   tot_test2 %>%
-  filter(month == input$month, year == input$yearnum) %>%
+  filter(month %in% input$month, year == input$yearnum) %>%
   group_by(ProductGroup)%>%
   summarise( Quantity = sum(Quantity)) %>%
   mutate(Quantity = comma_format()(Quantity)) %>% 
   pivot_wider(names_from = ProductGroup, values_from = c(Quantity))
   } else {
     tot_test2  %>%
-    filter(month == input$month)%>%
+    filter(month %in% input$month)%>%
   group_by(ProductGroup)%>%
   summarise( Quantity = sum(Quantity)) %>%
   mutate(Quantity = comma_format()(Quantity)) %>% 
@@ -861,12 +861,14 @@ monAnalQ = reactive({
 })
 
 monAnalVar = reactive({
-  if(input$yearnum == 'All'){
+  if(input$yearnum %in% 'All'){
     print('Viewing All')
-  } else if(input$month %in% c('Jan','Feb','Mar') || input$yearnum == 22){
+  } else if (length(input$month) > 1){
+    print('Viewing Multiple Months')
+  } else if(input$month %in% c('Jan','Feb','Mar') || input$yearnum %in% 22){
     print('No Past Data')
-  } else {
-  tot_test2 %>%  filter(month == input$month) %>%
+  }  else {
+  tot_test2 %>%  filter(month %in% input$month) %>%
   group_by(year, ProductGroup) %>%
   summarise(Total = sum(Total)) %>%
   spread(key = year, value = Total) %>%
@@ -893,13 +895,13 @@ tpmonth = reactive({
   if('All' != input$yearnum){
   tot_test2 %>%
   group_by(Product,ProductGroup)%>%
-  filter(month == input$month, year == input$yearnum) %>%
+  filter(month %in% input$month, year == input$yearnum) %>%
   summarise(Total = sum(Total), Quantity = sum(Quantity)) %>%
   arrange(desc(Total)) %>% head(input$pnum2)
   } else {
     tot_test2 %>%
   group_by(Product,ProductGroup)%>%
-  filter(month == input$month) %>%
+  filter(month %in% input$month) %>%
   summarise(Total = sum(Total), Quantity = sum(Quantity)) %>%
   arrange(desc(Total)) %>% head(input$pnum2)
   } 
@@ -926,14 +928,14 @@ tpmonthpiedat = reactive({
   tot_test2 %>% mutate(category = if_else(ProductGroup %in% minor_pgroups,'Others',ProductGroup),
       category = if_else(ProductGroup %in% external_pgroups,'Externals',category))  %>% 
       group_by(category) %>%
-  filter(month == input$month, year == input$yearnum) %>%
+  filter(month %in% input$month, year == input$yearnum) %>%
   summarise(Total = sum(Total)) %>%
   arrange(desc(Total))
   } else {
     tot_test2 %>% mutate(category = if_else(ProductGroup %in% minor_pgroups,'Others',ProductGroup),
       category = if_else(ProductGroup %in% external_pgroups,'Externals',category))  %>% 
       group_by(category) %>%
-  filter(month == input$month) %>%
+  filter(month %in% input$month) %>%
   summarise(Total = sum(Total)) %>%
   arrange(desc(Total))
   } 
