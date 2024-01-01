@@ -27,7 +27,5 @@ ui <- dashboardPage(
     type = "text/css"
   )
 )
-
-
 )
 

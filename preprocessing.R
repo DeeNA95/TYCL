@@ -67,7 +67,7 @@ tot_test2$Product = str_replace_all(
   'Beef Tripe \\(Intestines\\) Yemad3E'
 )
 
-product_type = c('All','Chicken','Layer','Back',
+product_type = c('Chicken','Layer','Back',
                  'Drumstick','Kpanla', 'Tripe','Salmon',
                  'Lele','Olonka','Frytol','Mom','Oba')
 

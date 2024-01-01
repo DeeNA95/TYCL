@@ -17,7 +17,8 @@ conditionalPanel(
   selectizeInput(
     'yearnum',
     'Which year',
-    choices = NULL
+    choices = NULL,
+    selected = NULL
   )
 ),
 
@@ -34,10 +35,10 @@ conditionalPanel(
   selectInput(
     'pgroupin',
     'Product Group',
-    choices = c('All',
+    choices = c(
                 `Product Group` = list(product_groups)),
     multiple = T,
-    selected = 'All',
+    selected = NULL,
     selectize = T
   ),
   
@@ -64,7 +65,7 @@ conditionalPanel(
                      'Product Type',
                      choices = product_type,
                      multiple = T,
-                     selected = "All",
+                     selected = NULL,
                      selectize = T
                    )),
   {
