@@ -141,4 +141,4 @@ for(m in month.abb){
 
  predict24 = bind_rows(Jan24, Feb24, Mar24, q224, q324, q424, Dec24)
 
- predict24 %>% group_by(month) %>% summarise( Total = sum(ExTotal))
+
