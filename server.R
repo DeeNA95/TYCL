@@ -166,7 +166,7 @@ ytd = tot_test2 %>%
     values_from = c("YTD"),
     names_sep = "_"
   ) %>% 
-  select(Nov)## increment by one as the months go by ## find a better way to do that though
+  select(Dec)## increment by one as the months go by ## find a better way to do that though
 
   left_join(maintot,ytd,by = 'year' ,suffix = c('','YTD'))
 
@@ -206,7 +206,7 @@ ytd = tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>%
     values_from = c("YTD"),
     names_sep = "_"
   ) %>% 
-  select(Nov)## increment by one as the months go by ## find a better way to do that though
+  select(Dec)## increment by one as the months go by ## find a better way to do that though
 
   left_join(maintot,ytd,by = 'year' ,suffix = c('','YTD'))
       }
@@ -246,7 +246,7 @@ ytd = tot_test2 %>% subset(Product %in% input$pin)%>%
     values_from = c("YTD"),
     names_sep = "_"
   ) %>% 
-  select(Nov)## increment by one as the months go by ## find a better way to do that though
+  select(Dec)## increment by one as the months go by ## find a better way to do that though
 
   left_join(maintot,ytd,by = 'year' ,suffix = c('','YTD'))
     }
@@ -603,7 +603,7 @@ cbind(t1, YTD)
         pivot_wider(names_from = month,values_from = Total),
         tot_test2 %>% 
           group_by(year) %>% 
-          summarise('Year Average' = round(sum(Total,na.rm = T)/(365-48-27),0))%>% 
+          summarise('Year Average' = round(sum(Total,na.rm = T)/(365-48),0))%>% 
         mutate("Year Average" = comma_format()(`Year Average`)) ,by = 'year')
       } else {
         left_join(tot_test2 %>% subset( ProductGroup %in% input$pgroupin) %>% 
@@ -861,14 +861,16 @@ monAnalQ = reactive({
 })
 
 monAnalVar = reactive({
-  if(input$yearnum %in% 'All'){
+  if(input$yearnum == 'All'){
     print('Viewing All')
   } else if (length(input$month) > 1){
     print('Viewing Multiple Months')
-  } else if(input$month %in% c('Jan','Feb','Mar') || input$yearnum %in% 22){
+  } else if(input$yearnum == 22){
     print('No Past Data')
-  }  else {
-  tot_test2 %>%  filter(month %in% input$month) %>%
+  }  else if (input$month %in% c('Jan','Feb','Mar')){
+print('No Past Data')
+    } else {
+  tot_test2 %>%  subset(month %in% as.vector(input$month)) %>%
   group_by(year, ProductGroup) %>%
   summarise(Total = sum(Total)) %>%
   spread(key = year, value = Total) %>%
@@ -952,9 +954,13 @@ output$monthpie = renderPlotly({
 })
 
 
-output$monthtit = renderText(
-  paste(input$month,input$yearnum)
-)
+output$monthtit = renderText({
+  if(length(input$month) > 1){
+  
+  } else {
+    paste(input$month,input$yearnum)
+  }
+})
 
 
 

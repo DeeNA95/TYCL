@@ -59,11 +59,10 @@
 #monthtit {
   background-color: black;
   color: antiquewhite;
-  width: 15%;
+  width: fit-content;
   font-size: 40px;
   border-radius: 25px;
   text-align: center;
   margin-bottom: 5px;
+  transition: opacity 10.5s ease-in-out;
 }
-
-
