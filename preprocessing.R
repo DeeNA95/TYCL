@@ -1,5 +1,7 @@
 source('packages.R')
 
+
+#SOON TO BE DEPRECATED
 ##product list
 products = read_csv('products.csv')
 products = distinct(products)
