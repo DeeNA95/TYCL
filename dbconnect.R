@@ -1,15 +1,13 @@
-## azure database connection
 # Install and load the required packages
-
 library(DBI)
 library(odbc)
 
-# Define connection parameters
-server <- "tycl.database.windows.net"
-database <- "tyclaronium"
-user <- "tycl"
-password <- "xazfek-Bivxo2-cudroz"
-driver <- "/opt/homebrew/Cellar/msodbcsql18/18.3.2.1/lib/libmsodbcsql.18.dylib"  # Adjust the driver based on your configuration
+# Define connection parameters for local Docker SQL Server
+server <- "127.0.0.1,1433"  # Assuming SQL Server is running on the default port 1433
+database <- "aroniumdb"
+user <- "sa"
+password <- "Avrutd12$"
+driver <- "/opt/homebrew/Cellar/msodbcsql18/18.3.2.1/lib/libmsodbcsql.18.dylib"
 
 # Create a connection string
 conn_str <- paste0(
@@ -18,7 +16,7 @@ conn_str <- paste0(
   ";DATABASE=", database,
   ";UID=", user,
   ";PWD=", password,
-  ";Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
+  ";Encrypt=no;TrustServerCertificate=no;Connection Timeout=300;"
 )
 
 # Establish the connection
@@ -28,11 +26,11 @@ con <- dbConnect(
 )
 
 # Example query
-query <- "SELECT * FROM product_sales
-"
+query <- "SELECT * FROM product_sales"
 sales_dat <- dbGetQuery(con, query)
-# add more queries as necessary eg: products
-productsdb = dbGetQuery(con, "SELECT * FROM Product")
+
+# Additional queries as needed
+productsdb <- dbGetQuery(con, "SELECT * FROM Product")
+
 # Close the connection when done
 dbDisconnect(con)
-

@@ -117,7 +117,7 @@ minor_pgroups = c("Sardine", "Ketchup\\Mayonnaise\\Baked Beans",
 external_pgroups = c("External", "Mabel Spices")
 
 
-q1 = tot_test2 %>% filter(month %in% c('Jan','Feb','Mar'))
+q1 =  %>% filter(month %in% c('Jan','Feb','Mar'))
 q2 = tot_test2 %>% filter(month %in% c('Apr','May','Jun'))
 q3 = tot_test2 %>% filter(month %in% c('Jul','Aug','Sep'))
 

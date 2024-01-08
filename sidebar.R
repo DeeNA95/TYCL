@@ -1,4 +1,4 @@
-sidebar = dashboardSidebar(
+sidebar = tag$sidebar(
 
 width = '13.65%',
 

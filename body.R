@@ -166,5 +166,7 @@ body = dashboardBody(
       value = 'DATA',
       style = "background-color: white;"
     ),
+
+    tabPa
   )
 )

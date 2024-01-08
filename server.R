@@ -1,4 +1,4 @@
-source('preprocessing.R')
+source('preprocessing2.R')
 source('packages.R')
 
 server <- function(input, output, session) {
@@ -9,13 +9,13 @@ server <- function(input, output, session) {
   
   Preac1 = reactive({
     if('All' %in% input$yearnum){
-tot_test2 %>% 
-      group_by(Product,ProductGroup) %>% 
+      sales %>% 
+      group_by(Name,Product_Group) %>% 
       summarise(Total = round(sum(Total),2),Quantity = round(sum(Quantity),2)) %>% 
       arrange(desc(Total))
     } else {
-    tot_test2 %>% 
-      group_by(Product,ProductGroup) %>% 
+    sales %>% 
+      group_by(Name,Product_Group) %>% 
       subset(year == input$yearnum) %>% 
       summarise(Total = round(sum(Total),2),Quantity = round(sum(Quantity),2))%>% 
       arrange(desc(Total))
@@ -81,8 +81,8 @@ tot_test2 %>%
     } else{
       subset(Preac7(),
        Product %in%
-       tot_test2$Product[grepl('Lele Rice 25kg', 
-                              tot_test2$Product,
+       sales$Product[grepl('Lele Rice 25kg', 
+                              salesduct,
                               ignore.case = TRUE)])
     }
   })
@@ -138,7 +138,7 @@ tot_test2 %>%
     
     yoy1dat = reactive({
 
-      main = tot_test2 %>% 
+      main = sales %>% 
         group_by(month,year) %>% 
         summarise(Total = sum(round(Total,0))) %>% 
         mutate(Total = comma_format()(Total))  %>% 
@@ -148,14 +148,14 @@ tot_test2 %>%
 
   
 
- tot = tot_test2 %>% 
+ tot = sales %>% 
         group_by(year) %>% arrange(desc(year)) %>%
         summarise(Total = sum(round(Total,0))) %>% 
         mutate(Total = comma_format()(Total)) 
   
  maintot = left_join(main,tot, by = 'year')
 
-ytd = tot_test2 %>%
+ytd = sales %>%
   group_by(year, month) %>%
   summarise(Total = sum(round(Total, 0))) %>%
   arrange(month, desc(year))  %>% 
@@ -178,7 +178,7 @@ ytd = tot_test2 %>%
       if('All' %in% input$pgroupin || is.null(input$pgroupin)){
         yoy1dat()
       } else{
-       main = tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>%
+       main = sales %>% subset(ProductGroup %in% input$pgroupin) %>%
         group_by(month,year) %>% 
         summarise(Total = sum(round(Total,0))) %>% 
         mutate(Total = comma_format()(Total))  %>% 
@@ -188,14 +188,14 @@ ytd = tot_test2 %>%
 
   
 
- tot = tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>%
+ tot = sales %>% subset(ProductGroup %in% input$pgroupin) %>%
         group_by(year) %>% arrange(desc(year)) %>%
         summarise(Total = sum(round(Total,0))) %>% 
         mutate(Total = comma_format()(Total)) 
   
  maintot = left_join(main,tot, by = 'year')
 
-ytd = tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>%
+ytd = sales %>% subset(ProductGroup %in% input$pgroupin) %>%
   group_by(year, month) %>%
   summarise(Total = sum(round(Total, 0))) %>%
   arrange(month, desc(year))  %>% 
@@ -218,7 +218,7 @@ ytd = tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>%
       if('All' %in% input$pin || is.null(input$pin)){
         yoy2dat()
       } else {
-        main = tot_test2 %>%  subset(Product %in% input$pin)%>%
+        main = sales %>%  subset(Product %in% input$pin)%>%
         group_by(month,year) %>% 
         summarise(Total = sum(round(Total,0))) %>% 
         mutate(Total = comma_format()(Total))  %>% 
@@ -228,14 +228,14 @@ ytd = tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>%
 
   
 
- tot = tot_test2 %>%  subset(Product %in% input$pin)%>%
+ tot = sales %>%  subset(Product %in% input$pin)%>%
         group_by(year) %>% arrange(desc(year)) %>%
         summarise(Total = sum(round(Total,0))) %>% 
         mutate(Total = comma_format()(Total)) 
   
  maintot = left_join(main,tot, by = 'year')
 
-ytd = tot_test2 %>% subset(Product %in% input$pin)%>%
+ytd = sales %>% subset(Product %in% input$pin)%>%
   group_by(year, month) %>%
   summarise(Total = sum(round(Total, 0))) %>%
   arrange(month, desc(year))  %>% 
@@ -259,7 +259,7 @@ ytd = tot_test2 %>% subset(Product %in% input$pin)%>%
 yoyvardat = reactive({
 
 # Calculate Total and Percentage Change
-t1 <- tot_test2 %>%  
+t1 <- sales %>%  
   group_by(month, year) %>%
   summarise(Total = sum(Total)) %>%
   spread(key = year, value = Total) %>%
@@ -272,7 +272,7 @@ t1 <- tot_test2 %>%
   pivot_wider(names_from = month, values_from = percentage_change)
 
 # Calculate Month-to-Date (YTD) and Percentage Change
-novpc <- tot_test2 %>%
+novpc <- sales
   group_by(year, month) %>%
   summarise(Total = sum(Total)) %>%
   mutate(YTD = cumsum(Total)) %>%
@@ -293,7 +293,7 @@ yoyvardat2 =reactive({
         yoyvardat()
       } else {
         # Calculate Total and Percentage Change
-t1 <- tot_test2 %>%
+t1 <- sales %>%
   subset(ProductGroup %in% input$pgroupin) %>% 
   group_by(month, year) %>%
   summarise(Total = sum(Total)) %>%
@@ -307,7 +307,7 @@ t1 <- tot_test2 %>%
   pivot_wider(names_from = month, values_from = percentage_change)
 
 # Calculate Month-to-Date (YTD) and Percentage Change
-novpc <- tot_test2 %>%
+novpc <- sales %>%
   subset(ProductGroup %in% input$pgroupin) %>% 
   group_by(year, month) %>%
   summarise(Total = sum(Total)) %>%
@@ -330,7 +330,7 @@ yoyvardat3 = reactive({
             yoyvardat2()
           } else{
              # Calculate Total and Percentage Change
-t1 <- tot_test2 %>%
+t1 <- sales
   subset(Product %in% input$pin) %>% 
   group_by(month, year) %>%
   summarise(Total = sum(Total)) %>%
@@ -344,7 +344,7 @@ t1 <- tot_test2 %>%
   pivot_wider(names_from = month, values_from = percentage_change)
 
 # Calculate Month-to-Date (YTD) and Percentage Change
-novpc <- tot_test2 %>%
+novpc <- sales %>%
   subset(Product %in% input$pin) %>% 
   group_by(year, month) %>%
   summarise(Total = sum(Total)) %>%
@@ -376,12 +376,12 @@ cbind(t1, YTD)
   
   yoy1 = reactive({
     if(("All" %in% input$pgroupin || is.null(input$pgroupin)) ){
-    tot_test2 %>% 
+    sales %>% 
       group_by(month,year) %>% 
         summarise(Total = sum(Total))
       
     } else {
-      tot_test2 %>% 
+      sales %>% 
         subset(ProductGroup %in% input$pgroupin) %>% 
       group_by(month,year) %>% 
         summarise(Total = sum(Total))
@@ -394,7 +394,7 @@ cbind(t1, YTD)
     if( ("All" %in% input$pin || is.null(input$pin))){
       yoy1()
     } else {
-      tot_test2 %>% 
+      sales %>% 
         subset(Product %in% input$pin) %>% 
         group_by(month,year) %>% 
         summarise(Total = sum(Total))
@@ -403,12 +403,12 @@ cbind(t1, YTD)
     
   yoytot1 = reactive({
       if(("All" %in% input$pgroupin || is.null(input$pgroupin) ) ){
-        tot_test2 %>% 
+        sales %>% 
           group_by(year) %>% 
           reframe(Total = sum(Total))
         
       } else {
-        tot_test2 %>% 
+        sales %>% 
           subset(ProductGroup %in% input$pgroupin) %>% 
           group_by(year) %>% 
           summarise(Total = sum(Total))
@@ -421,7 +421,7 @@ cbind(t1, YTD)
         if( ("All" %in% input$pin || is.null(input$pin))){
           yoytot1()
         } else {
-          tot_test2 %>% 
+          sales %>% 
             subset(Product %in% input$pin) %>% 
             group_by(year) %>% 
             summarise(Total = sum(Total))
@@ -488,7 +488,7 @@ cbind(t1, YTD)
   ## Initialise and filter functionality for Graph
   
   TPreacGraph = reactive({
-    tot_test2 %>% filter(Product %in% input$topProduct) %>% 
+    sales %>% filter(Product %in% input$topProduct) %>% 
       group_by(month,year) %>% 
       summarise(Total = sum(Total))
   })
@@ -497,12 +497,12 @@ cbind(t1, YTD)
   ## Initialise and filter for total table
   
   TPreactabletotal = shiny::reactive({
-    left_join(tot_test2 %>% filter(Product %in% input$topProduct) %>% 
+    left_join(sales %>% filter(Product %in% input$topProduct) %>% 
       group_by(month,year) %>% 
       summarise(Total = sum(Total)) %>% 
         mutate(Total = comma_format()(as.numeric(Total))) %>% 
       pivot_wider(names_from = month,values_from = Total),
-      tot_test2 %>% filter(Product %in% input$topProduct) %>% 
+      sales %>% filter(Product %in% input$topProduct) %>% 
         group_by(year) %>% 
         summarise(Total = sum(Total)) %>% 
         mutate(Total = comma_format()(as.numeric(Total))), by = 'year')
@@ -511,12 +511,12 @@ cbind(t1, YTD)
   ## Initialise and filter for quantity table
   
   TPreactablequantity = reactive({
-    left_join(tot_test2 %>% filter(Product %in% input$topProduct) %>% 
+    left_join(sales %>% filter(Product %in% input$topProduct) %>% 
                 group_by(month,year) %>% 
                 summarise(Quantity = sum(Quantity)) %>% 
                 mutate(Quantity = comma_format()(as.numeric(Quantity))) %>% 
                 pivot_wider(names_from = month,values_from = Quantity),
-              tot_test2 %>% filter(Product %in% input$topProduct) %>% 
+              sales %>% filter(Product %in% input$topProduct) %>% 
                 group_by(year) %>% 
               summarise(Quantity = sum(Quantity)) %>% 
                 mutate(Quantity = comma_format()(as.numeric(Quantity))), by = 'year')
@@ -548,33 +548,33 @@ cbind(t1, YTD)
   
     HiSa = reactive({
       if('All' %in% input$pgroupin || is.null(input$pgroupin)){
-      tot_test2 %>% group_by(Product) %>% 
+      sales %>% group_by(Product) %>% 
         summarise(Total = sum(Total)) %>%arrange(desc(Total)) %>%  head(1)
       } else {
-        tot_test2  %>% group_by(Product) %>% subset(ProductGroup %in% input$pgroupin) %>% summarise(Total = sum(Total)) %>% 
+        sales  %>% group_by(Product) %>% subset(ProductGroup %in% input$pgroupin) %>% summarise(Total = sum(Total)) %>% 
            arrange(desc(Total)) %>%  head(1) 
       }
     })
     
     ExMo = reactive({
       if('All' %in% input$pgroupin || is.null(input$pgroupin)){
-        tot_test2 %>% 
+        sales %>% 
           filter(year == 22)%>% group_by(month) %>%  summarise(Total = sum(Total)) %>%arrange(desc(Total)) %>% mutate(ExTotal = Total*2.5) %>% head(1) %>% select(1,3) 
       } else {
-        tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>% 
+        sales %>% subset(ProductGroup %in% input$pgroupin) %>% 
           filter(year == 22)%>% group_by(month) %>%  summarise(Total = sum(Total)) %>% arrange(desc(Total)) %>% mutate(ExTotal = Total*2.5) %>% head(1) %>% select(1,3) 
       }
     })
     
     ExSt = reactive({
       if('All' %in% input$pgroupin || is.null(input$pgroupin)){
-        tot_test2 %>% 
+        sales %>% 
           filter(year == 23) %>% filter(month %in% 'Nov') %>% 
           arrange(desc(Quantity)) %>% 
           mutate(ExQuantity =round( Quantity * 1.25,0)) %>% 
           select(2,8)
       } else {
-        tot_test2 %>% subset(ProductGroup %in% input$pgroupin) %>% 
+        sales %>% subset(ProductGroup %in% input$pgroupin) %>% 
           filter(year == 23) %>%filter(month %in% 'Nov') %>% 
            mutate(ExQuantity =round( Quantity * 1.25,0))%>%
           arrange(desc(ExQuantity) ) %>% select(2,8)
@@ -586,9 +586,9 @@ cbind(t1, YTD)
         ExSt()
       } else {
         ExSt() %>% 
-          subset(Product %in% tot_test2$Product[
+          subset(Product %in% sales$Product[
             grepl(paste(input$ptype,collapse='|'), 
-                  tot_test2$Product,
+                  sales$Product,
                   ignore.case = T)]) %>%
           arrange(desc(ExQuantity) )
       }
@@ -596,22 +596,22 @@ cbind(t1, YTD)
     
     AvgSaPDData = reactive({
       if('All' %in% input$pgroupin || is.null(input$pgroupin)){
-      left_join(tot_test2 %>% 
+      left_join(sales %>% 
         group_by(month,year) %>% 
         summarise(Total = round(sum(Total)/26,0)) %>% 
         mutate(Total = comma_format()(Total))%>% 
         pivot_wider(names_from = month,values_from = Total),
-        tot_test2 %>% 
+        sales %>% 
           group_by(year) %>% 
           summarise('Year Average' = round(sum(Total,na.rm = T)/(365-48),0))%>% 
         mutate("Year Average" = comma_format()(`Year Average`)) ,by = 'year')
       } else {
-        left_join(tot_test2 %>% subset( ProductGroup %in% input$pgroupin) %>% 
+        left_join(sales %>% subset( ProductGroup %in% input$pgroupin) %>% 
                     group_by(month,year) %>% 
                     summarise(Total = round(sum(Total)/26,0) )%>% 
         mutate(Total = comma_format()(Total))%>% 
                     pivot_wider(names_from = month,values_from = Total) ,
-                  tot_test2  %>%
+                  sales  %>%
                   subset( ProductGroup %in% input$pgroupin) %>% 
                     group_by(year) %>% 
                     summarise('Year Average' = round(sum(Total,na.rm = T)/(365-48-27),0))%>% 
@@ -623,12 +623,12 @@ cbind(t1, YTD)
       if('All' %in% input$pin || is.null(input$pin)){
         AvgSaPDData()
       } else {
-        left_join(tot_test2 %>% subset( Product %in% input$pin) %>% 
+        left_join(sales %>% subset( Product %in% input$pin) %>% 
                     group_by(month,year) %>% 
                     summarise(Total = round(sum(Total)/26,0) ) %>% 
         mutate(Total = comma_format()(Total))%>% 
                     pivot_wider(names_from = month,values_from = Total),
-                  tot_test2  %>%
+                  sales  %>%
                     subset( Product %in% input$pin) %>% 
                     group_by(year) %>% 
                     summarise('Year Average' = round(sum(Total,na.rm = T)/(365-48-27),0))%>% 
@@ -641,22 +641,22 @@ cbind(t1, YTD)
       if('All' %in% input$ptype || is.null(input$ptype)){
         AvgSaPDData2()
       } else {
-        left_join(tot_test2 %>%  subset( 
+        left_join(sales %>%  subset( 
              Product %in% 
-               tot_test2$Product[
+               sales$Product[
                  grepl( paste(input$ptype,collapse='|'), 
-                       tot_test2$Product,
+                       sales$Product,
                        ignore.case = T)]) %>% 
                     group_by(month,year) %>% 
                     summarise(Total = round(sum(Total)/26,0) ) %>% 
         mutate(Total = comma_format()(Total))%>% 
                     pivot_wider(names_from = month,values_from = Total),
-                  tot_test2  %>%
+                  sales  %>%
                      subset(
              Product %in% 
-               tot_test2$Product[
+               sales$Product[
                  grepl( paste(input$ptype,collapse='|'), 
-                       tot_test2$Product,
+                       sales$Product,
                        ignore.case = T)]) %>% 
                     group_by(year) %>% 
                     summarise('Year Average' = round(sum(Total,na.rm = T)/(365-48-27),0))%>% 
@@ -729,18 +729,18 @@ cbind(t1, YTD)
       } else {
         main = predict24 %>% subset(
              Product %in% 
-               tot_test2$Product[
+               sales$Product[
                  grepl( paste(input$ptype,collapse='|'), 
-                       tot_test2$Product,
+                       sales$Product,
                        ignore.case = T)]) %>% group_by(month) %>% summarise( Total = sum(ExTotal)) %>% 
         mutate(Total = comma_format()(Total))  %>% 
         pivot_wider(names_from = month, values_from = Total)
 
         tot = predict24 %>% subset(
              Product %in% 
-               tot_test2$Product[
+               sales$Product[
                  grepl( paste(input$ptype,collapse='|'), 
-                       tot_test2$Product,
+                       sales$Product,
                        ignore.case = T)]) %>% summarise( Total = sum(ExTotal)) %>% 
         mutate(Total = comma_format()(Total))
 
@@ -768,9 +768,9 @@ cbind(t1, YTD)
   ### cross section
   crossby1 = reactive({
     if('All' %in% input$yearnum2){
-      tot_test2 %>% group_by(month,year, ProductGroup) %>% summarise(Total = sum(Total))
+      sales %>% group_by(month,year, ProductGroup) %>% summarise(Total = sum(Total))
     } else {
-      tot_test2 %>% group_by(month,year, ProductGroup)%>% filter(year == input$yearnum2) %>% summarise(Total = sum(Total))
+      sales %>% group_by(month,year, ProductGroup)%>% filter(year == input$yearnum2) %>% summarise(Total = sum(Total))
     }
   })
 
@@ -826,14 +826,14 @@ cbind(t1, YTD)
 
 monAnalTot = reactive({
   if('All' != input$yearnum || is.null(input$yearnum)){
-  tot_test2 %>%
+  sales %>%
   filter(month %in% input$month, year == input$yearnum) %>%
   group_by(ProductGroup)%>%
   summarise(Total = sum(Total)) %>%
   mutate(Total = comma_format()(Total)) %>% 
   pivot_wider(names_from = ProductGroup, values_from = c(Total))
   } else {
-    tot_test2  %>%
+    sales  %>%
     filter(month %in% input$month)%>%
   group_by(ProductGroup)%>%
   summarise(Total = sum(Total)) %>%
@@ -844,14 +844,14 @@ monAnalTot = reactive({
 
 monAnalQ = reactive({
   if('All' != input$yearnum || is.null(input$yearnum)){
-  tot_test2 %>%
+  sales %>%
   filter(month %in% input$month, year == input$yearnum) %>%
   group_by(ProductGroup)%>%
   summarise( Quantity = sum(Quantity)) %>%
   mutate(Quantity = comma_format()(Quantity)) %>% 
   pivot_wider(names_from = ProductGroup, values_from = c(Quantity))
   } else {
-    tot_test2  %>%
+    sales  %>%
     filter(month %in% input$month)%>%
   group_by(ProductGroup)%>%
   summarise( Quantity = sum(Quantity)) %>%
@@ -870,7 +870,7 @@ monAnalVar = reactive({
   }  else if (input$month %in% c('Jan','Feb','Mar')){
 print('No Past Data')
     } else {
-  tot_test2 %>%  subset(month %in% as.vector(input$month)) %>%
+  sales %>%  subset(month %in% as.vector(input$month)) %>%
   group_by(year, ProductGroup) %>%
   summarise(Total = sum(Total)) %>%
   spread(key = year, value = Total) %>%
@@ -895,13 +895,13 @@ output$varmonth = renderTable(monAnalVar(), spacing = 'xs')
 
 tpmonth = reactive({
   if('All' != input$yearnum){
-  tot_test2 %>%
+  sales %>%
   group_by(Product,ProductGroup)%>%
   filter(month %in% input$month, year == input$yearnum) %>%
   summarise(Total = sum(Total), Quantity = sum(Quantity)) %>%
   arrange(desc(Total)) %>% head(input$pnum2)
   } else {
-    tot_test2 %>%
+    sales %>%
   group_by(Product,ProductGroup)%>%
   filter(month %in% input$month) %>%
   summarise(Total = sum(Total), Quantity = sum(Quantity)) %>%
@@ -927,14 +927,14 @@ output$tpmonthgraph = renderPlotly({
 
 tpmonthpiedat = reactive({
    if('All' != input$yearnum){
-  tot_test2 %>% mutate(category = if_else(ProductGroup %in% minor_pgroups,'Others',ProductGroup),
+  sales %>% mutate(category = if_else(ProductGroup %in% minor_pgroups,'Others',ProductGroup),
       category = if_else(ProductGroup %in% external_pgroups,'Externals',category))  %>% 
       group_by(category) %>%
   filter(month %in% input$month, year == input$yearnum) %>%
   summarise(Total = sum(Total)) %>%
   arrange(desc(Total))
   } else {
-    tot_test2 %>% mutate(category = if_else(ProductGroup %in% minor_pgroups,'Others',ProductGroup),
+    sales %>% mutate(category = if_else(ProductGroup %in% minor_pgroups,'Others',ProductGroup),
       category = if_else(ProductGroup %in% external_pgroups,'Externals',category))  %>% 
       group_by(category) %>%
   filter(month %in% input$month) %>%
@@ -975,8 +975,8 @@ output$monthtit = renderText({
   
   ##server side select for yearnum
     
-  updateSelectizeInput(session, 'yearnum', choices = c('All', `Years` = list(tot_test2$year)), server = TRUE,selected = 23)
-  updateSelectizeInput(session, 'yearnum2', choices = c('All', `Years` = list(tot_test2$year)), server = TRUE,selected = 'All')  
+  updateSelectizeInput(session, 'yearnum', choices = c('All', `Years` = list(sales$year)), server = TRUE,selected = 23)
+  updateSelectizeInput(session, 'yearnum2', choices = c('All', `Years` = list(sales$year)), server = TRUE,selected = 'All')  
     
   ## server side select for product
     
