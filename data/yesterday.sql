@@ -1,0 +1,4 @@
+SELECT *
+FROM product_sales
+WHERE Date >= DATEADD(DAY, DATEDIFF(DAY, 0, GETDATE()), -1)
+      AND Date < DATEADD(DAY, DATEDIFF(DAY, 0, GETDATE()), 0);
