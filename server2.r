@@ -17,7 +17,7 @@ sales <- read_csv("data/sales.csv")
 server <- function(input, output, session) {
 
   ### Reactives for Data and Products
-  product_reac = reactive({
+  product1 = reactive({
     if ("All" %in% input$yearnum) {
       sales %>%
         summarise(
@@ -28,6 +28,7 @@ server <- function(input, output, session) {
         arrange(desc(Total))
     } else {
       sales %>%
+        filter(Year %in% input$yearnum) %>%
         summarise(
           Total = round(sum(Total), 2),
           Quantity = round(sum(Quantity), 2),
@@ -35,6 +36,10 @@ server <- function(input, output, session) {
         ) %>%
         arrange(desc(Total))
     }
+  })
+
+  product2 <- reactive({
+
   })
 
 
